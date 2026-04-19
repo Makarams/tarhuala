@@ -964,116 +964,177 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
 /* drop cap removed — clean paragraph starts */
 .chapter-loading{text-align:center;color:var(--text-subtle);font-style:italic;padding:80px 0}
 
-/* LitRPG / system toasts */
+/* LitRPG / system toasts — compact single-line format */
 .sys-toast{
-  display:flex;align-items:flex-start;gap:12px;
-  margin:20px 0;padding:14px 18px;
+  display:flex;align-items:baseline;gap:10px;
+  margin:18px 0;padding:9px 16px;
   background:var(--surface);
   border:1px solid var(--border);
-  border-left:3px solid var(--acc);
-  font-family:var(--font-meta);font-size:11px;letter-spacing:1px;
-  line-height:1.6;
+  border-left:4px solid var(--acc);
+  font-family:var(--font-meta);font-size:11px;letter-spacing:.7px;
+  line-height:1.5;
+  position:relative;overflow:hidden;
+  box-shadow:-3px 0 14px -3px var(--acc-s);
   transition:all var(--t-fast);
-  position:relative;
-  overflow:hidden;
 }
 
-/* Kill notification - ember (red) theme */
+/* Kill notification — blood red */
 .sys-toast.v-kill{
   border-left-color:var(--acc-ember);
-  background:linear-gradient(to right, rgba(196,48,48,.06) 0%, var(--surface) 20%);
-  border-top:1px solid rgba(196,48,48,.2);
-  border-right:1px solid rgba(196,48,48,.1);
+  background:linear-gradient(to right,rgba(196,48,48,.08) 0%,var(--surface) 40%);
+  border-top:1px solid rgba(196,48,48,.22);
+  border-right:1px solid rgba(196,48,48,.08);
+  border-bottom:1px solid rgba(196,48,48,.08);
+  box-shadow:-3px 0 18px -3px rgba(196,48,48,.35);
 }
 
-/* Level up notification - gold theme */
+/* Level-up / progress notification — gold */
 .sys-toast.v-levelup{
   border-left-color:var(--acc-gold);
-  background:linear-gradient(to right, rgba(184,138,36,.06) 0%, var(--surface) 20%);
-  border-top:1px solid rgba(184,138,36,.2);
-  border-right:1px solid rgba(184,138,36,.1);
+  background:linear-gradient(to right,rgba(184,138,36,.08) 0%,var(--surface) 40%);
+  border-top:1px solid rgba(184,138,36,.22);
+  border-right:1px solid rgba(184,138,36,.08);
+  border-bottom:1px solid rgba(184,138,36,.08);
+  box-shadow:-3px 0 18px -3px rgba(184,138,36,.32);
 }
 
-/* Reward notification - jade theme */
+/* Reward / item notification — jade */
 .sys-toast.v-reward{
   border-left-color:var(--acc-jade);
-  background:linear-gradient(to right, rgba(74,172,106,.06) 0%, var(--surface) 20%);
-  border-top:1px solid rgba(74,172,106,.2);
-  border-right:1px solid rgba(74,172,106,.1);
+  background:linear-gradient(to right,rgba(74,172,106,.08) 0%,var(--surface) 40%);
+  border-top:1px solid rgba(74,172,106,.22);
+  border-right:1px solid rgba(74,172,106,.08);
+  border-bottom:1px solid rgba(74,172,106,.08);
+  box-shadow:-3px 0 18px -3px rgba(74,172,106,.3);
 }
 
 /* Error notification */
 .sys-toast.v-error{
   border-left-color:#aa2020;
-  background:linear-gradient(to right, rgba(170,32,32,.06) 0%, var(--surface) 20%);
+  background:linear-gradient(to right,rgba(170,32,32,.08) 0%,var(--surface) 40%);
+  box-shadow:-3px 0 18px -3px rgba(170,32,32,.35);
 }
 
-.sys-toast-icon{
-  width:18px;height:18px;flex-shrink:0;color:var(--acc);margin-top:1px;
-  display:flex;align-items:center;justify-content:center;
-}
-.sys-toast-icon svg{width:100%;height:100%}
-
-.sys-toast-content{
-  display:flex;align-items:baseline;gap:8px;flex:1;
-  min-width:0;
+/* Meta / generic system notification */
+.sys-toast.v-meta,.sys-toast.v-allocate{
+  border-left-color:var(--acc);
+  background:linear-gradient(to right,var(--acc-s) 0%,var(--surface) 40%);
+  box-shadow:-3px 0 14px -3px var(--acc-s);
 }
 
 .sys-toast-tag{
-  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
   color:var(--text-subtle);white-space:nowrap;font-weight:700;
   flex-shrink:0;
 }
-
-.sys-toast.v-kill .sys-toast-tag{
-  color:var(--acc-ember);
-}
-.sys-toast.v-levelup .sys-toast-tag{
-  color:var(--acc-gold);
-}
-.sys-toast.v-reward .sys-toast-tag{
-  color:var(--acc-jade);
-}
+.sys-toast.v-kill .sys-toast-tag{color:var(--acc-ember)}
+.sys-toast.v-levelup .sys-toast-tag{color:var(--acc-gold)}
+.sys-toast.v-reward .sys-toast-tag{color:var(--acc-jade)}
+.sys-toast.v-meta .sys-toast-tag,.sys-toast.v-allocate .sys-toast-tag{color:var(--acc)}
+.sys-toast.v-error .sys-toast-tag{color:#aa2020}
 
 .sys-toast-text{
-  flex:1;color:var(--text-muted);
+  flex:1;min-width:0;color:var(--text-muted);
   word-break:break-word;
 }
-.sys-toast-text em{color:var(--acc);font-style:normal;font-weight:700}
-/* Status screen (stat blocks) */
+.sys-toast-text em{font-style:normal;font-weight:700;color:var(--acc)}
+.sys-toast.v-kill .sys-toast-text em{color:var(--acc-ember)}
+.sys-toast.v-levelup .sys-toast-text em{color:var(--acc-gold)}
+.sys-toast.v-reward .sys-toast-text em{color:var(--acc-jade)}
+
+/* Status screen (stat blocks) — holographic panel style */
 .status-screen{
-  margin:24px 0;padding:20px 24px;
-  background:var(--surface-2);border:1px solid var(--border-strong);
+  margin:28px 0;padding:22px 26px;
+  background:var(--surface-2);
+  border:1px solid var(--border-strong);
+  border-left:4px solid var(--acc);
   font-family:var(--font-meta);font-size:11px;
-  border-left:3px solid var(--acc);
+  position:relative;
+  box-shadow:-3px 0 22px -4px var(--acc-s),inset 0 1px 0 rgba(255,255,255,.02);
   transition:all var(--t-fast);
 }
-
-/* Themed status screens based on novel accent */
-[data-theme="ember"] .status-screen,
-[data-accent="ember"] .status-screen {
-  border-left-color:var(--acc-ember);
-  background:linear-gradient(to right, rgba(196,48,48,.03) 0%, var(--surface-2) 15%);
+/* Top-right corner bracket */
+.status-screen::after{
+  content:'';position:absolute;
+  top:-1px;right:-1px;
+  width:22px;height:22px;
+  border-top:2px solid var(--acc);
+  border-right:2px solid var(--acc);
+  opacity:.45;
+  pointer-events:none;
+}
+/* Bottom-right corner bracket */
+.status-screen::before{
+  content:'';position:absolute;
+  bottom:-1px;right:-1px;
+  width:14px;height:14px;
+  border-bottom:2px solid var(--acc);
+  border-right:2px solid var(--acc);
+  opacity:.28;
+  pointer-events:none;
 }
 
-[data-theme="gold"] .status-screen,
-[data-accent="gold"] .status-screen {
-  border-left-color:var(--acc-gold);
-  background:linear-gradient(to right, rgba(184,138,36,.03) 0%, var(--surface-2) 15%);
+/* ── Mutation of the Apocalypse — ember (digital / aggressive) */
+[data-accent="ember"] .status-screen,
+[data-novel-theme="ember"] .status-screen,
+[data-novel-theme="red"] .status-screen{
+  border-left:4px solid var(--acc-ember);
+  border-top:1px solid rgba(196,48,48,.22);
+  background:linear-gradient(135deg,rgba(196,48,48,.07) 0%,var(--surface-2) 40%);
+  box-shadow:-4px 0 28px -4px rgba(196,48,48,.38),inset 0 1px 0 rgba(196,48,48,.06);
+}
+[data-accent="ember"] .status-screen::after,
+[data-novel-theme="ember"] .status-screen::after,
+[data-novel-theme="red"] .status-screen::after{
+  border-color:var(--acc-ember);width:26px;height:26px;opacity:.6;
+}
+[data-accent="ember"] .status-screen::before,
+[data-novel-theme="ember"] .status-screen::before,
+[data-novel-theme="red"] .status-screen::before{
+  border-color:var(--acc-ember);opacity:.35;
 }
 
-[data-theme="jade"] .status-screen,
-[data-accent="jade"] .status-screen {
-  border-left-color:var(--acc-jade);
-  background:linear-gradient(to right, rgba(74,172,106,.03) 0%, var(--surface-2) 15%);
+/* ── Monarch of Depravity — gold (regal / ornate) */
+[data-accent="gold"] .status-screen,
+[data-novel-theme="gold"] .status-screen{
+  border-left:4px solid var(--acc-gold);
+  border-top:1px solid rgba(184,138,36,.18);
+  background:linear-gradient(135deg,rgba(184,138,36,.06) 0%,var(--surface-2) 40%);
+  box-shadow:-4px 0 28px -4px rgba(184,138,36,.32),inset 0 1px 0 rgba(184,138,36,.05);
+}
+[data-accent="gold"] .status-screen::after,
+[data-novel-theme="gold"] .status-screen::after{
+  border-color:var(--acc-gold);width:30px;height:30px;opacity:.55;
+}
+[data-accent="gold"] .status-screen::before,
+[data-novel-theme="gold"] .status-screen::before{
+  border-color:var(--acc-gold);width:18px;height:18px;opacity:.3;
+}
+
+/* ── Malice of the Faithful — jade (eldritch / organic) */
+[data-accent="jade"] .status-screen,
+[data-novel-theme="jade"] .status-screen{
+  border-left:4px solid var(--acc-jade);
+  border-top:1px solid rgba(74,172,106,.15);
+  background:linear-gradient(135deg,rgba(74,172,106,.05) 0%,var(--surface-2) 40%);
+  box-shadow:-4px 0 22px -4px rgba(74,172,106,.28),inset 0 1px 0 rgba(74,172,106,.04);
+}
+[data-accent="jade"] .status-screen::after,
+[data-novel-theme="jade"] .status-screen::after{
+  border-color:var(--acc-jade);width:18px;height:18px;opacity:.4;
+}
+[data-accent="jade"] .status-screen::before,
+[data-novel-theme="jade"] .status-screen::before{
+  border-color:var(--acc-jade);width:12px;height:12px;opacity:.22;
 }
 
 .status-screen-header{
   display:flex;align-items:center;gap:10px;
-  padding-bottom:12px;margin-bottom:12px;
-  border-bottom:1px solid var(--border);
-  font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);
+  padding-bottom:12px;margin-bottom:14px;
+  border-bottom:1px solid var(--border-strong);
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--acc);
   font-weight:700;
+  text-shadow:0 0 12px var(--acc-s);
 }
 .status-screen-header .kb-rose{width:16px;height:16px}
 .status-screen-grid{
@@ -1372,8 +1433,9 @@ a.footer-analytics-link:hover{color:inherit}
 [data-theme="light"] .sort-btn.active{background:var(--acc);color:#fff;border-color:var(--acc)}
 [data-theme="light"] .reader-main{background:var(--bg)}
 [data-theme="light"] .chapter-body{color:var(--text-muted)}
-[data-theme="light"] .sys-toast{background:var(--surface-2)}
-[data-theme="light"] .status-screen{background:var(--surface-2);border-color:var(--border-strong)}
+[data-theme="light"] .sys-toast{background:var(--surface-2);box-shadow:none}
+[data-theme="light"] .status-screen{background:var(--surface-2);border-color:var(--border-strong);box-shadow:none}
+[data-theme="light"] .status-screen::after,[data-theme="light"] .status-screen::before{opacity:.3}
 
 /* ─────────────────────────────────────────────────────────────────────
    21. MOTION — accessibility
@@ -1400,7 +1462,7 @@ a.footer-analytics-link:hover{color:inherit}
 .sys-group .sys-toast:first-child{border-top-width:1px}
 
 /* ── Achievement block ── */
-.ss-achievement{border-left:3px solid var(--acc-gold)!important}
+.ss-achievement{border-left:4px solid var(--acc-gold)!important}
 .ach-title{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:var(--font-meta)}
 .ach-title-text{font-size:12px;color:var(--text)}
 .ach-desc{font-size:12px;color:var(--text-muted);padding:4px 0;font-family:var(--font-meta);letter-spacing:1px}
@@ -1429,7 +1491,7 @@ a.footer-analytics-link:hover{color:inherit}
 .r-divine{color:#f8f0c0;border-color:#f8f0c0}
 
 /* ── Item card ── */
-.ss-itemcard{border-left:3px solid var(--acc-gold)}
+.ss-itemcard{border-left:4px solid var(--acc-gold)}
 .item-header{display:flex;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
 .item-name{font-family:var(--font-display);font-size:15px;color:var(--text)}
 .item-body{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
@@ -1438,7 +1500,7 @@ a.footer-analytics-link:hover{color:inherit}
 .item-value{color:var(--acc-2)}
 
 /* ── Broadcast ── */
-.ss-broadcast{border-left:3px solid var(--acc-indigo)!important}
+.ss-broadcast{border-left:4px solid var(--acc-indigo)!important}
 .broadcast-body{display:flex;flex-direction:column;gap:4px}
 .broadcast-line{font-family:var(--font-meta);font-size:11px;color:var(--text-muted);letter-spacing:1px}
 
