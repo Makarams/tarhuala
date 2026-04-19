@@ -770,9 +770,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
 .novel-title{
   font-family:var(--font-display);font-weight:900;
   font-size:clamp(26px,4.5vw,58px);
-  color:var(--text);line-height:1.05;
+  color:#f0ece0;line-height:1.05;
   margin:12px 0 16px;
-  text-shadow:0 2px 20px rgba(0,0,0,.5);
+  text-shadow:0 2px 20px rgba(0,0,0,.6);
 }
 [data-theme="light"] .novel-title{
   color:#f0ece0;
@@ -784,8 +784,11 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
   letter-spacing:2px;color:var(--text-subtle);
   margin-bottom:22px;
 }
-[data-theme="light"] .novel-hero-meta{color:rgba(240,236,224,.7)}
-[data-theme="light"] .novel-hero-meta strong{color:var(--acc-ember-2) !important}
+/* Novel hero always has a dark bg image regardless of theme — keep text light */
+.novel-hero .eyebrow{color:#c43030}
+[data-theme="light"] .novel-hero .eyebrow{color:#e04848}
+[data-theme="light"] .novel-hero-meta{color:rgba(240,236,224,.85)}
+[data-theme="light"] .novel-hero-meta strong{color:#e04848 !important}
 [data-theme="light"] .meta-sep,[data-theme="light"] .meta-dot{color:rgba(240,236,224,.4)}
 .novel-hero-meta strong{color:var(--acc);font-weight:600;font-size:12px}
 .meta-sep,.meta-dot{color:var(--border-strong)}
@@ -794,6 +797,8 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
   color:var(--text);line-height:1.85;margin-bottom:26px;
   font-style:normal;
 }
+.novel-hero-desc p{margin:0}
+.novel-hero-desc p+p{margin-top:1em}
 [data-theme="light"] .novel-hero-desc{color:rgba(240,236,224,.85)}
 [data-theme="light"] .eyebrow{color:var(--acc-ember-2)}
 .novel-hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
@@ -1555,10 +1560,44 @@ a.footer-analytics-link:hover{color:inherit}
 .r-divine{color:#f8f0c0;border-color:#f8f0c0}
 
 /* ── Item card ── */
-.ss-itemcard{border-left:4px solid var(--acc-gold)}
+.ss-item{border-left:4px solid var(--acc-gold)}
+.ss-itemcard{border-left:4px solid var(--acc-gold)} /* legacy alias */
 .item-header{display:flex;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
-.item-name{font-family:var(--font-display);font-size:15px;color:var(--text)}
-.item-body{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+.item-body{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+.item-name{
+  font-family:var(--font-display);font-size:16px;color:var(--text);
+  font-weight:700;letter-spacing:.02em;line-height:1.2;
+}
+.item-rank{
+  display:flex;align-items:center;justify-content:flex-end;padding-top:3px;
+}
+.item-desc{
+  grid-column:1/-1;
+  font-family:var(--font-meta);font-size:10px;letter-spacing:.5px;
+  color:var(--text-muted);padding:6px 0 4px;line-height:1.7;
+}
+.item-ability-header{
+  grid-column:1/-1;
+  font-family:var(--font-meta);font-size:8px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--acc);
+  padding:8px 0 4px;margin-top:2px;
+  border-top:1px solid var(--border);
+}
+.item-ability-row{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:auto 1fr;gap:6px 10px;
+  padding:5px 0;border-top:1px solid var(--border);
+  align-items:start;
+}
+.item-ability-row:first-child{border-top:none}
+.item-ability-label{
+  font-family:var(--font-meta);font-size:10px;letter-spacing:.5px;
+  color:var(--acc-2);white-space:nowrap;padding-top:1px;
+}
+.item-ability-val{
+  font-family:var(--font-meta);font-size:10px;letter-spacing:.5px;
+  color:var(--text-muted);line-height:1.6;
+}
 .item-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:3px 0;font-family:var(--font-meta);font-size:10px}
 .item-label{color:var(--text-subtle);letter-spacing:1.5px}
 .item-value{color:var(--acc-2)}
@@ -1567,6 +1606,21 @@ a.footer-analytics-link:hover{color:inherit}
 .ss-broadcast{border-left:4px solid var(--acc-indigo)!important}
 .broadcast-body{display:flex;flex-direction:column;gap:4px}
 .broadcast-line{font-family:var(--font-meta);font-size:11px;color:var(--text-muted);letter-spacing:1px}
+
+/* ── Full-width status screen rows (free-form lines, ability rows) ── */
+.ss-row-full{
+  grid-column:1/-1;
+  display:block;
+}
+.ss-ability-row{
+  display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start;
+}
+.ss-ability-row .status-screen-label{
+  white-space:nowrap;color:var(--acc-2);
+}
+.ss-ability-row .status-screen-value{
+  line-height:1.6;
+}
 
 /* ── Stat delta / coins / item uses ── */
 .stat-delta{font-family:var(--font-meta);font-size:10px;letter-spacing:1px}
