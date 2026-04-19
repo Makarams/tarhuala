@@ -1142,7 +1142,9 @@
 
     var decorated = escHtml(body)
       .replace(/(\b\d[\d,]*(?:\/\d[\d,]*)?\b)/g, '<em>$1</em>')
-      .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>');
+      .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>')
+      // Merge adjacent <em> tags separated by a single space → keeps "60 Exp" on one line
+      .replace(/<\/em> <em>/g, ' ');
 
     return '<div class="sys-toast v-' + v + '">' +
              '<span class="sys-toast-tag">' + tag + '</span>' +
@@ -1511,7 +1513,7 @@
     var lines = chunk.split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
     var buf = [];
     var statBuf = [];
-    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|misappropriated|belongs on Royal Road|narrative has been stolen|report this chapter|if discovered on [A-Z])/i;
+    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|unlawfully|misappropriated|belongs on Royal Road|Royal Road|narrative has been stolen|report this chapter|report any instances|if discovered on [A-Z])/i;
     var sceneRx = /^\s*(?:\*{3,}|-{3,}|\*+|·{3,}|\.{3,}|…)\s*$/;
     var bracketLineRx = /^\[[^\]]+\]$/;
     var statLineRx = /^(?:HUMANS OF EARTH|(?:Name|Age|Race|Gender|Class|Subclass|Level|Stats?|Agi|Str|Int|Vit|Dex|Luk|Per|Skills?|Unallocated[^:]*|Health|Mana|Stamina|Attack|Defense|Speed|Wisdom|Luck|Endurance|Constitution|Charisma|Dexterity|Magic|MP|HP|SP|EXP?|Experience)\s*:)/i;

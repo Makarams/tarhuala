@@ -1429,6 +1429,20 @@ a.footer-analytics-link:hover{color:inherit}
 [data-theme="light"] .novel-hero-bg::after{
   background: none;
 }
+/* Home hero: in light mode the bg image is very dark (.10 brightness), keep dark overlay
+   so the light text (applied below) remains readable — do NOT use cream bg color */
+[data-theme="light"] .home-hero-bg::after{
+  background:
+    radial-gradient(ellipse 80% 80% at 30% 40%, rgba(80,10,10,.25), transparent 70%),
+    linear-gradient(135deg, rgba(0,0,0,.42) 0%, transparent 55%),
+    linear-gradient(to top, rgba(0,0,0,.52) 0%, transparent 55%);
+}
+/* Featured hero: keep dark overlay regardless of theme so light text stays visible */
+[data-theme="light"] .featured-hero-bg::after{
+  background:
+    linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.42) 45%, transparent 100%),
+    linear-gradient(to top, rgba(0,0,0,.48) 0%, transparent 45%);
+}
 [data-theme="light"] .featured-hero-bg img{filter:brightness(.22) saturate(.6)}
 [data-theme="light"] .home-hero-bg img{filter:brightness(.10) saturate(.4)}
 [data-theme="light"] .novel-card{background:var(--surface);border-color:var(--border)}
@@ -1452,6 +1466,8 @@ a.footer-analytics-link:hover{color:inherit}
 [data-theme="light"] .novel-list-item:hover{border-color:var(--acc)}
 [data-theme="light"] .novel-list-desc{color:var(--text-muted)}
 /* Light mode: featured hero — text must be light since image is dark */
+[data-theme="light"] .featured-hero-eyebrow{color:#e04848}
+[data-theme="light"] .featured-hero-emblem{color:#e04848}
 [data-theme="light"] .featured-hero-title{color:#f0ece0;text-shadow:0 2px 16px rgba(0,0,0,.5)}
 [data-theme="light"] .featured-hero-genre{color:rgba(240,236,224,.55)}
 [data-theme="light"] .featured-hero-chapter-line{color:rgba(240,236,224,.55)}
@@ -1466,7 +1482,7 @@ a.footer-analytics-link:hover{color:inherit}
 /* Light mode: home hero — text must be light since image is dark */
 [data-theme="light"] .home-hero-title{color:#f0ece0;text-shadow:0 2px 30px rgba(0,0,0,.6)}
 [data-theme="light"] .home-hero-tagline{color:rgba(240,236,224,.78)}
-[data-theme="light"] .home-hero-eyebrow.eyebrow{color:var(--acc-ember-2)}
+[data-theme="light"] .home-hero-eyebrow.eyebrow{color:#e04848}
 [data-theme="light"] .hero-stat-num{color:#e8ead6}
 [data-theme="light"] .hero-stat-label{color:rgba(240,236,224,.5)}
 [data-theme="light"] .hero-stat-sep{color:rgba(240,236,224,.3)}
