@@ -783,7 +783,19 @@
         var set = function(id, v){ var e = qs(id); if (e) e.textContent = v || ''; };
         set('novel-title', info.title);
         set('novel-genre', info.genre);
-        set('novel-desc', info.description);
+        // Description: render multi-paragraph (split on \n\n or \n)
+        var descEl = qs('novel-desc');
+        if (descEl) {
+          var descText = info.description || '';
+          var paras = descText.split(/\n\n+/);
+          if (paras.length > 1) {
+            descEl.innerHTML = paras.map(function(p){
+              return '<p>' + escHtml(p.trim()).replace(/\n/g,'<br>') + '</p>';
+            }).filter(function(p){ return p !== '<p></p>'; }).join('');
+          } else {
+            descEl.textContent = descText;
+          }
+        }
         set('novel-status', info.status);
         set('novel-rating', info.rating);
         var chapters = info.chapters || [];
@@ -1130,7 +1142,9 @@
 
     var decorated = escHtml(body)
       .replace(/(\b\d[\d,]*(?:\/\d[\d,]*)?\b)/g, '<em>$1</em>')
-      .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>');
+      .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>')
+      // Merge adjacent <em> tags separated by a single space → keeps "60 Exp" on one line
+      .replace(/<\/em> <em>/g, ' ');
 
     return '<div class="sys-toast v-' + v + '">' +
              '<span class="sys-toast-tag">' + tag + '</span>' +
@@ -1299,7 +1313,7 @@
         var sDesc = abilityMatch[2];
         var usesMatch = sDesc.match(/(\(\d+\s+uses?\/\w+\))$/i);
         var descPart = usesMatch ? sDesc.slice(0, sDesc.lastIndexOf(usesMatch[1])).trim() : sDesc;
-        rowsHtml += '<div class="status-screen-row" style="grid-column:1/-1">' +
+        rowsHtml += '<div class="status-screen-row ss-row-full ss-ability-row">' +
           '<span class="status-screen-label">[' + escHtml(sName) + ']</span>' +
           '<span class="status-screen-value">' + escHtml(descPart) +
             (usesMatch ? ' <em>' + escHtml(usesMatch[1]) + '</em>' : '') +
@@ -1336,10 +1350,10 @@
       } else if (m && m[2] === '') {
         rowsHtml += '<div class="status-screen-section">' + escHtml(m[1]) + '</div>';
       } else {
-        // free-form: standalone lines
+        // free-form: standalone lines (full-width, no inner 2-column grid)
         var chipified = rarityChipify(escHtml(ln));
-        rowsHtml += '<div class="status-screen-row" style="grid-column:1/-1">' +
-                      '<span class="status-screen-value" style="font-size:12px">' + chipified + '</span>' +
+        rowsHtml += '<div class="status-screen-row ss-row-full">' +
+                      '<span class="status-screen-value">' + chipified + '</span>' +
                     '</div>';
       }
     });
@@ -1371,11 +1385,11 @@
     s = s.replace(/<p[^>]*>/gi, '').replace(/<\/p>/gi, '\n\n');
 
     // Strip known anti-piracy watermark lines wholesale
-    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|misappropriated|belongs on Royal Road|narrative has been stolen|report this chapter|if discovered on [A-Z])/i;
+    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|unlawfully|misappropriated|belongs on Royal Road|Royal Road|narrative has been stolen|report this chapter|report any instances|if discovered on [A-Z])/i;
 
     var bracketLineRx = /^\[[^\]]+\]$/;
     // All known stat/system screen field names, including ability lines like [Skill]: desc
-    var statLineRx = /^(?:HUMANS OF EARTH|System|Character Profile|(?:Name|Age|Race|Gender|Class|Subclass|Level|Rank|Stats?|Agi|Str|Int|Vit|Dex|Luk|Per|Skills?|Abilities|Ability|Unallocated[^:]*|Health|Mana|Stamina|Attack|Defense|Speed|Wisdom|Luck|Endurance|Constitution|Charisma|Dexterity|Magic|MP|HP|SP|EXP?|Experience|Description|Coins?|Items?|Achievements?[^:]*)\s*:|\[[^\]]+\]\s*:)/i;
+    var statLineRx = /^(?:HUMANS OF EARTH|System\s*:|Character Profile\s*:|(?:Name|Age|Race|Gender|Class|Subclass|Level|Rank|Stats?|Agi|Str|Int|Vit|Dex|Luk|Per|Skills?|Abilities|Ability|Unallocated[^:]*|Health|Mana|Stamina|Attack|Defense|Speed|Wisdom|Luck|Endurance|Constitution|Charisma|Dexterity|Magic|MP|HP|SP|EXP?|Experience|Description|Coins?|Items?|Achievements?[^:]*)\s*:|\[[^\]]+\]\s*:)/i;
     var sceneRx = /^\s*(?:\*{3,}|\*+|·{3,}|\.{3,}|…)\s*$/;
     // --- marks explicit start/end of a system block
     var blockDelimRx = /^\s*-{3,}\s*$/;
@@ -1391,9 +1405,14 @@
     function flushGroup(){
       if (!curGroup) return;
       if (curGroup.kind === 'stat') {
-        rebuilt.push({ type: 'status', lines: curGroup.lines });
+        // Skip empty stat groups (e.g. orphaned --- delimiter)
+        if (curGroup.lines.length > 0) {
+          rebuilt.push({ type: 'status', lines: curGroup.lines });
+        }
       } else {
-        rebuilt.push({ type: 'toasts', lines: curGroup.lines });
+        if (curGroup.lines.length > 0) {
+          rebuilt.push({ type: 'toasts', lines: curGroup.lines });
+        }
       }
       curGroup = null;
     }
@@ -1401,7 +1420,24 @@
     for (var k = 0; k < chunks.length; k++) {
       var c = chunks[k].trim();
       if (!c) continue;
-      if (piracy.test(c)) continue;
+
+      // Special case: piracy watermark injected into a --- delimiter paragraph
+      // (e.g. "---\nThis narrative is on Amazon without..."). Extract the delimiter.
+      if (piracy.test(c)) {
+        var firstLine = c.split('\n')[0].trim();
+        if (blockDelimRx.test(firstLine)) {
+          // Process the embedded delimiter, discard the piracy text
+          if (!inDelimBlock) {
+            flushGroup();
+            curGroup = { kind: 'stat', lines: [] };
+            inDelimBlock = true;
+          } else {
+            flushGroup();
+            inDelimBlock = false;
+          }
+        }
+        continue; // Always skip the piracy chunk itself
+      }
 
       // --- delimiter: toggles a forced stat block
       if (blockDelimRx.test(c)) {
@@ -1420,12 +1456,29 @@
 
       var isSingle = (c.indexOf('\n') === -1);
 
-      // Inside a --- block: everything goes into the stat group regardless
+      // Inside a --- block: everything goes into the stat group,
+      // EXCEPT bare bracket notifications which should be toasts
       if (inDelimBlock) {
         if (!curGroup) curGroup = { kind: 'stat', lines: [] };
-        // Multi-line chunk inside block: split into individual lines
+        // Multi-line chunk inside block: split lines; bracket-only lines become toasts
         if (!isSingle) {
-          c.split('\n').forEach(function(ln){ var t = ln.trim(); if (t) curGroup.lines.push(t); });
+          c.split('\n').forEach(function(ln){
+            var t = ln.trim();
+            if (!t) return;
+            // A line that is exactly [text] with no colon after = notification toast
+            if (bracketLineRx.test(t) && !/\]\s*:/.test(t)) {
+              flushGroup();
+              rebuilt.push({ type: 'toast_single', text: t });
+              curGroup = { kind: 'stat', lines: [] }; // re-open for any remaining lines
+            } else {
+              if (!curGroup) curGroup = { kind: 'stat', lines: [] };
+              curGroup.lines.push(t);
+            }
+          });
+        } else if (bracketLineRx.test(c) && !/\]\s*:/.test(c)) {
+          // Single bracket notification inside --- block: flush stat, emit as toast
+          flushGroup();
+          rebuilt.push({ type: 'toast_single', text: c });
         } else {
           curGroup.lines.push(c);
         }
@@ -1453,6 +1506,8 @@
       var item = rebuilt[i2];
       if (item.type === 'status') {
         out.push(renderStatusScreen(item.lines));
+      } else if (item.type === 'toast_single') {
+        out.push(classifyToast(item.text));
       } else if (item.type === 'toasts') {
         // Wrap consecutive toasts in a .sys-group for tight stacking
         if (item.lines.length > 1) {
@@ -1475,7 +1530,7 @@
     var lines = chunk.split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
     var buf = [];
     var statBuf = [];
-    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|misappropriated|belongs on Royal Road|narrative has been stolen|report this chapter|if discovered on [A-Z])/i;
+    var piracy = /(stolen|illicitly|illicit|Amazon|unauthorized|unlawfully|misappropriated|belongs on Royal Road|Royal Road|narrative has been stolen|report this chapter|report any instances|if discovered on [A-Z])/i;
     var sceneRx = /^\s*(?:\*{3,}|-{3,}|\*+|·{3,}|\.{3,}|…)\s*$/;
     var bracketLineRx = /^\[[^\]]+\]$/;
     var statLineRx = /^(?:HUMANS OF EARTH|(?:Name|Age|Race|Gender|Class|Subclass|Level|Stats?|Agi|Str|Int|Vit|Dex|Luk|Per|Skills?|Unallocated[^:]*|Health|Mana|Stamina|Attack|Defense|Speed|Wisdom|Luck|Endurance|Constitution|Charisma|Dexterity|Magic|MP|HP|SP|EXP?|Experience)\s*:)/i;
