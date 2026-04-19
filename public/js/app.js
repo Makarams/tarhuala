@@ -1124,6 +1124,8 @@
       v = 'meta';
     }
 
+    /* All game notifications come from "The System" — colour-coding via v-* variants
+       provides semantic distinction (red=kill, gold=levelup, jade=reward, etc.). */
     var tag = (v === 'error') ? 'Error' : 'System';
 
     var decorated = escHtml(body)
