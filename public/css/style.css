@@ -1605,6 +1605,7 @@ a.footer-analytics-link:hover{color:inherit}
   padding:5px 0;border-top:1px solid var(--border);
   align-items:start;
 }
+.item-ability-header + .item-ability-row,
 .item-ability-row:first-child{border-top:none}
 .item-ability-label{
   font-family:var(--font-meta);font-size:10px;letter-spacing:.5px;

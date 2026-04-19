@@ -1420,7 +1420,24 @@
     for (var k = 0; k < chunks.length; k++) {
       var c = chunks[k].trim();
       if (!c) continue;
-      if (piracy.test(c)) continue;
+
+      // Special case: piracy watermark injected into a --- delimiter paragraph
+      // (e.g. "---\nThis narrative is on Amazon without..."). Extract the delimiter.
+      if (piracy.test(c)) {
+        var firstLine = c.split('\n')[0].trim();
+        if (blockDelimRx.test(firstLine)) {
+          // Process the embedded delimiter, discard the piracy text
+          if (!inDelimBlock) {
+            flushGroup();
+            curGroup = { kind: 'stat', lines: [] };
+            inDelimBlock = true;
+          } else {
+            flushGroup();
+            inDelimBlock = false;
+          }
+        }
+        continue; // Always skip the piracy chunk itself
+      }
 
       // --- delimiter: toggles a forced stat block
       if (blockDelimRx.test(c)) {
