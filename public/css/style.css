@@ -1420,22 +1420,86 @@ a.footer-analytics-link:hover{color:inherit}
 /* ─────────────────────────────────────────────────────────────────────
    20. LIGHT MODE — additional overrides
    ───────────────────────────────────────────────────────────────────── */
+/* No fade-to-background on novel hero — removed per design */
 [data-theme="light"] .novel-hero-bg::after{
-  background:
-    linear-gradient(to right,transparent 35%,var(--bg) 88%),
-    linear-gradient(to top,var(--bg) 0%,transparent 10%);
+  background: none;
 }
 [data-theme="light"] .featured-hero-bg img{filter:brightness(.22) saturate(.6)}
 [data-theme="light"] .home-hero-bg img{filter:brightness(.10) saturate(.4)}
 [data-theme="light"] .novel-card{background:var(--surface);border-color:var(--border)}
-[data-theme="light"] .novel-card:hover{box-shadow:0 6px 24px rgba(60,50,20,.12)}
+[data-theme="light"] .novel-card:hover{
+  box-shadow:0 8px 28px rgba(60,50,20,.15);
+  border-color:var(--acc);
+}
 [data-theme="light"] .sort-btn{background:var(--surface);border-color:var(--border)}
 [data-theme="light"] .sort-btn.active{background:var(--acc);color:#fff;border-color:var(--acc)}
 [data-theme="light"] .reader-main{background:var(--bg)}
-[data-theme="light"] .chapter-body{color:var(--text-muted)}
+[data-theme="light"] .chapter-body{color:var(--text)}
 [data-theme="light"] .sys-toast{background:var(--surface-2);box-shadow:none}
 [data-theme="light"] .status-screen{background:var(--surface-2);border-color:var(--border-strong);box-shadow:none}
 [data-theme="light"] .status-screen::after,[data-theme="light"] .status-screen::before{opacity:.3}
+/* Light mode: chapter list items */
+[data-theme="light"] .ch-link{color:var(--text-muted)}
+[data-theme="light"] .ch-link:hover{background:var(--surface-2);color:var(--text)}
+[data-theme="light"] .novel-chapters-section{background:var(--surface-2)}
+/* Light mode: novel list page */
+[data-theme="light"] .novel-list-item{border-bottom-color:var(--border)}
+[data-theme="light"] .novel-list-item:hover{border-color:var(--acc)}
+[data-theme="light"] .novel-list-desc{color:var(--text-muted)}
+/* Light mode: featured hero — text must be light since image is dark */
+[data-theme="light"] .featured-hero-title{color:#f0ece0;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+[data-theme="light"] .featured-hero-genre{color:rgba(240,236,224,.55)}
+[data-theme="light"] .featured-hero-chapter-line{color:rgba(240,236,224,.55)}
+[data-theme="light"] .featured-hero-ch-sep{color:rgba(240,236,224,.3)}
+[data-theme="light"] .featured-hero-snippet{color:rgba(240,236,224,.9)}
+[data-theme="light"] .featured-hero-cta{
+  color:#f0ece0;border-color:rgba(240,236,224,.4);background:rgba(8,11,8,.5);
+}
+[data-theme="light"] .featured-hero-cta:hover{
+  border-color:var(--acc-ember-2);color:var(--acc-ember-2);background:rgba(138,24,24,.25);
+}
+/* Light mode: home hero — text must be light since image is dark */
+[data-theme="light"] .home-hero-title{color:#f0ece0;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+[data-theme="light"] .home-hero-tagline{color:rgba(240,236,224,.78)}
+[data-theme="light"] .home-hero-eyebrow.eyebrow{color:var(--acc-ember-2)}
+[data-theme="light"] .hero-stat-num{color:#e8ead6}
+[data-theme="light"] .hero-stat-label{color:rgba(240,236,224,.5)}
+[data-theme="light"] .hero-stat-sep{color:rgba(240,236,224,.3)}
+[data-theme="light"] .home-hero-cta .btn-ghost{
+  color:rgba(240,236,224,.85);border-color:rgba(240,236,224,.35);
+}
+[data-theme="light"] .home-hero-cta .btn-ghost:hover{
+  color:#fff;border-color:var(--acc-ember-2);background:rgba(138,24,24,.2);
+}
+[data-theme="light"] .hero-scroll-cue{color:rgba(240,236,224,.45)}
+/* Light mode: page hero bar */
+[data-theme="light"] .page-hero-bar{background:var(--bg-raised)}
+/* Light mode: novel card body */
+[data-theme="light"] .novel-card-body{background:var(--surface)}
+[data-theme="light"] .novel-card-snippet{color:var(--text-muted)}
+[data-theme="light"] .novel-card-foot{border-top-color:var(--border)}
+/* Light mode: cover frame */
+[data-theme="light"] .novel-cover-frame{
+  box-shadow:0 16px 48px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+}
+/* Light mode: about page */
+[data-theme="light"] .about-author-text{background:var(--bg)}
+[data-theme="light"] .about-novel-desc{color:var(--text-muted)}
+/* Light mode: footer */
+[data-theme="light"] .site-footer{background:var(--surface-2);border-top-color:var(--border)}
+
+/* ─────────────────────────────────────────────────────────────────────
+   20b. DARK MODE — depth & contrast improvements
+   ───────────────────────────────────────────────────────────────────── */
+[data-theme="dark"] .novel-card{background:var(--surface)}
+[data-theme="dark"] .novel-card:hover{
+  box-shadow:0 16px 48px rgba(0,0,0,.6);
+}
+[data-theme="dark"] .novel-card-body{background:var(--surface)}
+[data-theme="dark"] .novel-chapters-section{background:var(--bg-raised)}
+[data-theme="dark"] .chapter-body{color:var(--text)}
+[data-theme="dark"] .sys-toast{background:var(--surface)}
+[data-theme="dark"] .status-screen{background:var(--surface-2)}
 
 /* ─────────────────────────────────────────────────────────────────────
    21. MOTION — accessibility
