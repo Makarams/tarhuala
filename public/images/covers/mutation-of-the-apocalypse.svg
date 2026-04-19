@@ -1,200 +1,192 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
 <defs>
-  <filter id="g">
-    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="3"/>
-    <feColorMatrix values="0 0 0 0 0.06  0 0 0 0 0.01  0 0 0 0 0.01  0 0 0 0.5 0"/>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" seed="5"/>
+    <feColorMatrix values="0 0 0 0 0.07  0 0 0 0 0.01  0 0 0 0 0.01  0 0 0 0.55 0"/>
     <feComposite in2="SourceGraphic" operator="in"/>
   </filter>
-  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur stdDeviation="6" result="b"/>
+  <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="softglow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur stdDeviation="18" result="b"/>
+  <filter id="haloglow" x="-55%" y="-55%" width="210%" height="210%">
+    <feGaussianBlur stdDeviation="22" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <radialGradient id="bg" cx="50%" cy="35%" r="70%">
-    <stop offset="0%" stop-color="#2e0c08"/>
-    <stop offset="45%" stop-color="#140504"/>
+  <radialGradient id="bg" cx="50%" cy="36%" r="70%">
+    <stop offset="0%" stop-color="#2e0c06"/>
+    <stop offset="40%" stop-color="#160504"/>
     <stop offset="100%" stop-color="#040101"/>
   </radialGradient>
-  <radialGradient id="corona" cx="50%" cy="38%" r="52%">
-    <stop offset="0%" stop-color="#ff4020" stop-opacity="0.55"/>
-    <stop offset="40%" stop-color="#c03010" stop-opacity="0.2"/>
+  <radialGradient id="corona" cx="50%" cy="36%" r="54%">
+    <stop offset="0%" stop-color="#ff4820" stop-opacity="0.6"/>
+    <stop offset="45%" stop-color="#c03010" stop-opacity="0.22"/>
     <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="suncore" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#fffbe8"/>
+    <stop offset="15%" stop-color="#ffb050"/>
+    <stop offset="45%" stop-color="#e84030"/>
+    <stop offset="80%" stop-color="#801808"/>
+    <stop offset="100%" stop-color="#3a0a04" stop-opacity="0"/>
   </radialGradient>
   <linearGradient id="groundFade" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%" stop-color="#000" stop-opacity="0"/>
     <stop offset="100%" stop-color="#000" stop-opacity="1"/>
   </linearGradient>
-  <radialGradient id="suncore" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#fff8e0"/>
-    <stop offset="18%" stop-color="#ff9040"/>
-    <stop offset="50%" stop-color="#d94030"/>
-    <stop offset="85%" stop-color="#7a1808"/>
-    <stop offset="100%" stop-color="#3a0c04" stop-opacity="0"/>
+  <radialGradient id="vig" cx="50%" cy="40%" r="76%">
+    <stop offset="44%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.94"/>
   </radialGradient>
 </defs>
 
-<!-- deep dark background -->
+<!-- background + corona -->
 <rect width="400" height="600" fill="url(#bg)"/>
-<!-- corona bloom -->
-<ellipse cx="200" cy="228" rx="220" ry="200" fill="url(#corona)"/>
+<ellipse cx="200" cy="218" rx="228" ry="208" fill="url(#corona)"/>
 
-<!-- horizon glow band -->
-<rect x="0" y="340" width="400" height="8" fill="#d94030" opacity="0.12"/>
-<rect x="0" y="344" width="400" height="4" fill="#ff6030" opacity="0.08"/>
+<!-- horizon haze -->
+<ellipse cx="200" cy="348" rx="240" ry="28" fill="#b03010" opacity="0.22"/>
+<ellipse cx="200" cy="362" rx="200" ry="18" fill="#7a1a08" opacity="0.28"/>
+<rect x="0" y="338" width="400" height="6" fill="#e84030" opacity="0.13"/>
 
-<!-- atmospheric haze layers -->
-<ellipse cx="200" cy="350" rx="240" ry="30" fill="#a02808" opacity="0.18"/>
-<ellipse cx="200" cy="360" rx="200" ry="20" fill="#601808" opacity="0.22"/>
-
-<!-- ── CENTRAL SUN ── -->
-<g transform="translate(200 228)" filter="url(#softglow)">
-  <!-- outer glow rings -->
-  <circle r="148" fill="none" stroke="#d94030" stroke-width="1" opacity="0.08"/>
-  <circle r="130" fill="none" stroke="#d94030" stroke-width="1.5" opacity="0.14"/>
-  <circle r="110" fill="none" stroke="#eb5030" stroke-width="1" opacity="0.20"/>
-  <circle r="88"  fill="none" stroke="#ff6030" stroke-width="0.8" opacity="0.28"/>
+<!-- ── SUN ── -->
+<g transform="translate(200 218)" filter="url(#haloglow)">
+  <circle r="150" fill="none" stroke="#d94030" stroke-width="1" opacity="0.07"/>
+  <circle r="128" fill="none" stroke="#d94030" stroke-width="1.5" opacity="0.13"/>
+  <circle r="106" fill="none" stroke="#e85030" stroke-width="1" opacity="0.19"/>
+  <circle r="84"  fill="none" stroke="#ff6030" stroke-width="0.8" opacity="0.28"/>
 </g>
-<g transform="translate(200 228)" filter="url(#glow)">
-  <!-- main sun disc -->
-  <circle r="72" fill="url(#suncore)"/>
-  
+<g transform="translate(200 218)" filter="url(#glow)">
+  <!-- sun disc -->
+  <circle r="74" fill="url(#suncore)"/>
   <!-- 8-ray burst -->
-  <g fill="#ff8040" opacity="0.6">
-    <path d="M 0,-110 L 4,-76 L 0,-68 L -4,-76 Z"/>
-    <path d="M 0,110 L 4,76 L 0,68 L -4,76 Z"/>
-    <path d="M -110,0 L -76,4 L -68,0 L -76,-4 Z"/>
-    <path d="M 110,0 L 76,4 L 68,0 L 76,-4 Z"/>
+  <g fill="#ff9040" opacity="0.65">
+    <path d="M 0,-116 L 4,-80 L 0,-70 L -4,-80 Z"/>
+    <path d="M 0,116 L 4,80 L 0,70 L -4,80 Z"/>
+    <path d="M -116,0 L -80,4 L -70,0 L -80,-4 Z"/>
+    <path d="M 116,0 L 80,4 L 70,0 L 80,-4 Z"/>
     <g transform="rotate(45)">
-      <path d="M 0,-100 L 3.5,-70 L 0,-64 L -3.5,-70 Z" opacity="0.7"/>
-      <path d="M 0,100 L 3.5,70 L 0,64 L -3.5,70 Z" opacity="0.7"/>
-      <path d="M -100,0 L -70,3.5 L -64,0 L -70,-3.5 Z" opacity="0.7"/>
-      <path d="M 100,0 L 70,3.5 L 64,0 L 70,-3.5 Z" opacity="0.7"/>
+      <path d="M 0,-106 L 3.5,-74 L 0,-66 L -3.5,-74 Z" opacity="0.75"/>
+      <path d="M 0,106 L 3.5,74 L 0,66 L -3.5,74 Z" opacity="0.75"/>
+      <path d="M -106,0 L -74,3.5 L -66,0 L -74,-3.5 Z" opacity="0.75"/>
+      <path d="M 106,0 L 74,3.5 L 66,0 L 74,-3.5 Z" opacity="0.75"/>
     </g>
   </g>
-
-  <!-- kbach-style sun petals -->
-  <g fill="#d94030" fill-opacity="0.5" stroke="#eb6040" stroke-width="0.8">
-    <path d="M 0,-90 C -22,-72 -22,-40 0,-28 C 22,-40 22,-72 0,-90 Z"/>
-    <path d="M 0,90  C -22,72  -22,40  0,28  C 22,40  22,72  0,90  Z"/>
-    <path d="M -90,0 C -72,-22 -40,-22 -28,0 C -40,22 -72,22 -90,0 Z"/>
-    <path d="M 90,0  C 72,-22  40,-22  28,0  C 40,22  72,22  90,0  Z"/>
+  <!-- petal shapes -->
+  <g fill="#d94030" fill-opacity="0.52" stroke="#eb6040" stroke-width="0.9">
+    <path d="M 0,-92 C -23,-74 -23,-42 0,-29 C 23,-42 23,-74 0,-92 Z"/>
+    <path d="M 0,92  C -23,74  -23,42  0,29  C 23,42  23,74  0,92  Z"/>
+    <path d="M -92,0 C -74,-23 -42,-23 -29,0 C -42,23 -74,23 -92,0 Z"/>
+    <path d="M 92,0  C 74,-23  42,-23  29,0  C 42,23  74,23  92,0  Z"/>
   </g>
-  <g fill="#c02818" fill-opacity="0.35" stroke="#d94030" stroke-width="0.6" transform="rotate(45)">
-    <path d="M 0,-84 C -14,-70 -14,-44 0,-36 C 14,-44 14,-70 0,-84 Z"/>
-    <path d="M 0,84  C -14,70  -14,44  0,36  C 14,44  14,70  0,84  Z"/>
-    <path d="M -84,0 C -70,-14 -44,-14 -36,0 C -44,14 -70,14 -84,0 Z"/>
-    <path d="M 84,0  C 70,-14  44,-14  36,0  C 44,14  70,14  84,0  Z"/>
+  <g fill="#c02818" fill-opacity="0.36" stroke="#d94030" stroke-width="0.6" transform="rotate(45)">
+    <path d="M 0,-86 C -15,-72 -15,-44 0,-37 C 15,-44 15,-72 0,-86 Z"/>
+    <path d="M 0,86  C -15,72  -15,44  0,37  C 15,44  15,72  0,86  Z"/>
+    <path d="M -86,0 C -72,-15 -44,-15 -37,0 C -44,15 -72,15 -86,0 Z"/>
+    <path d="M 86,0  C 72,-15  44,-15  37,0  C 44,15  72,15  86,0  Z"/>
   </g>
-
-  <!-- inner rings -->
-  <circle r="58" fill="none" stroke="#ff9050" stroke-width="1.2" opacity="0.5"/>
-  <circle r="44" fill="none" stroke="#ff7030" stroke-width="0.8" opacity="0.4"/>
-  
-  <!-- hot core -->
-  <circle r="22" fill="#0e0606" stroke="#d94030" stroke-width="1.5"/>
-  <circle r="14" fill="#d94030" opacity="0.9"/>
-  <circle r="8"  fill="#ff9060"/>
-  <circle r="3"  fill="#fffae0"/>
+  <!-- inner rings + core -->
+  <circle r="58" fill="none" stroke="#ff9050" stroke-width="1.2" opacity="0.52"/>
+  <circle r="44" fill="none" stroke="#ff7030" stroke-width="0.8" opacity="0.42"/>
+  <circle r="23" fill="#0e0505" stroke="#d94030" stroke-width="1.6"/>
+  <circle r="14" fill="#e04030" opacity="0.92"/>
+  <circle r="8"  fill="#ffb068"/>
+  <circle r="3.2" fill="#fffbe8"/>
 </g>
 
-<!-- crack veins radiating from sun into sky -->
-<g stroke="#d94830" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round">
-  <path d="M 60 120 Q 100 160 120 200 Q 140 240 110 290"/>
-  <path d="M 340 110 Q 310 160 290 200 Q 270 245 300 295"/>
-  <path d="M 30 200 Q 80 210 100 230 Q 120 255 90 300"/>
-  <path d="M 370 195 Q 325 210 305 232 Q 285 258 315 302"/>
-  <path d="M 130 80 Q 150 140 140 185"/>
-  <path d="M 270 78 Q 255 138 265 183"/>
+<!-- fracture veins in sky -->
+<g stroke="#d94830" stroke-width="1.6" fill="none" opacity="0.52" stroke-linecap="round">
+  <path d="M 54 108 Q 98 155 118 202 Q 138 250 105 298"/>
+  <path d="M 346 102 Q 308 158 286 206 Q 264 258 298 302"/>
+  <path d="M 22 194 Q 76 208 98 234 Q 118 262 84 308"/>
+  <path d="M 378 188 Q 326 210 304 238 Q 282 268 316 310"/>
+  <path d="M 132 72 Q 152 136 142 186"/>
+  <path d="M 268 70 Q 252 134 264 184"/>
+  <path d="M 180 48 Q 188 90 182 132"/>
+  <path d="M 224 44 Q 218 88 226 130"/>
 </g>
-<!-- crack glow nodes -->
-<g fill="#ff7030" opacity="0.7">
-  <circle cx="120" cy="200" r="2.5"/><circle cx="110" cy="290" r="2"/>
-  <circle cx="290" cy="200" r="2.5"/><circle cx="300" cy="295" r="2"/>
-  <circle cx="100" cy="230" r="2"/><circle cx="305" cy="232" r="2"/>
+<g fill="#ff7030" opacity="0.72">
+  <circle cx="118" cy="202" r="2.8"/><circle cx="105" cy="298" r="2"/>
+  <circle cx="286" cy="206" r="2.8"/><circle cx="298" cy="302" r="2"/>
+  <circle cx="98"  cy="234" r="2.2"/><circle cx="304" cy="238" r="2.2"/>
+  <circle cx="142" cy="186" r="1.8"/><circle cx="264" cy="184" r="1.8"/>
 </g>
 
-<!-- floating ash particles -->
+<!-- floating ash -->
 <g fill="#ff6030">
-  <circle cx="48"  cy="165" r="1.2" opacity="0.6"/>
-  <circle cx="92"  cy="140" r="0.8" opacity="0.5"/>
-  <circle cx="152" cy="120" r="1"   opacity="0.55"/>
-  <circle cx="248" cy="118" r="0.9" opacity="0.5"/>
-  <circle cx="308" cy="138" r="1.1" opacity="0.6"/>
-  <circle cx="355" cy="162" r="0.8" opacity="0.45"/>
-  <circle cx="68"  cy="300" r="1"   opacity="0.4"/>
-  <circle cx="335" cy="295" r="0.9" opacity="0.4"/>
-  <circle cx="188" cy="90"  r="0.7" opacity="0.5"/>
-  <circle cx="215" cy="85"  r="1"   opacity="0.4"/>
+  <circle cx="44"  cy="162" r="1.3" opacity="0.62"/>
+  <circle cx="88"  cy="136" r="0.9" opacity="0.52"/>
+  <circle cx="148" cy="118" r="1.1" opacity="0.58"/>
+  <circle cx="252" cy="116" r="1.0" opacity="0.52"/>
+  <circle cx="310" cy="134" r="1.2" opacity="0.62"/>
+  <circle cx="356" cy="158" r="0.8" opacity="0.48"/>
+  <circle cx="66"  cy="296" r="1.1" opacity="0.42"/>
+  <circle cx="336" cy="290" r="0.9" opacity="0.42"/>
+  <circle cx="186" cy="86"  r="0.8" opacity="0.52"/>
+  <circle cx="218" cy="82"  r="1.1" opacity="0.44"/>
+  <circle cx="160" cy="48"  r="0.7" opacity="0.4"/>
+  <circle cx="240" cy="38"  r="0.7" opacity="0.38"/>
+  <circle cx="290" cy="54"  r="0.6" opacity="0.36"/>
 </g>
 
-<!-- GROUND / RUINS SILHOUETTE -->
+<!-- RUINS SILHOUETTE -->
 <g fill="#0a0202">
-  <!-- main ground block -->
-  <rect x="0" y="495" width="400" height="105"/>
-  <!-- rubble silhouette -->
-  <polygon points="0,495 0,468 18,478 28,460 40,472 55,455 70,468 80,448 92,462 108,445 120,458 138,452 148,468 162,444 175,458 190,448 200,462 215,446 228,460 242,448 258,464 270,452 285,462 300,448 318,458 332,445 348,458 360,448 372,462 385,452 400,462 400,495"/>
-  <!-- tall ruins at sides -->
-  <polygon points="0,495 0,420 8,412 15,402 22,410 28,395 35,408 42,398 50,488 0,488"/>
-  <polygon points="400,495 400,415 392,405 385,415 378,400 370,412 362,405 355,420 350,495"/>
-  <!-- mid ruins -->
-  <polygon points="135,495 135,468 140,462 146,472 152,456 158,468 164,495"/>
-  <polygon points="238,495 238,472 244,464 250,474 256,460 262,472 268,495"/>
+  <rect x="0" y="490" width="400" height="110"/>
+  <!-- skyline rubble -->
+  <polygon points="0,490 0,465 10,474 20,456 32,470 46,452 60,466 74,444 88,460 104,442 120,456 140,448 152,466 168,440 184,454 200,446 218,460 234,444 250,456 266,444 282,460 298,446 314,456 330,442 348,455 364,446 378,460 392,450 400,462 400,490"/>
+  <!-- left tall ruin tower -->
+  <polygon points="0,490 0,414 10,404 18,394 26,402 34,388 42,400 52,392 62,490"/>
+  <!-- right ruin tower -->
+  <polygon points="338,490 338,418 346,408 354,396 362,408 370,392 380,406 390,416 400,420 400,490"/>
+  <!-- mid ruin chunks -->
+  <polygon points="138,490 138,466 144,458 150,468 158,452 166,466 174,490"/>
+  <polygon points="240,490 240,470 248,460 256,472 264,456 272,470 280,490"/>
+  <!-- arched window hint on left tower -->
+  <path d="M 18 430 Q 26 420 34 430 L 34 450 L 18 450 Z" fill="#140302"/>
 </g>
-<!-- ground fade to black -->
-<rect x="0" y="460" width="400" height="140" fill="url(#groundFade)"/>
+<rect x="0" y="456" width="400" height="144" fill="url(#groundFade)"/>
 
-<!-- final vignette -->
-<radialGradient id="vig" cx="50%" cy="40%" r="75%">
-  <stop offset="45%" stop-color="#000" stop-opacity="0"/>
-  <stop offset="100%" stop-color="#000" stop-opacity="0.92"/>
-</radialGradient>
+<!-- vignette + grain -->
 <rect width="400" height="600" fill="url(#vig)"/>
+<rect width="400" height="600" filter="url(#grain)" opacity="0.58"/>
 
-<!-- film grain -->
-<rect width="400" height="600" filter="url(#g)" opacity="0.55"/>
-
-<!-- KBACH CORNER FRAMES -->
-<g stroke="#d94830" stroke-width="1.8" fill="none" stroke-linecap="round">
-  <path d="M 14 44 L 14 14 L 44 14"/>
-  <path d="M 356 14 L 386 14 L 386 44"/>
-  <path d="M 14 556 L 14 586 L 44 586"/>
-  <path d="M 386 556 L 386 586 L 356 586"/>
+<!-- CORNER FRAMES -->
+<g stroke="#d94830" stroke-width="1.9" fill="none" stroke-linecap="round">
+  <path d="M 14 46 L 14 14 L 46 14"/>
+  <path d="M 354 14 L 386 14 L 386 46"/>
+  <path d="M 14 554 L 14 586 L 46 586"/>
+  <path d="M 386 554 L 386 586 L 354 586"/>
 </g>
-<g fill="#d94830" opacity="0.9">
-  <circle cx="14" cy="14" r="3"/><circle cx="386" cy="14" r="3"/>
-  <circle cx="14" cy="586" r="3"/><circle cx="386" cy="586" r="3"/>
+<g fill="#d94830" opacity="0.92">
+  <circle cx="14" cy="14" r="3.2"/><circle cx="386" cy="14" r="3.2"/>
+  <circle cx="14" cy="586" r="3.2"/><circle cx="386" cy="586" r="3.2"/>
 </g>
-<!-- kbach inner corner florals -->
-<g fill="#d94830" opacity="0.55" stroke="#d94830" stroke-width="0.5">
-  <path d="M 22 22 Q 32 22 32 32 Q 22 32 22 22 Z"/>
-  <path d="M 378 22 Q 368 22 368 32 Q 378 32 378 22 Z"/>
-  <path d="M 22 578 Q 32 578 32 568 Q 22 568 22 578 Z"/>
-  <path d="M 378 578 Q 368 578 368 568 Q 378 568 378 578 Z"/>
+<g fill="#d94830" opacity="0.5" stroke="#d94830" stroke-width="0.5">
+  <path d="M 22 22 Q 34 22 34 34 Q 22 34 22 22 Z"/>
+  <path d="M 378 22 Q 366 22 366 34 Q 378 34 378 22 Z"/>
+  <path d="M 22 578 Q 34 578 34 566 Q 22 566 22 578 Z"/>
+  <path d="M 378 578 Q 366 578 366 566 Q 378 566 378 578 Z"/>
 </g>
-<!-- border lines -->
-<rect x="10" y="10" width="380" height="580" fill="none" stroke="#d94830" stroke-width="0.7" opacity="0.4"/>
+<rect x="10" y="10" width="380" height="580" fill="none" stroke="#d94830" stroke-width="0.6" opacity="0.38"/>
 
 <!-- TITLE AREA -->
-<rect x="0" y="460" width="400" height="140" fill="#040101" opacity="0.85"/>
-<line x1="30" y1="468" x2="370" y2="468" stroke="#d94830" stroke-width="0.7" opacity="0.5"/>
-
-<!-- small kbach divider in title -->
-<g transform="translate(200 480)" fill="#d94830" opacity="0.7">
-  <path d="M -30,0 Q -15,-5 0,0 Q 15,5 30,0" fill="none" stroke="#d94830" stroke-width="0.8"/>
-  <circle cx="0" cy="0" r="2.2"/>
-  <circle cx="-26" cy="0" r="1.2"/><circle cx="26" cy="0" r="1.2"/>
+<rect x="0" y="456" width="400" height="144" fill="#040101" opacity="0.88"/>
+<line x1="28" y1="465" x2="372" y2="465" stroke="#d94830" stroke-width="0.9" opacity="0.55"/>
+<!-- title divider ornament -->
+<g transform="translate(200 478)" fill="#d94830" opacity="0.72">
+  <path d="M -32,0 Q -16,-6 0,0 Q 16,6 32,0" fill="none" stroke="#d94830" stroke-width="0.9"/>
+  <circle cx="0" cy="0" r="2.4"/>
+  <circle cx="-28" cy="0" r="1.3"/><circle cx="28" cy="0" r="1.3"/>
+  <path d="M -46,0 L -38,0" stroke="#d94830" stroke-width="0.7"/>
+  <path d="M 38,0 L 46,0" stroke="#d94830" stroke-width="0.7"/>
 </g>
-
 <text x="200" y="510" text-anchor="middle"
-  font-family="Georgia,serif" font-size="26" font-weight="700" letter-spacing="2"
-  fill="#f0e0d0" filter="url(#glow)">MUTATION</text>
+  font-family="Georgia,serif" font-size="27" font-weight="700" letter-spacing="3"
+  fill="#f5e0d0" filter="url(#glow)">MUTATION</text>
 <text x="200" y="536" text-anchor="middle"
   font-family="Georgia,serif" font-size="11" font-weight="400" letter-spacing="6"
-  fill="#d94830" opacity="0.9">OF THE APOCALYPSE</text>
-<text x="200" y="556" text-anchor="middle"
+  fill="#d94830" opacity="0.92">OF THE APOCALYPSE</text>
+<text x="200" y="557" text-anchor="middle"
   font-family="Georgia,serif" font-size="8" font-weight="400" letter-spacing="4"
-  fill="#786a5a" opacity="0.8">TARHUALA</text>
+  fill="#7a6258" opacity="0.82">TARHUALA</text>
 </svg>

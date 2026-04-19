@@ -11,30 +11,16 @@
   "rating": "Mature",
   "description": "They called him a monster. They were right. Rising from the gutter of a crumbling empire, a man of unfathomable ambition carves his throne from the bones of those who dared stand in his way. With a mind sharper than any blade and a cruelty that knows no bounds, the self-proclaimed Monarch weaves a web of manipulation, betrayal, and dark power that threatens to consume entire kingdoms.",
   "theme": "gold",
+  "chapterCount": 5,
   "images": {
     "cover": "/images/covers/monarch-of-depravity.svg"
   },
   "chapters": [
-    {
-      "number": 1,
-      "title": "The Gutter King"
-    },
-    {
-      "number": 2,
-      "title": "A Crown of Filth"
-    },
-    {
-      "number": 3,
-      "title": "The First Betrayal"
-    },
-    {
-      "number": 4,
-      "title": "Whispers of Ascent"
-    },
-    {
-      "number": 5,
-      "title": "The Art of Cruelty"
-    }
+    { "number": 1, "title": "The Gutter King" },
+    { "number": 2, "title": "A Crown of Filth" },
+    { "number": 3, "title": "The First Betrayal" },
+    { "number": 4, "title": "Whispers of Ascent" },
+    { "number": 5, "title": "The Art of Cruelty" }
   ],
   "platforms": [
     {
