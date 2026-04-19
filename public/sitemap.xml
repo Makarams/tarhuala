@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tarhuala.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tarhuala.com/novels.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tarhuala.com/novel.html?id=mutation-of-the-apocalypse</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tarhuala.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tarhuala.com/novels.html</loc><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://tarhuala.com/about.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tarhuala.com/novel.html?id=mutation-of-the-apocalypse</loc><changefreq>daily</changefreq><priority>0.95</priority></url>
   <url><loc>https://tarhuala.com/novel.html?id=monarch-of-depravity</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tarhuala.com/novel.html?id=malice-of-the-faithful</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tarhuala.com/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tarhuala.com/novel.html?id=marked-by-false-gods</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tarhuala.com/chapters.html?id=mutation-of-the-apocalypse</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tarhuala.com/chapters.html?id=monarch-of-depravity</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tarhuala.com/chapters.html?id=marked-by-false-gods</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

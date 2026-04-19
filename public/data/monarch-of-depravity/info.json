@@ -1,26 +1,42 @@
 {
   "id": "monarch-of-depravity",
   "title": "Monarch of Depravity",
-  "genre": "Dark Fantasy / Psychological Thriller",
+  "genre": "Horror / Supernatural / Psychological / Mature",
   "tags": [
-    "Cult",
-    "Villain Protagonist",
-    "Psychological"
+    "Horror",
+    "Supernatural",
+    "Psychological",
+    "Mature"
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "They called him a monster. They were right. Rising from the gutter of a crumbling empire, a man of unfathomable ambition carves his throne from the bones of those who dared stand in his way. With a mind sharper than any blade and a cruelty that knows no bounds, the self-proclaimed Monarch weaves a web of manipulation, betrayal, and dark power that threatens to consume entire kingdoms.",
+  "description": "Ian prayed to the Shadow Man with rats, a knife, and his own blood.\n\nWhat showed up instead was a 25-year-old software engineer from the 21st century who had been buying eggs.\n\nIn a world where twelve gods are real and collecting, where cults carve devotion into living skin and priests of death walk around unhooking souls mid-conversation, Alden is, to put it plainly, the wrong man in the wrong body at the wrong time.\n\nHe handles it well, all things considered.\n\nThat part is true. Everything after is a little harder to explain.\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently. Both cannot be right.]",
   "theme": "gold",
   "chapterCount": 5,
   "images": {
     "cover": "/images/covers/monarch-of-depravity.svg"
   },
   "chapters": [
-    { "number": 1, "title": "The Gutter King" },
-    { "number": 2, "title": "A Crown of Filth" },
-    { "number": 3, "title": "The First Betrayal" },
-    { "number": 4, "title": "Whispers of Ascent" },
-    { "number": 5, "title": "The Art of Cruelty" }
+    {
+      "number": 1,
+      "title": "The Gutter King"
+    },
+    {
+      "number": 2,
+      "title": "A Crown of Filth"
+    },
+    {
+      "number": 3,
+      "title": "The First Betrayal"
+    },
+    {
+      "number": 4,
+      "title": "Whispers of Ascent"
+    },
+    {
+      "number": 5,
+      "title": "The Art of Cruelty"
+    }
   ],
   "platforms": [
     {
