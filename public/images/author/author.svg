@@ -1,265 +1,257 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
-  <defs>
-    <!-- Atmospheric background gradient -->
-    <radialGradient id="bg-radial" cx="50%" cy="38%" r="65%">
-      <stop offset="0%" stop-color="#1a0c06"/>
-      <stop offset="55%" stop-color="#0e0806"/>
-      <stop offset="100%" stop-color="#050302"/>
-    </radialGradient>
-    <!-- Figure body gradient -->
-    <radialGradient id="fig-radial" cx="50%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#d4b896"/>
-      <stop offset="40%" stop-color="#b89070"/>
-      <stop offset="100%" stop-color="#6a4a30"/>
-    </radialGradient>
-    <!-- Face glow -->
-    <radialGradient id="face-light" cx="45%" cy="38%" r="50%">
-      <stop offset="0%" stop-color="#e8c8a0"/>
-      <stop offset="60%" stop-color="#c49060"/>
-      <stop offset="100%" stop-color="#7a4820"/>
-    </radialGradient>
-    <!-- Cloth gradient -->
-    <radialGradient id="robe-grad" cx="50%" cy="20%" r="80%">
-      <stop offset="0%" stop-color="#2a1810"/>
-      <stop offset="50%" stop-color="#180e08"/>
-      <stop offset="100%" stop-color="#080402"/>
-    </radialGradient>
-    <!-- Accent ember glow -->
-    <radialGradient id="ember-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#c43030" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#c43030" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Ink glow behind -->
-    <radialGradient id="ink-glow" cx="50%" cy="60%" r="60%">
-      <stop offset="0%" stop-color="#3a1c0c" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#050302" stop-opacity="1"/>
-    </radialGradient>
-    <!-- Filters -->
-    <filter id="softblur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3"/>
-    </filter>
-    <filter id="glow-filter" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="face-glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="ink-smoke" x="-50%" y="-50%" width="200%" height="200%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.025 0.04" numOctaves="4" seed="7" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
-      <feComponentTransfer in="gray" result="dark">
-        <feFuncA type="linear" slope="0.18"/>
-      </feComponentTransfer>
-      <feComposite in="dark" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <!-- Clip path for frame -->
-    <clipPath id="frame-clip">
-      <rect x="0" y="0" width="480" height="640"/>
-    </clipPath>
-  </defs>
-
-  <!-- ── Deep background ── -->
-  <rect width="480" height="640" fill="url(#bg-radial)"/>
-
-  <!-- Atmospheric ember glow top-center -->
-  <ellipse cx="240" cy="160" rx="200" ry="180" fill="url(#ember-glow)"/>
-
-  <!-- Ink smoke texture layer -->
-  <rect width="480" height="640" fill="url(#ink-glow)" filter="url(#ink-smoke)"/>
-
-  <!-- ── Kbach border frame — four-corner medallion style ── -->
-  <!-- Top border line -->
-  <line x1="32" y1="32" x2="448" y2="32" stroke="#c43030" stroke-width="1.2"/>
-  <line x1="32" y1="36" x2="448" y2="36" stroke="#c43030" stroke-width="0.4" stroke-opacity="0.5"/>
-  <!-- Bottom border line -->
-  <line x1="32" y1="608" x2="448" y2="608" stroke="#c43030" stroke-width="1.2"/>
-  <line x1="32" y1="604" x2="448" y2="604" stroke="#c43030" stroke-width="0.4" stroke-opacity="0.5"/>
-  <!-- Left border line -->
-  <line x1="32" y1="32" x2="32" y2="608" stroke="#c43030" stroke-width="1.2"/>
-  <line x1="36" y1="32" x2="36" y2="608" stroke="#c43030" stroke-width="0.4" stroke-opacity="0.5"/>
-  <!-- Right border line -->
-  <line x1="448" y1="32" x2="448" y2="608" stroke="#c43030" stroke-width="1.2"/>
-  <line x1="444" y1="32" x2="444" y2="608" stroke="#c43030" stroke-width="0.4" stroke-opacity="0.5"/>
-
-  <!-- Corner kbach rosettes — TL -->
-  <g transform="translate(32,32)" fill="none" stroke="#c43030">
-    <circle r="16" stroke-width="1"/>
-    <circle r="11" stroke-width="0.5" stroke-opacity="0.6"/>
-    <g fill="#c43030" stroke="none">
-      <path d="M0,-10 C-3,-7 -3,-3 0,-1 C3,-3 3,-7 0,-10Z"/>
-      <path d="M10,0 C7,-3 3,-3 1,0 C3,3 7,3 10,0Z"/>
-      <path d="M0,10 C3,7 3,3 0,1 C-3,3 -3,7 0,10Z"/>
-      <path d="M-10,0 C-7,3 -3,3 -1,0 C-3,-3 -7,-3 -10,0Z"/>
-    </g>
-    <circle r="2.5" fill="#c43030" stroke="none"/>
-  </g>
-  <!-- TR -->
-  <g transform="translate(448,32)" fill="none" stroke="#c43030">
-    <circle r="16" stroke-width="1"/>
-    <circle r="11" stroke-width="0.5" stroke-opacity="0.6"/>
-    <g fill="#c43030" stroke="none">
-      <path d="M0,-10 C-3,-7 -3,-3 0,-1 C3,-3 3,-7 0,-10Z"/>
-      <path d="M10,0 C7,-3 3,-3 1,0 C3,3 7,3 10,0Z"/>
-      <path d="M0,10 C3,7 3,3 0,1 C-3,3 -3,7 0,10Z"/>
-      <path d="M-10,0 C-7,3 -3,3 -1,0 C-3,-3 -7,-3 -10,0Z"/>
-    </g>
-    <circle r="2.5" fill="#c43030" stroke="none"/>
-  </g>
-  <!-- BL -->
-  <g transform="translate(32,608)" fill="none" stroke="#c43030">
-    <circle r="16" stroke-width="1"/>
-    <circle r="11" stroke-width="0.5" stroke-opacity="0.6"/>
-    <g fill="#c43030" stroke="none">
-      <path d="M0,-10 C-3,-7 -3,-3 0,-1 C3,-3 3,-7 0,-10Z"/>
-      <path d="M10,0 C7,-3 3,-3 1,0 C3,3 7,3 10,0Z"/>
-      <path d="M0,10 C3,7 3,3 0,1 C-3,3 -3,7 0,10Z"/>
-      <path d="M-10,0 C-7,3 -3,3 -1,0 C-3,-3 -7,-3 -10,0Z"/>
-    </g>
-    <circle r="2.5" fill="#c43030" stroke="none"/>
-  </g>
-  <!-- BR -->
-  <g transform="translate(448,608)" fill="none" stroke="#c43030">
-    <circle r="16" stroke-width="1"/>
-    <circle r="11" stroke-width="0.5" stroke-opacity="0.6"/>
-    <g fill="#c43030" stroke="none">
-      <path d="M0,-10 C-3,-7 -3,-3 0,-1 C3,-3 3,-7 0,-10Z"/>
-      <path d="M10,0 C7,-3 3,-3 1,0 C3,3 7,3 10,0Z"/>
-      <path d="M0,10 C3,7 3,3 0,1 C-3,3 -3,7 0,10Z"/>
-      <path d="M-10,0 C-7,3 -3,3 -1,0 C-3,-3 -7,-3 -10,0Z"/>
-    </g>
-    <circle r="2.5" fill="#c43030" stroke="none"/>
-  </g>
-
-  <!-- Mid-border kbach ornaments — top and bottom midpoints -->
-  <g transform="translate(240,32)" fill="#c43030">
-    <path d="M0,-8 C-3,-5 -3,-2 0,0 C3,-2 3,-5 0,-8Z"/>
-    <path d="M0,8 C3,5 3,2 0,0 C-3,2 -3,5 0,8Z"/>
-    <circle r="1.5"/>
-  </g>
-  <g transform="translate(240,608)" fill="#c43030">
-    <path d="M0,-8 C-3,-5 -3,-2 0,0 C3,-2 3,-5 0,-8Z"/>
-    <path d="M0,8 C3,5 3,2 0,0 C-3,2 -3,5 0,8Z"/>
-    <circle r="1.5"/>
-  </g>
-  <!-- Side midpoints -->
-  <g transform="translate(32,320)" fill="#c43030">
-    <path d="M-8,0 C-5,-3 -2,-3 0,0 C-2,3 -5,3 -8,0Z"/>
-    <path d="M8,0 C5,3 2,3 0,0 C2,-3 5,-3 8,0Z"/>
-    <circle r="1.5"/>
-  </g>
-  <g transform="translate(448,320)" fill="#c43030">
-    <path d="M-8,0 C-5,-3 -2,-3 0,0 C-2,3 -5,3 -8,0Z"/>
-    <path d="M8,0 C5,3 2,3 0,0 C2,-3 5,-3 8,0Z"/>
-    <circle r="1.5"/>
-  </g>
-
-  <!-- ── Figure — stylized author silhouette ── -->
-  <!-- Robe / body base — wide, flowing, dark -->
-  <path d="M 130 640 Q 80 580 90 520 Q 95 470 110 430 Q 130 380 150 350 L 240 330 L 330 350 Q 350 380 370 430 Q 385 470 390 520 Q 400 580 350 640 Z" fill="url(#robe-grad)"/>
-
-  <!-- Inner robe fold shadows -->
-  <path d="M 200 480 Q 210 420 240 390 Q 270 420 280 480 Q 260 500 240 505 Q 220 500 200 480 Z" fill="#0a0604"/>
-  <path d="M 150 560 Q 170 500 200 470 Q 215 510 210 560" fill="none" stroke="#1a0e08" stroke-width="2"/>
-  <path d="M 330 560 Q 310 500 280 470 Q 265 510 270 560" fill="none" stroke="#1a0e08" stroke-width="2"/>
-
-  <!-- Collar / chest detail -->
-  <path d="M 190 370 Q 215 380 240 378 Q 265 380 290 370 Q 270 395 240 398 Q 210 395 190 370 Z" fill="#1a0e08"/>
-  <path d="M 220 375 L 240 398 L 260 375" fill="none" stroke="#c43030" stroke-width="0.8"/>
-
-  <!-- Neck -->
-  <path d="M 218 302 Q 218 330 215 350 L 265 350 Q 262 330 262 302 Z" fill="#b08060"/>
-
-  <!-- ── Head / face ── -->
-  <!-- Head shape -->
-  <ellipse cx="240" cy="255" rx="72" ry="86" fill="url(#face-light)" filter="url(#face-glow)"/>
-
-  <!-- Hair — dark, flowing -->
-  <path d="M 170 230 Q 168 175 185 148 Q 205 118 240 112 Q 275 118 295 148 Q 312 175 310 230 Q 300 210 295 190 Q 280 160 240 155 Q 200 160 185 190 Q 180 210 170 230 Z" fill="#0e0804"/>
-  <!-- Hair sides -->
-  <path d="M 170 230 Q 162 260 165 290 Q 168 295 175 285 Q 178 265 182 245 Z" fill="#0e0804"/>
-  <path d="M 310 230 Q 318 260 315 290 Q 312 295 305 285 Q 302 265 298 245 Z" fill="#0e0804"/>
-  <!-- Hair top wisp -->
-  <path d="M 220 118 Q 235 108 240 112 Q 235 105 228 110 Z" fill="#180e06"/>
-  <path d="M 255 120 Q 248 108 240 112 Q 248 105 258 112 Z" fill="#180e06"/>
-
-  <!-- ── Facial features ── -->
-  <!-- Eye sockets / depth -->
-  <ellipse cx="212" cy="250" rx="16" ry="11" fill="#8a5830" opacity="0.5"/>
-  <ellipse cx="268" cy="250" rx="16" ry="11" fill="#8a5830" opacity="0.5"/>
-
-  <!-- Eyes — dark, intent -->
-  <ellipse cx="212" cy="250" rx="11" ry="8" fill="#1a0e06"/>
-  <ellipse cx="268" cy="250" rx="11" ry="8" fill="#1a0e06"/>
-  <!-- Iris -->
-  <circle cx="212" cy="251" r="5.5" fill="#2a1408"/>
-  <circle cx="268" cy="251" r="5.5" fill="#2a1408"/>
-  <!-- Pupil -->
-  <circle cx="212" cy="251" r="3" fill="#080402"/>
-  <circle cx="268" cy="251" r="3" fill="#080402"/>
-  <!-- Eye highlight -->
-  <circle cx="214" cy="249" r="1.2" fill="#e8d0b0" opacity="0.8"/>
-  <circle cx="270" cy="249" r="1.2" fill="#e8d0b0" opacity="0.8"/>
-  <!-- Eyelids -->
-  <path d="M 200 246 Q 212 242 224 246" fill="none" stroke="#1a0c06" stroke-width="1.5"/>
-  <path d="M 256 246 Q 268 242 280 246" fill="none" stroke="#1a0c06" stroke-width="1.5"/>
-  <!-- Lower lid -->
-  <path d="M 201 254 Q 212 258 223 254" fill="none" stroke="#8a5830" stroke-width="0.8"/>
-  <path d="M 257 254 Q 268 258 279 254" fill="none" stroke="#8a5830" stroke-width="0.8"/>
-
-  <!-- Brows -->
-  <path d="M 198 236 Q 210 230 226 234" fill="none" stroke="#0e0806" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 254 234 Q 268 230 282 236" fill="none" stroke="#0e0806" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- Nose -->
-  <path d="M 240 258 Q 233 272 230 280 Q 236 284 240 283 Q 244 284 250 280 Q 247 272 240 258 Z" fill="#9a6840" opacity="0.7"/>
-  <path d="M 234 278 Q 240 282 246 278" fill="none" stroke="#7a4820" stroke-width="1"/>
-
-  <!-- Cheekbones / shadow -->
-  <ellipse cx="196" cy="272" rx="22" ry="14" fill="#7a4820" opacity="0.25"/>
-  <ellipse cx="284" cy="272" rx="22" ry="14" fill="#7a4820" opacity="0.25"/>
-
-  <!-- Lips -->
-  <path d="M 225 294 Q 232 290 240 292 Q 248 290 255 294 Q 248 298 240 299 Q 232 298 225 294 Z" fill="#6a2a18"/>
-  <path d="M 225 294 Q 232 291 240 292 Q 248 291 255 294" fill="none" stroke="#8a3a28" stroke-width="0.8"/>
-  <!-- Lip highlight -->
-  <path d="M 234 292 Q 240 290 246 292" fill="none" stroke="#9a4830" stroke-width="0.6" opacity="0.6"/>
-
-  <!-- ── Hands — one holding a quill / book gesture ── -->
-  <!-- Left arm / hand resting -->
-  <path d="M 148 420 Q 160 400 175 385 Q 188 380 195 390 Q 200 400 192 415 Q 185 425 178 430 Q 168 435 160 428 Q 152 422 148 420 Z" fill="#b08060"/>
-  <!-- Fingers suggested -->
-  <path d="M 192 390 Q 198 385 202 392" fill="none" stroke="#9a7050" stroke-width="1.5"/>
-  <path d="M 190 396 Q 196 390 200 397" fill="none" stroke="#9a7050" stroke-width="1.2"/>
-  <path d="M 186 402 Q 192 396 196 403" fill="none" stroke="#9a7050" stroke-width="1.2"/>
-
-  <!-- Right arm — raised, holding quill -->
-  <path d="M 332 420 Q 320 400 305 385 Q 292 378 285 388 Q 278 398 286 412 Q 292 422 300 428 Q 310 434 318 428 Q 326 422 332 420 Z" fill="#b08060"/>
-  <!-- Quill pen -->
-  <path d="M 288 388 Q 310 360 330 325 Q 334 318 336 322 Q 338 326 334 334 Q 318 368 298 395 Z" fill="#e8d8b0"/>
-  <path d="M 336 322 Q 340 316 337 310 Q 334 314 332 320" fill="#d4c090"/>
-  <!-- Quill tip / nib -->
-  <path d="M 336 322 L 342 308 L 338 306 L 334 320 Z" fill="#c43030"/>
-
-  <!-- ── Ember glow writing — floating runes/text suggestion ── -->
-  <g opacity="0.15" fill="none" stroke="#c43030" stroke-width="0.8">
-    <path d="M 360 280 Q 370 275 375 280 Q 380 285 375 292 Q 370 298 362 295 Q 355 290 360 280"/>
-    <path d="M 365 305 Q 380 302 385 310"/>
-    <path d="M 358 322 Q 368 318 374 325 Q 379 332 374 338"/>
-    <path d="M 352 345 Q 366 340 372 348"/>
-  </g>
-
-  <!-- ── Bottom name plate ── -->
-  <rect x="32" y="575" width="416" height="33" fill="#0a0604"/>
-  <rect x="32" y="575" width="416" height="1" fill="#c43030"/>
-  <text x="240" y="597" font-family="Georgia, serif" font-size="13" letter-spacing="6" fill="#c4b090" text-anchor="middle" font-weight="600">TARHUALA</text>
-  <text x="240" y="610" font-family="Georgia, serif" font-size="8" letter-spacing="3" fill="#6a4a30" text-anchor="middle">DARK FICTION</text>
-
-  <!-- ── Atmospheric vignette ── -->
-  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
-    <stop offset="60%" stop-color="transparent"/>
-    <stop offset="100%" stop-color="#030201" stop-opacity="0.7"/>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="36%" r="68%">
+    <stop offset="0%" stop-color="#1e0e08"/>
+    <stop offset="52%" stop-color="#100806"/>
+    <stop offset="100%" stop-color="#050303"/>
   </radialGradient>
-  <rect width="480" height="640" fill="url(#vignette)"/>
+  <radialGradient id="figGrad" cx="50%" cy="28%" r="58%">
+    <stop offset="0%" stop-color="#d8c09a"/>
+    <stop offset="38%" stop-color="#bca076"/>
+    <stop offset="100%" stop-color="#6e4e32"/>
+  </radialGradient>
+  <radialGradient id="faceLight" cx="44%" cy="36%" r="52%">
+    <stop offset="0%" stop-color="#ecd4ac"/>
+    <stop offset="58%" stop-color="#c89868"/>
+    <stop offset="100%" stop-color="#7e4e26"/>
+  </radialGradient>
+  <radialGradient id="robeGrad" cx="50%" cy="20%" r="82%">
+    <stop offset="0%" stop-color="#2c1c12"/>
+    <stop offset="52%" stop-color="#1c1008"/>
+    <stop offset="100%" stop-color="#080402"/>
+  </radialGradient>
+  <radialGradient id="emberAura" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c43030" stop-opacity="0.38"/>
+    <stop offset="100%" stop-color="#c43030" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="inkGlow" cx="50%" cy="62%" r="62%">
+    <stop offset="0%" stop-color="#3e1e0e" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#050303" stop-opacity="1"/>
+  </radialGradient>
+  <filter id="softblur" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="9" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="faceGlow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="4.5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="inkSmoke" x="-50%" y="-50%" width="200%" height="200%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.022 0.036" numOctaves="4" seed="11" result="noise"/>
+    <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+    <feComponentTransfer in="gray" result="dark">
+      <feFuncA type="linear" slope="0.16"/>
+    </feComponentTransfer>
+    <feComposite in="dark" in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="4" seed="21"/>
+    <feColorMatrix values="0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0 0.01  0 0 0 0.42 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+</defs>
+
+<!-- background -->
+<rect width="480" height="640" fill="url(#bg)"/>
+<ellipse cx="240" cy="158" rx="210" ry="190" fill="url(#emberAura)"/>
+<rect width="480" height="640" fill="url(#inkGlow)" filter="url(#inkSmoke)"/>
+
+<!-- ── FRAME ── -->
+<!-- outer border -->
+<rect x="28" y="28" width="424" height="584" fill="none" stroke="#c43030" stroke-width="1.4"/>
+<rect x="33" y="33" width="414" height="574" fill="none" stroke="#c43030" stroke-width="0.4" stroke-opacity="0.45"/>
+
+<!-- Corner kbach medallions — TL -->
+<g transform="translate(28,28)" fill="none" stroke="#c43030">
+  <circle r="18" stroke-width="1.1"/>
+  <circle r="12" stroke-width="0.5" stroke-opacity="0.55"/>
+  <g fill="#c43030" stroke="none">
+    <path d="M0,-11 C-3.5,-8 -3.5,-3.5 0,-1.5 C3.5,-3.5 3.5,-8 0,-11Z"/>
+    <path d="M11,0  C8,-3.5  3.5,-3.5 1.5,0 C3.5,3.5 8,3.5 11,0Z"/>
+    <path d="M0,11  C3.5,8  3.5,3.5 0,1.5 C-3.5,3.5 -3.5,8 0,11Z"/>
+    <path d="M-11,0 C-8,3.5 -3.5,3.5 -1.5,0 C-3.5,-3.5 -8,-3.5 -11,0Z"/>
+  </g>
+  <circle r="3" fill="#c43030" stroke="none"/>
+</g>
+<!-- TR -->
+<g transform="translate(452,28)" fill="none" stroke="#c43030">
+  <circle r="18" stroke-width="1.1"/>
+  <circle r="12" stroke-width="0.5" stroke-opacity="0.55"/>
+  <g fill="#c43030" stroke="none">
+    <path d="M0,-11 C-3.5,-8 -3.5,-3.5 0,-1.5 C3.5,-3.5 3.5,-8 0,-11Z"/>
+    <path d="M11,0  C8,-3.5  3.5,-3.5 1.5,0 C3.5,3.5 8,3.5 11,0Z"/>
+    <path d="M0,11  C3.5,8  3.5,3.5 0,1.5 C-3.5,3.5 -3.5,8 0,11Z"/>
+    <path d="M-11,0 C-8,3.5 -3.5,3.5 -1.5,0 C-3.5,-3.5 -8,-3.5 -11,0Z"/>
+  </g>
+  <circle r="3" fill="#c43030" stroke="none"/>
+</g>
+<!-- BL -->
+<g transform="translate(28,612)" fill="none" stroke="#c43030">
+  <circle r="18" stroke-width="1.1"/>
+  <circle r="12" stroke-width="0.5" stroke-opacity="0.55"/>
+  <g fill="#c43030" stroke="none">
+    <path d="M0,-11 C-3.5,-8 -3.5,-3.5 0,-1.5 C3.5,-3.5 3.5,-8 0,-11Z"/>
+    <path d="M11,0  C8,-3.5  3.5,-3.5 1.5,0 C3.5,3.5 8,3.5 11,0Z"/>
+    <path d="M0,11  C3.5,8  3.5,3.5 0,1.5 C-3.5,3.5 -3.5,8 0,11Z"/>
+    <path d="M-11,0 C-8,3.5 -3.5,3.5 -1.5,0 C-3.5,-3.5 -8,-3.5 -11,0Z"/>
+  </g>
+  <circle r="3" fill="#c43030" stroke="none"/>
+</g>
+<!-- BR -->
+<g transform="translate(452,612)" fill="none" stroke="#c43030">
+  <circle r="18" stroke-width="1.1"/>
+  <circle r="12" stroke-width="0.5" stroke-opacity="0.55"/>
+  <g fill="#c43030" stroke="none">
+    <path d="M0,-11 C-3.5,-8 -3.5,-3.5 0,-1.5 C3.5,-3.5 3.5,-8 0,-11Z"/>
+    <path d="M11,0  C8,-3.5  3.5,-3.5 1.5,0 C3.5,3.5 8,3.5 11,0Z"/>
+    <path d="M0,11  C3.5,8  3.5,3.5 0,1.5 C-3.5,3.5 -3.5,8 0,11Z"/>
+    <path d="M-11,0 C-8,3.5 -3.5,3.5 -1.5,0 C-3.5,-3.5 -8,-3.5 -11,0Z"/>
+  </g>
+  <circle r="3" fill="#c43030" stroke="none"/>
+</g>
+
+<!-- mid-border ornaments -->
+<g transform="translate(240,28)" fill="#c43030">
+  <path d="M0,-9 C-3.5,-6 -3.5,-2 0,0 C3.5,-2 3.5,-6 0,-9Z"/>
+  <path d="M0,9 C3.5,6 3.5,2 0,0 C-3.5,2 -3.5,6 0,9Z"/>
+  <circle r="1.8"/>
+</g>
+<g transform="translate(240,612)" fill="#c43030">
+  <path d="M0,-9 C-3.5,-6 -3.5,-2 0,0 C3.5,-2 3.5,-6 0,-9Z"/>
+  <path d="M0,9 C3.5,6 3.5,2 0,0 C-3.5,2 -3.5,6 0,9Z"/>
+  <circle r="1.8"/>
+</g>
+<g transform="translate(28,320)" fill="#c43030">
+  <path d="M-9,0 C-6,-3.5 -2,-3.5 0,0 C-2,3.5 -6,3.5 -9,0Z"/>
+  <path d="M9,0 C6,3.5 2,3.5 0,0 C2,-3.5 6,-3.5 9,0Z"/>
+  <circle r="1.8"/>
+</g>
+<g transform="translate(452,320)" fill="#c43030">
+  <path d="M-9,0 C-6,-3.5 -2,-3.5 0,0 C-2,3.5 -6,3.5 -9,0Z"/>
+  <path d="M9,0 C6,3.5 2,3.5 0,0 C2,-3.5 6,-3.5 9,0Z"/>
+  <circle r="1.8"/>
+</g>
+
+<!-- ── FIGURE ── -->
+<!-- robe body -->
+<path d="M 124 640 Q 72 582 84 520 Q 90 470 108 428 Q 128 378 148 348 L 240 328 L 332 348 Q 352 378 372 428 Q 390 470 396 520 Q 408 582 356 640 Z"
+  fill="url(#robeGrad)"/>
+
+<!-- inner robe fold shadows -->
+<path d="M 196 482 Q 208 420 240 388 Q 272 420 284 482 Q 264 504 240 510 Q 216 504 196 482 Z" fill="#0c0806"/>
+<path d="M 144 562 Q 166 498 196 468 Q 212 508 208 562" fill="none" stroke="#1c1008" stroke-width="2.5"/>
+<path d="M 336 562 Q 314 498 284 468 Q 268 508 272 562" fill="none" stroke="#1c1008" stroke-width="2.5"/>
+
+<!-- robe collar + V detail -->
+<path d="M 188 368 Q 214 380 240 377 Q 266 380 292 368 Q 272 396 240 400 Q 208 396 188 368 Z" fill="#1c1008"/>
+<path d="M 218 374 L 240 400 L 262 374" fill="none" stroke="#c43030" stroke-width="0.9"/>
+<!-- kbach collar emblem -->
+<g transform="translate(240,374)" fill="none" stroke="#c43030" stroke-width="0.8" opacity="0.7">
+  <path d="M-10,0 C-7,-4 -3,-4 0,-1 C3,-4 7,-4 10,0"/>
+  <circle cx="0" cy="0" r="2" fill="#c43030" stroke="none" opacity="0.8"/>
+</g>
+
+<!-- neck -->
+<path d="M 216 300 Q 216 330 213 350 L 267 350 Q 264 330 264 300 Z" fill="#b88462"/>
+
+<!-- ── HEAD ── -->
+<ellipse cx="240" cy="252" rx="74" ry="88" fill="url(#faceLight)" filter="url(#faceGlow)"/>
+
+<!-- hair — dark, flowing -->
+<path d="M 168 228 Q 166 172 184 144 Q 206 114 240 108 Q 274 114 296 144 Q 314 172 312 228 Q 302 208 296 188 Q 280 158 240 152 Q 200 158 184 188 Q 178 208 168 228 Z" fill="#100a04"/>
+<path d="M 168 228 Q 160 260 162 292 Q 165 298 172 288 Q 176 268 180 246 Z" fill="#100a04"/>
+<path d="M 312 228 Q 320 260 318 292 Q 315 298 308 288 Q 304 268 300 246 Z" fill="#100a04"/>
+<!-- hair wisps -->
+<path d="M 218 114 Q 234 104 240 108 Q 234 101 226 106 Z" fill="#1c1008"/>
+<path d="M 258 116 Q 248 104 240 108 Q 250 101 260 108 Z" fill="#1c1008"/>
+
+<!-- ── FACE FEATURES ── -->
+<!-- eye shadow depth -->
+<ellipse cx="210" cy="248" rx="18" ry="12" fill="#8c5e32" opacity="0.48"/>
+<ellipse cx="270" cy="248" rx="18" ry="12" fill="#8c5e32" opacity="0.48"/>
+
+<!-- eyes -->
+<ellipse cx="210" cy="248" rx="12" ry="8.5" fill="#1c1008"/>
+<ellipse cx="270" cy="248" rx="12" ry="8.5" fill="#1c1008"/>
+<!-- iris -->
+<circle cx="210" cy="249" r="6" fill="#2e1808"/>
+<circle cx="270" cy="249" r="6" fill="#2e1808"/>
+<!-- pupil -->
+<circle cx="210" cy="249" r="3.2" fill="#080404"/>
+<circle cx="270" cy="249" r="3.2" fill="#080404"/>
+<!-- catchlight -->
+<circle cx="212" cy="247" r="1.4" fill="#ecd8b8" opacity="0.82"/>
+<circle cx="272" cy="247" r="1.4" fill="#ecd8b8" opacity="0.82"/>
+<!-- eyelids -->
+<path d="M 197 244 Q 210 240 223 244" fill="none" stroke="#1c0e06" stroke-width="1.7"/>
+<path d="M 257 244 Q 270 240 283 244" fill="none" stroke="#1c0e06" stroke-width="1.7"/>
+<path d="M 198 252 Q 210 256 222 252" fill="none" stroke="#8c5e32" stroke-width="0.9"/>
+<path d="M 258 252 Q 270 256 282 252" fill="none" stroke="#8c5e32" stroke-width="0.9"/>
+
+<!-- brows — angled, severe -->
+<path d="M 196 232 Q 208 226 226 231" fill="none" stroke="#0e0806" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M 254 231 Q 270 226 284 232" fill="none" stroke="#0e0806" stroke-width="2.8" stroke-linecap="round"/>
+
+<!-- nose -->
+<path d="M 240 256 Q 232 272 228 282 Q 234 286 240 285 Q 246 286 252 282 Q 248 272 240 256 Z" fill="#9e6e42" opacity="0.72"/>
+<path d="M 232 280 Q 240 284 248 280" fill="none" stroke="#7c4e22" stroke-width="1.1"/>
+
+<!-- cheek shadows -->
+<ellipse cx="192" cy="272" rx="24" ry="16" fill="#7c4e22" opacity="0.24"/>
+<ellipse cx="288" cy="272" rx="24" ry="16" fill="#7c4e22" opacity="0.24"/>
+
+<!-- lips -->
+<path d="M 222 296 Q 230 292 240 294 Q 250 292 258 296 Q 250 300 240 302 Q 230 300 222 296 Z" fill="#6e2e1a"/>
+<path d="M 222 296 Q 230 293 240 294 Q 250 293 258 296" fill="none" stroke="#8e3e28" stroke-width="0.9"/>
+<path d="M 232 294 Q 240 291 248 294" fill="none" stroke="#9e5030" stroke-width="0.65" opacity="0.62"/>
+
+<!-- ── HANDS ── -->
+<!-- left arm / hand -->
+<path d="M 144 422 Q 158 400 174 384 Q 188 378 196 390 Q 202 402 194 416 Q 186 426 178 432 Q 168 438 160 430 Q 150 423 144 422 Z" fill="#b88462"/>
+<path d="M 194 390 Q 200 384 205 392" fill="none" stroke="#9e7252" stroke-width="1.6"/>
+<path d="M 191 397 Q 197 390 202 397" fill="none" stroke="#9e7252" stroke-width="1.4"/>
+<path d="M 188 404 Q 194 398 199 404" fill="none" stroke="#9e7252" stroke-width="1.4"/>
+
+<!-- right arm — holding quill pen -->
+<path d="M 336 422 Q 322 400 306 383 Q 292 376 284 387 Q 277 398 286 413 Q 293 424 302 430 Q 312 436 320 430 Q 329 424 336 422 Z" fill="#b88462"/>
+<!-- quill -->
+<path d="M 285 387 Q 308 358 328 322 Q 332 316 335 320 Q 338 325 334 333 Q 318 366 298 394 Z" fill="#eedcb8"/>
+<path d="M 335 320 Q 340 313 337 308 Q 334 312 332 318" fill="#d8c898"/>
+<!-- nib + ember tip -->
+<path d="M 335 320 L 342 306 L 338 304 L 333 319 Z" fill="#c43030"/>
+<circle cx="341" cy="307" r="2" fill="#ff6040" opacity="0.7" filter="url(#glow)"/>
+
+<!-- floating writing runes / glyphs -->
+<g opacity="0.18" fill="none" stroke="#c43030" stroke-width="0.9">
+  <path d="M 364 278 Q 375 272 381 278 Q 387 285 381 293 Q 375 300 366 296 Q 358 290 364 278"/>
+  <path d="M 370 308 Q 386 304 392 313"/>
+  <path d="M 362 326 Q 372 320 378 328 Q 384 336 378 342"/>
+  <path d="M 356 348 Q 371 343 378 352"/>
+  <path d="M 366 368 Q 375 362 380 370"/>
+</g>
+
+<!-- film grain over everything -->
+<rect width="480" height="640" filter="url(#grain)" opacity="0.45"/>
+
+<!-- ── NAME PLATE ── -->
+<rect x="28" y="576" width="424" height="36" fill="#0c0806"/>
+<rect x="28" y="576" width="424" height="1.5" fill="#c43030" opacity="0.9"/>
+<!-- kbach ornament flanking the name -->
+<g transform="translate(240,594)" fill="#c43030" opacity="0.7">
+  <path d="M -60,0 Q -30,-5 0,0 Q 30,5 60,0" fill="none" stroke="#c43030" stroke-width="0.8"/>
+  <circle r="2" fill="#c43030"/>
+  <circle cx="-56" cy="0" r="1.2"/><circle cx="56" cy="0" r="1.2"/>
+</g>
+<text x="240" y="599" font-family="Georgia, serif" font-size="14" letter-spacing="7" fill="#c8b898" text-anchor="middle" font-weight="600">TARHUALA</text>
+<text x="240" y="612" font-family="Georgia, serif" font-size="8" letter-spacing="3.5" fill="#6e4e32" text-anchor="middle">DARK FICTION</text>
+
+<!-- vignette -->
+<radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+  <stop offset="58%" stop-color="transparent"/>
+  <stop offset="100%" stop-color="#030201" stop-opacity="0.74"/>
+</radialGradient>
+<rect width="480" height="640" fill="url(#vignette)"/>
 </svg>

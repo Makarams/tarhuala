@@ -37,8 +37,8 @@
     }
   },
   {
-    "id": "malice-of-the-faithful",
-    "title": "Malice of the Faithful",
+    "id": "marked-by-false-gods",
+    "title": "Marked by False Gods",
     "genre": "Dark Fantasy / Religious Horror",
     "tags": [
       "Eldritch",
@@ -52,7 +52,7 @@
     "theme": "jade",
     "chapterCount": 4,
     "images": {
-      "cover": "/images/covers/malice-of-the-faithful.svg"
+      "cover": "/images/covers/marked-by-false-gods.svg"
     }
   }
 ]

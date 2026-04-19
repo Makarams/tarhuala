@@ -1,6 +1,6 @@
 {
-  "id": "malice-of-the-faithful",
-  "title": "Malice of the Faithful",
+  "id": "marked-by-false-gods",
+  "title": "Marked by False Gods",
   "genre": "Dark Fantasy / Religious Horror",
   "tags": [
     "Eldritch",
@@ -14,7 +14,7 @@
   "theme": "jade",
   "chapterCount": 4,
   "images": {
-    "cover": "/images/covers/malice-of-the-faithful.jpg"
+    "cover": "/images/covers/marked-by-false-gods.svg"
   },
   "chapters": [
     { "number": 1, "title": "The Prophet from the Marsh" },
