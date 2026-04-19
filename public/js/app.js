@@ -1088,52 +1088,53 @@
 
   function classifyToast(text){
     var inner = text.replace(/^\[\s*|\s*\]$/g, '').trim();
-    var v, icon, tag, body = inner;
+    var v, body = inner;
 
     if (/Error\b/i.test(inner)) {
-      v = 'error'; icon = 'ic-warning'; tag = 'Error';
+      v = 'error';
     } else if (/Killed.*Exp|Awarding .* Exp/i.test(inner)) {
-      v = 'kill'; icon = 'ic-sword'; tag = 'Combat';
+      v = 'kill';
     } else if (/Leveling Up|Level ?Up|Player Class|Class Change|Taking Out the/i.test(inner)) {
-      v = 'levelup'; icon = 'ic-chevron-up'; tag = 'Progress';
+      v = 'levelup';
     } else if (/Leveling Exp Reach|Exp Reach/i.test(inner)) {
-      v = 'levelup'; icon = 'ic-chevron-up'; tag = 'Experience';
+      v = 'levelup';
     } else if (/Received? .* Coin|Coins?:/i.test(inner)) {
-      v = 'reward'; icon = 'ic-coin'; tag = 'Reward';
+      v = 'reward';
     } else if (/Receiving .* (Stat|Skill) Point|Stat Points?:|Skill Points?:/i.test(inner)) {
-      v = 'reward'; icon = 'ic-plus'; tag = 'Reward';
+      v = 'reward';
     } else if (/^Receiving:|^Receiv(ed|ing)/i.test(inner) || /Scroll!$/i.test(inner)) {
-      v = 'reward'; icon = 'ic-scroll'; tag = 'Item';
+      v = 'reward';
     } else if (/Allocating/i.test(inner)) {
-      v = 'allocate'; icon = 'ic-plus'; tag = 'Allocate';
+      v = 'allocate';
     } else if (/Auction|Bid|Auctioning/i.test(inner)) {
-      v = 'reward'; icon = 'ic-coin'; tag = 'Auction';
+      v = 'reward';
     } else if (/Kingdom|City|Title.*activated|Honor.*surpass|Glory.*exceed|Pride.*surpass/i.test(inner)) {
-      v = 'levelup'; icon = 'ic-chevron-up'; tag = 'Kingdom';
+      v = 'levelup';
     } else if (/Achievement.*Cleared|Achievement.*Unlocked/i.test(inner)) {
-      v = 'reward'; icon = 'ic-plus'; tag = 'Achievement';
+      v = 'reward';
     } else if (/Transfer of Ownership|Current owner/i.test(inner)) {
-      v = 'meta'; icon = 'ic-diamond-alt'; tag = 'Ownership';
+      v = 'meta';
     } else if (/Dungeon.*Cleared|Dungeon.*Closed|Dungeon:.*Open/i.test(inner)) {
-      v = 'meta'; icon = 'ic-diamond-alt'; tag = 'Dungeon';
+      v = 'meta';
     } else if (/Detected|Opening System|Updating System|System Profile|System Items|Detecting |Initiating|Confirming/i.test(inner)) {
-      v = 'meta'; icon = 'ic-cog'; tag = 'System';
+      v = 'meta';
     } else if (/Requirement|Unlock|Quest|Mission|Title/i.test(inner)) {
-      v = 'meta'; icon = 'ic-diamond-alt'; tag = 'Event';
+      v = 'meta';
     } else {
-      v = 'meta'; icon = 'ic-diamond-alt'; tag = 'System';
+      v = 'meta';
     }
+
+    /* All game notifications come from "The System" — colour-coding via v-* variants
+       provides semantic distinction (red=kill, gold=levelup, jade=reward, etc.). */
+    var tag = (v === 'error') ? 'Error' : 'System';
 
     var decorated = escHtml(body)
       .replace(/(\b\d[\d,]*(?:\/\d[\d,]*)?\b)/g, '<em>$1</em>')
       .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>');
 
     return '<div class="sys-toast v-' + v + '">' +
-             '<span class="sys-toast-icon"><svg><use href="#' + icon + '"/></svg></span>' +
-             '<div class="sys-toast-content">' +
-               '<span class="sys-toast-tag">' + tag + '</span>' +
-               '<span class="sys-toast-text">' + decorated + '</span>' +
-             '</div>' +
+             '<span class="sys-toast-tag">' + tag + '</span>' +
+             '<span class="sys-toast-text">[' + decorated + ']</span>' +
            '</div>';
   }
 
