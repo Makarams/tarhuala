@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="ember">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Novels — Tarhuala</title>
+  <meta name="description" content="Browse all novels by Tarhuala." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    (function(){
+      try{
+        var s=localStorage.getItem('tarhuala-theme');
+        var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+        document.documentElement.setAttribute('data-theme',s||(pd?'dark':'light'));
+      }catch(e){}
+    })();
+  </script>
+
+  <style>
+    .novels-simple-meta{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:14px var(--gutter) 8px;
+      font-family:var(--font-meta);
+      font-size:8px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--text-subtle);
+    }
+
+    .novels-list-empty{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:8px var(--gutter) 40px;
+      color:var(--text-subtle);
+      font-style:italic;
+      display:none;
+    }
+    .novels-list-empty.show{display:block;}
+
+    /* tighter + cleaner card rhythm */
+    .novels-list-wrap{
+      padding-top:6px;
+    }
+
+    @media (max-width:760px){
+      /* keep one-by-one readable mobile */
+      .novel-list-link{
+        grid-template-columns:92px 1fr !important;
+        gap:12px !important;
+        padding:14px 0 !important;
+      }
+      .novel-list-title{
+        font-size:clamp(18px,6vw,24px) !important;
+        line-height:1.1;
+      }
+      .novel-list-desc{
+        font-size:14px !important;
+        line-height:1.6;
+        -webkit-line-clamp:3;
+      }
+      .novel-list-rose{display:none !important;}
+      .novels-simple-meta{
+        padding-top:10px;
+      }
+      .page-hero-rose{display:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-emblem"><svg><use href="#kb-rose"></use></svg></span>
+      <span data-site-name>TARHUALA</span>
+    </a>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="novels.html" class="nav-link active" aria-current="page">Novels</a>
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+
+    <div class="nav-right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+        <span data-theme-icon></span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-hero-bar">
+      <div class="page-hero-inner">
+        <div class="page-hero-rose" aria-hidden="true"><svg><use href="#kb-medallion"></use></svg></div>
+        <div class="eyebrow">Library</div>
+        <h1 class="page-title">All Novels</h1>
+        <p class="page-hero-sub" id="novels-list-sub">Loading…</p>
+      </div>
+    </header>
+
+    <div class="novels-simple-meta" id="novels-simple-meta">—</div>
+
+    <section class="novels-list-wrap" aria-label="Novel directory">
+      <div class="novels-list-inner">
+        <div id="novels-list"></div>
+      </div>
+    </section>
+
+    <div class="novels-list-empty" id="novels-list-empty">No novels available right now.</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span>
+        <span data-site-name>TARHUALA</span> · Dark Fiction
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="novels.html" class="footer-link">Novels</a>
+        <a href="about.html" class="footer-link">About</a>
+      </div>
+
+      <div class="footer-meta">
+        <span class="footer-cw">18+ Mature Content</span><br />
+        &copy; <span id="copy-year"></span>
+        <a href="/analytics.html" id="footer-copy" class="footer-analytics-link" tabindex="-1" aria-hidden="true">Tarhuala</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg><use href="#ic-arrow-up"></use></svg>
+  </button>
+
+  <script src="/js/app.js"></script>
+  <script>
+    (function(){
+      var listEl = document.getElementById('novels-list');
+      var subEl = document.getElementById('novels-list-sub');
+      var metaEl = document.getElementById('novels-simple-meta');
+      var emptyEl = document.getElementById('novels-list-empty');
+
+      function esc(s){
+        return String(s||'')
+          .replace(/&/g,'&amp;')
+          .replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;')
+          .replace(/"/g,'&quot;');
+      }
+
+      function renderNovelItem(n){
+        var cover = (n.images && n.images.cover) || ('/images/covers/' + n.id + '.svg');
+        return ''
+          + '<article class="novel-list-item reveal" data-novel-theme="' + esc(n.theme || 'ember') + '">'
+          + '  <a href="novel.html?id=' + esc(n.id) + '" class="novel-list-link">'
+          + '    <div class="novel-list-cover-wrap">'
+          + '      <img src="' + esc(cover) + '" alt="' + esc(n.title) + '" class="novel-list-cover" loading="lazy" onerror="this.style.opacity=\'.2\'"/>'
+          + '    </div>'
+          + '    <div class="novel-list-body">'
+          + '      <div class="novel-list-genre">' + esc(n.genre || 'Unknown') + '</div>'
+          + '      <h2 class="novel-list-title">' + esc(n.title || n.id) + '</h2>'
+          + '      <p class="novel-list-desc">' + esc(n.description || '') + '</p>'
+          + '      <div class="novel-list-foot">'
+          + (n.status ? ('<span class="pill pill-status">' + esc(n.status) + '</span>') : '')
+          + '        <span class="novel-list-cta">Read <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span></span>'
+          + '      </div>'
+          + '    </div>'
+          + '    <div class="novel-list-rose" aria-hidden="true"><svg><use href="#kb-rose-double"></use></svg></div>'
+          + '  </a>'
+          + '</article>';
+      }
+
+      fetch('/data/novels.json')
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          var novels = Array.isArray(data) ? data : [];
+          subEl.textContent = novels.length + ' Novel' + (novels.length!==1?'s':'') + ' · Tarhuala';
+          metaEl.textContent = novels.length + ' published work' + (novels.length!==1?'s':'');
+
+          if (!novels.length){
+            listEl.innerHTML = '';
+            emptyEl.classList.add('show');
+            return;
+          }
+
+          emptyEl.classList.remove('show');
+          listEl.innerHTML = novels.map(renderNovelItem).join('');
+          if (window._revealRefresh) window._revealRefresh();
+        })
+        .catch(function(){
+          subEl.textContent = 'Failed to load';
+          metaEl.textContent = '0 published works';
+          listEl.innerHTML = '';
+          emptyEl.classList.add('show');
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#111"/>
+  <text x="200" y="280" text-anchor="middle" fill="#444" font-family="serif" font-size="14">PLACEHOLDER</text>
+  <text x="200" y="310" text-anchor="middle" fill="#444" font-family="serif" font-size="11">Replace: public/images/covers/</text>
+  <text x="200" y="330" text-anchor="middle" fill="#444" font-family="serif" font-size="11">mutation-of-the-apocalypse.jpg</text>
+  <text x="200" y="360" text-anchor="middle" fill="#333" font-family="serif" font-size="10">Recommended: 400×600px</text>
+</svg>

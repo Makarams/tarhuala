@@ -1,0 +1,58 @@
+[
+  {
+    "id": "mutation-of-the-apocalypse",
+    "title": "Mutation of the Apocalypse",
+    "genre": "Post-Apocalyptic Dark Fantasy",
+    "tags": [
+      "Apocalypse",
+      "Mutation",
+      "Survival",
+      "Horror"
+    ],
+    "status": "Ongoing",
+    "rating": "Mature",
+    "description": "On the eve of his birthday, a destitute orphan finds solace in celebrating his lone glimmer of hope and happiness. However, his fleeting joy is abruptly shattered by an enigmatic mechanical voice that sends his life spiraling into chaos.<br><br>The source and purpose of this pervasive voice remain unknown as it triggers a cataclysmic event, transforming the world into a nightmarish apocalypse. Streets once bustling with life descend into chaos—cars collide, bodies are flung across bloodstained pavement, and buildings erupt with panicked screams.<br><br>---<br><br>\"HUMANS OF EARTH! INITIATING EARTH MUTATION PROGRAM!\"",
+    "theme": "ember",
+    "chapterCount": 105,
+    "images": {
+      "cover": "/images/covers/mutation-of-the-apocalypse.svg"
+    }
+  },
+  {
+    "id": "monarch-of-depravity",
+    "title": "Monarch of Depravity",
+    "genre": "Dark Fantasy / Psychological Thriller",
+    "tags": [
+      "Cult",
+      "Villain Protagonist",
+      "Psychological"
+    ],
+    "status": "Ongoing",
+    "rating": "Mature",
+    "description": "They called him a monster. They were right. Rising from the gutter of a crumbling empire, a man of unfathomable ambition carves his throne from the bones of those who dared stand in his way. With a mind sharper than any blade and a cruelty that knows no bounds, the self-proclaimed Monarch weaves a web of manipulation, betrayal, and dark power that threatens to consume entire kingdoms.",
+    "theme": "gold",
+    "chapterCount": 5,
+    "images": {
+      "cover": "/images/covers/monarch-of-depravity.svg"
+    }
+  },
+  {
+    "id": "malice-of-the-faithful",
+    "title": "Malice of the Faithful",
+    "genre": "Dark Fantasy / Religious Horror",
+    "tags": [
+      "Eldritch",
+      "Cult",
+      "Body Horror",
+      "Faith"
+    ],
+    "status": "Ongoing",
+    "rating": "Mature",
+    "description": "In a dying kingdom where the crops rot before they ripen and the faithful pray to gods who no longer answer, a silent prophet walks out of the sodden forest with green ichor on his robes and a sermon in his bones. His touch heals the sick. His words convert the desperate. And those who kneel before him find, in the weeks that follow, that something is growing inside them \u2014 something soft, something patient, something that does not belong to the world of men. Sister Vess, once a hunter of heresies for the Crown Church, is sent to unmask him. She will not return the same.",
+    "theme": "jade",
+    "chapterCount": 4,
+    "images": {
+      "cover": "/images/covers/malice-of-the-faithful.svg"
+    }
+  }
+]

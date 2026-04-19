@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="ember">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Analytics — Tarhuala</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    (function(){
+      try{
+        var s=localStorage.getItem('tarhuala-theme');
+        var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+        document.documentElement.setAttribute('data-theme',s||(pd?'dark':'light'));
+      }catch(e){}
+    })();
+  </script>
+
+  <style>
+    .analytics-wrap{max-width:1080px;margin:0 auto;padding:calc(var(--nav-h) + 42px) var(--gutter) 64px}
+    .analytics-header{
+      display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;
+      margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)
+    }
+    .analytics-title{font-family:var(--font-display);font-size:clamp(24px,4vw,34px);line-height:1.05}
+    .analytics-subtitle{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-subtle);margin-top:6px}
+    .analytics-reset-btn{
+      font-family:var(--font-meta);font-size:8px;letter-spacing:2px;text-transform:uppercase;
+      color:var(--text-subtle);background:var(--surface);border:1px solid var(--border);
+      padding:8px 12px;border-radius:6px;transition:all var(--t-fast)
+    }
+    .analytics-reset-btn:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-s)}
+
+    .kpi-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:10px;margin-bottom:14px
+    }
+    .kpi-card{
+      background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 12px;
+      position:relative;overflow:hidden
+    }
+    .kpi-card::before{
+      content:'';position:absolute;left:0;right:0;top:0;height:2px;background:var(--acc);opacity:.75
+    }
+    .kpi-label{
+      font-family:var(--font-meta);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-subtle);margin-bottom:7px
+    }
+    .kpi-value{
+      font-family:var(--font-display);font-size:28px;line-height:1;color:var(--text);font-weight:700
+    }
+    .kpi-sub{font-size:11px;color:var(--text-muted);margin-top:7px;line-height:1.35}
+
+    .insight-strip{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px
+    }
+    .insight-card{
+      border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:12px
+    }
+    .insight-title{
+      font-family:var(--font-meta);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-subtle);margin-bottom:8px
+    }
+    .insight-value{
+      font-family:var(--font-display);font-size:18px;color:var(--text)
+    }
+    .insight-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+    .analytics-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px
+    }
+    .card{
+      background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px
+    }
+    .card-title{
+      font-family:var(--font-meta);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-subtle);margin-bottom:10px
+    }
+
+    .bar-chart{display:flex;flex-direction:column;gap:8px}
+    .bar-row{display:grid;grid-template-columns:170px 1fr 48px;gap:10px;align-items:center}
+    .bar-label{font-size:9px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .bar-track{height:10px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .bar-fill{height:100%;background:linear-gradient(90deg,var(--acc-2),var(--acc));min-width:2px}
+    .bar-count{font-size:11px;color:var(--text-subtle);text-align:right;font-variant-numeric:tabular-nums}
+
+    .sparkline-wrap{height:82px;display:flex;align-items:flex-end;gap:3px}
+    .spark-bar{flex:1;background:var(--acc);opacity:.58;border-radius:2px 2px 0 0;min-height:2px}
+    .spark-bar:hover{opacity:1}
+    .spark-label{font-size:10px;color:var(--text-subtle);margin-top:8px;text-align:center}
+
+    .reads-wrap{margin-top:4px}
+    .reads-table{width:100%;border-collapse:collapse;font-size:12px}
+    .reads-table th{
+      font-family:var(--font-meta);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-subtle);
+      text-align:left;padding:0 0 8px;border-bottom:1px solid var(--border)
+    }
+    .reads-table td{padding:9px 0;border-bottom:1px solid var(--border);color:var(--text-muted)}
+    .reads-table tr:last-child td{border-bottom:none}
+    .rank-num{font-family:var(--font-meta);font-size:9px;color:var(--text-subtle)}
+    .ch-title{color:var(--text)}
+    .novel-badge{
+      display:inline-block;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;
+      padding:2px 6px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-subtle)
+    }
+
+    /* Mobile card list (instead of table) */
+    .reads-mobile{display:none;flex-direction:column;gap:8px}
+    .reads-mobile-item{
+      border:1px solid var(--border);background:var(--surface-2);border-radius:8px;padding:10px
+    }
+    .reads-mobile-top{display:flex;justify-content:space-between;gap:10px}
+    .reads-mobile-title{font-size:12px;color:var(--text);line-height:1.35}
+    .reads-mobile-meta{font-size:10px;color:var(--text-subtle);margin-top:6px;display:flex;justify-content:space-between;gap:8px}
+    .empty-state{color:var(--text-subtle);font-size:13px;font-style:italic;text-align:center;padding:18px 0}
+
+    @media(max-width:920px){
+      .analytics-grid{grid-template-columns:1fr}
+      .insight-strip{grid-template-columns:1fr}
+    }
+    @media(max-width:700px){
+      .analytics-wrap{padding:calc(var(--nav-h) + 36px) var(--gutter) 50px}
+      .kpi-value{font-size:24px}
+      .bar-row{grid-template-columns:96px 1fr 36px;gap:8px}
+      .bar-label{font-size:8px}
+      .card,.kpi-card,.insight-card{padding:12px}
+      .reads-table{display:none}
+      .reads-mobile{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-emblem"><svg><use href="#kb-rose"></use></svg></span>
+      <span data-site-name>TARHUALA</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="novels.html" class="nav-link">Novels</a>
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><span data-theme-icon></span></button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="analytics-wrap">
+    <header class="analytics-header">
+      <div>
+        <h1 class="analytics-title">Analytics</h1>
+        <div class="analytics-subtitle">Local reading data</div>
+      </div>
+      <button class="analytics-reset-btn" id="reset-stats-btn">Reset Data</button>
+    </header>
+
+    <section class="kpi-grid" aria-label="Key metrics">
+      <div class="kpi-card"><div class="kpi-label">Total Visits</div><div class="kpi-value" id="kpi-visits">—</div><div class="kpi-sub">all page loads</div></div>
+      <div class="kpi-card"><div class="kpi-label">Chapters Read</div><div class="kpi-value" id="kpi-reads">—</div><div class="kpi-sub">unique chapter entries</div></div>
+      <div class="kpi-card"><div class="kpi-label">Novels Explored</div><div class="kpi-value" id="kpi-novels-read">—</div><div class="kpi-sub">novels with activity</div></div>
+      <div class="kpi-card"><div class="kpi-label">Library Size</div><div class="kpi-value" id="kpi-total-chapters">—</div><div class="kpi-sub">total chapters</div></div>
+      <div class="kpi-card"><div class="kpi-label">Progress</div><div class="kpi-value" id="kpi-progress">—</div><div class="kpi-sub">library completion</div></div>
+      <div class="kpi-card"><div class="kpi-label">Last Visit</div><div class="kpi-value" style="font-size:18px;padding-top:6px" id="kpi-last-visit">—</div><div class="kpi-sub" id="kpi-last-visit-rel"></div></div>
+    </section>
+
+    <section class="insight-strip" aria-label="Insights">
+      <div class="insight-card">
+        <div class="insight-title">Most Active Day</div>
+        <div class="insight-value" id="ins-active-day">—</div>
+        <div class="insight-sub" id="ins-active-day-sub"></div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-title">Today Visits</div>
+        <div class="insight-value" id="ins-today-visits">—</div>
+        <div class="insight-sub">current day</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-title">30d Average</div>
+        <div class="insight-value" id="ins-avg-visits">—</div>
+        <div class="insight-sub">visits per day</div>
+      </div>
+    </section>
+
+    <section class="analytics-grid">
+      <article class="card">
+        <div class="card-title">Reads per Novel</div>
+        <div class="bar-chart" id="novel-reads-chart"><div class="empty-state">No reading data yet.</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title">Visits (last 30 days)</div>
+        <div class="sparkline-wrap" id="visit-sparkline"></div>
+        <div class="spark-label" id="sparkline-label">—</div>
+      </article>
+    </section>
+
+    <section class="reads-wrap">
+      <article class="card">
+        <div class="card-title">Most Read Chapters</div>
+
+        <table class="reads-table">
+          <thead>
+            <tr><th style="width:30px">#</th><th>Chapter</th><th>Novel</th><th style="text-align:right">Reads</th></tr>
+          </thead>
+          <tbody id="top-chapters-body"><tr><td colspan="4" class="empty-state">No data yet.</td></tr></tbody>
+        </table>
+
+        <div class="reads-mobile" id="top-chapters-mobile"><div class="empty-state">No data yet.</div></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span><span data-site-name>TARHUALA</span> · Dark Fiction</div>
+      <div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="novels.html" class="footer-link">Novels</a><a href="about.html" class="footer-link">About</a></div>
+      <div class="footer-meta"><span class="footer-cw">18+ Mature Content</span><br>&copy; <span id="copy-year"></span> <a href="/analytics.html" id="footer-copy" class="footer-analytics-link" tabindex="-1" aria-hidden="true">Tarhuala</a></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg><use href="#ic-arrow-up"></use></svg></button>
+
+  <script src="/js/app.js"></script>
+  <script>
+    (function(){
+      var STATS_KEY='tarhuala-stats';
+
+      function getStats(){ try{ return JSON.parse(localStorage.getItem(STATS_KEY)||'{}'); }catch(e){ return {}; } }
+      function el(id){ return document.getElementById(id); }
+      function fmt(n){ return (n||0).toLocaleString(); }
+      function relTime(ts){
+        if(!ts) return '';
+        var d=Date.now()-ts,m=Math.floor(d/60000);
+        if(m<1) return 'just now';
+        if(m<60) return m+' min ago';
+        var h=Math.floor(m/60);
+        if(h<24) return h+' hr ago';
+        return Math.floor(h/24)+' day(s) ago';
+      }
+      function renderBar(label,count,max){
+        var pct=max>0?Math.max(2,Math.round((count/max)*100)):2;
+        return '<div class="bar-row"><div class="bar-label" title="'+label+'">'+label+'</div><div class="bar-track"><div class="bar-fill" style="width:'+pct+'%"></div></div><div class="bar-count">'+fmt(count)+'</div></div>';
+      }
+
+      function loadAnalytics(){
+        var s=getStats();
+
+        el('kpi-visits').textContent=fmt(s.visits);
+        el('kpi-reads').textContent=fmt(s.totalReads);
+
+        if(s.lastVisit){
+          var d=new Date(s.lastVisit);
+          el('kpi-last-visit').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+          el('kpi-last-visit-rel').textContent=relTime(s.lastVisit);
+        }
+
+        var reads=s.reads||{}, novelCounts={}, chCounts={};
+        Object.keys(reads).forEach(function(k){
+          var p=k.split(':'), nid=p[0], ch=p[1];
+          novelCounts[nid]=(novelCounts[nid]||0)+(reads[k]||1);
+          if(!chCounts[nid]) chCounts[nid]={};
+          chCounts[nid][ch]=(chCounts[nid][ch]||0)+(reads[k]||1);
+        });
+        el('kpi-novels-read').textContent=fmt(Object.keys(novelCounts).length);
+
+        var hist=s.visitHistory||[];
+        var sparkEl=el('visit-sparkline');
+
+        if(hist.length){
+          var last30 = hist.slice(-30);
+          var mxH=Math.max.apply(null,last30.map(function(d){return d.count||0;}));
+          sparkEl.innerHTML=last30.map(function(d){
+            var h=mxH>0?Math.max(4,Math.round(((d.count||0)/mxH)*74)):4;
+            return '<div class="spark-bar" style="height:'+h+'px" title="'+(d.date||'')+': '+(d.count||0)+' visits"></div>';
+          }).join('');
+          var tot=last30.reduce(function(a,d){return a+(d.count||0);},0);
+          el('sparkline-label').textContent=tot+' visits in last '+Math.min(30,hist.length)+' days';
+
+          var active = last30.slice().sort(function(a,b){return (b.count||0)-(a.count||0);})[0] || {date:'—',count:0};
+          el('ins-active-day').textContent = active.date==='—' ? '—' : new Date(active.date+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+          el('ins-active-day-sub').textContent = fmt(active.count) + ' visits';
+
+          var avg = last30.length ? (tot/last30.length) : 0;
+          el('ins-avg-visits').textContent = avg.toFixed(1);
+
+          var tKey = new Date().toISOString().slice(0,10);
+          var today=last30.find(function(d){return d.date===tKey;});
+          el('ins-today-visits').textContent = fmt(today ? today.count||0 : 0);
+        } else {
+          sparkEl.innerHTML='<div class="empty-state" style="width:100%">No history yet.</div>';
+          el('ins-active-day').textContent='—';
+          el('ins-active-day-sub').textContent='';
+          el('ins-avg-visits').textContent='0.0';
+          el('ins-today-visits').textContent='0';
+        }
+
+        fetch('/data/novels.json')
+          .then(function(r){return r.json();})
+          .then(function(novels){
+            var total=0, chMapAll={}, pending=novels.length;
+
+            novels.forEach(function(n){
+              fetch('/data/'+n.id+'/info.json')
+                .then(function(r){return r.json();})
+                .then(function(info){
+                  var c=info.chapters?info.chapters.length:(info.chapterCount||0);
+                  total+=c;
+                  chMapAll[n.id]={count:c,chapters:info.chapters||[]};
+                })
+                .catch(function(){
+                  total+=n.chapterCount||0;
+                  chMapAll[n.id]={count:n.chapterCount||0,chapters:[]};
+                })
+                .finally(function(){
+                  pending--;
+                  if(pending===0) render(novels,chMapAll,total,novelCounts,chCounts);
+                });
+            });
+
+            if(!novels.length) render([],{},0,{},{});
+          })
+          .catch(function(){});
+      }
+
+      function render(novels,chMapAll,totalChs,novelCounts,chCounts){
+        el('kpi-total-chapters').textContent=fmt(totalChs);
+        var totR=Object.values?Object.values(novelCounts).reduce(function(a,b){return a+b;},0):0;
+        el('kpi-progress').textContent=totalChs>0?Math.round((totR/totalChs)*100)+'%':'0%';
+
+        var nrc=el('novel-reads-chart');
+        var mx=Math.max.apply(null,[0].concat(novels.map(function(n){return novelCounts[n.id]||0;})));
+        nrc.innerHTML=mx>0
+          ? novels.map(function(n){return renderBar(n.title||n.id,novelCounts[n.id]||0,mx);}).join('')
+          : '<div class="empty-state">No reading data yet.</div>';
+
+        var rows=[];
+        novels.forEach(function(n){
+          var nc=chCounts[n.id]||{},inf=chMapAll[n.id]||{},ctm={};
+          (inf.chapters||[]).forEach(function(c){ ctm[c.number]=c.title||('Chapter '+c.number); });
+          Object.keys(nc).forEach(function(ch){
+            rows.push({
+              novel:n.title||n.id,
+              ch:parseInt(ch,10),
+              title:ctm[parseInt(ch,10)]||('Chapter '+ch),
+              reads:nc[ch]||1
+            });
+          });
+        });
+        rows.sort(function(a,b){return b.reads-a.reads||a.ch-b.ch;});
+
+        var tbody=el('top-chapters-body');
+        var mobile=el('top-chapters-mobile');
+
+        if(rows.length){
+          var top = rows.slice(0,20);
+
+          tbody.innerHTML = top.map(function(r,i){
+            return '<tr><td class="rank-num">'+(i+1)+'</td><td class="ch-title">Ch.'+r.ch+' — '+r.title+'</td><td><span class="novel-badge">'+r.novel+'</span></td><td style="text-align:right">'+fmt(r.reads)+'</td></tr>';
+          }).join('');
+
+          mobile.innerHTML = top.map(function(r,i){
+            return ''
+              + '<div class="reads-mobile-item">'
+              + '  <div class="reads-mobile-top">'
+              + '    <div class="reads-mobile-title"><strong>#'+(i+1)+'</strong> Ch.'+r.ch+' — '+r.title+'</div>'
+              + '    <div style="font-size:11px;color:var(--text)">'+fmt(r.reads)+'</div>'
+              + '  </div>'
+              + '  <div class="reads-mobile-meta"><span>'+r.novel+'</span><span>reads</span></div>'
+              + '</div>';
+          }).join('');
+        } else {
+          tbody.innerHTML='<tr><td colspan="4" class="empty-state">Start reading to see data.</td></tr>';
+          mobile.innerHTML='<div class="empty-state">Start reading to see data.</div>';
+        }
+      }
+
+      el('reset-stats-btn').addEventListener('click',function(){
+        if(confirm('Reset all analytics data?')){
+          try{localStorage.removeItem('tarhuala-stats');}catch(e){}
+          location.reload();
+        }
+      });
+
+      loadAnalytics();
+    })();
+  </script>
+</body>
+</html>

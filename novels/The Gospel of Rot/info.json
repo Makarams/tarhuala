@@ -1,0 +1,25 @@
+{
+  "id": "malice-of-the-faithful",
+  "title": "Malice of the Faithful",
+  "genre": "Dark Fantasy / Religious Horror",
+  "tags": [
+    "Eldritch",
+    "Cult",
+    "Body Horror",
+    "Faith"
+  ],
+  "status": "Ongoing",
+  "rating": "Mature",
+  "description": "In a dying kingdom where the crops rot before they ripen and the faithful pray to gods who no longer answer, a silent prophet walks out of the sodden forest with green ichor on his robes and a sermon in his bones. His touch heals the sick. His words convert the desperate. And those who kneel before him find, in the weeks that follow, that something is growing inside them — something soft, something patient, something that does not belong to the world of men. Sister Vess, once a hunter of heresies for the Crown Church, is sent to unmask him. She will not return the same.",
+  "theme": "jade",
+  "chapterCount": 4,
+  "images": {
+    "cover": "/images/covers/malice-of-the-faithful.jpg"
+  },
+  "chapters": [
+    { "number": 1, "title": "The Prophet from the Marsh" },
+    { "number": 2, "title": "Sister Vess" },
+    { "number": 3, "title": "The First Sermon" },
+    { "number": 4, "title": "What Grows in the Dark" }
+  ]
+}
