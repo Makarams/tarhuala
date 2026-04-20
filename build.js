@@ -26,7 +26,7 @@ function parseChapter(filename) {
   return { number:parseInt(m[1],10), title:m[2].replace(/_/g," "), filename };
 }
 function findImage(dir, baseName) {
-  for (const ext of [".jpg",".jpeg",".png",".webp",".avif"]) {
+  for (const ext of [".jpg",".jpeg",".png",".webp",".avif",".svg"]) {
     const p = path.join(dir, baseName+ext);
     if (fs.existsSync(p)) return { path:p, ext };
   }
@@ -1245,6 +1245,14 @@ ${footerHtml()}
 // ── MAIN ──────────────────────────────────────────────────
 async function build() {
   console.log("\n  Building...\n");
+
+  // Always regenerate SVG assets first (covers, banners, author image)
+  try {
+    require("./generate-svgs.js");
+    console.log("  ✓ SVGs generated");
+  } catch(e) {
+    console.log("  ✗ SVG generation skipped:", e.message);
+  }
 
   const sitePath = path.join(ROOT,"site.json");
   let site = {author:"Tarhuala",tagline:"",bio:"",url:"",seo:{}};
