@@ -1,85 +1,266 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-accent="ember">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Chapter &#x2014; Tarhuala</title>
-<meta name="description" content="Read online."/>
-<meta name="robots" content="index, follow"/>
-<meta property="og:title" content="Chapter &#x2014; Tarhuala"/>
-<meta property="og:description" content="Read online."/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="/images/og-cover.jpg"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/css/style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Chapter — Tarhuala | Dark Fantasy &amp; Horror Web Fiction</title>
+  <meta name="description" content="Read dark fantasy, horror and apocalyptic web novel chapters by Tarhuala. Free online fiction — updated daily." />
+  <meta name="keywords" content="Tarhuala, dark fantasy chapter, read online free, web novel chapter, horror fiction, apocalyptic fiction" />
+  <meta name="author" content="Tarhuala" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:site_name" content="Tarhuala" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://tarhuala.com/images/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://tarhuala.com/images/og-cover.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    (function(){
+      try{
+        var s=localStorage.getItem('tarhuala-theme');
+        var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+        document.documentElement.setAttribute('data-theme',s||(pd?'dark':'light'));
+      }catch(e){}
+    })();
+  </script>
+
+  <style>
+    .reader-settings-panel{
+      border-radius:8px;
+    }
+
+    .reader-breadcrumb{
+      row-gap:8px;
+    }
+
+    .reader-breadcrumb .rsp-toggle{
+      margin-left:auto;
+    }
+
+    .chapter-ornament .kb-rose{
+      width:28px;height:28px;color:var(--acc);opacity:.5;
+    }
+
+    /* chapter nav icon labels */
+    .chapter-nav-icon{
+      display:none;
+      font-size:16px;
+      line-height:1;
+    }
+    .chapter-nav-text{
+      display:inline;
+    }
+
+    /* Better phone reading UX */
+    @media (max-width:760px){
+      .reader-settings-panel{
+        left:var(--gutter);
+        right:var(--gutter);
+        top:calc(var(--nav-h) + 8px);
+        min-width:0;
+      }
+
+      .reader-breadcrumb{
+        padding:10px var(--gutter);
+        font-size:8px;
+        letter-spacing:1.4px;
+      }
+
+      .reader-breadcrumb .rsp-toggle{
+        width:100%;
+        justify-content:center;
+        margin-left:0;
+        padding:8px 10px;
+      }
+
+      .chapter-header{
+        padding:34px var(--gutter) 18px;
+      }
+
+      .chapter-num-label{
+        margin-bottom:10px;
+      }
+
+      .chapter-title{
+        font-size:clamp(24px,8vw,34px);
+        line-height:1.1;
+      }
+
+      .chapter-ornament{
+        margin-top:14px;
+      }
+
+      .chapter-ornament .kb-rose{
+        width:22px;height:22px;
+        opacity:.42;
+      }
+
+      .chapter-body{
+        font-size:clamp(17px,4.3vw,19px) !important;
+        line-height:1.9;
+        padding-bottom:34px;
+      }
+
+      .chapter-end-footer{
+        padding:20px var(--gutter) 26px;
+      }
+
+      .chapter-end-emblem{
+        width:42px;height:42px;opacity:.18;
+      }
+
+      /* icon-only compact nav on phone */
+      .chapter-nav{
+        grid-template-columns:1fr 1fr 1fr !important;
+        gap:8px;
+        padding:0 var(--gutter) 38px;
+      }
+
+      .chapter-nav .btn{
+        min-height:44px;
+        padding:10px 8px;
+        justify-content:center !important;
+      }
+
+      .chapter-nav-text{
+        display:none !important;
+      }
+
+      .chapter-nav-icon{
+        display:inline-block !important;
+      }
+
+      .chapter-nav-index{
+        font-size:0; /* hide text spacing */
+      }
+      .chapter-nav-index .chapter-nav-icon{
+        font-size:17px;
+      }
+    }
+
+    @media (max-width:420px){
+      .chapter-body{
+        line-height:1.85;
+      }
+      .chapter-nav .btn{
+        min-height:42px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="noise-overlay" aria-hidden="true"></div>
-<nav class="site-nav" id="site-nav">
-  <a href="index.html" class="nav-brand">
-    <div class="nav-emblem"></div>
-    <span id="site-name">TARHUALA</span>
-  </a>
-  <div class="nav-links">
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-emblem"><svg><use href="#kb-rose"></use></svg></span>
+      <span data-site-name>TARHUALA</span>
+    </a>
+
+    <div class="nav-links" id="nav-links">
       <a href="index.html" class="nav-link">Home</a>
       <a href="novels.html" class="nav-link">Novels</a>
       <a href="about.html" class="nav-link">About</a>
-  </div>
-  <div class="nav-right">
-    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
-      <span class="theme-icon">&#x25D1;</span>
-    </button>
-  </div>
-</nav>
-<div class="reader-settings-panel" id="reader-settings-panel" hidden>
-  <label class="rsp-label">Font Size</label>
-  <div class="rsp-size-controls">
-    <button class="rsp-btn" id="font-smaller">A&#x2212;</button>
-    <span class="rsp-size-val" id="font-size-val">18px</span>
-    <button class="rsp-btn" id="font-larger">A+</button>
-  </div>
-</div>
-<main class="reader-main" id="reader-main">
-  <nav class="reader-breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span>/</span>
-    <a href="#" id="breadcrumb-novel-link">Novel</a>
-    <span>/</span>
-    <span id="breadcrumb-chapter">Chapter</span>
-    <button id="reader-settings-btn" class="btn btn-ghost" style="margin-left:auto;padding:6px 14px">&#x2699; Settings</button>
-  </nav>
-  <header class="chapter-header">
-    <div class="chapter-num-label" id="chapter-num-label">Chapter &#x2014;</div>
-    <h1 class="chapter-title" id="chapter-title">Loading&#x2026;</h1>
-    <div class="chapter-ornament" aria-hidden="true">
-      <span>&#x2014;</span><span class="ornament-glyph">&#x2E38;</span><span>&#x2014;</span>
     </div>
-  </header>
-  <article class="chapter-body" id="chapter-body">
-    <p class="chapter-loading">Loading chapter&#x2026;</p>
-  </article>
-  <nav class="chapter-nav" aria-label="Chapter navigation">
-    <a href="#" class="btn btn-ghost chapter-nav-prev" id="nav-prev">&#x2190; Previous</a>
-    <a href="#" class="btn btn-outline chapter-nav-index" id="nav-index">Chapter List</a>
-    <a href="#" class="btn btn-ghost chapter-nav-next" id="nav-next">Next &#x2192;</a>
+
+    <div class="nav-right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+        <span data-theme-icon></span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
-</main>
-<footer class="site-footer">
-  <div class="footer-brand">
-    <span id="footer-name">TARHUALA</span> &middot; Dark Fiction
+
+  <div class="reader-settings-panel" id="reader-settings-panel" data-open="false" aria-hidden="true">
+    <div class="rsp-label">Font Size</div>
+    <div class="rsp-size-controls">
+      <button class="rsp-btn" id="font-smaller" aria-label="Decrease font size">A−</button>
+      <span class="rsp-size-val" id="font-size-val">18px</span>
+      <button class="rsp-btn" id="font-larger" aria-label="Increase font size">A+</button>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html" class="footer-link">Home</a>
-    <a href="novels.html" class="footer-link">Novels</a>
-    <a href="about.html" class="footer-link">About</a>
-  </div>
-  <span class="footer-cw">18+ MATURE CONTENT</span>
-  <div class="footer-copy">&copy; <span id="copy-year"></span> <span id="footer-copy">Tarhuala</span></div>
-</footer>
-<button class="back-to-top" id="back-to-top" hidden aria-label="Back to top">&#x2191;</button>
-<script src="/js/app.js"></script>
+
+  <main class="reader-main" id="reader-main">
+    <nav class="reader-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="rbc-sep" aria-hidden="true">/</span>
+      <a href="#" id="breadcrumb-novel-link">Novel</a>
+      <span class="rbc-sep" aria-hidden="true">/</span>
+      <span id="breadcrumb-chapter">Chapter</span>
+
+      <button id="reader-settings-btn" class="rsp-toggle btn btn-ghost" aria-controls="reader-settings-panel" aria-expanded="false">
+        &#x2699; Settings
+      </button>
+    </nav>
+
+    <header class="chapter-header">
+      <div class="chapter-num-label" id="chapter-num-label">Chapter —</div>
+      <h1 class="chapter-title" id="chapter-title">Loading…</h1>
+      <div class="chapter-ornament" aria-hidden="true">
+        <span class="kb-rose"><svg><use href="#kb-rose-6"></use></svg></span>
+      </div>
+    </header>
+
+    <article class="chapter-body" id="chapter-body" aria-live="polite">
+      <p class="chapter-loading">Loading chapter…</p>
+    </article>
+
+    <footer class="chapter-end-footer" aria-hidden="true">
+      <span class="chapter-end-emblem"><svg><use href="#kb-rose-8"></use></svg></span>
+    </footer>
+
+    <nav class="chapter-nav" aria-label="Chapter navigation">
+      <a href="#" class="btn btn-ghost chapter-nav-prev" id="nav-prev" aria-label="Previous chapter">
+        <span class="chapter-nav-text">← Previous</span>
+        <span class="chapter-nav-icon" aria-hidden="true">←</span>
+      </a>
+
+      <a href="#" class="btn btn-ghost chapter-nav-index" id="nav-index" aria-label="Chapter list">
+        <span class="chapter-nav-text">Chapter List</span>
+        <span class="chapter-nav-icon" aria-hidden="true">☰</span>
+      </a>
+
+      <a href="#" class="btn btn-ghost chapter-nav-next" id="nav-next" aria-label="Next chapter">
+        <span class="chapter-nav-text">Next →</span>
+        <span class="chapter-nav-icon" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span>
+        <span data-site-name>TARHUALA</span> · Dark Fiction
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="novels.html" class="footer-link">Novels</a>
+        <a href="about.html" class="footer-link">About</a>
+      </div>
+
+      <div class="footer-meta">
+        <span class="footer-cw">18+ Mature Content</span><br />
+        &copy; <span id="copy-year"></span>
+        <a href="/analytics.html" id="footer-copy" class="footer-analytics-link" tabindex="-1" aria-hidden="true">Tarhuala</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg><use href="#ic-arrow-up"></use></svg>
+  </button>
+
+  <script src="/js/app.js"></script>
 </body>
 </html>
