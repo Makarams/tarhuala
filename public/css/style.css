@@ -13,11 +13,11 @@
   --surface:     #141814;
   --surface-2:   #1a1f1a;
   --surface-3:   #222822;
-  --border:      #2a3328;
-  --border-strong:#3a4838;
+  --border:      #3e5038;
+  --border-strong:#527048;
   --text:        #e8ead6;
-  --text-muted:  #9aaa88;
-  --text-subtle: #5a6852;
+  --text-muted:  #a8b896;
+  --text-subtle: #8a9a78;
   --stone:       #7a8a68;
   --groove:      #0c100c;
   --overlay-rgb: 8,11,8;
@@ -77,11 +77,11 @@
   --surface:     #fdfcf6;
   --surface-2:   #f0ece0;
   --surface-3:   #e6e0d0;
-  --border:      #c4c0aa;
-  --border-strong:#9e9a84;
+  --border:      #b0ac96;
+  --border-strong:#7e7a64;
   --text:        #0e1209;
-  --text-muted:  #2a3020;
-  --text-subtle: #58604a;
+  --text-muted:  #1e2818;
+  --text-subtle: #414834;
   --stone:       #80886a;
   --groove:      #e6e0d0;
   --overlay-rgb: 245,242,232;
@@ -251,7 +251,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
 .nav-toggle.is-open span:nth-child(2){opacity:0}
 .nav-toggle.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-[data-theme="light"] .site-nav{background:rgba(240,237,228,.92);border-bottom-color:var(--border)}
+[data-theme="light"] .site-nav{background:rgba(253,252,246,.96);border-bottom-color:var(--border-strong);box-shadow:0 1px 0 var(--border-strong),0 2px 12px rgba(0,0,0,.07)}
 
 @media(max-width:480px){
   .novels-grid{grid-template-columns:1fr;gap:12px}
@@ -968,7 +968,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
 }
 .chapter-ornament{
   display:flex;justify-content:center;margin-top:28px;
-  color:var(--acc);opacity:.4;
+  color:var(--acc);opacity:.72;
 }
 .chapter-ornament svg{width:28px;height:28px}
 
@@ -1204,7 +1204,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
   display:flex;justify-content:center;
 }
 .chapter-end-emblem{
-  width:56px;height:56px;color:var(--acc);opacity:.25;
+  width:56px;height:56px;color:var(--acc);opacity:.45;
   display:flex;align-items:center;justify-content:center;
 }
 .chapter-end-emblem svg{width:100%;height:100%}
@@ -2339,7 +2339,7 @@ html, body{
   transform: translateY(-50%);
   width: 600px; height: 600px;
   color: var(--acc-indigo);
-  opacity: 0.04;
+  opacity: 0.15;
   pointer-events: none;
   z-index: 1;
 }
@@ -2490,3 +2490,15 @@ html, body{
 
 [data-theme="light"] .rarity-divine,
 [data-theme="light"] .r-divine    { color:#7a6010; border-color:#7a6010 }
+
+/* ── Dark mode: footer stands out from void bg ── */
+[data-theme="dark"] .site-footer{background:var(--surface);border-top-color:var(--border-strong)}
+
+/* ── Both modes: kbach kb-corner ornaments more visible ── */
+.kb-corner{opacity:.8}
+[data-theme="light"] .kb-corner{opacity:.9}
+
+/* ── Dark mode: responsive featured-hero-ornament opacity ── */
+@media(max-width:900px){
+  [data-theme="dark"] .featured-hero-ornament{opacity:.12}
+}
