@@ -598,7 +598,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:.02em
 .novel-card-snippet{
   font-size:14px;color:var(--text-muted);
   line-height:1.65;margin-bottom:12px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
 }
 .novel-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
 .novel-card-foot{
@@ -1473,9 +1473,9 @@ a.footer-analytics-link:hover{color:inherit}
 [data-theme="light"] .sort-btn.active{background:var(--acc);color:#fff;border-color:var(--acc)}
 [data-theme="light"] .reader-main{background:var(--bg)}
 [data-theme="light"] .chapter-body{color:var(--text)}
-[data-theme="light"] .sys-toast{background:var(--surface-2);box-shadow:none}
-[data-theme="light"] .status-screen{background:var(--surface-2);border-color:var(--border-strong);box-shadow:none}
-[data-theme="light"] .status-screen::after,[data-theme="light"] .status-screen::before{opacity:.3}
+[data-theme="light"] .sys-toast{background:var(--surface);box-shadow:0 2px 10px rgba(0,0,0,.09),0 0 0 1px var(--border)}
+[data-theme="light"] .status-screen{background:var(--surface);border-color:var(--border-strong);box-shadow:0 2px 14px rgba(0,0,0,.1)}
+[data-theme="light"] .status-screen::after,[data-theme="light"] .status-screen::before{opacity:.5}
 /* Light mode: chapter list items */
 [data-theme="light"] .ch-link{color:var(--text-muted)}
 [data-theme="light"] .ch-link:hover{background:var(--surface-2);color:var(--text)}
@@ -1541,8 +1541,9 @@ a.footer-analytics-link:hover{color:inherit}
 [data-theme="dark"] .novel-card-body{background:var(--surface)}
 [data-theme="dark"] .novel-chapters-section{background:var(--bg-raised)}
 [data-theme="dark"] .chapter-body{color:var(--text)}
-[data-theme="dark"] .sys-toast{background:var(--surface)}
-[data-theme="dark"] .status-screen{background:var(--surface-2)}
+[data-theme="dark"] .sys-toast{background:var(--surface-3);box-shadow:-3px 0 14px -3px var(--acc-s),0 0 0 1px rgba(255,255,255,.03)}
+[data-theme="dark"] .status-screen{background:var(--surface-3);border-color:var(--border-strong)}
+[data-theme="dark"] .status-screen-label{color:var(--text-muted)}
 
 /* ─────────────────────────────────────────────────────────────────────
    21. MOTION — accessibility
@@ -1862,7 +1863,7 @@ html, body { overflow-x: clip; max-width:100%; }
   }
 
   .novel-card-snippet{
-    -webkit-line-clamp:3;
+    -webkit-line-clamp:5;
     overflow-wrap:anywhere;
   }
 }
@@ -2194,7 +2195,7 @@ html, body{
   font-size: 13px; color: var(--text-muted);
   line-height: 1.65; font-style: italic;
   margin-bottom: 14px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 3em;
 }

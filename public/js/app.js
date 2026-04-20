@@ -713,7 +713,7 @@
           '<div class="novel-card-body">' +
             '<div class="novel-card-genre">' + escHtml(n.genre || '') + '</div>' +
             '<div class="novel-card-latest" id="latest-ch-' + escHtml(n.id) + '">Loading…</div>' +
-            '<p class="novel-card-snippet" id="snippet-' + escHtml(n.id) + '"></p>' +
+            '<div class="novel-card-snippet" id="snippet-' + escHtml(n.id) + '"></div>' +
             '<div class="novel-card-tags">' + tags + '</div>' +
             '<div class="novel-card-foot">' +
               '<span class="novel-chcount" id="chcount-' + escHtml(n.id) + '">' +
