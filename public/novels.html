@@ -27,7 +27,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/css-additions.css"/>
 
   <script>
     (function(){
@@ -116,29 +115,14 @@
   </nav>
 
   <main>
-
-    <!-- ═══ NOVELS HERO — banner as full-bleed background ══════════════ -->
-    <section class="novels-hero">
-      <!-- full-bleed banner image as bg -->
-      <div class="novels-hero-bg" aria-hidden="true">
-        <img src="/images/banners/hero-banner.svg" alt="" loading="eager" decoding="async" onerror="this.style.display='none'"/>
+    <header class="page-hero-bar">
+      <div class="page-hero-inner">
+        <div class="page-hero-rose" aria-hidden="true"><svg><use href="#kb-medallion"></use></svg></div>
+        <div class="eyebrow">Library</div>
+        <h1 class="page-title">All Novels</h1>
+        <p class="page-hero-sub" id="novels-list-sub">Loading…</p>
       </div>
-
-      <!-- large spinning ornament -->
-      <div class="novels-hero-rose" aria-hidden="true">
-        <svg><use href="#kb-medallion"></use></svg>
-      </div>
-
-      <!-- foreground content -->
-      <div class="novels-hero-content">
-        <div class="eyebrow novels-hero-eyebrow">Library</div>
-        <!-- <h1 class="novels-hero-title">All Novels</h1> -->
-        <p class="novels-hero-sub" id="novels-list-sub">Loading…</p>
-      </div>
-
-      <!-- bottom fade into page -->
-      <div class="novels-hero-fade" aria-hidden="true"></div>
-    </section>
+    </header>
 
     <div class="novels-simple-meta" id="novels-simple-meta">—</div>
 

@@ -14,8 +14,7 @@
   "theme": "gold",
   "chapterCount": 5,
   "images": {
-    "cover": "/images/covers/monarch-of-depravity.svg",
-    "banner": "/images/banners/monarch-of-depravity-banner.svg"
+    "cover": "/images/covers/monarch-of-depravity.svg"
   },
   "chapters": [
     {
