@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20260420" />
 
   <script>
     (function(){
@@ -160,80 +160,6 @@
     <svg><use href="#ic-arrow-up"></use></svg>
   </button>
 
-  <script src="/js/app.js"></script>
-  <script>
-    (function(){
-      var listEl = document.getElementById('novels-list');
-      var subEl = document.getElementById('novels-list-sub');
-      var metaEl = document.getElementById('novels-simple-meta');
-      var emptyEl = document.getElementById('novels-list-empty');
-
-      function esc(s){
-        return String(s||'')
-          .replace(/&/g,'&amp;')
-          .replace(/</g,'&lt;')
-          .replace(/>/g,'&gt;')
-          .replace(/"/g,'&quot;');
-      }
-
-      function renderDesc(raw){
-        if (!raw) return '';
-        return raw.split(/\n\n+/).map(function(p){
-          var trimmed = p.trim();
-          if (!trimmed) return '';
-          var escaped = trimmed
-            .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
-            .replace(/\n/g,'<br>');
-          return '<p class="novel-list-desc-p">' + escaped + '</p>';
-        }).filter(Boolean).join('');
-      }
-
-      function renderNovelItem(n){
-        var cover = (n.images && n.images.cover) || ('/images/covers/' + n.id + '.svg');
-        return ''
-          + '<article class="novel-list-item reveal" data-novel-theme="' + esc(n.theme || 'ember') + '">'
-          + '  <a href="novel.html?id=' + esc(n.id) + '" class="novel-list-link">'
-          + '    <div class="novel-list-cover-wrap">'
-          + '      <img src="' + esc(cover) + '" alt="' + esc(n.title) + '" class="novel-list-cover" loading="lazy" onerror="this.style.opacity='.2'"/>'
-          + '    </div>'
-          + '    <div class="novel-list-body">'
-          + '      <div class="novel-list-genre">' + esc(n.genre || 'Unknown') + '</div>'
-          + '      <h2 class="novel-list-title">' + esc(n.title || n.id) + '</h2>'
-          + '      <div class="novel-list-desc">' + renderDesc(n.description || '') + '</div>'
-          + '      <div class="novel-list-foot">'
-          + (n.status ? ('<span class="pill pill-status">' + esc(n.status) + '</span>') : '')
-          + '        <span class="novel-list-cta">Read <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span></span>'
-          + '      </div>'
-          + '    </div>'
-          + '    <div class="novel-list-rose" aria-hidden="true"><svg><use href="#kb-rose-double"></use></svg></div>'
-          + '  </a>'
-          + '</article>';
-      }
-
-      fetch('/data/novels.json')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-          var novels = Array.isArray(data) ? data : [];
-          subEl.textContent = novels.length + ' Novel' + (novels.length!==1?'s':'') + ' · Tarhuala';
-          metaEl.textContent = novels.length + ' published work' + (novels.length!==1?'s':'');
-
-          if (!novels.length){
-            listEl.innerHTML = '';
-            emptyEl.classList.add('show');
-            return;
-          }
-
-          emptyEl.classList.remove('show');
-          listEl.innerHTML = novels.map(renderNovelItem).join('');
-          if (window._revealRefresh) window._revealRefresh();
-        })
-        .catch(function(){
-          subEl.textContent = 'Failed to load';
-          metaEl.textContent = '0 published works';
-          listEl.innerHTML = '';
-          emptyEl.classList.add('show');
-        });
-    })();
-  </script>
+  <script src="/js/app.js?v=20260420"></script>
 </body>
 </html>

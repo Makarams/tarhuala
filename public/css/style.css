@@ -2365,3 +2365,110 @@ html, body{
 @media (max-width: 480px) {
   .home-hero-stats { gap: 16px 24px; }
 }
+
+/* ── WORLD BANNER SECTION ─────────────────────────────────────────── */
+.world-banner-section {
+  padding: 0 var(--gutter) 0;
+  border-top: 1px solid var(--border);
+}
+
+.world-banner-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* The framed image block */
+.world-banner-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  /* Subtle border that works in both themes */
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 32px 80px rgba(0,0,0,.55);
+}
+
+.world-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Dark mode: show at full richness */
+  filter: brightness(0.92) saturate(1.05);
+  transition: filter 0.4s ease, transform 0.6s ease;
+}
+
+.world-banner-frame:hover .world-banner-img {
+  transform: scale(1.012);
+  filter: brightness(1) saturate(1.1);
+}
+
+/* Light mode: the SVG has a pitch-black bg — desaturate + brighten slightly
+   so it reads as intentionally cinematic rather than a black box */
+[data-theme="light"] .world-banner-img {
+  filter: brightness(0.78) saturate(0.7) contrast(1.1);
+}
+
+/* Gradient overlay — fades bottom edge into page bg */
+.world-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      transparent 60%,
+      var(--bg) 100%),
+    linear-gradient(to right,
+      var(--bg) 0%,
+      transparent 8%,
+      transparent 92%,
+      var(--bg) 100%);
+  pointer-events: none;
+}
+
+/* Caption sits below the image, flush left */
+.world-banner-caption {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 28px 4px 0;
+  border-top: 1px solid var(--border);
+  margin-top: -1px; /* overlap the frame bottom edge */
+}
+
+.world-banner-eyebrow {
+  flex-shrink: 0;
+  color: var(--acc-ember);
+}
+
+.world-banner-text {
+  flex: 1;
+  min-width: 220px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-subtle);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.world-banner-cta {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .world-banner-inner { padding: 56px 0 56px; }
+  .world-banner-caption { gap: 16px; padding-top: 20px; }
+  .world-banner-cta { margin-left: 0; }
+  .world-banner-text { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  .world-banner-inner { padding: 40px 0 40px; }
+  .world-banner-section { padding: 0 var(--gutter); }
+}

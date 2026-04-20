@@ -500,6 +500,7 @@
     if (qs('novel-hero'))        loadNovelDetail();
     if (qs('chapter-body'))      loadChapter();
     if (qs('chapters-full-list') && !qs('novel-hero')) loadChaptersPage();
+    if (qs('about-novels'))      loadAboutNovels();
   }
 
   /* ------------------------------------------------------------------
@@ -700,7 +701,7 @@
       '<article class="novel-card reveal" data-novel-theme="' + escHtml(theme) + '">' +
         '<a href="novel.html?id=' + escHtml(n.id) + '" class="novel-card-link">' +
           '<div class="novel-card-cover">' +
-            '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="novel-cover-img" loading="lazy" onerror="this.style.opacity=.2"/>' +
+            '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="novel-cover-img" loading="lazy" onerror="this.style.opacity=0.2"/>' +
             '<div class="novel-card-badges">' +
               (n.status ? '<span class="pill pill-status">' + escHtml(n.status) + '</span>' : '') +
               (n.rating ? '<span class="pill pill-rating">' + escHtml(n.rating) + '</span>' : '') +
@@ -731,31 +732,48 @@
   function loadNovelsList(){
     var list = qs('novels-list');
     var subLabel = qs('novels-list-sub');
+    var metaEl  = qs('novels-simple-meta');
+    var emptyEl = qs('novels-list-empty');
     fetch('/data/novels.json')
       .then(function(r){ return r.json(); })
       .then(function(novels){
-        list.innerHTML = novels.map(renderNovelListItem).join('');
-        if (subLabel){
-          subLabel.textContent = novels.length + ' Novel' + (novels.length !== 1 ? 's' : '') + ' · Tarhuala';
+        novels = Array.isArray(novels) ? novels : [];
+        if (subLabel) subLabel.textContent = novels.length + ' Novel' + (novels.length !== 1 ? 's' : '') + ' · Tarhuala';
+        if (metaEl)   metaEl.textContent   = novels.length + ' published work' + (novels.length !== 1 ? 's' : '');
+        if (!novels.length){
+          list.innerHTML = '';
+          if (emptyEl) emptyEl.classList.add('show');
+          return;
         }
+        if (emptyEl) emptyEl.classList.remove('show');
+        list.innerHTML = novels.map(renderNovelListItem).join('');
         if (window._revealRefresh) window._revealRefresh();
       })
-      .catch(function(){});
+      .catch(function(){
+        if (subLabel) subLabel.textContent = 'Failed to load';
+        if (metaEl)   metaEl.textContent   = '0 published works';
+        if (emptyEl)  emptyEl.classList.add('show');
+      });
   }
 
   function renderNovelListItem(n){
     var theme = n.theme || 'ember';
     var cover = (n.images && n.images.cover) || '/images/covers/' + n.id + '.svg';
+    var descHtml = (n.description || '').split(/\n\n+/).map(function(p){
+      var trimmed = p.trim();
+      if (!trimmed) return '';
+      return '<p class="novel-list-desc-p">' + escHtml(trimmed).replace(/\n/g, '<br>') + '</p>';
+    }).filter(Boolean).join('');
     return '' +
       '<article class="novel-list-item reveal" data-novel-theme="' + escHtml(theme) + '">' +
         '<a href="novel.html?id=' + escHtml(n.id) + '" class="novel-list-link">' +
           '<div class="novel-list-cover-wrap">' +
-            '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="novel-list-cover" loading="lazy" onerror="this.style.display=\'none\'"/>' +
+            '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="novel-list-cover" loading="lazy" onerror="this.style.opacity=\'0.2\'"/>' +
           '</div>' +
           '<div class="novel-list-body">' +
             '<div class="novel-list-genre">' + escHtml(n.genre || '') + '</div>' +
             '<h2 class="novel-list-title">' + escHtml(n.title) + '</h2>' +
-            '<p class="novel-list-desc">' + escHtml(n.description || '') + '</p>' +
+            '<div class="novel-list-desc">' + descHtml + '</div>' +
             '<div class="novel-list-foot">' +
               (n.status ? '<span class="pill pill-status">' + escHtml(n.status) + '</span>' : '') +
               '<span class="novel-list-cta">Read ' + roseIcon('11px') + '</span>' +
@@ -788,13 +806,10 @@
         if (descEl) {
           var descText = info.description || '';
           var paras = descText.split(/\n\n+/);
-          if (paras.length > 1) {
-            descEl.innerHTML = paras.map(function(p){
-              return '<p>' + escHtml(p.trim()).replace(/\n/g,'<br>') + '</p>';
-            }).filter(function(p){ return p !== '<p></p>'; }).join('');
-          } else {
-            descEl.textContent = descText;
-          }
+          descEl.innerHTML = paras.map(function(p){
+            var t = p.trim();
+            return t ? '<p>' + escHtml(t).replace(/\n/g,'<br>') + '</p>' : '';
+          }).filter(Boolean).join('');
         }
         set('novel-status', info.status);
         set('novel-rating', info.rating);
@@ -1611,19 +1626,27 @@
      ------------------------------------------------------------------ */
   function loadAboutNovels(){
     var wrap = qs('about-novels');
+    if (!wrap) return;
     fetch('/data/novels.json')
       .then(function(r){ return r.json(); })
       .then(function(novels){
+        if (!Array.isArray(novels) || !novels.length){ wrap.innerHTML = ''; return; }
         wrap.innerHTML = novels.map(function(n){
           var cover = (n.images && n.images.cover) || '/images/covers/' + n.id + '.svg';
           var tags = (n.tags || []).slice(0,3).map(function(t){ return '<span class="tag">' + escHtml(t) + '</span>'; }).join('');
           return '' +
             '<div class="about-novel-row reveal" data-novel-theme="' + escHtml(n.theme || 'ember') + '">' +
-              '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="about-novel-cover" loading="lazy" onerror="this.style.opacity=\'.2\'"/>' +
+              '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="about-novel-cover" loading="lazy" onerror="this.style.opacity=\'0.2\'"/>' +
               '<div class="about-novel-info">' +
                 '<div class="about-novel-genre">' + escHtml(n.genre || '') + '</div>' +
                 '<h3 class="about-novel-title">' + escHtml(n.title) + '</h3>' +
-                '<p class="about-novel-desc">' + escHtml(n.description || '') + '</p>' +
+                (function(){
+                  var d = n.description || '';
+                  return d.split(/\n\n+/).map(function(p){
+                    var t = p.trim();
+                    return t ? '<p class="about-novel-desc">' + escHtml(t).replace(/\n/g,'<br>') + '</p>' : '';
+                  }).filter(Boolean).join('');
+                })() +
                 (tags ? '<div class="novel-hero-tags" style="margin-top:12px">' + tags + '</div>' : '') +
               '</div>' +
               '<a href="novel.html?id=' + escHtml(n.id) + '" class="btn btn-ghost" style="align-self:center;white-space:nowrap">Read now ' + roseIcon('10px') + '</a>' +
