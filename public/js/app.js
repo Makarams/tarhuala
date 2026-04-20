@@ -829,6 +829,7 @@
         if (bgEl){
           bgEl.src = (info.images && info.images.cover) || '/images/covers/' + novelId + '.jpg';
         }
+        mountNovelBanner(info);
         var readBtn = qs('novel-read-btn');
         if (readBtn && chapters.length > 0){
           readBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[0].number;
@@ -1008,6 +1009,7 @@
       .then(function(info){
         _novelInfo = info;
         html.setAttribute('data-novel-theme', info.theme || 'ember');
+        mountChapterBanner(info);
         var chapters = info.chapters || [];
         var idx = chapters.findIndex(function(c){ return c.number === chNum; });
         if (breadcrumbNovel) breadcrumbNovel.textContent = info.title || novelId;
@@ -1713,3 +1715,64 @@
     chapterBody.style.wordBreak = 'normal';
   }
 })();
+/* ═══════════════════════════════════════════════════════════════════════════
+   BANNER WIRING
+   Reads novel.images.banner and mounts the decorative banner sections
+   on novel.html and chapter.html.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function mountNovelBanner(novel) {
+  var section = document.getElementById('novel-banner');
+  var img     = document.getElementById('novel-banner-img');
+  var eyebrow = document.getElementById('novel-banner-eyebrow');
+
+  if (!section || !img) return;
+
+  var bannerSrc = novel && novel.images && novel.images.banner;
+  if (!bannerSrc) {
+    section.hidden = true;
+    return;
+  }
+
+  if (novel.theme) {
+    document.documentElement.setAttribute('data-accent', novel.theme);
+  }
+
+  img.src = bannerSrc;
+  img.alt = '';
+
+  if (eyebrow) {
+    eyebrow.textContent = novel.genre
+      ? novel.genre.split('/')[0].trim()
+      : (novel.theme || '');
+  }
+
+  section.hidden = false;
+}
+
+function mountChapterBanner(novel) {
+  var wrap  = document.getElementById('chapter-banner-wrap');
+  var img   = document.getElementById('chapter-banner-img');
+  var label = document.getElementById('chapter-banner-novel-label');
+
+  if (!wrap || !img) return;
+
+  var bannerSrc = novel && novel.images && novel.images.banner;
+  if (!bannerSrc) {
+    wrap.hidden = true;
+    return;
+  }
+
+  if (novel.theme) {
+    document.documentElement.setAttribute('data-accent', novel.theme);
+  }
+
+  img.src = bannerSrc;
+  img.alt = '';
+
+  if (label) {
+    label.textContent = novel.title || '';
+  }
+
+  wrap.hidden = false;
+}

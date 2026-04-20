@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" width="1280" height="220">
+<defs>
+  <filter id="m-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.68 0.72" numOctaves="4" seed="23"/>
+    <feColorMatrix values="0 0 0 0 0.05  0 0 0 0 0.01  0 0 0 0 0.01  0 0 0 0.5 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="m-glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="m-softglow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="28" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="m-smoke" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="3" seed="7" result="turbulence"/>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <!-- background gradient: deep void to dark crimson -->
+  <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a0101"/>
+    <stop offset="45%" stop-color="#1a0403"/>
+    <stop offset="100%" stop-color="#2d0905"/>
+  </linearGradient>
+  <!-- horizon ember glow -->
+  <radialGradient id="m-ember" cx="50%" cy="85%" r="55%">
+    <stop offset="0%" stop-color="#e03010" stop-opacity="0.72"/>
+    <stop offset="35%" stop-color="#a02008" stop-opacity="0.38"/>
+    <stop offset="70%" stop-color="#600e04" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- secondary ember left -->
+  <radialGradient id="m-ember2" cx="18%" cy="90%" r="30%">
+    <stop offset="0%" stop-color="#ff5520" stop-opacity="0.55"/>
+    <stop offset="50%" stop-color="#c03010" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- right distant fire -->
+  <radialGradient id="m-ember3" cx="82%" cy="88%" r="24%">
+    <stop offset="0%" stop-color="#ff4010" stop-opacity="0.48"/>
+    <stop offset="55%" stop-color="#901808" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- fade edges to bg -->
+  <linearGradient id="m-fade-l" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#080101" stop-opacity="1"/>
+    <stop offset="12%" stop-color="#080101" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="m-fade-r" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="88%" stop-color="#080101" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#080101" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="m-fade-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#080101" stop-opacity="1"/>
+    <stop offset="18%" stop-color="#080101" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="m-fade-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="72%" stop-color="#080101" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#080101" stop-opacity="1"/>
+  </linearGradient>
+  <clipPath id="m-clip"><rect width="1280" height="220"/></clipPath>
+</defs>
+
+<g clip-path="url(#m-clip)">
+<!-- SKY -->
+<rect width="1280" height="220" fill="url(#m-sky)"/>
+
+<!-- atmosphere glows -->
+<ellipse cx="640" cy="190" rx="800" ry="160" fill="url(#m-ember)"/>
+<ellipse cx="230" cy="210" rx="340" ry="120" fill="url(#m-ember2)"/>
+<ellipse cx="1050" cy="200" rx="280" ry="110" fill="url(#m-ember3)"/>
+
+<!-- ─── DISTANT RUINED CITY SILHOUETTE ─── -->
+<!-- Far background skyline, very dark, barely visible -->
+<g opacity="0.25">
+  <!-- distant skyscrapers, jagged and broken -->
+  <rect x="90" y="110" width="12" height="80" fill="#1a0402"/>
+  <rect x="105" y="95" width="18" height="95" fill="#1a0402"/>
+  <rect x="126" y="118" width="10" height="72" fill="#1a0402"/>
+  <rect x="140" y="102" width="22" height="88" fill="#1a0402"/>
+  <rect x="165" y="120" width="8" height="70" fill="#1a0402"/>
+  <rect x="176" y="88" width="15" height="102" fill="#1a0402"/>
+  <rect x="194" y="112" width="12" height="78" fill="#1a0402"/>
+  <!-- broken top on one tower -->
+  <polygon points="106,95 124,95 118,78 112,82" fill="#1a0402"/>
+
+  <!-- middle distance, city cluster right -->
+  <rect x="920" y="108" width="14" height="82" fill="#1a0402"/>
+  <rect x="937" y="90" width="20" height="100" fill="#1a0402"/>
+  <rect x="960" y="115" width="11" height="75" fill="#1a0402"/>
+  <rect x="974" y="100" width="24" height="90" fill="#1a0402"/>
+  <rect x="1000" y="118" width="9" height="72" fill="#1a0402"/>
+  <rect x="1012" y="85" width="16" height="105" fill="#1a0402"/>
+  <polygon points="938,90 958,90 952,70 948,76 944,72" fill="#1a0402"/>
+</g>
+
+<!-- ─── MAIN FOREGROUND CITY ─── -->
+<g opacity="0.9">
+  <!-- LEFT cluster — residential rubble + tower blocks -->
+  <!-- Collapsed building heap left -->
+  <polygon points="0,190 0,220 60,220 70,200 55,185 38,175 20,178" fill="#120302"/>
+  <polygon points="20,178 38,175 45,162 28,158 12,165" fill="#160403"/>
+  <rect x="30" y="140" width="16" height="38" fill="#160403"/>
+  <rect x="48" y="128" width="20" height="62" fill="#1a0504"/>
+  <!-- crumbled top -->
+  <polygon points="48,128 68,128 64,115 58,110 52,118" fill="#1a0504"/>
+  <!-- small window glows -->
+  <rect x="52" y="133" width="4" height="4" fill="#ff5520" opacity="0.6" filter="url(#m-glow)"/>
+  <rect x="58" y="145" width="3" height="5" fill="#e03010" opacity="0.45" filter="url(#m-glow)"/>
+
+  <!-- tall tower left-center -->
+  <rect x="155" y="60" width="30" height="160" fill="#1c0504"/>
+  <rect x="162" y="55" width="16" height="20" fill="#200605"/>
+  <!-- antenna broken -->
+  <line x1="170" y1="55" x2="174" y2="30" stroke="#300808" stroke-width="2"/>
+  <line x1="174" y1="30" x2="180" y2="22" stroke="#300808" stroke-width="1.5" opacity="0.6"/>
+  <!-- windows: dead black, one burning -->
+  <rect x="160" y="70" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+  <rect x="170" y="70" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+  <rect x="160" y="82" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+  <rect x="170" y="82" width="5" height="6" fill="#ff4010" opacity="0.7" filter="url(#m-glow)"/>
+  <rect x="160" y="94" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+  <rect x="170" y="94" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+  <rect x="160" y="106" width="5" height="6" fill="#ff3010" opacity="0.5" filter="url(#m-glow)"/>
+  <rect x="170" y="106" width="5" height="6" fill="#0a0101" opacity="0.9"/>
+
+  <!-- mid-left block structures -->
+  <rect x="188" y="100" width="38" height="120" fill="#170403"/>
+  <rect x="228" y="118" width="24" height="102" fill="#150403"/>
+  <rect x="254" y="88" width="32" height="132" fill="#1c0504"/>
+  <!-- rubble pile between -->
+  <polygon points="186,190 226,190 220,178 208,172 196,175" fill="#120302"/>
+
+  <!-- CENTER — dramatic ruin, tallest structure with collapse -->
+  <rect x="490" y="40" width="44" height="180" fill="#200605"/>
+  <rect x="502" y="32" width="20" height="20" fill="#260706"/>
+  <!-- collapsed upper section -->
+  <polygon points="490,95 534,95 545,70 528,55 510,58 494,68" fill="#200605"/>
+  <!-- exposed rebar / broken slab -->
+  <line x1="534" y1="95" x2="550" y2="78" stroke="#3a0a06" stroke-width="3"/>
+  <line x1="538" y1="90" x2="556" y2="82" stroke="#3a0a06" stroke-width="2"/>
+  <line x1="528" y1="100" x2="542" y2="72" stroke="#3a0a06" stroke-width="1.5" opacity="0.7"/>
+  <!-- windows: burning through -->
+  <rect x="498" y="105" width="6" height="8" fill="#ff5030" opacity="0.85" filter="url(#m-glow)"/>
+  <rect x="512" y="105" width="6" height="8" fill="#e04020" opacity="0.6" filter="url(#m-glow)"/>
+  <rect x="498" y="120" width="6" height="8" fill="#0a0101"/>
+  <rect x="512" y="120" width="6" height="8" fill="#ff3010" opacity="0.5" filter="url(#m-glow)"/>
+  <rect x="498" y="135" width="6" height="8" fill="#ff4020" opacity="0.65" filter="url(#m-glow)"/>
+  <rect x="512" y="135" width="6" height="8" fill="#0a0101"/>
+  <!-- adjacent block -->
+  <rect x="540" y="80" width="36" height="140" fill="#1c0504"/>
+  <rect x="578" y="100" width="28" height="120" fill="#180504"/>
+
+  <!-- CENTER bridge-ish ruins, horizontal slab -->
+  <rect x="370" y="155" width="180" height="18" fill="#160403"/>
+  <rect x="380" y="145" width="8" height="28" fill="#160403"/>
+  <rect x="420" y="148" width="8" height="26" fill="#160403"/>
+  <rect x="460" y="143" width="8" height="30" fill="#160403"/>
+  <rect x="500" y="147" width="8" height="26" fill="#160403"/>
+  <rect x="530" y="152" width="8" height="22" fill="#160403"/>
+
+  <!-- RIGHT cluster -->
+  <rect x="730" y="85" width="36" height="135" fill="#1c0504"/>
+  <rect x="768" y="68" width="28" height="152" fill="#200605"/>
+  <rect x="798" y="100" width="34" height="120" fill="#180504"/>
+  <!-- antenna on right tower -->
+  <line x1="782" y1="68" x2="782" y2="42" stroke="#300808" stroke-width="2"/>
+  <circle cx="782" cy="40" r="3" fill="#c43030" opacity="0.7" filter="url(#m-glow)"/>
+  <!-- windows right block -->
+  <rect x="774" y="78" width="5" height="7" fill="#ff4010" opacity="0.7" filter="url(#m-glow)"/>
+  <rect x="784" y="78" width="5" height="7" fill="#0a0101"/>
+  <rect x="774" y="92" width="5" height="7" fill="#0a0101"/>
+  <rect x="784" y="92" width="5" height="7" fill="#e03010" opacity="0.5" filter="url(#m-glow)"/>
+  <rect x="774" y="106" width="5" height="7" fill="#ff5020" opacity="0.8" filter="url(#m-glow)"/>
+  <rect x="784" y="106" width="5" height="7" fill="#0a0101"/>
+
+  <!-- far right rubble / low structures -->
+  <rect x="900" y="130" width="50" height="90" fill="#150403"/>
+  <rect x="952" y="112" width="32" height="108" fill="#180504"/>
+  <polygon points="900,130 952,130 940,115 920,108 905,118" fill="#180504"/>
+  <rect x="986" y="140" width="60" height="80" fill="#140302"/>
+  <rect x="1048" y="120" width="40" height="100" fill="#170403"/>
+  <rect x="1090" y="100" width="30" height="120" fill="#1c0504"/>
+  <!-- far right cluster continuing off edge -->
+  <rect x="1122" y="118" width="38" height="102" fill="#180504"/>
+  <rect x="1162" y="88" width="26" height="132" fill="#1c0504"/>
+  <rect x="1190" y="108" width="90" height="112" fill="#150403"/>
+  <!-- window fire right side -->
+  <rect x="1166" y="98" width="5" height="7" fill="#ff4010" opacity="0.7" filter="url(#m-glow)"/>
+  <rect x="1176" y="112" width="5" height="7" fill="#e03010" opacity="0.5" filter="url(#m-glow)"/>
+</g>
+
+<!-- ─── FIRE / FLAMES on ruins ─── -->
+<!-- Left fire plume -->
+<g filter="url(#m-softglow)" opacity="0.7">
+  <ellipse cx="172" cy="165" rx="14" ry="28" fill="#e84020"/>
+  <ellipse cx="172" cy="158" rx="8" ry="18" fill="#ffb050"/>
+  <ellipse cx="172" cy="152" rx="4" ry="10" fill="#ffe080" opacity="0.8"/>
+</g>
+<!-- Center left fire -->
+<g filter="url(#m-softglow)" opacity="0.6">
+  <ellipse cx="420" cy="172" rx="18" ry="22" fill="#d83818"/>
+  <ellipse cx="420" cy="164" rx="10" ry="14" fill="#ff6030"/>
+  <ellipse cx="420" cy="158" rx="5" ry="8" fill="#ffa040" opacity="0.7"/>
+</g>
+<!-- Center large fire — building burning -->
+<g filter="url(#m-softglow)" opacity="0.75">
+  <ellipse cx="514" cy="155" rx="22" ry="32" fill="#e03010"/>
+  <ellipse cx="514" cy="144" rx="13" ry="22" fill="#ff5020"/>
+  <ellipse cx="514" cy="135" rx="7" ry="14" fill="#ffb040" opacity="0.85"/>
+  <ellipse cx="514" cy="128" rx="3" ry="8" fill="#ffe060" opacity="0.6"/>
+</g>
+<!-- Right fire cluster -->
+<g filter="url(#m-softglow)" opacity="0.65">
+  <ellipse cx="798" cy="175" rx="16" ry="20" fill="#d83010"/>
+  <ellipse cx="798" cy="167" rx="9" ry="13" fill="#ff5020"/>
+  <ellipse cx="798" cy="160" rx="4" ry="7" fill="#ffa030" opacity="0.7"/>
+</g>
+<!-- Far right fire -->
+<g filter="url(#m-softglow)" opacity="0.55">
+  <ellipse cx="1090" cy="168" rx="13" ry="18" fill="#c02808"/>
+  <ellipse cx="1090" cy="160" rx="7" ry="11" fill="#e84018"/>
+  <ellipse cx="1090" cy="154" rx="3" ry="6" fill="#ff8028" opacity="0.65"/>
+</g>
+
+<!-- ─── SMOKE COLUMNS ─── -->
+<g opacity="0.18" filter="url(#m-smoke)">
+  <ellipse cx="172" cy="100" rx="20" ry="60" fill="#3a0a04"/>
+  <ellipse cx="514" cy="80" rx="26" ry="70" fill="#3a0804"/>
+  <ellipse cx="798" cy="120" rx="18" ry="50" fill="#300804"/>
+</g>
+
+<!-- ─── EMBER PARTICLES floating up ─── -->
+<g filter="url(#m-glow)" opacity="0.85">
+  <circle cx="168" cy="138" r="1.5" fill="#ff8040"/>
+  <circle cx="173" cy="128" r="1" fill="#ffb060"/>
+  <circle cx="165" cy="120" r="1.2" fill="#ff6020"/>
+  <circle cx="178" cy="115" r="0.8" fill="#ffa050"/>
+  <circle cx="510" cy="112" r="1.8" fill="#ff9040"/>
+  <circle cx="518" cy="100" r="1.2" fill="#ffb860"/>
+  <circle cx="505" cy="96" r="1" fill="#ff7030"/>
+  <circle cx="522" cy="88" r="1.4" fill="#ffcc70"/>
+  <circle cx="416" cy="148" r="1.3" fill="#ff8040"/>
+  <circle cx="424" cy="138" r="0.9" fill="#ffaa50"/>
+  <circle cx="795" cy="150" r="1.4" fill="#ff7030"/>
+  <circle cx="803" cy="140" r="1" fill="#ffa050"/>
+  <circle cx="1087" cy="140" r="1.2" fill="#ff6020"/>
+  <circle cx="1094" cy="130" r="0.8" fill="#ff9040"/>
+  <!-- scattered random embers -->
+  <circle cx="300" cy="168" r="0.9" fill="#ff8030" opacity="0.6"/>
+  <circle cx="650" cy="155" r="1.1" fill="#ff7020" opacity="0.5"/>
+  <circle cx="900" cy="162" r="0.8" fill="#ff9040" opacity="0.55"/>
+</g>
+
+<!-- ─── BLOOD MOON ─── -->
+<g filter="url(#m-softglow)">
+  <circle cx="640" cy="52" r="38" fill="#7a1008" opacity="0.9"/>
+  <circle cx="640" cy="52" r="28" fill="#a01810" opacity="0.85"/>
+  <circle cx="640" cy="52" r="18" fill="#c82415" opacity="0.9"/>
+  <circle cx="640" cy="52" r="10" fill="#d83018" opacity="0.95"/>
+  <!-- lunar ring -->
+  <circle cx="640" cy="52" r="42" fill="none" stroke="#c43030" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="640" cy="52" r="48" fill="none" stroke="#901010" stroke-width="0.8" opacity="0.18"/>
+</g>
+
+<!-- ─── EDGE FADES (seamless blending) ─── -->
+<rect width="1280" height="220" fill="url(#m-fade-l)"/>
+<rect width="1280" height="220" fill="url(#m-fade-r)"/>
+<rect width="1280" height="220" fill="url(#m-fade-top)"/>
+<rect width="1280" height="220" fill="url(#m-fade-bot)"/>
+
+<!-- FILM GRAIN OVERLAY -->
+<rect width="1280" height="220" filter="url(#m-grain)" opacity="0.9"/>
+</g>
+</svg>

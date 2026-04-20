@@ -15,7 +15,8 @@
   "theme": "jade",
   "chapterCount": 4,
   "images": {
-    "cover": "/images/covers/marked-by-false-gods.svg"
+    "cover": "/images/covers/marked-by-false-gods.svg",
+    "banner": "/images/banners/marked-by-false-gods-banner.svg"
   },
   "chapters": [
     {

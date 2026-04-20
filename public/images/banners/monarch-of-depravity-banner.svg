@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" width="1280" height="220">
+<defs>
+  <filter id="g-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.66 0.71" numOctaves="4" seed="44"/>
+    <feColorMatrix values="0 0 0 0 0.04  0 0 0 0 0.03  0 0 0 0 0.00  0 0 0 0.5 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="g-glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="g-softglow" x="-70%" y="-70%" width="240%" height="240%">
+    <feGaussianBlur stdDeviation="22" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="g-candle" x="-200%" y="-200%" width="500%" height="500%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <!-- deep black stone bg -->
+  <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#030201"/>
+    <stop offset="50%" stop-color="#080501"/>
+    <stop offset="100%" stop-color="#0f0901"/>
+  </linearGradient>
+  <!-- gold altar glow, center -->
+  <radialGradient id="g-altar" cx="50%" cy="60%" r="38%">
+    <stop offset="0%" stop-color="#c89820" stop-opacity="0.6"/>
+    <stop offset="35%" stop-color="#8a6010" stop-opacity="0.28"/>
+    <stop offset="75%" stop-color="#4a3206" stop-opacity="0.1"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- left candle glow -->
+  <radialGradient id="g-candle-l" cx="28%" cy="70%" r="20%">
+    <stop offset="0%" stop-color="#e0a020" stop-opacity="0.52"/>
+    <stop offset="45%" stop-color="#905010" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- right candle glow -->
+  <radialGradient id="g-candle-r" cx="72%" cy="70%" r="20%">
+    <stop offset="0%" stop-color="#e09820" stop-opacity="0.5"/>
+    <stop offset="45%" stop-color="#885010" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- top vignette -->
+  <radialGradient id="g-vig" cx="50%" cy="0%" r="80%">
+    <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.7"/>
+  </radialGradient>
+  <!-- edge fades -->
+  <linearGradient id="g-fade-l" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#030201" stop-opacity="1"/>
+    <stop offset="10%" stop-color="#030201" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="g-fade-r" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="90%" stop-color="#030201" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#030201" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="g-fade-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#030201" stop-opacity="1"/>
+    <stop offset="16%" stop-color="#030201" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="g-fade-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="70%" stop-color="#030201" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#030201" stop-opacity="1"/>
+  </linearGradient>
+  <!-- stone column gradient -->
+  <linearGradient id="g-pillar" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#181208"/>
+    <stop offset="45%" stop-color="#221a0a"/>
+    <stop offset="100%" stop-color="#100c04"/>
+  </linearGradient>
+  <clipPath id="g-clip"><rect width="1280" height="220"/></clipPath>
+</defs>
+
+<g clip-path="url(#g-clip)">
+<!-- STONE VOID -->
+<rect width="1280" height="220" fill="url(#g-sky)"/>
+
+<!-- atmospheric glows -->
+<ellipse cx="640" cy="132" rx="520" ry="120" fill="url(#g-altar)"/>
+<ellipse cx="358" cy="154" rx="300" ry="100" fill="url(#g-candle-l)"/>
+<ellipse cx="922" cy="148" rx="290" ry="96" fill="url(#g-candle-r)"/>
+
+<!-- ─── FAR BACKGROUND — temple nave ─── -->
+<g opacity="0.22">
+  <!-- receding arches, very dark -->
+  <path d="M540,220 L540,130 Q580,95 640,90 Q700,95 740,130 L740,220" fill="#1a1206"/>
+  <path d="M490,220 L490,140 Q540,100 640,94 Q740,100 790,140 L790,220" fill="none" stroke="#2a1c08" stroke-width="1.5"/>
+  <path d="M440,220 L440,155 Q500,108 640,100 Q780,108 840,155 L840,220" fill="none" stroke="#221604" stroke-width="1"/>
+</g>
+
+<!-- ─── STONE FLOOR ─── -->
+<!-- floor tiles extending to horizon -->
+<g opacity="0.55">
+  <!-- horizontal grout lines -->
+  <line x1="160" y1="205" x2="1120" y2="205" stroke="#1a1408" stroke-width="1"/>
+  <line x1="140" y1="212" x2="1140" y2="212" stroke="#1a1408" stroke-width="0.8" opacity="0.7"/>
+  <!-- perspective lines from vanishing point at 640,170 -->
+  <line x1="640" y1="170" x2="0" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="200" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="400" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="600" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="680" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="880" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="1080" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+  <line x1="640" y1="170" x2="1280" y2="220" stroke="#1a1408" stroke-width="0.8" opacity="0.45"/>
+</g>
+
+<!-- ─── FLANKING COLUMNS — baroque stone ─── -->
+<!-- Far columns, small -->
+<g opacity="0.4">
+  <rect x="300" y="80" width="28" height="140" fill="url(#g-pillar)"/>
+  <rect x="296" y="76" width="36" height="12" fill="#201608"/>
+  <rect x="296" y="216" width="36" height="6" fill="#201608" opacity="0.7"/>
+  <rect x="952" y="80" width="28" height="140" fill="url(#g-pillar)"/>
+  <rect x="948" y="76" width="36" height="12" fill="#201608"/>
+  <rect x="948" y="216" width="36" height="6" fill="#201608" opacity="0.7"/>
+</g>
+
+<!-- Mid columns -->
+<g opacity="0.65">
+  <rect x="188" y="60" width="36" height="160" fill="url(#g-pillar)"/>
+  <rect x="182" y="54" width="48" height="14" fill="#1e1608"/>
+  <rect x="184" y="48" width="44" height="10" fill="#2a1c0a"/>
+  <!-- column fluting -->
+  <line x1="196" y1="68" x2="196" y2="200" stroke="#100c04" stroke-width="1.5" opacity="0.5"/>
+  <line x1="204" y1="68" x2="204" y2="200" stroke="#2a1e0a" stroke-width="1" opacity="0.4"/>
+  <line x1="212" y1="68" x2="212" y2="200" stroke="#100c04" stroke-width="1.5" opacity="0.5"/>
+  <rect x="182" y="214" width="48" height="8" fill="#1e1608" opacity="0.8"/>
+
+  <rect x="1056" y="60" width="36" height="160" fill="url(#g-pillar)"/>
+  <rect x="1050" y="54" width="48" height="14" fill="#1e1608"/>
+  <rect x="1052" y="48" width="44" height="10" fill="#2a1c0a"/>
+  <line x1="1064" y1="68" x2="1064" y2="200" stroke="#100c04" stroke-width="1.5" opacity="0.5"/>
+  <line x1="1072" y1="68" x2="1072" y2="200" stroke="#2a1e0a" stroke-width="1" opacity="0.4"/>
+  <line x1="1080" y1="68" x2="1080" y2="200" stroke="#100c04" stroke-width="1.5" opacity="0.5"/>
+  <rect x="1050" y="214" width="48" height="8" fill="#1e1608" opacity="0.8"/>
+</g>
+
+<!-- Nearest columns, largest -->
+<g opacity="0.85">
+  <rect x="48" y="30" width="52" height="190" fill="url(#g-pillar)"/>
+  <rect x="40" y="22" width="68" height="16" fill="#221808"/>
+  <rect x="42" y="14" width="64" height="12" fill="#2e2010"/>
+  <line x1="62" y1="38" x2="62" y2="200" stroke="#100c04" stroke-width="2" opacity="0.5"/>
+  <line x1="74" y1="38" x2="74" y2="200" stroke="#2a1c0a" stroke-width="1.5" opacity="0.4"/>
+  <line x1="86" y1="38" x2="86" y2="200" stroke="#100c04" stroke-width="2" opacity="0.5"/>
+  <rect x="40" y="218" width="68" height="10" fill="#221808" opacity="0.8"/>
+  <!-- ornamental carved ring -->
+  <rect x="40" y="100" width="68" height="6" fill="#2a1e0a" opacity="0.6"/>
+
+  <rect x="1180" y="30" width="52" height="190" fill="url(#g-pillar)"/>
+  <rect x="1172" y="22" width="68" height="16" fill="#221808"/>
+  <rect x="1174" y="14" width="64" height="12" fill="#2e2010"/>
+  <line x1="1194" y1="38" x2="1194" y2="200" stroke="#100c04" stroke-width="2" opacity="0.5"/>
+  <line x1="1206" y1="38" x2="1206" y2="200" stroke="#2a1c0a" stroke-width="1.5" opacity="0.4"/>
+  <line x1="1218" y1="38" x2="1218" y2="200" stroke="#100c04" stroke-width="2" opacity="0.5"/>
+  <rect x="1172" y="218" width="68" height="10" fill="#221808" opacity="0.8"/>
+  <rect x="1172" y="100" width="68" height="6" fill="#2a1e0a" opacity="0.6"/>
+</g>
+
+<!-- ─── CENTRAL ALTAR ─── -->
+<g opacity="0.9">
+  <!-- altar platform steps -->
+  <rect x="520" y="190" width="240" height="30" fill="#120e04"/>
+  <rect x="540" y="182" width="200" height="14" fill="#160e04"/>
+  <rect x="560" y="176" width="160" height="10" fill="#1a1206"/>
+  <!-- altar table -->
+  <rect x="580" y="155" width="120" height="28" fill="#1e1608"/>
+  <rect x="576" y="152" width="128" height="6" fill="#261c0a"/>
+  <!-- altar decoration — engraved lines -->
+  <line x1="585" y1="162" x2="695" y2="162" stroke="#c89820" stroke-width="0.8" opacity="0.35"/>
+  <line x1="585" y1="169" x2="695" y2="169" stroke="#c89820" stroke-width="0.5" opacity="0.25"/>
+  <!-- circular mark on altar -->
+  <circle cx="640" cy="158" r="14" fill="none" stroke="#c89820" stroke-width="0.8" opacity="0.45"/>
+  <circle cx="640" cy="158" r="8" fill="none" stroke="#c89820" stroke-width="0.6" opacity="0.35"/>
+  <circle cx="640" cy="158" r="3" fill="#c89820" opacity="0.5" filter="url(#g-glow)"/>
+  <!-- carved eye-like sigil on altar front -->
+  <ellipse cx="640" cy="170" rx="18" ry="7" fill="none" stroke="#b88a20" stroke-width="0.8" opacity="0.4"/>
+  <ellipse cx="640" cy="170" rx="8" ry="3" fill="none" stroke="#c89820" stroke-width="0.7" opacity="0.5"/>
+  <circle cx="640" cy="170" r="2" fill="#c89820" opacity="0.45"/>
+</g>
+
+<!-- ─── CANDELABRAS ─── -->
+<!-- Left candelabra -->
+<g opacity="0.88">
+  <line x1="358" y1="220" x2="358" y2="145" stroke="#3a2c10" stroke-width="4"/>
+  <line x1="358" y1="155" x2="330" y2="148" stroke="#3a2c10" stroke-width="2.5"/>
+  <line x1="358" y1="155" x2="386" y2="148" stroke="#3a2c10" stroke-width="2.5"/>
+  <line x1="358" y1="162" x2="318" y2="154" stroke="#3a2c10" stroke-width="2"/>
+  <line x1="358" y1="162" x2="398" y2="154" stroke="#3a2c10" stroke-width="2"/>
+  <!-- candles on arms -->
+  <rect x="327" y="138" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="383" y="138" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="315" y="143" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="397" y="143" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="355" y="132" width="6" height="16" fill="#2a2008" opacity="0.9"/>
+  <!-- flames -->
+  <ellipse cx="330" cy="136" rx="3" ry="5" fill="#e09020" filter="url(#g-candle)" opacity="0.85"/>
+  <ellipse cx="330" cy="133" rx="1.5" ry="3" fill="#ffdd80" opacity="0.7"/>
+  <ellipse cx="386" cy="136" rx="3" ry="5" fill="#d88018" filter="url(#g-candle)" opacity="0.8"/>
+  <ellipse cx="386" cy="133" rx="1.5" ry="3" fill="#ffcc60" opacity="0.65"/>
+  <ellipse cx="318" cy="141" rx="2.5" ry="4" fill="#c87010" filter="url(#g-candle)" opacity="0.75"/>
+  <ellipse cx="400" cy="141" rx="2.5" ry="4" fill="#d88018" filter="url(#g-candle)" opacity="0.75"/>
+  <ellipse cx="358" cy="130" rx="3" ry="5" fill="#f0a020" filter="url(#g-candle)" opacity="0.88"/>
+  <ellipse cx="358" cy="127" rx="1.5" ry="3" fill="#ffe080" opacity="0.75"/>
+</g>
+<!-- Right candelabra -->
+<g opacity="0.88">
+  <line x1="922" y1="220" x2="922" y2="145" stroke="#3a2c10" stroke-width="4"/>
+  <line x1="922" y1="155" x2="894" y2="148" stroke="#3a2c10" stroke-width="2.5"/>
+  <line x1="922" y1="155" x2="950" y2="148" stroke="#3a2c10" stroke-width="2.5"/>
+  <line x1="922" y1="162" x2="882" y2="154" stroke="#3a2c10" stroke-width="2"/>
+  <line x1="922" y1="162" x2="962" y2="154" stroke="#3a2c10" stroke-width="2"/>
+  <rect x="891" y="138" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="947" y="138" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="879" y="143" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="961" y="143" width="6" height="14" fill="#2a2008" opacity="0.9"/>
+  <rect x="919" y="132" width="6" height="16" fill="#2a2008" opacity="0.9"/>
+  <ellipse cx="894" cy="136" rx="3" ry="5" fill="#d88018" filter="url(#g-candle)" opacity="0.82"/>
+  <ellipse cx="894" cy="133" rx="1.5" ry="3" fill="#ffcc60" opacity="0.68"/>
+  <ellipse cx="950" cy="136" rx="3" ry="5" fill="#e09020" filter="url(#g-candle)" opacity="0.85"/>
+  <ellipse cx="950" cy="133" rx="1.5" ry="3" fill="#ffe080" opacity="0.72"/>
+  <ellipse cx="882" cy="141" rx="2.5" ry="4" fill="#c87010" filter="url(#g-candle)" opacity="0.75"/>
+  <ellipse cx="964" cy="141" rx="2.5" ry="4" fill="#d88018" filter="url(#g-candle)" opacity="0.75"/>
+  <ellipse cx="922" cy="130" rx="3" ry="5" fill="#f0a020" filter="url(#g-candle)" opacity="0.88"/>
+  <ellipse cx="922" cy="127" rx="1.5" ry="3" fill="#ffe080" opacity="0.75"/>
+</g>
+
+<!-- ─── HANGING CHAINS / PENDANTS ─── -->
+<g opacity="0.35" stroke="#3a2c10" stroke-width="1" fill="none">
+  <path d="M 520 0 Q 525 40 530 80 Q 533 110 528 140"/>
+  <path d="M 560 0 Q 558 35 556 70 Q 554 100 558 130"/>
+  <path d="M 680 0 Q 682 38 684 76 Q 686 106 682 136"/>
+  <path d="M 720 0 Q 715 42 712 82 Q 710 112 714 142"/>
+</g>
+<!-- pendant ornaments at chain ends -->
+<g opacity="0.4" filter="url(#g-glow)">
+  <polygon points="528,140 522,152 534,152" fill="#c89820"/>
+  <polygon points="558,130 552,142 564,142" fill="#b88010"/>
+  <polygon points="682,136 676,148 688,148" fill="#c89820"/>
+  <polygon points="714,142 708,154 720,154" fill="#b88010"/>
+</g>
+
+<!-- ─── SHADOW FIGURE (barely perceptible) ─── -->
+<!-- The Shadow Man — faint presence just right of altar -->
+<g opacity="0.18">
+  <ellipse cx="700" cy="180" rx="12" ry="30" fill="#0a0800"/>
+  <ellipse cx="700" cy="145" rx="9" ry="14" fill="#0a0800"/>
+  <!-- arm suggestion -->
+  <line x1="700" y1="158" x2="718" y2="168" stroke="#0a0800" stroke-width="5"/>
+  <line x1="700" y1="158" x2="682" y2="165" stroke="#0a0800" stroke-width="4"/>
+</g>
+
+<!-- ─── GOLD DUST MOTES ─── -->
+<g filter="url(#g-glow)" opacity="0.7">
+  <circle cx="358" cy="118" r="1.2" fill="#c89820"/>
+  <circle cx="365" cy="106" r="0.8" fill="#e0b028"/>
+  <circle cx="350" cy="100" r="1" fill="#c89820"/>
+  <circle cx="372" cy="95" r="0.7" fill="#d4a020"/>
+  <circle cx="345" cy="112" r="0.9" fill="#b88010"/>
+  <circle cx="922" cy="115" r="1.2" fill="#c89820"/>
+  <circle cx="930" cy="102" r="0.8" fill="#e0b028"/>
+  <circle cx="914" cy="98" r="1" fill="#c89820"/>
+  <circle cx="938" cy="108" r="0.7" fill="#d4a020"/>
+  <circle cx="910" cy="120" r="0.9" fill="#b88010"/>
+  <!-- floating between columns -->
+  <circle cx="490" cy="130" r="0.8" fill="#c89820" opacity="0.5"/>
+  <circle cx="780" cy="125" r="0.8" fill="#c89820" opacity="0.5"/>
+  <circle cx="640" cy="120" r="1" fill="#d4a820" opacity="0.6"/>
+</g>
+
+<!-- TOP ARCH decoration -->
+<g opacity="0.3">
+  <path d="M400,0 Q640,-30 880,0" fill="none" stroke="#c89820" stroke-width="1.5"/>
+  <path d="M380,0 Q640,-50 900,0" fill="none" stroke="#8a6010" stroke-width="0.8" opacity="0.6"/>
+</g>
+
+<!-- ─── EDGE FADES ─── -->
+<rect width="1280" height="220" fill="url(#g-fade-l)"/>
+<rect width="1280" height="220" fill="url(#g-fade-r)"/>
+<rect width="1280" height="220" fill="url(#g-fade-top)"/>
+<rect width="1280" height="220" fill="url(#g-fade-bot)"/>
+
+<!-- GRAIN -->
+<rect width="1280" height="220" filter="url(#g-grain)" opacity="0.92"/>
+</g>
+</svg>

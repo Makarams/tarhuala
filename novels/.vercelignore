@@ -1,0 +1,5 @@
+# Exclude raw novel source files - they're only needed locally for build.
+# The pre-built JSON data is committed to public/data/ and used directly.
+novels/
+node_modules/
+*.docx
