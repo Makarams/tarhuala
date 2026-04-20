@@ -1292,7 +1292,65 @@ async function build() {
     }
   }
 
-  // Wipe and rebuild data dir
+  let novels = [];
+
+  // Detect if we have any source docx files to process.
+  // On Vercel, novels/ is excluded via .vercelignore so no docx exist —
+  // in that case, keep the pre-built public/data/ intact and just regenerate HTML.
+  const hasDocx = fs.existsSync(NOVELS_DIR) &&
+    fs.readdirSync(NOVELS_DIR).some(f => {
+      const fp = path.join(NOVELS_DIR, f);
+      return fs.statSync(fp).isDirectory() &&
+        fs.readdirSync(fp).some(cf => cf.toLowerCase().endsWith('.docx'));
+    });
+
+  if (!hasDocx && fs.existsSync(DATA_DIR)) {
+    // No source docx available — restore novels from existing pre-built data in public/data/
+    console.log("  ✓ No source docx found — using pre-built data (Vercel mode)");
+    const existingNovelsJsonPath = path.join(DATA_DIR, "novels.json");
+    if (fs.existsSync(existingNovelsJsonPath)) {
+      try { cachedNovels = JSON.parse(fs.readFileSync(existingNovelsJsonPath, "utf-8")) || []; } catch(e) {}
+      for (const cn of cachedNovels) {
+        const ci = cachedInfo[cn.id] || (() => {
+          const ip = path.join(DATA_DIR, cn.id, "info.json");
+          try { return fs.existsSync(ip) ? JSON.parse(fs.readFileSync(ip, "utf-8")) : null; } catch(e) { return null; }
+        })();
+        const staticNovel = STATIC_NOVELS.find(s => s.id === cn.id) || {};
+        novels.push(Object.assign({}, staticNovel, cn, {
+          theme: staticNovel.theme || cn.theme || "red",
+          chapterCount: ci ? (ci.chapters || []).length : cn.chapterCount || 0,
+        }));
+      }
+    }
+    if (novels.length === 0) novels = STATIC_NOVELS.map(n => Object.assign({}, n));
+    // Write site.json but leave chapter data untouched
+    fs.writeFileSync(path.join(DATA_DIR, "site.json"), JSON.stringify({
+      author: site.author || "Tarhuala",
+      tagline: site.tagline || "",
+      bio: site.bio || "",
+    }));
+    // Resolve cover images and write novels.json, then generate HTML pages
+    for (const n of novels) {
+      const coversDir = path.join(IMG_DIR, "covers");
+      const novelImgDir = path.join(IMG_DIR, n.id);
+      const coverFound = findImage(novelImgDir, "cover") || findImage(coversDir, n.id);
+      if (coverFound) {
+        n.images = n.images || {};
+        n.images.cover = "/images/" + path.relative(IMG_DIR, coverFound.path).replace(/\\/g, "/");
+      }
+    }
+    fs.writeFileSync(path.join(DATA_DIR, "novels.json"), JSON.stringify(novels, null, 2));
+    fs.writeFileSync(path.join(PUBLIC, "index.html"),   genIndex(site, novels));
+    fs.writeFileSync(path.join(PUBLIC, "novels.html"),  genNovelsPage(site, novels));
+    fs.writeFileSync(path.join(PUBLIC, "novel.html"),   genNovelPage(site));
+    fs.writeFileSync(path.join(PUBLIC, "chapter.html"), genChapterPage(site));
+    fs.writeFileSync(path.join(PUBLIC, "about.html"),   genAbout(site, novels));
+    console.log("  ✓ HTML pages generated");
+    console.log("\n  ✓ Done:", novels.length, "novel(s) (pre-built data)\n");
+    return;
+  }
+
+  // Wipe and rebuild data dir (local mode — docx files present)
   if (fs.existsSync(DATA_DIR)) fs.rmSync(DATA_DIR,{recursive:true});
   fs.mkdirSync(DATA_DIR,{recursive:true});
 
@@ -1301,8 +1359,6 @@ async function build() {
     tagline: site.tagline||"",
     bio: site.bio||"",
   }));
-
-  let novels = [];
 
   if (fs.existsSync(NOVELS_DIR)) {
     const folders = fs.readdirSync(NOVELS_DIR).filter(f=>fs.statSync(path.join(NOVELS_DIR,f)).isDirectory());

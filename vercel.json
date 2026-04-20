@@ -1,24 +1,19 @@
 {
   "outputDirectory": "public",
-  "routes": [
-    { "src": "/data/(.*)", "dest": "/data/$1" },
-    { "src": "/images/(.*)", "dest": "/images/$1" },
-    { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/js/(.*)", "dest": "/js/$1" },
-    { "src": "/analytics\\.html", "dest": "/analytics.html" },
-    { "src": "/analytics", "dest": "/analytics.html" },
-    { "src": "/novels\\.html", "dest": "/novels.html" },
-    { "src": "/novels", "dest": "/novels.html" },
-    { "src": "/novel\\.html", "dest": "/novel.html" },
-    { "src": "/novel", "dest": "/novel.html" },
-    { "src": "/chapter\\.html", "dest": "/chapter.html" },
-    { "src": "/chapter", "dest": "/chapter.html" },
-    { "src": "/about\\.html", "dest": "/about.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/chapters\\.html", "dest": "/chapters.html" },
-    { "src": "/chapters", "dest": "/chapters.html" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)\\.html", "dest": "/$1.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "buildCommand": "npm run build",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/data/:path*",   "destination": "/data/:path*" },
+    { "source": "/images/:path*", "destination": "/images/:path*" },
+    { "source": "/css/:path*",    "destination": "/css/:path*" },
+    { "source": "/js/:path*",     "destination": "/js/:path*" },
+    { "source": "/novels",        "destination": "/novels.html" },
+    { "source": "/novel",         "destination": "/novel.html" },
+    { "source": "/chapter",       "destination": "/chapter.html" },
+    { "source": "/about",         "destination": "/about.html" },
+    { "source": "/chapters",      "destination": "/chapters.html" },
+    { "source": "/analytics",     "destination": "/analytics.html" },
+    { "source": "/(.*)",          "destination": "/index.html" }
   ]
 }

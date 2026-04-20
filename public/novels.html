@@ -1,239 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-accent="ember">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>All Novels — Tarhuala | Dark Fantasy &amp; Horror Web Fiction</title>
-  <meta name="description" content="Browse all web novels by Tarhuala — dark fantasy, horror, supernatural and apocalyptic fiction. Monarch of Depravity, Mutation of the Apocalypse, Marked by False Gods. Read free online." />
-  <meta name="keywords" content="Tarhuala novels, dark fantasy novels, horror web novel, apocalypse fiction, supernatural fiction, free web novel, monarch of depravity, mutation of the apocalypse, marked by false gods, read online free" />
-  <meta name="author" content="Tarhuala" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://tarhuala.com/novels.html" />
-  <meta property="og:site_name" content="Tarhuala" />
-  <meta property="og:title" content="All Novels — Tarhuala | Dark Fantasy &amp; Horror Web Fiction" />
-  <meta property="og:description" content="Browse all web novels by Tarhuala — dark fantasy, horror, supernatural and apocalyptic fiction. Read free online." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tarhuala.com/novels.html" />
-  <meta property="og:image" content="https://tarhuala.com/images/og-cover.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="All Novels — Tarhuala | Dark Fantasy &amp; Horror Web Fiction" />
-  <meta name="twitter:description" content="Browse all web novels by Tarhuala — dark fantasy, horror, supernatural and apocalyptic fiction. Read free online." />
-  <meta name="twitter:image" content="https://tarhuala.com/images/og-cover.jpg" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"All Novels — Tarhuala","url":"https://tarhuala.com/novels.html","description":"Browse all dark fantasy, horror and apocalyptic web novels by Tarhuala.","author":{"@type":"Person","name":"Tarhuala"}}</script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <script>
-    (function(){
-      try{
-        var s=localStorage.getItem('tarhuala-theme');
-        var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
-        document.documentElement.setAttribute('data-theme',s||(pd?'dark':'light'));
-      }catch(e){}
-    })();
-  </script>
-
-  <style>
-    .novels-simple-meta{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding:14px var(--gutter) 8px;
-      font-family:var(--font-meta);
-      font-size:8px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--text-subtle);
-    }
-
-    .novels-list-empty{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding:8px var(--gutter) 40px;
-      color:var(--text-subtle);
-      font-style:italic;
-      display:none;
-    }
-    .novels-list-empty.show{display:block;}
-
-    /* tighter + cleaner card rhythm */
-    .novels-list-wrap{
-      padding-top:6px;
-    }
-
-    @media (max-width:760px){
-      /* keep one-by-one readable mobile */
-      .novel-list-link{
-        grid-template-columns:92px 1fr !important;
-        gap:12px !important;
-        padding:14px 0 !important;
-      }
-      .novel-list-title{
-        font-size:clamp(18px,6vw,24px) !important;
-        line-height:1.1;
-      }
-      .novel-list-desc{
-        font-size:14px !important;
-        line-height:1.6;
-        max-height:7em;
-      }
-      .novel-list-rose{display:none !important;}
-      .novels-simple-meta{
-        padding-top:10px;
-      }
-      .page-hero-rose{display:none !important;}
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Novels &#x2014; Tarhuala</title>
+<meta name="description" content="Browse all novels by Tarhuala."/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Novels &#x2014; Tarhuala"/>
+<meta property="og:description" content="Browse all novels by Tarhuala."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/images/og-cover.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-  <div class="grain-overlay" aria-hidden="true"></div>
-
-  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-emblem"><svg><use href="#kb-rose"></use></svg></span>
-      <span data-site-name>TARHUALA</span>
-    </a>
-
-    <div class="nav-links" id="nav-links">
+<div class="noise-overlay" aria-hidden="true"></div>
+<nav class="site-nav" id="site-nav">
+  <a href="index.html" class="nav-brand">
+    <div class="nav-emblem"></div>
+    <span id="site-name">TARHUALA</span>
+  </a>
+  <div class="nav-links">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="novels.html" class="nav-link active" aria-current="page">Novels</a>
+      <a href="novels.html" class="nav-link active">Novels</a>
       <a href="about.html" class="nav-link">About</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon">&#x25D1;</span>
+    </button>
+  </div>
+</nav>
+<main class="page-main">
+  <div class="page-hero-bar">
+    <div class="page-hero-inner">
+      <span class="section-label">Library</span>
+      <h1 class="page-hero-title">All Novels</h1>
+      <p class="page-hero-sub">1 Novel &middot; Tarhuala</p>
     </div>
-
-    <div class="nav-right">
-      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
-        <span data-theme-icon></span>
-      </button>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+  </div>
+  <div class="novels-list-page">
+    <div class="novels-list-inner">
+      <article class="novel-list-item">
+      <a href="novel.html?id=mutation-of-the-apocalypse" class="novel-list-link">
+        <img src="/images/covers/mutation-of-the-apocalypse.jpg" alt="Mutation of the Apocalypse" class="novel-list-cover" loading="eager" onerror="this.style.display='none'"/>
+        <div class="novel-list-body">
+          <div class="novel-list-genre">Post-Apocalyptic Dark Fantasy</div>
+          <h2 class="novel-list-title">Mutation of the Apocalypse</h2>
+          <p class="novel-list-desc">On the eve of his birthday, a destitute orphan finds solace in celebrating his lone glimmer of hope and happiness. However, his fleeting joy is abruptly shattered by an enigmatic mechanical voice that&#8230;</p>
+          <div class="novel-list-foot">
+            <span class="novel-status-tag">Ongoing</span>
+            <span class="novel-read-link">Read &#x2192;</span>
+          </div>
+        </div>
+      </a>
+    </article>
     </div>
-  </nav>
-
-  <main>
-    <header class="page-hero-bar">
-      <div class="page-hero-inner">
-        <div class="page-hero-rose" aria-hidden="true"><svg><use href="#kb-medallion"></use></svg></div>
-        <div class="eyebrow">Library</div>
-        <h1 class="page-title">All Novels</h1>
-        <p class="page-hero-sub" id="novels-list-sub">Loading…</p>
-      </div>
-    </header>
-
-    <div class="novels-simple-meta" id="novels-simple-meta">—</div>
-
-    <section class="novels-list-wrap" aria-label="Novel directory">
-      <div class="novels-list-inner">
-        <div id="novels-list"></div>
-      </div>
-    </section>
-
-    <div class="novels-list-empty" id="novels-list-empty">No novels available right now.</div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span>
-        <span data-site-name>TARHUALA</span> · Dark Fiction
-      </div>
-
-      <div class="footer-links">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="novels.html" class="footer-link">Novels</a>
-        <a href="about.html" class="footer-link">About</a>
-      </div>
-
-      <div class="footer-meta">
-        <span class="footer-cw">18+ Mature Content</span><br />
-        &copy; <span id="copy-year"></span>
-        <a href="/analytics.html" id="footer-copy" class="footer-analytics-link" tabindex="-1" aria-hidden="true">Tarhuala</a>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-    <svg><use href="#ic-arrow-up"></use></svg>
-  </button>
-
-  <script src="/js/app.js"></script>
-  <script>
-    (function(){
-      var listEl = document.getElementById('novels-list');
-      var subEl = document.getElementById('novels-list-sub');
-      var metaEl = document.getElementById('novels-simple-meta');
-      var emptyEl = document.getElementById('novels-list-empty');
-
-      function esc(s){
-        return String(s||'')
-          .replace(/&/g,'&amp;')
-          .replace(/</g,'&lt;')
-          .replace(/>/g,'&gt;')
-          .replace(/"/g,'&quot;');
-      }
-
-      function renderDesc(raw){
-        if (!raw) return '';
-        return raw.split(/\n\n+/).map(function(p){
-          var trimmed = p.trim();
-          if (!trimmed) return '';
-          var escaped = trimmed
-            .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
-            .replace(/\n/g,'<br>');
-          return '<p class="novel-list-desc-p">' + escaped + '</p>';
-        }).filter(Boolean).join('');
-      }
-
-      function renderNovelItem(n){
-        var cover = (n.images && n.images.cover) || ('/images/covers/' + n.id + '.svg');
-        return ''
-          + '<article class="novel-list-item reveal" data-novel-theme="' + esc(n.theme || 'ember') + '">'
-          + '  <a href="novel.html?id=' + esc(n.id) + '" class="novel-list-link">'
-          + '    <div class="novel-list-cover-wrap">'
-          + '      <img src="' + esc(cover) + '" alt="' + esc(n.title) + '" class="novel-list-cover" loading="lazy" onerror="this.style.opacity='.2'"/>'
-          + '    </div>'
-          + '    <div class="novel-list-body">'
-          + '      <div class="novel-list-genre">' + esc(n.genre || 'Unknown') + '</div>'
-          + '      <h2 class="novel-list-title">' + esc(n.title || n.id) + '</h2>'
-          + '      <div class="novel-list-desc">' + renderDesc(n.description || '') + '</div>'
-          + '      <div class="novel-list-foot">'
-          + (n.status ? ('<span class="pill pill-status">' + esc(n.status) + '</span>') : '')
-          + '        <span class="novel-list-cta">Read <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span></span>'
-          + '      </div>'
-          + '    </div>'
-          + '    <div class="novel-list-rose" aria-hidden="true"><svg><use href="#kb-rose-double"></use></svg></div>'
-          + '  </a>'
-          + '</article>';
-      }
-
-      fetch('/data/novels.json')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-          var novels = Array.isArray(data) ? data : [];
-          subEl.textContent = novels.length + ' Novel' + (novels.length!==1?'s':'') + ' · Tarhuala';
-          metaEl.textContent = novels.length + ' published work' + (novels.length!==1?'s':'');
-
-          if (!novels.length){
-            listEl.innerHTML = '';
-            emptyEl.classList.add('show');
-            return;
-          }
-
-          emptyEl.classList.remove('show');
-          listEl.innerHTML = novels.map(renderNovelItem).join('');
-          if (window._revealRefresh) window._revealRefresh();
-        })
-        .catch(function(){
-          subEl.textContent = 'Failed to load';
-          metaEl.textContent = '0 published works';
-          listEl.innerHTML = '';
-          emptyEl.classList.add('show');
-        });
-    })();
-  </script>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-brand">
+    <span id="footer-name">TARHUALA</span> &middot; Dark Fiction
+  </div>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Home</a>
+    <a href="novels.html" class="footer-link">Novels</a>
+    <a href="about.html" class="footer-link">About</a>
+  </div>
+  <span class="footer-cw">18+ MATURE CONTENT</span>
+  <div class="footer-copy">&copy; <span id="copy-year"></span> <span id="footer-copy">Tarhuala</span></div>
+</footer>
+<button class="back-to-top" id="back-to-top" hidden aria-label="Back to top">&#x2191;</button>
+<script src="/js/app.js"></script>
 </body>
 </html>
