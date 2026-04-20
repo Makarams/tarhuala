@@ -2472,3 +2472,20 @@ html, body{
   .world-banner-inner { padding: 40px 0 40px; }
   .world-banner-section { padding: 0 var(--gutter); }
 }
+
+/* ── Light mode: rarity colour overrides ──────────────────────────────────
+   Default rarity colours are calibrated for dark bg (#141814).
+   On light bg (#fdfcf6) the pale variants (divine, platinum, silver, mithril)
+   become nearly invisible. Darken them just enough to hit ~5:1 contrast.     */
+[data-theme="light"] .rarity-common,
+[data-theme="light"] .r-common    { color:#606060; border-color:#606060 }
+
+[data-theme="light"] .rarity-mithril,
+[data-theme="light"] .r-mithril   { color:#2a7090; border-color:#2a7090 }
+
+[data-theme="light"] .r-silver    { color:#546070; border-color:#546070 }
+
+[data-theme="light"] .r-platinum  { color:#38789a; border-color:#38789a }
+
+[data-theme="light"] .rarity-divine,
+[data-theme="light"] .r-divine    { color:#7a6010; border-color:#7a6010 }
