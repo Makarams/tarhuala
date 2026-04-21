@@ -408,6 +408,17 @@
   }
 
   /* ------------------------------------------------------------------
+     SITE DATA — loaded once, used everywhere
+     ------------------------------------------------------------------ */
+  var _site = { author: '', tagline: '', bio: '', url: '', seo: {} };
+  var _siteReady = false;
+  var _siteCallbacks = [];
+
+  function onSiteReady(fn){ _siteReady ? fn(_site) : _siteCallbacks.push(fn); }
+
+  function siteAuthor(){ return _site.author || document.title.split('—').pop().trim() || ''; }
+
+  /* ------------------------------------------------------------------
      BOOTSTRAP on DOMContentLoaded
      ------------------------------------------------------------------ */
   function boot(){
@@ -416,8 +427,7 @@
     wireNav();
     wireBackToTop();
     wireRevealObserver();
-    wireSiteInfo();
-    routeByPage();
+    wireSiteInfo();   // loads site.json, then fires routeByPage once ready
   }
 
   function wireTheme(){
@@ -479,15 +489,28 @@
     fetch('/data/site.json')
       .then(function(r){ return r.json(); })
       .then(function(d){
-        var name = (d && d.author) || 'Tarhuala';
-        document.querySelectorAll('[data-site-name]').forEach(function(el){
-          el.textContent = name;
-        });
-        var fc = qs('footer-copy'); if (fc) fc.textContent = name;
+        if (d) {
+          _site.author  = d.author  || '';
+          _site.tagline = d.tagline || '';
+          _site.bio     = d.bio     || '';
+          _site.url     = d.url     || window.location.origin;
+          _site.seo     = d.seo     || {};
+        }
+        var name = _site.author;
+        if (name) {
+          document.querySelectorAll('[data-site-name]').forEach(function(el){
+            el.textContent = name;
+          });
+          var fc = qs('footer-copy'); if (fc) fc.textContent = name;
+        }
       })
       .catch(function(){})
       .finally(function(){
         var yr = qs('copy-year'); if (yr) yr.textContent = new Date().getFullYear();
+        _siteReady = true;
+        var cbs = _siteCallbacks.slice(); _siteCallbacks = [];
+        cbs.forEach(function(fn){ try{ fn(_site); }catch(e){} });
+        routeByPage();
       });
   }
 
@@ -848,21 +871,23 @@
         if (readBtn && chapters.length > 0){
           readBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[0].number;
         }
-        document.title = (info.title || 'Novel') + ' \u2014 Tarhuala';
+        var _author = siteAuthor();
+        var _siteUrl = _site.url || window.location.origin;
+        document.title = (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : '');
         updatePageSEO({
-          title: (info.title || 'Novel') + ' \u2014 Tarhuala — Dark Fiction',
-          description: info.description || ('Read ' + (info.title||'') + ' by Tarhuala — dark fiction online.'),
-          url: window.location.origin + '/novel.html?id=' + novelId,
-          image: (info.images && info.images.cover) ? (window.location.origin + info.images.cover) : null,
+          title: (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : ''),
+          description: info.description || ('Read ' + (info.title||'') + (_author ? ' by ' + _author : '') + ' — dark fiction online.'),
+          url: _siteUrl + '/novel.html?id=' + novelId,
+          image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
-          keywords: [info.genre, 'Tarhuala', 'web novel', 'read online'].concat(info.tags||[]).join(', '),
+          keywords: [info.genre, _author, 'web novel', 'read online'].concat(info.tags||[]).filter(Boolean).join(', '),
           jsonld: JSON.stringify({
             '@context':'https://schema.org','@type':'Book',
-            'name': info.title, 'author':{'@type':'Person','name':'Tarhuala'},
+            'name': info.title, 'author':{'@type':'Person','name': _author},
             'description': info.description,
             'genre': info.genre,
-            'url': window.location.origin + '/novel.html?id=' + novelId,
-            'image': (info.images&&info.images.cover) ? (window.location.origin+info.images.cover) : undefined,
+            'url': _siteUrl + '/novel.html?id=' + novelId,
+            'image': (info.images&&info.images.cover) ? (_siteUrl + info.images.cover) : undefined,
             'numberOfPages': info.chapters ? info.chapters.length : undefined,
             'inLanguage': 'en'
           })
@@ -954,14 +979,17 @@
         if (titleEl) titleEl.textContent = info.title || titleCase(novelId);
         if (subEl)   subEl.textContent   = (info.chapters ? info.chapters.length : 0) + ' Chapters · ' + (info.genre || '');
         var chapters = info.chapters || [];
-        document.title = (info.title || titleCase(novelId)) + ' — Chapters — Tarhuala';
+        var _author = siteAuthor();
+        var _siteUrl = _site.url || window.location.origin;
+        var _novelTitle = info.title || titleCase(novelId);
+        document.title = _novelTitle + ' \u2014 Chapters' + (_author ? ' \u2014 ' + _author : '');
         updatePageSEO({
-          title: (info.title || titleCase(novelId)) + ' — All Chapters — Tarhuala',
-          description: 'Browse all chapters of ' + (info.title || titleCase(novelId)) + ' by Tarhuala. Free dark fiction online.',
-          url: window.location.origin + '/chapters.html?id=' + novelId,
-          image: (info.images && info.images.cover) ? (window.location.origin + info.images.cover) : null,
+          title: _novelTitle + ' \u2014 All Chapters' + (_author ? ' \u2014 ' + _author : ''),
+          description: 'Browse all chapters of ' + _novelTitle + (_author ? ' by ' + _author : '') + '. Free dark fiction online.',
+          url: _siteUrl + '/chapters.html?id=' + novelId,
+          image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
-          keywords: [(info.title || ''), 'chapters', 'Tarhuala', 'read online', 'dark fiction'].join(', ')
+          keywords: [_novelTitle, 'chapters', _author, 'read online', 'dark fiction'].filter(Boolean).join(', ')
         });
         renderChapterList(chapters, 'asc', novelId);
         document.querySelectorAll('.sort-btn').forEach(function(btn){
@@ -1040,29 +1068,31 @@
       })
       .then(function(r){ return r.json(); })
       .then(function(ch){
+        var _author  = siteAuthor();
+        var _siteUrl = _site.url || window.location.origin;
         var novelTitle = (_novelInfo && _novelInfo.title) || titleCase(novelId);
         var chTitle = 'Chapter ' + ch.number + (ch.title ? ': ' + ch.title : '');
-        var pageTitle = chTitle + ' \u2014 ' + novelTitle + ' \u2014 Tarhuala';
-        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + ' by Tarhuala. Free dark fiction online.';
+        var pageTitle = chTitle + ' \u2014 ' + novelTitle + (_author ? ' \u2014 ' + _author : '');
+        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + (_author ? ' by ' + _author : '') + '. Free dark fiction online.';
         document.title = pageTitle;
         updatePageSEO({
           title: pageTitle,
           description: chDesc,
-          url: window.location.origin + '/chapter.html?id=' + novelId + '&ch=' + chNum,
+          url: _siteUrl + '/chapter.html?id=' + novelId + '&ch=' + chNum,
           image: (_novelInfo && _novelInfo.images && _novelInfo.images.cover)
-            ? (window.location.origin + _novelInfo.images.cover) : null,
+            ? (_siteUrl + _novelInfo.images.cover) : null,
           type: 'article',
-          keywords: [novelTitle, chTitle, 'Tarhuala', 'read online', 'dark fiction'].join(', '),
+          keywords: [novelTitle, chTitle, _author, 'read online', 'dark fiction'].filter(Boolean).join(', '),
           jsonld: JSON.stringify({
             '@context':'https://schema.org','@type':'Article',
             'headline': chTitle,
             'description': chDesc,
-            'author':{'@type':'Person','name':'Tarhuala'},
+            'author':{'@type':'Person','name': _author},
             'isPartOf':{'@type':'Book','name': novelTitle,
-              'url': window.location.origin + '/novel.html?id=' + novelId},
-            'url': window.location.origin + '/chapter.html?id=' + novelId + '&ch=' + chNum,
+              'url': _siteUrl + '/novel.html?id=' + novelId},
+            'url': _siteUrl + '/chapter.html?id=' + novelId + '&ch=' + chNum,
             'position': ch.number,
-            'publisher':{'@type':'Organization','name':'Tarhuala','url': window.location.origin}
+            'publisher':{'@type':'Organization','name': _author, 'url': _siteUrl}
           })
         });
         var nl = qs('chapter-num-label'); if (nl) nl.textContent = 'Chapter ' + ch.number;
