@@ -16,6 +16,63 @@
   "images": {
     "cover": "/images/covers/marked-by-false-gods.svg"
   },
-  "chapters": [],
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Where Am I"
+    },
+    {
+      "number": 2,
+      "title": "First Blood"
+    },
+    {
+      "number": 3,
+      "title": "Checkpoint"
+    },
+    {
+      "number": 4,
+      "title": "Far Bank"
+    },
+    {
+      "number": 5,
+      "title": "The Descent"
+    },
+    {
+      "number": 6,
+      "title": "Eoran"
+    },
+    {
+      "number": 7,
+      "title": "First Night"
+    },
+    {
+      "number": 8,
+      "title": "Assessor"
+    },
+    {
+      "number": 9,
+      "title": "The Message"
+    },
+    {
+      "number": 10,
+      "title": "Ledger House"
+    },
+    {
+      "number": 11,
+      "title": "First Ruin"
+    },
+    {
+      "number": 12,
+      "title": "Veilstone"
+    },
+    {
+      "number": 13,
+      "title": "Sentinel"
+    },
+    {
+      "number": 14,
+      "title": "Voidcore"
+    }
+  ],
   "platforms": []
 }

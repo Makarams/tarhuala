@@ -1,0 +1,40 @@
+{
+  "id": "manager-who-builds-worlds",
+  "title": "Manager Who Builds Worlds",
+  "genre": "Fiction",
+  "tags": [],
+  "status": "Ongoing",
+  "rating": "Mature",
+  "description": "",
+  "theme": "ember",
+  "images": {
+    "cover": ""
+  },
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Ball of Light"
+    },
+    {
+      "number": 2,
+      "title": "First Worlds"
+    },
+    {
+      "number": 3,
+      "title": "All Three"
+    },
+    {
+      "number": 4,
+      "title": "Seedling Rate"
+    },
+    {
+      "number": 5,
+      "title": "Ground Floor"
+    },
+    {
+      "number": 6,
+      "title": "Standard Tier"
+    }
+  ],
+  "platforms": []
+}

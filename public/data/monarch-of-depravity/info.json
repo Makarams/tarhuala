@@ -15,7 +15,36 @@
   "images": {
     "cover": "/images/covers/monarch-of-depravity.svg"
   },
-  "chapters": [],
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Glimmering Light"
+    },
+    {
+      "number": 2,
+      "title": "First Steps"
+    },
+    {
+      "number": 3,
+      "title": "Breckvale"
+    },
+    {
+      "number": 4,
+      "title": "The Notebook"
+    },
+    {
+      "number": 5,
+      "title": "Maintenance"
+    },
+    {
+      "number": 6,
+      "title": "Equivalence"
+    },
+    {
+      "number": 7,
+      "title": "The House"
+    }
+  ],
   "platforms": [
     {
       "name": "WebNovel",

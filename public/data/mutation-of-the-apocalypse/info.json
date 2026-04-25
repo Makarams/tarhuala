@@ -20,6 +20,42 @@
     {
       "number": 1,
       "title": "New Beginning"
+    },
+    {
+      "number": 2,
+      "title": "Fresh Start"
+    },
+    {
+      "number": 3,
+      "title": "Market Fight"
+    },
+    {
+      "number": 4,
+      "title": "Gathering Supplies"
+    },
+    {
+      "number": 5,
+      "title": "Triumph in Achievement"
+    },
+    {
+      "number": 6,
+      "title": "Class Clue"
+    },
+    {
+      "number": 7,
+      "title": "Other Player"
+    },
+    {
+      "number": 8,
+      "title": "Seeking Clarity"
+    },
+    {
+      "number": 9,
+      "title": "In Pursuit of Insight"
+    },
+    {
+      "number": 10,
+      "title": "Marching Onward"
     }
   ],
   "platforms": [

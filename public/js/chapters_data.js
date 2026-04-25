@@ -3,12 +3,172 @@
 //
 // chaptersData[novelId] = [{ number, title }, ...]
 const CHAPTERS_DATA = {
-  "marked-by-false-gods": [],
-  "monarch-of-depravity": [],
+  "manager-who-builds-worlds": [
+    {
+      "number": 1,
+      "title": "Ball of Light"
+    },
+    {
+      "number": 2,
+      "title": "First Worlds"
+    },
+    {
+      "number": 3,
+      "title": "All Three"
+    },
+    {
+      "number": 4,
+      "title": "Seedling Rate"
+    },
+    {
+      "number": 5,
+      "title": "Ground Floor"
+    },
+    {
+      "number": 6,
+      "title": "Standard Tier"
+    }
+  ],
+  "marked-by-false-gods": [
+    {
+      "number": 1,
+      "title": "Where Am I"
+    },
+    {
+      "number": 2,
+      "title": "First Blood"
+    },
+    {
+      "number": 3,
+      "title": "Checkpoint"
+    },
+    {
+      "number": 4,
+      "title": "Far Bank"
+    },
+    {
+      "number": 5,
+      "title": "The Descent"
+    },
+    {
+      "number": 6,
+      "title": "Eoran"
+    },
+    {
+      "number": 7,
+      "title": "First Night"
+    },
+    {
+      "number": 8,
+      "title": "Assessor"
+    },
+    {
+      "number": 9,
+      "title": "The Message"
+    },
+    {
+      "number": 10,
+      "title": "Ledger House"
+    },
+    {
+      "number": 11,
+      "title": "First Ruin"
+    },
+    {
+      "number": 12,
+      "title": "Veilstone"
+    },
+    {
+      "number": 13,
+      "title": "Sentinel"
+    },
+    {
+      "number": 14,
+      "title": "Voidcore"
+    }
+  ],
+  "masquerade-in-noble-court": [
+    {
+      "number": 1,
+      "title": "New Life"
+    }
+  ],
+  "mistakenly-dragged-survival": [
+    {
+      "number": 1,
+      "title": "Wrong Umbrella"
+    }
+  ],
+  "monarch-of-depravity": [
+    {
+      "number": 1,
+      "title": "Glimmering Light"
+    },
+    {
+      "number": 2,
+      "title": "First Steps"
+    },
+    {
+      "number": 3,
+      "title": "Breckvale"
+    },
+    {
+      "number": 4,
+      "title": "The Notebook"
+    },
+    {
+      "number": 5,
+      "title": "Maintenance"
+    },
+    {
+      "number": 6,
+      "title": "Equivalence"
+    },
+    {
+      "number": 7,
+      "title": "The House"
+    }
+  ],
   "mutation-of-the-apocalypse": [
     {
       "number": 1,
       "title": "New Beginning"
+    },
+    {
+      "number": 2,
+      "title": "Fresh Start"
+    },
+    {
+      "number": 3,
+      "title": "Market Fight"
+    },
+    {
+      "number": 4,
+      "title": "Gathering Supplies"
+    },
+    {
+      "number": 5,
+      "title": "Triumph in Achievement"
+    },
+    {
+      "number": 6,
+      "title": "Class Clue"
+    },
+    {
+      "number": 7,
+      "title": "Other Player"
+    },
+    {
+      "number": 8,
+      "title": "Seeking Clarity"
+    },
+    {
+      "number": 9,
+      "title": "In Pursuit of Insight"
+    },
+    {
+      "number": 10,
+      "title": "Marching Onward"
     }
   ]
 };
