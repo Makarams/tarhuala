@@ -825,7 +825,7 @@
         }
         var coverEl = qs('novel-cover');
         if (coverEl){
-          coverEl.src = (info.images && info.images.cover) || '/images/covers/' + novelId + '.jpg';
+          coverEl.src = (info.images && info.images.cover) || '/images/covers/' + novelId + '.svg';
           coverEl.alt = info.title || '';
           coverEl.onerror = function(){ this.style.opacity = '0.2'; };
         }

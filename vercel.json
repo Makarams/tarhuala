@@ -4,6 +4,8 @@
   "outputDirectory": "public",
   "installCommand": "npm install",
   "framework": null,
+  "cleanUrls": false,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/css/(.*)",
@@ -18,14 +20,11 @@
       ]
     },
     {
-      "source": "/images/(.*)",
+      "source": "/images/(.*)\\.svg",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, must-revalidate" },
         { "key": "Content-Type", "value": "image/svg+xml" }
       ]
     }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
