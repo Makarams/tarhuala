@@ -751,6 +751,30 @@ async function build() {
   }
   console.log('  ok html meta tags patched (' + htmlFiles.length + ' files)');
 
+  // 3e-2. Asset cache-busting — stamp every CSS + JS reference with today's build date.
+  //       Runs on EVERY build so deployment always serves fresh assets.
+  //       Handles both versioned (?v=XXXXXXXX) and unversioned references.
+  const buildDate = new Date().toISOString().slice(0,10).replace(/-/g,''); // YYYYMMDD
+  const assetPatterns = [
+    // CSS
+    { re: /\/css\/(style|css-additions)\.css(\?v=\d+)?/g,       tag: (m,n) => `/css/${n}.css?v=${buildDate}` },
+    // JS
+    { re: /\/js\/(app|router|reader|theme|banner-wiring|chapters_data)\.js(\?v=\d+)?/g, tag: (m,n) => `/js/${n}.js?v=${buildDate}` },
+  ];
+  const allHtmlFiles = fs.readdirSync(PUBLIC).filter(f => f.endsWith('.html'));
+  let versionedCount = 0;
+  for (const fname of allHtmlFiles) {
+    const fpath = path.join(PUBLIC, fname);
+    let src = fs.readFileSync(fpath, 'utf8');
+    let changed = false;
+    for (const { re, tag } of assetPatterns) {
+      const next = src.replace(re, (m, name) => tag(m, name));
+      if (next !== src) { src = next; changed = true; }
+    }
+    if (changed) { fs.writeFileSync(fpath, src); versionedCount++; }
+  }
+  console.log(`  ok asset versions stamped ?v=${buildDate} (${versionedCount} files updated)`);
+
   // 3f. Generate sitemap.xml from current data — every novel + every chapter URL.
   //     Auto-keeps in sync with deletions and additions.
   if (siteUrl) {
