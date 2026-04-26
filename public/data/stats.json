@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-26T18:09:30.814Z",
+  "generatedAt": "2026-04-26T18:21:13.263Z",
   "totalNovels": 6,
   "totalChapters": 47,
-  "totalWords": 85166,
-  "avgWordsPerChapter": 1812,
+  "totalWords": 83641,
+  "avgWordsPerChapter": 1780,
   "avgChaptersPerNovel": 7.8,
   "longestChapter": {
     "novel": "Marked by False Gods",
@@ -29,7 +29,7 @@
       "chapterCount": 6,
       "words": 9268,
       "avgWords": 1545,
-      "lastUpdated": "2026-04-26T18:09:30.509Z",
+      "lastUpdated": "2026-04-26T18:21:13.009Z",
       "chapters": [
         {
           "number": 1,
@@ -77,9 +77,9 @@
       "status": "Ongoing",
       "theme": "jade",
       "chapterCount": 14,
-      "words": 26247,
-      "avgWords": 1875,
-      "lastUpdated": "2026-04-26T18:09:30.557Z",
+      "words": 24722,
+      "avgWords": 1766,
+      "lastUpdated": "2026-04-26T18:21:13.064Z",
       "chapters": [
         {
           "number": 1,
@@ -103,8 +103,8 @@
         },
         {
           "number": 5,
-          "title": "The Descent",
-          "words": 1525
+          "title": "Chapter 5",
+          "words": 0
         },
         {
           "number": 6,
@@ -169,7 +169,7 @@
       "chapterCount": 5,
       "words": 8614,
       "avgWords": 1723,
-      "lastUpdated": "2026-04-26T18:09:30.657Z",
+      "lastUpdated": "2026-04-26T18:21:13.159Z",
       "chapters": [
         {
           "number": 1,
@@ -314,7 +314,7 @@
       "chapterCount": 10,
       "words": 17342,
       "avgWords": 1734,
-      "lastUpdated": "2026-04-26T18:09:30.707Z",
+      "lastUpdated": "2026-04-26T18:21:13.194Z",
       "chapters": [
         {
           "number": 1,

@@ -48,7 +48,7 @@ const CHAPTERS_DATA = {
     },
     {
       "number": 5,
-      "title": "The Descent"
+      "title": "Chapter 5"
     },
     {
       "number": 6,
