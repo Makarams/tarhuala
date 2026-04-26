@@ -21,6 +21,28 @@ Names should feel deliberate and carry weight — concise, intentional, not gene
 
 ---
 
+## Chapter File Naming
+Every chapter is saved as a `.docx` file. The filename format is:
+
+```
+Chapter_N_Chapter_Title.docx
+```
+
+Rules:
+- `N` is the chapter number with no leading zeros: `Chapter_1`, `Chapter_14`.
+- The title portion uses title case with underscores between words: `Chapter_1_New_Life`, `Chapter_6_Seeking_Class_Clue`.
+- Titles are two to three words. One word is rare and only used when nothing else fits. Four or more words are forbidden.
+- The title describes the chapter content plainly. It does not editorialize.
+- The word "Revised" and any variant (Revised, Rewrite, Edit, Updated, Final, V2) are forbidden in the filename.
+- Colons are forbidden in filenames.
+- Em dashes are forbidden in filenames.
+- The filename contains only the chapter number and title. It contains nothing else.
+
+Correct examples: `Chapter_1_New_Life.docx`, `Chapter_3_Market_Fight.docx`, `Chapter_12_Veilstone.docx`
+Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Market_Fight_Scene.docx`, `Chapter_12_Veilstone:_The_Ruin.docx`
+
+---
+
 ## Point of View
 POV is established by the author's draft and recorded in continuity_log.json on first appearance.
 
@@ -91,6 +113,13 @@ Characters can come from anywhere. Even within the same culture, people vary wid
 - Repetitive mirroring: same idea restated with parallel sentence structure
 - Static environmental repetition: returning to a setting detail to confirm it hasn't changed
 
+
+**Sentence-level language restrictions**
+- Multiple negatives in one sentence: rewrite to state what is true instead of accumulating what is not. "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost."
+- Stacked "not" constructions: one negation per sentence is the limit; a second negation means the sentence needs rewriting
+- "Not just" as a qualifier: cut it and state the thing directly
+- "No X, no Y, no Z" list structures: forbidden; state the reality instead
+- More than one use of "no" or "not" in a single sentence: rewrite the sentence
 **Rhythm and structure**
 - Em dashes or double dashes anywhere in prose; use commas or new sentences instead
 - Colons in prose narration — fold the information into the sentence or use a period; colons are permitted inside system/LitRPG blocks and inside dialogue only when a character is reading or speaking text that naturally contains them

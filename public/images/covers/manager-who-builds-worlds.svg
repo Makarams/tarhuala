@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="4" seed="3"/>
+    <feColorMatrix values="0 0 0 0 0.01  0 0 0 0 0.04  0 0 0 0 0.06  0 0 0 0.50 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="deepglow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="28" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="sproutglow" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="16" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="bg" cx="50%" cy="34%" r="72%">
+    <stop offset="0%" stop-color="#010e18"/>
+    <stop offset="46%" stop-color="#010810"/>
+    <stop offset="100%" stop-color="#000204"/>
+  </radialGradient>
+  <radialGradient id="cyanAura" cx="50%" cy="38%" r="58%">
+    <stop offset="0%" stop-color="#16d8ec" stop-opacity="0.44"/>
+    <stop offset="46%" stop-color="#0880a8" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="planetBody" cx="34%" cy="28%" r="72%">
+    <stop offset="0%"   stop-color="#073040"/>
+    <stop offset="44%"  stop-color="#041e2a"/>
+    <stop offset="100%" stop-color="#010a10"/>
+  </radialGradient>
+  <radialGradient id="planetRim" cx="28%" cy="22%" r="78%">
+    <stop offset="0%"  stop-color="#1cf8ff" stop-opacity="0.24"/>
+    <stop offset="58%" stop-color="#08a8c4" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sproutAura" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"  stop-color="#22ecd4" stop-opacity="0.90"/>
+    <stop offset="55%" stop-color="#0cbca0" stop-opacity="0.30"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="groundFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="1"/>
+  </linearGradient>
+  <radialGradient id="vig" cx="50%" cy="38%" r="76%">
+    <stop offset="42%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.95"/>
+  </radialGradient>
+  <clipPath id="pClip"><circle cx="200" cy="220" r="112"/></clipPath>
+</defs>
+
+<rect width="400" height="600" fill="url(#bg)"/>
+<ellipse cx="200" cy="240" rx="238" ry="216" fill="url(#cyanAura)"/>
+
+<!-- stars -->
+<g fill="#8ee8f8">
+  <circle cx="28" cy="42" r="0.9" opacity="0.56"/><circle cx="66" cy="18" r="1.2" opacity="0.50"/>
+  <circle cx="110" cy="56" r="0.8" opacity="0.54"/><circle cx="164" cy="26" r="1.3" opacity="0.46"/>
+  <circle cx="242" cy="14" r="0.9" opacity="0.52"/><circle cx="298" cy="40" r="1.1" opacity="0.48"/>
+  <circle cx="352" cy="24" r="1.4" opacity="0.54"/><circle cx="384" cy="68" r="0.9" opacity="0.44"/>
+  <circle cx="22" cy="130" r="0.7" opacity="0.42"/><circle cx="56" cy="98" r="1.1" opacity="0.48"/>
+  <circle cx="348" cy="112" r="1.0" opacity="0.46"/><circle cx="378" cy="88" r="1.2" opacity="0.50"/>
+  <circle cx="42" cy="192" r="0.8" opacity="0.38"/><circle cx="364" cy="170" r="0.9" opacity="0.38"/>
+  <circle cx="88" cy="82" r="0.7" opacity="0.42"/><circle cx="318" cy="58" r="0.8" opacity="0.40"/>
+  <circle cx="184" cy="10" r="0.9" opacity="0.52"/><circle cx="218" cy="36" r="0.7" opacity="0.42"/>
+  <circle cx="136" cy="12" r="0.8" opacity="0.46"/><circle cx="274" cy="16" r="1.0" opacity="0.40"/>
+  <circle cx="148" cy="52" r="0.6" opacity="0.36"/><circle cx="264" cy="48" r="0.7" opacity="0.38"/>
+</g>
+
+<!-- asteroid belt — ring of debris -->
+<g transform="translate(200 220)">
+  <g opacity="0.55">
+    <!-- outer debris ring shape -->
+    <ellipse rx="168" ry="42" fill="none" stroke="#14c8e0" stroke-width="0.6" stroke-dasharray="2,16" opacity="0.28"/>
+    <!-- debris chunks scattered on the ring path -->
+    <g fill="#0a3040">
+      <polygon points="-168,0 -162,-4 -164,4" opacity="0.80"/>
+      <polygon points="-142,-24 -138,-28 -134,-22" opacity="0.75"/>
+      <polygon points="-60,-40 -56,-44 -54,-38" opacity="0.70"/>
+      <polygon points="60,-40 56,-44 62,-36" opacity="0.72"/>
+      <polygon points="140,-26 136,-30 142,-22" opacity="0.76"/>
+      <polygon points="168,2 164,-2 166,6" opacity="0.80"/>
+      <polygon points="130,30 126,26 132,34" opacity="0.72"/>
+      <polygon points="-130,28 -126,24 -134,32" opacity="0.72"/>
+    </g>
+    <!-- debris glow nodes -->
+    <g fill="#1af0ff" filter="url(#glow)" opacity="0.52">
+      <circle cx="-168" cy="0"   r="2.4"/>
+      <circle cx="168"  cy="2"   r="2.4"/>
+      <circle cx="-142" cy="-24" r="1.8"/>
+      <circle cx="140"  cy="-26" r="1.8"/>
+    </g>
+  </g>
+</g>
+
+<!-- orbital moon -->
+<g filter="url(#glow)">
+  <circle cx="352" cy="202" r="9"  fill="#041c2c" stroke="#1af0ff" stroke-width="1.4" opacity="0.82"/>
+  <circle cx="352" cy="202" r="4.5" fill="#063040" opacity="0.92"/>
+  <!-- moon surface crack -->
+  <path d="M 349 198 Q 352 202 350 208" stroke="#0e5878" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <circle cx="348" cy="199" r="2.0" fill="#c8f8ff" opacity="0.78"/>
+</g>
+
+<!-- planet halo -->
+<g transform="translate(200 220)" filter="url(#deepglow)">
+  <circle r="118" fill="none" stroke="#16d8ec" stroke-width="4" opacity="0.30"/>
+</g>
+
+<!-- planet body -->
+<circle cx="200" cy="220" r="112" fill="url(#planetBody)"/>
+<circle cx="200" cy="220" r="112" fill="url(#planetRim)"/>
+
+<!-- terrain — deep crack network on surface -->
+<g clip-path="url(#pClip)" stroke="#0e6080" fill="none" opacity="0.65">
+  <!-- primary crack veins -->
+  <path d="M 146 268 Q 170 250 196 262 Q 220 272 246 258" stroke-width="1.2"/>
+  <path d="M 196 262 Q 198 290 192 322 Q 186 348 194 374" stroke-width="1.2"/>
+  <path d="M 170 250 Q 160 234 170 218 Q 180 206 200 216" stroke-width="1.1"/>
+  <path d="M 246 258 Q 262 246 266 230 Q 268 216 256 208" stroke-width="1.1"/>
+  <path d="M 134 240 Q 150 248 164 236 Q 172 230 170 250" stroke-width="1.0"/>
+  <path d="M 256 208 Q 258 196 248 190 Q 238 186 228 194" stroke-width="1.0"/>
+  <path d="M 200 216 Q 196 198 204 184 Q 210 170 220 164" stroke-width="0.9"/>
+  <path d="M 228 194 Q 220 180 222 164 Q 224 152 220 164" stroke-width="0.8"/>
+  <!-- secondary branches -->
+  <path d="M 192 322 Q 178 334 170 326 Q 160 318 154 330" stroke-width="0.8"/>
+  <path d="M 194 374 Q 188 388 196 396" stroke-width="0.7"/>
+  <path d="M 134 240 Q 120 252 112 270 Q 106 284 96 280" stroke-width="0.8"/>
+  <path d="M 146 268 Q 132 284 122 278" stroke-width="0.7"/>
+  <!-- hairline cracks -->
+  <path d="M 220 164 Q 232 148 244 144" stroke-width="0.55" opacity="0.5"/>
+  <path d="M 170 326 Q 158 346 164 362" stroke-width="0.55" opacity="0.5"/>
+  <path d="M 96  280 Q 86 292 90 306" stroke-width="0.55" opacity="0.5"/>
+</g>
+<!-- plateau ridges -->
+<g clip-path="url(#pClip)" fill="#041e2c" opacity="0.62">
+  <path d="M 108 302 Q 136 286 160 296 Q 180 306 170 322 Q 148 334 124 324 Q 104 314 108 302 Z"/>
+  <path d="M 242 186 Q 262 176 274 190 Q 278 206 264 212 Q 250 218 240 208 Q 236 196 242 186 Z"/>
+  <path d="M 152 188 Q 164 178 178 186 Q 184 196 174 202 Q 162 206 154 198 Q 150 190 152 188 Z"/>
+</g>
+
+<!-- sprout — the one living thing -->
+<g transform="translate(200 228)" filter="url(#sproutglow)">
+  <!-- roots -->
+  <path d="M -5 12 Q -10 20 -8 28" stroke="#0abca0" stroke-width="1.0" fill="none" stroke-linecap="round" opacity="0.60"/>
+  <path d="M  5 12 Q  10 20  8 28" stroke="#0abca0" stroke-width="1.0" fill="none" stroke-linecap="round" opacity="0.60"/>
+  <!-- stem -->
+  <line x1="0" y1="12" x2="0" y2="-20" stroke="#22ecd4" stroke-width="2.0" stroke-linecap="round"/>
+  <!-- left leaf -->
+  <path d="M 0,-12 Q -16,-24 -20,-16 Q -14,-6 0,-12 Z" fill="#22ecd4" opacity="0.90"/>
+  <!-- right leaf -->
+  <path d="M 0,-14 Q  16,-24  18,-16 Q  12,-6  0,-14 Z" fill="#22ecd4" opacity="0.82"/>
+  <!-- tip bud -->
+  <ellipse cx="0" cy="-22" rx="3.5" ry="5" fill="#d0f8f0" opacity="0.88"/>
+  <circle cx="0" cy="-23" r="1.6" fill="#ffffff" opacity="0.60"/>
+</g>
+<ellipse cx="200" cy="222" rx="30" ry="30" fill="url(#sproutAura)" opacity="0.55"/>
+
+<!-- planet crescent rim light -->
+<path d="M 108 174 Q 132 122 200 108 Q 264 104 292 144"
+  fill="none" stroke="#1cf8ff" stroke-width="2.4" opacity="0.32" stroke-linecap="round"/>
+
+<!-- kbach filigree above -->
+<g transform="translate(200 98)" fill="none" stroke="#14c8e0" stroke-width="0.90" opacity="0.38">
+  <path d="M -90,0 Q -68,-24 -45,0 Q -22,24 0,0 Q 22,-24 45,0 Q 68,24 90,0"/>
+  <path d="M -68,-18 Q -45,-36 -22,-18 Q 0,0 22,-18 Q 45,-36 68,-18" opacity="0.55"/>
+</g>
+<g transform="translate(200 98)" fill="#14c8e0" opacity="0.54">
+  <circle cx="0"   cy="0" r="4.0"/>
+  <circle cx="-45" cy="0" r="2.2"/><circle cx="45"  cy="0" r="2.2"/>
+  <circle cx="-90" cy="0" r="1.6"/><circle cx="90"  cy="0" r="1.6"/>
+</g>
+
+<!-- floating cyan motes -->
+<g fill="#1af0ff">
+  <circle cx="48"  cy="158" r="1.3" opacity="0.54"/><circle cx="92"  cy="126" r="1.0" opacity="0.46"/>
+  <circle cx="152" cy="104" r="1.2" opacity="0.52"/><circle cx="256" cy="102" r="1.1" opacity="0.48"/>
+  <circle cx="316" cy="124" r="1.3" opacity="0.54"/><circle cx="362" cy="156" r="0.9" opacity="0.44"/>
+  <circle cx="66"  cy="318" r="1.1" opacity="0.40"/><circle cx="340" cy="312" r="0.9" opacity="0.38"/>
+  <circle cx="26"  cy="260" r="0.8" opacity="0.34"/><circle cx="376" cy="254" r="0.8" opacity="0.34"/>
+</g>
+
+<!-- city silhouette -->
+<g fill="#010508" opacity="0.97">
+  <rect x="0" y="490" width="400" height="110"/>
+  <!-- dense varied skyline -->
+  <rect x="0"   y="472" width="18" height="18"/>
+  <rect x="22"  y="458" width="22" height="32"/>
+  <rect x="48"  y="466" width="14" height="24"/>
+  <rect x="68"  y="450" width="20" height="40"/>
+  <rect x="94"  y="462" width="12" height="28"/>
+  <rect x="112" y="444" width="24" height="46"/>
+  <rect x="142" y="456" width="16" height="34"/>
+  <rect x="164" y="468" width="20" height="22"/>
+  <rect x="190" y="474" width="18" height="16"/>
+  <!-- gap for planet view -->
+  <rect x="226" y="470" width="18" height="20"/>
+  <rect x="250" y="454" width="14" height="36"/>
+  <rect x="270" y="462" width="22" height="28"/>
+  <rect x="298" y="446" width="16" height="44"/>
+  <rect x="320" y="458" width="14" height="32"/>
+  <rect x="340" y="452" width="24" height="38"/>
+  <rect x="370" y="464" width="14" height="26"/>
+  <rect x="388" y="456" width="12" height="34"/>
+  <!-- antenna spires -->
+  <rect x="122" y="430" width="2"  height="16"/>
+  <rect x="308" y="432" width="2"  height="16"/>
+</g>
+<!-- lit windows -->
+<g filter="url(#glow)" opacity="0.22">
+  <rect x="118" cy="454" width="6" height="6" y="454" fill="#1af0ff"/>
+  <rect x="302" cy="450" width="6" height="6" y="452" fill="#1af0ff"/>
+  <rect x="76"  cy="460" width="5" height="5" y="460" fill="#1af0ff" opacity="0.15"/>
+</g>
+
+<rect x="0" y="450" width="400" height="150" fill="url(#groundFade)"/>
+<rect width="400" height="600" fill="url(#vig)"/>
+<rect width="400" height="600" filter="url(#grain)" opacity="0.52"/>
+
+<!-- CORNER FRAMES -->
+<g stroke="#14c8e0" stroke-width="1.9" fill="none" stroke-linecap="round">
+  <path d="M 14 46 L 14 14 L 46 14"/><path d="M 354 14 L 386 14 L 386 46"/>
+  <path d="M 14 554 L 14 586 L 46 586"/><path d="M 386 554 L 386 586 L 354 586"/>
+</g>
+<g fill="#14c8e0" opacity="0.92">
+  <circle cx="14" cy="14" r="3.2"/><circle cx="386" cy="14" r="3.2"/>
+  <circle cx="14" cy="586" r="3.2"/><circle cx="386" cy="586" r="3.2"/>
+</g>
+<g fill="#14c8e0" opacity="0.48" stroke="#14c8e0" stroke-width="0.5">
+  <path d="M 22 22 Q 34 22 34 34 Q 22 34 22 22 Z"/><path d="M 378 22 Q 366 22 366 34 Q 378 34 378 22 Z"/>
+  <path d="M 22 578 Q 34 578 34 566 Q 22 566 22 578 Z"/><path d="M 378 578 Q 366 578 366 566 Q 378 566 378 578 Z"/>
+</g>
+<rect x="10" y="10" width="380" height="580" fill="none" stroke="#14c8e0" stroke-width="0.6" opacity="0.32"/>
+
+<!-- TITLE -->
+<rect x="0" y="456" width="400" height="144" fill="#000508" opacity="0.92"/>
+<line x1="28" y1="465" x2="372" y2="465" stroke="#14c8e0" stroke-width="0.9" opacity="0.55"/>
+<g transform="translate(200 479)" fill="#14c8e0" opacity="0.70">
+  <path d="M -34,0 Q -17,-6 0,0 Q 17,6 34,0" fill="none" stroke="#14c8e0" stroke-width="0.92"/>
+  <circle cx="0" cy="0" r="2.6"/>
+  <circle cx="-30" cy="0" r="1.3"/><circle cx="30" cy="0" r="1.3"/>
+  <path d="M -50,0 L -40,0" stroke-width="0.7"/><path d="M 40,0 L 50,0" stroke-width="0.7"/>
+</g>
+<text x="200" y="512" text-anchor="middle"
+  font-family="Georgia,serif" font-size="28" font-weight="700" letter-spacing="3"
+  fill="#d4f8ff" filter="url(#glow)">MANAGER</text>
+<text x="200" y="537" text-anchor="middle"
+  font-family="Georgia,serif" font-size="11" font-weight="400" letter-spacing="5"
+  fill="#14c8e0" opacity="0.92">WHO BUILDS WORLDS</text>
+<text x="200" y="557" text-anchor="middle"
+  font-family="Georgia,serif" font-size="8" font-weight="400" letter-spacing="4"
+  fill="#3a7a8a" opacity="0.84">TARHUALA</text>
+</svg>

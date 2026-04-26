@@ -677,11 +677,20 @@
     var hero = qs('featured-hero');
     if (!hero || !novel) return;
 
-    var cover = (novel.images && novel.images.cover) || '/images/covers/' + novel.id + '.jpg';
+    var cover = (novel.images && novel.images.cover) || '/images/covers/' + novel.id + '.svg';
 
-    // Set background cover image
+    // Background banner image — use novel's banner as atmospheric backdrop
     var bgImg = qs('featured-hero-bg-img');
-    if (bgImg){ bgImg.src = cover; bgImg.onerror = function(){ this.style.display='none'; }; }
+    var bannerSrc = (novel.images && novel.images.banner) || '/images/banners/' + novel.id + '-banner.svg';
+    if (bgImg){ bgImg.src = bannerSrc; bgImg.onerror = function(){ this.style.display='none'; }; }
+
+    // Foreground cover (visible, prominent)
+    var coverImg = qs('featured-hero-cover-img');
+    if (coverImg){
+      coverImg.src = cover;
+      coverImg.alt = novel.title || '';
+      coverImg.onerror = function(){ this.style.opacity = 0.2; };
+    }
 
     var titleEl = qs('featured-hero-title');
     var genreEl = qs('featured-hero-genre');
@@ -691,6 +700,7 @@
     if (genreEl) genreEl.textContent = novel.genre || '';
     if (ctaEl)   ctaEl.href = 'novel.html?id=' + encodeURIComponent(novel.id);
 
+    hero.setAttribute('data-novel-theme', novel.theme || 'ember');
     hero.removeAttribute('hidden');
 
     // Load info for latest chapter number + snippet
@@ -735,6 +745,7 @@
           '</div>' +
           '<div class="novel-card-body">' +
             '<div class="novel-card-genre">' + escHtml(n.genre || '') + '</div>' +
+            '<h3 class="novel-card-title">' + escHtml(n.title) + '</h3>' +
             '<div class="novel-card-latest" id="latest-ch-' + escHtml(n.id) + '">Loading…</div>' +
             '<div class="novel-card-snippet" id="snippet-' + escHtml(n.id) + '"></div>' +
             '<div class="novel-card-tags">' + tags + '</div>' +
@@ -865,7 +876,8 @@
         }
         var bgEl = qs('novel-hero-bg-img');
         if (bgEl){
-          bgEl.src = (info.images && info.images.cover) || '/images/covers/' + novelId + '.jpg';
+          bgEl.src = (info.images && info.images.banner) || '/images/banners/' + novelId + '-banner.svg';
+          bgEl.onerror = function(){ this.style.display='none'; };
         }
         var readBtn = qs('novel-read-btn');
         if (readBtn && chapters.length > 0){
@@ -876,7 +888,7 @@
         document.title = (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : '');
         updatePageSEO({
           title: (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : ''),
-          description: info.description || ('Read ' + (info.title||'') + (_author ? ' by ' + _author : '') + ' — dark fiction online.'),
+          description: info.description || ('Read ' + (info.title||'') + (_author ? ' by ' + _author : '') + ' — System Fiction & Dark Fantasy online.'),
           url: _siteUrl + '/novel.html?id=' + novelId,
           image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
@@ -901,6 +913,7 @@
             renderChapterList(chapters, btn.dataset.order, novelId);
           });
         });
+        if (typeof mountNovelBanner === 'function') mountNovelBanner(info);
         if (window._revealRefresh) window._revealRefresh();
       })
       .catch(function(){
@@ -985,11 +998,11 @@
         document.title = _novelTitle + ' \u2014 Chapters' + (_author ? ' \u2014 ' + _author : '');
         updatePageSEO({
           title: _novelTitle + ' \u2014 All Chapters' + (_author ? ' \u2014 ' + _author : ''),
-          description: 'Browse all chapters of ' + _novelTitle + (_author ? ' by ' + _author : '') + '. Free dark fiction online.',
+          description: 'Browse all chapters of ' + _novelTitle + (_author ? ' by ' + _author : '') + '. Free System Fiction & Dark Fantasy online.',
           url: _siteUrl + '/chapters.html?id=' + novelId,
           image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
-          keywords: [_novelTitle, 'chapters', _author, 'read online', 'dark fiction'].filter(Boolean).join(', ')
+          keywords: [_novelTitle, 'chapters', _author, 'read online', 'system fiction', 'dark fantasy'].filter(Boolean).join(', ')
         });
         renderChapterList(chapters, 'asc', novelId);
         document.querySelectorAll('.sort-btn').forEach(function(btn){
@@ -1073,7 +1086,7 @@
         var novelTitle = (_novelInfo && _novelInfo.title) || titleCase(novelId);
         var chTitle = 'Chapter ' + ch.number + (ch.title ? ': ' + ch.title : '');
         var pageTitle = chTitle + ' \u2014 ' + novelTitle + (_author ? ' \u2014 ' + _author : '');
-        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + (_author ? ' by ' + _author : '') + '. Free dark fiction online.';
+        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + (_author ? ' by ' + _author : '') + '. Free System Fiction & Dark Fantasy online.';
         document.title = pageTitle;
         updatePageSEO({
           title: pageTitle,
@@ -1082,7 +1095,7 @@
           image: (_novelInfo && _novelInfo.images && _novelInfo.images.cover)
             ? (_siteUrl + _novelInfo.images.cover) : null,
           type: 'article',
-          keywords: [novelTitle, chTitle, _author, 'read online', 'dark fiction'].filter(Boolean).join(', '),
+          keywords: [novelTitle, chTitle, _author, 'read online', 'system fiction', 'dark fantasy'].filter(Boolean).join(', '),
           jsonld: JSON.stringify({
             '@context':'https://schema.org','@type':'Article',
             'headline': chTitle,
@@ -1102,6 +1115,7 @@
         if (ch.html)              chapterBody.innerHTML = sanitizeChapterHtml(ch.html);
         else if (ch.paragraphs)   chapterBody.innerHTML = formatParagraphs(ch.paragraphs);
         else                      chapterBody.innerHTML = '<p>Chapter content unavailable.</p>';
+        if (typeof mountChapterBanner === 'function' && _novelInfo) mountChapterBanner(_novelInfo);
       })
       .catch(function(){
         chapterBody.innerHTML = '<p>Failed to load chapter.</p>';
@@ -1143,6 +1157,51 @@
      Stat lines (Name:, Level:, Stats:...) are caught earlier and grouped into a
      status-screen component. */
 
+  /* Per-novel narrative voice for system messages.
+     Pulls the active novel theme from <html> and returns the entity speaking. */
+  function activeTheme(){
+    var t = document.documentElement.getAttribute('data-novel-theme')
+         || document.documentElement.getAttribute('data-accent');
+    if (t === 'red') return 'ember';
+    if (t === 'green') return 'jade';
+    if (t === 'blue') return 'indigo';
+    return t || 'jade';
+  }
+
+  /* Map a (variant, message-text) pair to a label drawn from the novel's voice.
+     Each novel has a primary "voice" plus a secondary used for broadcasts/loot. */
+  var ENTITY = {
+    /* Mutation of the Apocalypse — global mutation broadcast vs personal stats */
+    ember:  { primary:'Mutation', kill:'Mutation', levelup:'Mutation',
+              reward:'Mutation', broadcast:'Broadcast', error:'Anomaly' },
+    /* Marked by False Gods — false gods speak through the system */
+    jade:   { primary:'Voice',    kill:'Voice',    levelup:'Voice',
+              reward:'Voice',     broadcast:'Decree',    error:'Voice' },
+    /* Monarch of Depravity — twelve patron divinities */
+    gold:   { primary:'Patron',   kill:'Patron',   levelup:'Patron',
+              reward:'Offering',  broadcast:'Decree',    error:'Patron' },
+    /* Mistakenly Dragged Survival — nightmare game observers + corrupted slot */
+    indigo: { primary:'Game',     kill:'Game',     levelup:'Game',
+              reward:'Game',      broadcast:'Observer',  error:'Slot-7' },
+    /* Masquerade in Noble Court — the original-life knowledge that hers isn't */
+    ivory:  { primary:'Memory',   kill:'Memory',   levelup:'Memory',
+              reward:'Memory',    broadcast:'Whisper',   error:'Memory' },
+    /* Manager Who Builds Worlds — the constellation manager authority */
+    cyan:   { primary:'Authority',kill:'Authority',levelup:'Authority',
+              reward:'Authority', broadcast:'Authority', error:'Authority' }
+  };
+
+  function entityLabel(variant, text){
+    var theme = activeTheme();
+    var map = ENTITY[theme] || ENTITY.jade;
+    if (variant === 'error') return map.error || 'Anomaly';
+    /* Use broadcast tone when the message reads as a wide/global announcement */
+    if (text && /HUMANS OF EARTH|All Players|Observer|Broadcast|Worldwide|Initiating Earth/i.test(text)) {
+      return map.broadcast || map.primary;
+    }
+    return map[variant] || map.primary;
+  }
+
   function classifyToast(text){
     var inner = text.replace(/^\[\s*|\s*\]$/g, '').trim();
     var v, body = inner;
@@ -1181,9 +1240,10 @@
       v = 'meta';
     }
 
-    /* All game notifications come from "The System" — colour-coding via v-* variants
-       provides semantic distinction (red=kill, gold=levelup, jade=reward, etc.). */
-    var tag = (v === 'error') ? 'Error' : 'System';
+    /* Per-novel entity that "speaks" the notification — drawn from each novel's
+       narrative voice rather than a generic "System". The visual variant (kill/
+       levelup/reward) is conveyed by color. */
+    var tag = entityLabel(v, inner);
 
     var decorated = escHtml(body)
       .replace(/(\b\d[\d,]*(?:\/\d[\d,]*)?\b)/g, '<em>$1</em>')
@@ -1337,10 +1397,10 @@
       var bHtml = lines.map(function(ln){
         return '<div class="broadcast-line">' + escHtml(ln) + '</div>';
       }).join('');
+      var broadcastLabel = entityLabel('meta', 'HUMANS OF EARTH').toUpperCase();
       return '<div class="status-screen ss-broadcast">' +
                '<div class="status-screen-header">' +
-                 '<span class="kb-rose"><svg><use href="#kb-rose"/></svg></span>' +
-                 '<span>System Broadcast</span>' +
+                 '<span>' + escHtml(broadcastLabel) + '</span>' +
                '</div>' +
                '<div class="broadcast-body">' + bHtml + '</div>' +
              '</div>';

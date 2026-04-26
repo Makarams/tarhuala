@@ -246,7 +246,7 @@
   <circle cx="-56" cy="0" r="1.2"/><circle cx="56" cy="0" r="1.2"/>
 </g>
 <text x="240" y="599" font-family="Georgia, serif" font-size="14" letter-spacing="7" fill="#c8b898" text-anchor="middle" font-weight="600">TARHUALA</text>
-<text x="240" y="612" font-family="Georgia, serif" font-size="8" letter-spacing="3.5" fill="#6e4e32" text-anchor="middle">DARK FICTION</text>
+<text x="240" y="612" font-family="Georgia, serif" font-size="8" letter-spacing="3.5" fill="#6e4e32" text-anchor="middle">System Fiction & Dark Fantasy</text>
 
 <!-- vignette -->
 <radialGradient id="vignette" cx="50%" cy="50%" r="72%">

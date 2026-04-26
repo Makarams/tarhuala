@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" width="1280" height="220">
+<defs>
+  <filter id="i-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.62 0.68" numOctaves="4" seed="22"/>
+    <feColorMatrix values="0 0 0 0 0.06  0 0 0 0 0.05  0 0 0 0 0.03  0 0 0 0.42 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="i-glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="i-softglow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="22" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <!-- Ballroom void — warm dark, candlelit -->
+  <linearGradient id="i-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a0604"/>
+    <stop offset="50%" stop-color="#140e08"/>
+    <stop offset="100%" stop-color="#0c0805"/>
+  </linearGradient>
+  <!-- Central candelabra glow — warm ivory -->
+  <radialGradient id="i-core" cx="50%" cy="44%" r="38%">
+    <stop offset="0%" stop-color="#d4c898" stop-opacity="0.32"/>
+    <stop offset="40%" stop-color="#7a6030" stop-opacity="0.16"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="i-neb-l" cx="20%" cy="55%" r="26%">
+    <stop offset="0%" stop-color="#8a6c2c" stop-opacity="0.26"/>
+    <stop offset="60%" stop-color="#1a1208" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="i-neb-r" cx="80%" cy="50%" r="26%">
+    <stop offset="0%" stop-color="#8a6c2c" stop-opacity="0.24"/>
+    <stop offset="60%" stop-color="#1a1208" stop-opacity="0.1"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="i-floor" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#e8dcb4" stop-opacity="0"/>
+    <stop offset="80%" stop-color="#e8dcb4" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#e8dcb4" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="i-fade-l" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#0a0604" stop-opacity="1"/>
+    <stop offset="10%" stop-color="#0a0604" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="i-fade-r" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="90%" stop-color="#0a0604" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0a0604" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="i-fade-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a0604" stop-opacity="1"/>
+    <stop offset="14%" stop-color="#0a0604" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="i-fade-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="70%" stop-color="#0a0604" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0a0604" stop-opacity="1"/>
+  </linearGradient>
+  <clipPath id="i-clip"><rect width="1280" height="220"/></clipPath>
+</defs>
+
+<g clip-path="url(#i-clip)">
+<rect width="1280" height="220" fill="url(#i-sky)"/>
+
+<!-- Candlelit nebulae -->
+<ellipse cx="640" cy="100" rx="600" ry="130" fill="url(#i-core)"/>
+<ellipse cx="260" cy="120" rx="320" ry="100" fill="url(#i-neb-l)"/>
+<ellipse cx="1020" cy="110" rx="320" ry="100" fill="url(#i-neb-r)"/>
+<rect x="0" y="0" width="1280" height="220" fill="url(#i-floor)"/>
+
+<!-- Pillared ballroom silhouette — soft archways -->
+<g opacity="0.45" fill="#1a1208">
+  <rect x="80" y="70" width="14" height="138"/>
+  <rect x="220" y="78" width="12" height="130"/>
+  <rect x="360" y="72" width="14" height="136"/>
+  <rect x="500" y="74" width="13" height="134"/>
+  <rect x="640" y="60" width="16" height="148"/>
+  <rect x="780" y="74" width="13" height="134"/>
+  <rect x="920" y="72" width="14" height="136"/>
+  <rect x="1060" y="78" width="12" height="130"/>
+  <rect x="1200" y="70" width="14" height="138"/>
+</g>
+<g opacity="0.32" fill="none" stroke="#5a4220" stroke-width="0.8">
+  <path d="M 80 70 Q 165 36 240 70"/>
+  <path d="M 220 78 Q 295 50 360 78"/>
+  <path d="M 360 72 Q 435 40 510 72"/>
+  <path d="M 500 74 Q 575 42 650 74"/>
+  <path d="M 640 60 Q 715 30 790 60"/>
+  <path d="M 780 74 Q 855 42 930 74"/>
+  <path d="M 920 72 Q 995 40 1070 72"/>
+  <path d="M 1060 78 Q 1135 50 1210 78"/>
+</g>
+
+<!-- Floating masquerade masks — center mask larger -->
+<g filter="url(#i-glow)" opacity="0.78">
+  <!-- Center hero mask -->
+  <g transform="translate(640 96)">
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="#e8dcb4" opacity="0.42"/>
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="none" stroke="#e8dcb4" stroke-width="0.8" opacity="0.85"/>
+    <ellipse cx="-22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+    <ellipse cx="22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+    <!-- Plumes -->
+    <path d="M -34 -22 Q -42 -36 -36 -48 M -28 -22 Q -32 -38 -22 -52 M 28 -22 Q 32 -38 22 -52 M 34 -22 Q 42 -36 36 -48" stroke="#e8dcb4" stroke-width="0.8" fill="none" opacity="0.7"/>
+  </g>
+  <!-- Left mask -->
+  <g transform="translate(280 124) scale(0.75) rotate(-8)">
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="#8a6c2c" opacity="0.32"/>
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="none" stroke="#c4a870" stroke-width="0.7" opacity="0.65"/>
+    <ellipse cx="-22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+    <ellipse cx="22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+  </g>
+  <!-- Right mask -->
+  <g transform="translate(1000 124) scale(0.75) rotate(8)">
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="#8a6c2c" opacity="0.32"/>
+    <path d="M -42 -8 Q -42 -22 -28 -22 Q -16 -22 -8 -14 Q 0 -22 8 -22 Q 16 -22 28 -22 Q 42 -22 42 -8 Q 42 6 32 14 Q 22 22 8 22 Q 0 18 -8 22 Q -22 22 -32 14 Q -42 6 -42 -8 Z" fill="none" stroke="#c4a870" stroke-width="0.7" opacity="0.65"/>
+    <ellipse cx="-22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+    <ellipse cx="22" cy="-4" rx="8" ry="5" fill="#0a0604"/>
+  </g>
+</g>
+
+<!-- Candle flame motes -->
+<g filter="url(#i-softglow)">
+  <circle cx="160" cy="70" r="2" fill="#f5e8c0" opacity="0.85"/>
+  <circle cx="160" cy="70" r="6" fill="#e8c870" opacity="0.35"/>
+  <circle cx="440" cy="62" r="1.6" fill="#f5e8c0" opacity="0.78"/>
+  <circle cx="440" cy="62" r="5" fill="#e8c870" opacity="0.3"/>
+  <circle cx="840" cy="62" r="1.6" fill="#f5e8c0" opacity="0.78"/>
+  <circle cx="840" cy="62" r="5" fill="#e8c870" opacity="0.3"/>
+  <circle cx="1120" cy="70" r="2" fill="#f5e8c0" opacity="0.85"/>
+  <circle cx="1120" cy="70" r="6" fill="#e8c870" opacity="0.35"/>
+</g>
+
+<!-- Floating dust / glints -->
+<g opacity="0.5">
+  <circle cx="120" cy="44" r="0.8" fill="#e8dcb4"/>
+  <circle cx="200" cy="58" r="0.6" fill="#d4c898"/>
+  <circle cx="320" cy="36" r="0.7" fill="#e8dcb4"/>
+  <circle cx="420" cy="50" r="0.5" fill="#d4c898"/>
+  <circle cx="540" cy="42" r="0.7" fill="#e8dcb4"/>
+  <circle cx="700" cy="38" r="0.6" fill="#d4c898"/>
+  <circle cx="820" cy="48" r="0.7" fill="#e8dcb4"/>
+  <circle cx="940" cy="36" r="0.5" fill="#d4c898"/>
+  <circle cx="1060" cy="50" r="0.7" fill="#e8dcb4"/>
+  <circle cx="1180" cy="44" r="0.6" fill="#d4c898"/>
+</g>
+
+<!-- Edge fades -->
+<rect width="1280" height="220" fill="url(#i-fade-l)"/>
+<rect width="1280" height="220" fill="url(#i-fade-r)"/>
+<rect width="1280" height="220" fill="url(#i-fade-top)"/>
+<rect width="1280" height="220" fill="url(#i-fade-bot)"/>
+
+<rect width="1280" height="220" filter="url(#i-grain)" opacity="0.85"/>
+</g>
+</svg>

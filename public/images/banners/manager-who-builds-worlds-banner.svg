@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" width="1280" height="220">
+<defs>
+  <filter id="c-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65 0.70" numOctaves="4" seed="3"/>
+    <feColorMatrix values="0 0 0 0 0.01  0 0 0 0 0.04  0 0 0 0 0.06  0 0 0 0.50 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="c-glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="c-softglow" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="26" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <linearGradient id="c-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#000810"/>
+    <stop offset="42%" stop-color="#010c18"/>
+    <stop offset="100%" stop-color="#020e16"/>
+  </linearGradient>
+  <radialGradient id="c-core" cx="50%" cy="34%" r="42%">
+    <stop offset="0%" stop-color="#14d4e8" stop-opacity="0.42"/>
+    <stop offset="38%" stop-color="#0878a0" stop-opacity="0.16"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="c-planet" cx="36%" cy="28%" r="72%">
+    <stop offset="0%" stop-color="#073040"/>
+    <stop offset="55%" stop-color="#031820"/>
+    <stop offset="100%" stop-color="#010810"/>
+  </radialGradient>
+  <radialGradient id="c-neb-l" cx="16%" cy="50%" r="28%">
+    <stop offset="0%" stop-color="#0a4868" stop-opacity="0.38"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="c-neb-r" cx="84%" cy="44%" r="26%">
+    <stop offset="0%" stop-color="#0c5878" stop-opacity="0.32"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="c-horizon" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#14c8e0" stop-opacity="0"/>
+    <stop offset="82%" stop-color="#14c8e0" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#14c8e0" stop-opacity="0.26"/>
+  </linearGradient>
+  <linearGradient id="c-fade-l" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#000810" stop-opacity="1"/>
+    <stop offset="10%" stop-color="#000810" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="c-fade-r" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="90%" stop-color="#000810" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000810" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="c-fade-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#000810" stop-opacity="1"/>
+    <stop offset="16%" stop-color="#000810" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="c-fade-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="68%" stop-color="#000810" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000810" stop-opacity="1"/>
+  </linearGradient>
+  <clipPath id="c-clip"><rect width="1280" height="220"/></clipPath>
+</defs>
+<g clip-path="url(#c-clip)">
+<rect width="1280" height="220" fill="url(#c-sky)"/>
+<ellipse cx="640" cy="80" rx="620" ry="140" fill="url(#c-core)"/>
+<ellipse cx="205" cy="110" rx="320" ry="110" fill="url(#c-neb-l)"/>
+<ellipse cx="1075" cy="100" rx="300" ry="105" fill="url(#c-neb-r)"/>
+<rect x="0" y="0" width="1280" height="220" fill="url(#c-horizon)"/>
+
+<!-- star field -->
+<g fill="#8ee8f8" opacity="0.55">
+  <circle cx="38"  cy="14" r="0.7"/><circle cx="84"  cy="28" r="0.5"/><circle cx="130" cy="10" r="0.8"/>
+  <circle cx="194" cy="22" r="0.6"/><circle cx="244" cy="8"  r="0.7"/><circle cx="300" cy="36" r="0.5"/>
+  <circle cx="356" cy="18" r="0.8"/><circle cx="412" cy="12" r="0.6"/><circle cx="468" cy="32" r="0.5"/>
+  <circle cx="522" cy="8"  r="0.7"/><circle cx="578" cy="24" r="0.6"/><circle cx="634" cy="14" r="0.8"/>
+  <circle cx="692" cy="36" r="0.5"/><circle cx="748" cy="10" r="0.7"/><circle cx="804" cy="30" r="0.6"/>
+  <circle cx="860" cy="18" r="0.8"/><circle cx="916" cy="40" r="0.5"/><circle cx="972" cy="8"  r="0.7"/>
+  <circle cx="1028" cy="28" r="0.6"/><circle cx="1084" cy="16" r="0.8"/><circle cx="1140" cy="34" r="0.5"/>
+  <circle cx="1196" cy="12" r="0.7"/><circle cx="1252" cy="40" r="0.6"/>
+  <circle cx="62" cy="52" r="0.5"/><circle cx="116" cy="66" r="0.6"/><circle cx="170" cy="46" r="0.7"/>
+  <circle cx="224" cy="70" r="0.5"/><circle cx="276" cy="56" r="0.6"/><circle cx="330" cy="76" r="0.5"/>
+  <circle cx="720" cy="58" r="0.6"/><circle cx="776" cy="80" r="0.5"/><circle cx="834" cy="52" r="0.7"/>
+  <circle cx="888" cy="74" r="0.5"/><circle cx="944" cy="62" r="0.6"/><circle cx="1002" cy="84" r="0.5"/>
+  <circle cx="1056" cy="56" r="0.7"/><circle cx="1112" cy="78" r="0.5"/><circle cx="1168" cy="64" r="0.6"/>
+  <circle cx="1224" cy="86" r="0.5"/>
+</g>
+
+<!-- PLANET rising from horizon -->
+<!-- halo -->
+<g transform="translate(640 170)" filter="url(#c-softglow)">
+  <circle r="122" fill="none" stroke="#14d4e8" stroke-width="3" opacity="0.28"/>
+</g>
+<!-- planet body (cropped by horizon) -->
+<circle cx="640" cy="170" r="115" fill="url(#c-planet)"/>
+<!-- rim light -->
+<path d="M 530 112 Q 560 60 640 50 Q 720 58 750 114" fill="none" stroke="#1cf8ff" stroke-width="2.2" opacity="0.34"/>
+<!-- surface crack hints -->
+<g stroke="#0e5870" stroke-width="1.0" fill="none" opacity="0.50">
+  <path d="M 594 108 Q 610 98 626 108 Q 640 118 656 108 Q 670 98 686 108"/>
+  <path d="M 626 108 Q 628 128 622 148"/>
+  <path d="M 656 108 Q 660 126 654 144"/>
+</g>
+<!-- sprout glow at planet centre -->
+<g transform="translate(640 120)" filter="url(#c-glow)">
+  <line x1="0" y1="8" x2="0" y2="-14" stroke="#22ecd4" stroke-width="2.0" stroke-linecap="round"/>
+  <path d="M 0,-8  Q -9,-16 -12,-10 Q -8,-4 0,-8 Z"  fill="#22ecd4" opacity="0.90"/>
+  <path d="M 0,-10 Q  9,-16  12,-10 Q  8,-4  0,-10 Z" fill="#22ecd4" opacity="0.82"/>
+  <ellipse cx="0" cy="-16" rx="2.5" ry="3.5" fill="#c8f8f0" opacity="0.88"/>
+</g>
+<ellipse cx="640" cy="118" rx="20" ry="20" fill="#22ecd4" opacity="0.18" filter="url(#c-softglow)"/>
+
+<!-- asteroid belt arc above planet -->
+<g transform="translate(640 170)" opacity="0.50">
+  <ellipse rx="155" ry="38" fill="none" stroke="#14c8e0" stroke-width="0.7" stroke-dasharray="3,14" opacity="0.30"/>
+  <g fill="#0a3040">
+    <polygon points="-154,-2 -148,-6 -150,4"/><polygon points="-108,-28 -104,-32 -102,-24"/>
+    <polygon points="106,-28 102,-32 108,-22"/><polygon points="152,2 148,-2 150,6"/>
+  </g>
+  <g fill="#1af0ff" filter="url(#c-glow)" opacity="0.55">
+    <circle cx="-154" cy="-2" r="2.2"/><circle cx="152" cy="2" r="2.2"/>
+  </g>
+</g>
+
+<!-- CITY SILHOUETTE at horizon -->
+<g fill="#010608" opacity="0.96">
+  <rect x="0" y="176" width="1280" height="44"/>
+  <!-- left district buildings -->
+  <rect x="0"   y="168" width="14" height="8"/><rect x="18"  y="158" width="18" height="18"/>
+  <rect x="40"  y="164" width="12" height="12"/><rect x="56"  y="150" width="20" height="26"/>
+  <rect x="80"  y="160" width="10" height="16"/><rect x="94"  y="144" width="22" height="32"/>
+  <rect x="120" y="154" width="14" height="22"/><rect x="138" y="166" width="18" height="10"/>
+  <rect x="160" y="148" width="16" height="28"/><rect x="180" y="158" width="12" height="18"/>
+  <rect x="196" y="142" width="20" height="34"/><rect x="220" y="152" width="14" height="24"/>
+  <rect x="238" y="164" width="16" height="12"/>
+  <!-- left-centre -->
+  <rect x="262" y="150" width="18" height="26"/><rect x="284" y="140" width="22" height="36"/>
+  <rect x="310" y="156" width="12" height="20"/><rect x="326" y="146" width="16" height="30"/>
+  <rect x="346" y="160" width="14" height="16"/><rect x="364" y="148" width="20" height="28"/>
+  <rect x="388" y="156" width="12" height="20"/><rect x="404" y="144" width="16" height="32"/>
+  <!-- gap around planet zone 420-860 — lower buildings -->
+  <rect x="420" y="166" width="14" height="10"/><rect x="438" y="160" width="10" height="16"/>
+  <rect x="452" y="164" width="16" height="12"/><rect x="472" y="162" width="12" height="14"/>
+  <rect x="488" y="168" width="10" height="8"/> <rect x="502" y="166" width="14" height="10"/>
+  <rect x="778" y="168" width="10" height="8"/> <rect x="792" y="164" width="14" height="12"/>
+  <rect x="810" y="162" width="12" height="14"/><rect x="826" y="166" width="10" height="10"/>
+  <rect x="840" y="160" width="16" height="16"/><rect x="860" y="164" width="14" height="12"/>
+  <!-- right-centre -->
+  <rect x="876" y="144" width="16" height="32"/><rect x="896" y="156" width="12" height="20"/>
+  <rect x="912" y="148" width="20" height="28"/><rect x="936" y="160" width="14" height="16"/>
+  <rect x="954" y="146" width="16" height="30"/><rect x="974" y="156" width="12" height="20"/>
+  <rect x="990" y="140" width="22" height="36"/><rect x="1016" cy="150" width="18" height="26" y="150"/>
+  <!-- right district -->
+  <rect x="1040" y="164" width="16" height="12"/><rect x="1060" y="152" width="14" height="24"/>
+  <rect x="1078" y="142" width="20" height="34"/><rect x="1102" y="158" width="12" height="18"/>
+  <rect x="1118" y="148" width="16" height="28"/><rect x="1138" y="154" width="14" height="22"/>
+  <rect x="1156" y="144" width="22" height="32"/><rect x="1182" y="158" width="10" height="18"/>
+  <rect x="1196" y="150" width="20" height="26"/><rect x="1220" y="160" width="16" height="16"/>
+  <rect x="1240" y="148" width="12" height="28"/><rect x="1256" y="158" width="14" height="18"/>
+  <rect x="1270" y="164" width="10" height="12"/>
+  <!-- antenna spires -->
+  <rect x="100"  y="132" width="2" height="14"/><rect x="296"  y="128" width="2" height="14"/>
+  <rect x="980"  y="128" width="2" height="14"/><rect x="1168" y="130" width="2" height="14"/>
+</g>
+<!-- lit windows glow -->
+<g fill="#1af0ff" filter="url(#c-glow)" opacity="0.18">
+  <rect x="100"  y="150" width="5" height="5"/>
+  <rect x="1168" y="152" width="5" height="5"/>
+  <rect x="640"  y="166" width="4" height="4" opacity="0.10"/>
+</g>
+
+<!-- edge fades -->
+<rect width="1280" height="220" fill="url(#c-fade-l)"/>
+<rect width="1280" height="220" fill="url(#c-fade-r)"/>
+<rect width="1280" height="220" fill="url(#c-fade-top)"/>
+<rect width="1280" height="220" fill="url(#c-fade-bot)"/>
+<rect width="1280" height="220" filter="url(#c-grain)" opacity="0.88"/>
+</g>
+</svg>

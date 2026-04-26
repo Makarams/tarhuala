@@ -2,31 +2,37 @@
   {
     "id": "manager-who-builds-worlds",
     "title": "Manager Who Builds Worlds",
-    "genre": "Fiction",
-    "tags": [],
+    "genre": "God-Game / Civilization / System",
+    "tags": [
+      "System",
+      "Civilization",
+      "God-Game",
+      "Slow Burn",
+      "Mature"
+    ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "",
-    "theme": "ember",
+    "description": "I got fired for sleeping at work. Fair.\n\nWhat wasn't fair was the glowing orb waiting outside when I got home.\n\n【You have been selected as a Constellation Manager.】\n\n\"Selected by who?\"\n\n【Permission level insufficient.】\n\nInstead of answers, I got a dead planet and a system shop selling everything from grass seeds to rain clouds. Apparently I'm supposed to rebuild a civilization from scratch.\n\nThe system calls it a sacred responsibility.\n\nYeah. Sure.\n\nI call it unpaid labor.\n\nRent is due in fourteen days, so if this world can't make me money, I'm not interested. But if it can, I'll build it, automate it, and exploit every last soul in it.\n\n[Note: The system has since updated its terms of service to include a clause about exploitation. The protagonist has not read it.]",
+    "theme": "cyan",
     "chapterCount": 6,
     "images": {
-      "cover": ""
+      "cover": "/images/covers/manager-who-builds-worlds.svg"
     }
   },
   {
     "id": "marked-by-false-gods",
     "title": "Marked by False Gods",
-    "genre": "Fantasy / Mystery / Psychological / Supernatural",
+    "genre": "Portal Fantasy / Tactical / Political",
     "tags": [
-      "Fantasy",
-      "Mystery",
+      "Portal Fantasy",
+      "Survival",
       "Psychological",
-      "Supernatural",
+      "Political",
       "Mature"
     ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "Edward Lee got fired this morning for falling asleep at his desk.\n\nHe was still lying on his bed thinking about rent when a ball of light the size of a tennis ball floated into his room and told him he had been selected as a constellation manager.\n\n\"Selected by who?\"\n\n[Permission too low for the question to be answered.]\n\nNow he stands in a place where nothing has ever existed, with borrowed Life Energy he doesn't understand and a support line he cannot afford to call even once.\n\n[Note: The system wished him a pleasant day. Edward found this unhelpful.]",
+    "description": "Rule one: panic is a waste of oxygen.\n\nI was mid-shift at the restaurant, customers arguing over nothing, when the world around us just disappeared and got replaced by something else entirely. Some people screamed. I stayed quiet.\n\n【Greetings, Human! Welcome to the Tutorial!】\n\nThe world had turned into a staged game with rules, timers, and something watching from the other side. I'm not the strongest person here, but I don't need to be. I just need to see what others miss. Every situation has pressure points. Every person has something to lose.\n\nWhatever is running this calls itself a god. I don't believe that for a second. Gods don't need games.\n\n\"Life is an adventure, I guess.\"\n\nFor now I just need to stay alive long enough to understand the rules. After that, I'll start playing properly.\n\n[Note: The entity running the Tutorial has flagged this player as a person of interest. It has not decided if that is a good thing.]",
     "theme": "jade",
     "chapterCount": 14,
     "images": {
@@ -36,44 +42,57 @@
   {
     "id": "masquerade-in-noble-court",
     "title": "Masquerade in Noble Court",
-    "genre": "Fiction",
-    "tags": [],
+    "genre": "Transmigration / Political / Strategy",
+    "tags": [
+      "Transmigration",
+      "Court Intrigue",
+      "Political",
+      "Slow Burn",
+      "Mature"
+    ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "",
-    "theme": "ember",
-    "chapterCount": 1,
+    "description": "\"I know this story,\" I told the ceiling. \"Mostly.\"\n\nI woke up as Elena, a count's daughter the novel had already decided to discard. No magic, no position worth remembering, and five months before the family title expired and the story stopped needing her entirely.\n\nThe survival plan was simple: ignore the Crown Prince, ignore the heroine, don't die.\n\nSo I went to the imperial temple for a mana retest. It should have been a formality.\n\n【Water Affinity Confirmed.】\n\nThe priest stopped mid-sentence.\n\nI looked at the crystal again. It still said the same thing.\n\nThis wasn't in the book.\n\n\"Well. That's inconvenient.\"\n\n[Note: The heroine has not yet noticed Elena. Elena would like to keep it that way.]",
+    "theme": "ivory",
+    "chapterCount": 5,
     "images": {
-      "cover": ""
+      "cover": "/images/covers/masquerade-in-noble-court.svg"
     }
   },
   {
     "id": "mistakenly-dragged-survival",
     "title": "Mistakenly Dragged Survival",
-    "genre": "Fiction",
-    "tags": [],
+    "genre": "Unlimited Flow / Horror / Survival",
+    "tags": [
+      "Unlimited Flow",
+      "Horror",
+      "Survival",
+      "Psychological",
+      "Mature"
+    ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "",
-    "theme": "ember",
-    "chapterCount": 1,
+    "description": "【System Error: Player \"Jiang Wenxu\" assigned to incorrect entry position.】\n\nBecause someone had borrowed his umbrella and left their name tag behind, Jiang Wenxu got pulled into the Nightmare Game in someone else's slot and dropped directly into an S-Rank instance.\n\n【Survival Probability: NULL.】\n\nHe cleared it on the first try.\n\nThe spectator feed went silent for half a second, then exploded.\n\n\"A newbie cleared S-Rank? Is he a retired god?\"\n\n\"His heart rate didn't even flicker. He's a monster.\"\n\nJiang Wenxu had followed what the situation indicated as correct action and moved through it without hesitation. By the time the system registered the outcome, the instance was already over.\n\n【Instance Clear. Performance: ANOMALOUS.】\n\n[Note: Slot 7 has no documented survivors. Jiang Wenxu did not receive this memo.]",
+    "theme": "indigo",
+    "chapterCount": 5,
     "images": {
-      "cover": ""
+      "cover": "/images/covers/mistakenly-dragged-survival.svg"
     }
   },
   {
     "id": "monarch-of-depravity",
     "title": "Monarch of Depravity",
-    "genre": "Horror / Supernatural / Psychological / Mature",
+    "genre": "Transmigration / Cosmic Horror / Supernatural",
     "tags": [
-      "Horror",
+      "Transmigration",
+      "Cosmic Horror",
       "Supernatural",
       "Psychological",
       "Mature"
     ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "Ian prayed to the Shadow Man with rats, a knife, and his own blood.\n\nWhat showed up instead was a 25-year-old software engineer from the 21st century who had been buying eggs.\n\nIn a world where twelve gods are real and collecting, where cults carve devotion into living skin and priests of death walk around unhooking souls mid-conversation, Alden is, to put it plainly, the wrong man in the wrong body at the wrong time.\n\nHe handles it well, all things considered.\n\nThat part is true. Everything after is a little harder to explain.\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently. Both cannot be right.]",
+    "description": "Log Entry 01: \"What a shitty transmigration.\"\n\nI woke up in a body the original owner had already vacated, in a room arranged for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body follows.\n\nI don't know why I'm here or why I was dropped into a situation built around rules I was never given. What I do know is that the system governing all of this is consistent enough to be dangerous and incomplete enough to be intentional.\n\nThe ritual needs a life before sunrise. The body I'm in technically qualifies if I don't find something else first.\n\n\"I have no words,\" I said. \"I'm screwed.\"\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently. Both cannot be right.]",
     "theme": "gold",
     "chapterCount": 7,
     "images": {
@@ -83,17 +102,17 @@
   {
     "id": "mutation-of-the-apocalypse",
     "title": "Mutation of the Apocalypse",
-    "genre": "Action / Adventure / Fantasy / Sci-fi",
+    "genre": "Apocalypse / Evolution / Survival",
     "tags": [
-      "Action",
-      "Adventure",
-      "Fantasy",
-      "Sci-fi",
+      "Apocalypse",
+      "Evolution",
+      "Survival",
+      "System",
       "Mature"
     ],
     "status": "Ongoing",
     "rating": "Mature",
-    "description": "On the eve of his sixteenth birthday, a destitute orphan sat alone with a strawberry grape cake and called it a celebration.\n\nThen every human on Earth heard the same voice at the same time.\n\n\"HUMANS OF EARTH! INITIATING EARTH MUTATION PROGRAM!\"\n\nCars left the roads. Streets turned red. The world mutated. The fish, the dogs, the neighbors.\n\nLucas woke up the morning after his birthday to a holographic system informing him his agility was below the adult human average.\n\nHe had been an orphan fisherman since he was ten. He had survived on less.\n\n\"Never thought I'd say this, but I miss the sound of traffic jams.\"\n\n[Note: First novel. The author welcomes feedback and cannot promise he won't cry. Chapters daily.]",
+    "description": "Year 0, Day 1: \"Auditory hallucination,\" Lucas decided, and blew out his birthday candle.\n\n【INITIATING EARTH MUTATION PROGRAM: PHASE 1】\n\nBy morning, the world had changed and his neighbor was trying to break into his home and kill him.\n\nLucas didn't panic. He had worked since childhood and panic never changed outcomes. He dealt with the neighbor, and by afternoon he had killed enough to trigger a reward notification. He collected the items, noted them, and kept moving. There were still places to reach and supplies didn't wait.\n\n\"So it started,\" he muttered. \"Fine.\"\n\n[Note: First novel. The author welcomes feedback and cannot promise he won't cry. Chapters daily.]",
     "theme": "ember",
     "chapterCount": 10,
     "images": {

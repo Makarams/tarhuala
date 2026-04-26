@@ -17,6 +17,8 @@ The Shadow Man is waiting. The world is watching. Alden is just categorizing the
 
 "The ritual?" Alden muttered. "I have to find a meal first."
 
+[Note: The Shadow Man has filed no formal complaints. This is widely considered unprecedented.]
+
 ---
 
 ## Purpose
@@ -142,6 +144,14 @@ Use numerals for measurements, ages, stats, distances, quantities, percentages, 
 - Restating established details; trailing echo sentences; static environmental repetition
 - Repetitive mirroring: same idea in parallel sentence structure
 
+**Sentence-level language restrictions**
+- Multiple negatives in one sentence: rewrite to state what is true rather than accumulating what is false. "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost."
+- Stacked "not" constructions: one negation per sentence is the limit. A second negation in the same sentence means the sentence needs a rewrite.
+- "Not just" as a qualifier: cut it and state the thing directly.
+- "No X, no Y, no Z" list structures: forbidden. State the reality plainly instead.
+- More than one use of "no" or "not" in a single sentence: rewrite the sentence.
+- Em dashes anywhere in prose: forbidden. Rewrite using a period, comma, or new sentence.
+
 **Rhythm and structure**
 - Em dashes or double dashes anywhere in prose
 - Staccato fragmentation: three or more consecutive short sentences for false punch
@@ -227,6 +237,27 @@ No real-world country names in the narrative. Use consistent symbolic descriptor
 
 ## Naming
 Names should be deliberate and carry weight — not generic filler. If the author provides a name, use it. Deity names, cult names, and locations get compound descriptive names carrying their nature; once assigned in continuity_log.json, they do not change.
+---
+
+## Chapter File Naming
+Every chapter is saved as a `.docx` file. The filename format is:
+
+```
+Chapter_N_Chapter_Title.docx
+```
+
+Rules:
+- `N` is the chapter number with no leading zeros: `Chapter_1`, `Chapter_14`.
+- The title uses title case with underscores between words.
+- Titles are two to three words. One word is rare and only used when nothing else fits. Four or more words are forbidden.
+- The title describes the chapter content plainly. It does not editorialize.
+- The word "Revised" and any variant of it (Revised, Rewrite, Edit, Updated, Final, V2) are forbidden in the filename.
+- Colons are forbidden in filenames.
+- Em dashes are forbidden in filenames.
+- The filename contains only the chapter number and title. Nothing else is appended.
+
+Correct examples: `Chapter_1_New_Life.docx`, `Chapter_3_Market_Fight.docx`, `Chapter_12_Veilstone.docx`
+Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Long_Market_Fight.docx`, `Chapter_12_Veilstone:_The_Ruin.docx`
 
 ---
 

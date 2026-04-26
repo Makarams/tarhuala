@@ -1,599 +1,80 @@
+/* =====================================================================
+   TARHUALA — addenda
+   Banner-mount specifics. Core design lives in style.css.
+   ===================================================================== */
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   NOVEL BANNER SECTION  — novel.html, between .novel-hero and .novel-chapters
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.novel-banner-section {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--bg);
-  /* height is driven by the SVG's natural aspect ratio — we set it explicitly */
-  height: clamp(110px, 17.2vw, 220px);
+/* ── Novel banner (between hero + chapters list) — full visibility ───── */
+.novel-banner-section{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:var(--bg);
+  height:clamp(140px,17vw,240px);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
-
-.novel-banner-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.novel-banner-wrap{position:relative;width:100%;height:100%}
+.novel-banner-img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center center;
 }
-
-.novel-banner-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  /* slow parallax-style breathe */
-  transform: scale(1.04);
-  transition: transform 18s ease-out;
+.novel-banner-overlay{
+  display:none;
 }
-
-.novel-banner-section:hover .novel-banner-img {
-  transform: scale(1.08);
+.novel-banner-label{
+  position:absolute;bottom:14px;left:0;right:0;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  pointer-events:none;
 }
-
-/* gradient overlay — bleeds the banner into the bg above and below */
-.novel-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      transparent 22%,
-      transparent 75%,
-      var(--bg) 100%
-    );
-  pointer-events: none;
+.novel-banner-rule{
+  flex:1;max-width:160px;height:1px;
+  background:linear-gradient(to var(--_dir,right),transparent,var(--acc));
+  opacity:.5;
 }
-
-/* eyebrow label centred over the banner */
-.novel-banner-label {
-  position: absolute;
-  bottom: 18px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  pointer-events: none;
+.novel-banner-label .novel-banner-rule:first-child{--_dir:right}
+.novel-banner-label .novel-banner-rule:last-child{--_dir:left}
+.novel-banner-eyebrow{
+  font-family:var(--f-mono);font-size:10px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc);opacity:.85;white-space:nowrap;
 }
+.novel-banner-section[hidden]{display:none}
 
-.novel-banner-rule {
-  flex: 1;
-  max-width: 180px;
-  height: 1px;
-  background: linear-gradient(
-    to var(--_dir, right),
-    transparent,
-    var(--acc)
-  );
-  opacity: 0.45;
+/* ── Chapter banner (slim, below breadcrumb) — fully visible ─────────── */
+.chapter-banner-wrap{
+  position:relative;width:100%;
+  height:clamp(90px,11vw,160px);
+  overflow:hidden;background:var(--bg);
+  border-bottom:1px solid var(--line);
+  max-width:var(--shell);margin:0 auto;
 }
+.chapter-banner-img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center 38%;
+}
+.chapter-banner-overlay{
+  display:none;
+}
+.chapter-banner-novel-label{
+  position:absolute;bottom:10px;left:var(--gutter);
+  font-family:var(--f-mono);font-size:9.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--text);opacity:.8;
+  pointer-events:none;
+  display:inline-flex;align-items:center;gap:10px;
+  max-width:60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.chapter-banner-novel-label::before{
+  content:'';flex-shrink:0;width:24px;height:1.5px;background:var(--acc);
+}
+.chapter-banner-wrap[hidden]{display:none}
 
-.novel-banner-label .novel-banner-rule:first-child {
-  --_dir: right;
+@media (max-width:760px){
+  .novel-banner-section{height:clamp(72px,18vw,120px)}
+  .novel-banner-rule{max-width:80px}
+  .chapter-banner-wrap{height:clamp(48px,12vw,90px)}
 }
-.novel-banner-label .novel-banner-rule:last-child {
-  --_dir: left;
-}
-
-.novel-banner-eyebrow {
-  font-family: var(--font-meta);
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--acc);
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
-/* hide if no banner src was resolved */
-.novel-banner-section[hidden] {
-  display: none;
-}
-
-/* ─── theme-specific tints ──────────────────────────────────────────────── */
-[data-accent="ember"] .novel-banner-overlay {
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      rgba(8,1,1,0) 22%,
-      rgba(8,1,1,0) 75%,
-      var(--bg) 100%
-    );
-}
-[data-accent="jade"] .novel-banner-overlay {
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      rgba(0,6,2,0) 22%,
-      rgba(0,6,2,0) 75%,
-      var(--bg) 100%
-    );
-}
-[data-accent="gold"] .novel-banner-overlay {
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      rgba(3,2,1,0) 22%,
-      rgba(3,2,1,0) 75%,
-      var(--bg) 100%
-    );
-}
-
-/* ─── light mode ────────────────────────────────────────────────────────── */
-[data-theme="light"] .novel-banner-img {
-  filter: brightness(0.35) saturate(0.6);
-}
-[data-theme="light"] .novel-banner-overlay {
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      transparent 24%,
-      transparent 72%,
-      var(--bg) 100%
-    );
-}
-
-/* ─── responsive ────────────────────────────────────────────────────────── */
-@media (max-width: 760px) {
-  .novel-banner-section {
-    height: clamp(80px, 28vw, 140px);
-  }
-  .novel-banner-label {
-    bottom: 12px;
-    gap: 12px;
-  }
-  .novel-banner-rule {
-    max-width: 80px;
-  }
-  .novel-banner-eyebrow {
-    font-size: 7px;
-    letter-spacing: 3px;
-  }
-}
-
-@media (max-width: 480px) {
-  .novel-banner-section {
-    height: clamp(60px, 32vw, 110px);
-  }
-  .novel-banner-label {
-    display: none;
-  }
-}
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CHAPTER BANNER  — chapter.html, between .reader-breadcrumb and .chapter-header
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.chapter-banner-wrap {
-  position: relative;
-  width: 100%;
-  height: clamp(70px, 14vw, 180px);
-  overflow: hidden;
-  background: var(--bg);
-}
-
-.chapter-banner-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 38%;
-  transform: scale(1.04);
-  transition: transform 20s ease-out;
-  /* darker treatment — reader mode should stay subtle */
-  filter: brightness(0.42) saturate(0.75);
-}
-
-[data-theme="light"] .chapter-banner-img {
-  filter: brightness(0.25) saturate(0.5);
-}
-
-.chapter-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom,
-      var(--bg) 0%,
-      transparent 28%,
-      transparent 60%,
-      var(--bg) 100%
-    ),
-    linear-gradient(to right,
-      var(--bg) 0%,
-      transparent 12%,
-      transparent 88%,
-      var(--bg) 100%
-    );
-  pointer-events: none;
-}
-
-/* novel title label overlaid bottom-left of the banner */
-.chapter-banner-novel-label {
-  position: absolute;
-  bottom: 12px;
-  left: var(--gutter);
-  font-family: var(--font-meta);
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--acc);
-  opacity: 0.65;
-  pointer-events: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 60%;
-}
-
-.chapter-banner-novel-label::before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 1px;
-  background: var(--acc);
-  opacity: 0.6;
-  vertical-align: middle;
-  margin-right: 10px;
-  margin-bottom: 1px;
-}
-
-/* hidden if banner fails to load */
-.chapter-banner-wrap[hidden] {
-  display: none;
-}
-
-/* ─── responsive ────────────────────────────────────────────────────────── */
-@media (max-width: 760px) {
-  .chapter-banner-wrap {
-    height: clamp(50px, 20vw, 120px);
-  }
-  .chapter-banner-novel-label {
-    font-size: 7px;
-    letter-spacing: 3px;
-    bottom: 8px;
-  }
-  .chapter-banner-novel-label::before {
-    width: 14px;
-    margin-right: 7px;
-  }
-}
-
-@media (max-width: 480px) {
-  .chapter-banner-wrap {
-    height: clamp(40px, 24vw, 90px);
-  }
-  .chapter-banner-novel-label {
-    display: none;
-  }
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   NOVELS HERO  — novels.html
-   Banner image as full-bleed cinematic hero, title overlaid.
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.novels-hero {
-  position: relative;
-  overflow: hidden;
-  /* height driven by content + padding — enough to show the banner richly */
-  min-height: clamp(340px, 42vw, 540px);
-  display: flex;
-  align-items: flex-end;
-}
-
-/* ── Full-bleed background image ───────────────────────────────────────── */
-.novels-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.novels-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  /* banner has its own dark bg — show it close to full, just slightly dimmed */
-  filter: brightness(0.88);
-  transition: transform 22s ease-out;
-}
-
-.novels-hero:hover .novels-hero-bg img {
-  transform: scale(1.03);
-}
-
-/* ── Gradient overlays: darken bottom for legibility, protect left edge ─── */
-.novels-hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    /* strong bottom fade — title sits here */
-    linear-gradient(to top, var(--bg) 0%, rgba(0,0,0,0.55) 30%, transparent 62%),
-    /* left vignette for text readability */
-    linear-gradient(to right, rgba(0,0,0,0.35) 0%, transparent 50%),
-    /* top nav fade */
-    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 22%);
-  pointer-events: none;
-}
-
-/* ── Bottom fade — blends hero into the page bg below ──────────────────── */
-.novels-hero-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* ── Large spinning ornament — echoes home page style ──────────────────── */
-.novels-hero-rose {
-  position: absolute;
-  right: 3%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(180px, 22vw, 340px);
-  height: clamp(180px, 22vw, 340px);
-  color: var(--acc);
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 1;
-  animation: slowSpin 200s linear infinite;
-}
-.novels-hero-rose svg { width: 100%; height: 100%; }
-
-/* ── Foreground content ─────────────────────────────────────────────────── */
-.novels-hero-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: calc(var(--nav-h) + 48px) var(--gutter) 56px;
-}
-
-.novels-hero-eyebrow {
-  /* eyebrow always readable against dark banner */
-  color: var(--acc-ember-2);
-  margin-bottom: 14px;
-}
-
-.novels-hero-title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(42px, 7vw, 88px);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  /* always bright on dark banner bg */
-  color: #f0ece0;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
-}
-
-.novels-hero-sub {
-  font-size: 13px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  /* light against dark bg */
-  color: rgba(240, 236, 224, 0.55);
-  margin-top: 0;
-}
-
-/* ── Light mode: banner is dark anyway so keep text bright ─────────────── */
-[data-theme="light"] .novels-hero-bg img {
-  filter: brightness(0.72);
-}
-[data-theme="light"] .novels-hero-title {
-  color: #f0ece0;
-  text-shadow: 0 2px 32px rgba(0,0,0,0.9);
-}
-[data-theme="light"] .novels-hero-sub {
-  color: rgba(240,236,224,0.65);
-}
-[data-theme="light"] .novels-hero-fade {
-  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
-}
-
-/* ── Responsive ─────────────────────────────────────────────────────────── */
-@media (max-width: 760px) {
-  .novels-hero {
-    min-height: clamp(260px, 55vw, 400px);
-  }
-  .novels-hero-rose {
-    opacity: 0.14;
-    width: clamp(120px, 30vw, 200px);
-    height: clamp(120px, 30vw, 200px);
-  }
-  .novels-hero-content {
-    padding-bottom: 44px;
-  }
-}
-
-@media (max-width: 480px) {
-  .novels-hero-rose {
-    display: none;
-  }
-}
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   ABOUT AUTHOR HERO  — about.html
-   Clean cinematic two-column layout. No banner. Just the author SVG portrait
-   and text, designed with decorative corner marks and an accent glow.
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.about-author-hero {
-  position: relative;
-  display: grid;
-  grid-template-columns: clamp(280px, 30vw, 420px) 1fr;
-  min-height: 88vh;
-  overflow: hidden;
-}
-
-/* Radial accent glow behind the whole section */
-.aah-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 70% 80% at 0% 50%,  var(--acc-ember-s) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 100% 30%, var(--acc-s) 0%, transparent 70%);
-}
-
-/* ── Portrait column ────────────────────────────────────────────────────── */
-.aah-portrait {
-  position: relative;
-  z-index: 1;
-  padding-top: var(--nav-h);
-  overflow: hidden;
-}
-
-.aah-portrait-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-
-.aah-portrait-frame .author-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-/* Decorative corner brackets — purely ornamental */
-.aah-corner {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  pointer-events: none;
-  z-index: 2;
-}
-.aah-corner::before,
-.aah-corner::after {
-  content: '';
-  position: absolute;
-  background: var(--acc);
-  opacity: 0.6;
-}
-.aah-corner::before { width: 100%; height: 2px; }
-.aah-corner::after  { width: 2px;  height: 100%; }
-
-.aah-corner--tl { top: 16px;    left: 16px;    }
-.aah-corner--tr { top: 16px;    right: 16px;   }
-.aah-corner--bl { bottom: 16px; left: 16px;    }
-.aah-corner--br { bottom: 16px; right: 16px;   }
-
-/* Corner directions */
-.aah-corner--tl::before { top: 0;    left: 0;  }
-.aah-corner--tl::after  { top: 0;    left: 0;  }
-.aah-corner--tr::before { top: 0;    right: 0; }
-.aah-corner--tr::after  { top: 0;    right: 0; }
-.aah-corner--bl::before { bottom: 0; left: 0;  }
-.aah-corner--bl::after  { bottom: 0; left: 0;  }
-.aah-corner--br::before { bottom: 0; right: 0; }
-.aah-corner--br::after  { bottom: 0; right: 0; }
-
-/* Right-side corners need flipped anchoring */
-.aah-corner--tr::before,
-.aah-corner--br::before { left: auto; }
-.aah-corner--bl::after,
-.aah-corner--br::after  { top: auto;  }
-
-/* ── Text column ────────────────────────────────────────────────────────── */
-.aah-text {
-  position: relative;
-  z-index: 1;
-  padding: calc(var(--nav-h) + 72px) clamp(36px, 5vw, 80px) 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-left: 1px solid var(--border);
-  background: var(--bg);
-  min-width: 0;
-}
-
-/* "The Author" eyebrow with a leading rule — always visible above the heading */
-.aah-eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
-}
-.aah-rule {
-  width: 32px;
-  height: 1px;
-  background: var(--acc);
-  flex-shrink: 0;
-  opacity: 0.8;
-}
-
-/* ── Light mode tweaks ──────────────────────────────────────────────────── */
-[data-theme="light"] .aah-text {
-  background: var(--bg-raised);
-}
-[data-theme="light"] .aah-glow {
-  background:
-    radial-gradient(ellipse 70% 80% at 0% 50%,  rgba(138,24,24,.07) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 100% 30%, var(--acc-s) 0%, transparent 70%);
-}
-
-/* ── Responsive ─────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .about-author-hero {
-    grid-template-columns: clamp(200px, 28vw, 300px) 1fr;
-  }
-  .aah-text {
-    padding: calc(var(--nav-h) + 48px) clamp(24px, 4vw, 52px) 60px;
-  }
-}
-
-@media (max-width: 680px) {
-  .about-author-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .aah-portrait {
-    padding-top: var(--nav-h);
-  }
-  .aah-portrait-frame {
-    min-height: 320px;
-    height: 52vw;
-    max-height: 380px;
-  }
-  .aah-portrait-frame .author-img {
-    object-position: center 15%;
-  }
-  .aah-text {
-    padding: 36px var(--gutter) 52px;
-    border-left: none;
-    border-top: 1px solid var(--border);
-  }
-  .aah-corner { display: none; }
-}
-
-/* ── about-inner: allow full-width hero ─────────────────────────────────── */
-.about-inner {
-  max-width: 100%;
-  padding: 0 0 100px;
-}
-/* Sections below the hero still get the max-width treatment */
-.about-inner .about-novels-section,
-.about-inner .cw-section {
-  max-width: var(--max-w);
-  margin-left: auto;
-  margin-right: auto;
+@media (max-width:480px){
+  .novel-banner-label{display:none}
+  .chapter-banner-novel-label{display:none}
 }

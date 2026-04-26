@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Chapter — Tarhuala | Dark Fantasy &amp; Horror Web Fiction</title>
-  <meta name="description" content="Read Fiction, Fantasy, Mystery web novels by Tarhuala. Manager Who Builds Worlds, Marked by False Gods, Masquerade in Noble Court, Mistakenly Dragged Survival, Monarch of Depravity, Mutation of the Apocalypse — free online fiction, updated regularly." />
-  <meta name="keywords" content="tarhuala, manager who builds worlds, marked by false gods, masquerade in noble court, mistakenly dragged survival, monarch of depravity, mutation of the apocalypse, fiction, fantasy, mystery, psychological, supernatural, horror, mature, action, adventure, sci-fi, web novel, read online free, free chapters, online reading" />
+  <meta name="description" content="Read God-Game, Civilization, System web novels by Tarhuala. Manager Who Builds Worlds, Marked by False Gods, Masquerade in Noble Court, Mistakenly Dragged Survival, Monarch of Depravity, Mutation of the Apocalypse — free online fiction, updated regularly." />
+  <meta name="keywords" content="tarhuala, manager who builds worlds, marked by false gods, masquerade in noble court, mistakenly dragged survival, monarch of depravity, mutation of the apocalypse, god-game, civilization, system, portal fantasy, tactical, political, transmigration, strategy, unlimited flow, horror, survival, cosmic horror, supernatural, apocalypse, evolution, slow burn, mature, psychological, court intrigue, web novel, read online free, free chapters, online reading" />
   <meta name="author" content="Tarhuala" />
   <meta name="robots" content="index, follow" />
   <meta property="og:site_name" content="Tarhuala" />
@@ -18,8 +18,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css?v=20260420" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=20260426" />
+  <link rel="stylesheet" href="/css/css-additions.css?v=20260426"/>
 
   <script>
     (function(){
@@ -202,6 +203,13 @@
       </button>
     </nav>
 
+    <!-- Per-novel chapter banner (slim, decorative) -->
+    <div class="chapter-banner-wrap" id="chapter-banner-wrap" hidden aria-hidden="true">
+      <img id="chapter-banner-img" class="chapter-banner-img" src="" alt="" loading="lazy" decoding="async"/>
+      <div class="chapter-banner-overlay"></div>
+      <span id="chapter-banner-novel-label" class="chapter-banner-novel-label"></span>
+    </div>
+
     <header class="chapter-header">
       <div class="chapter-num-label" id="chapter-num-label">Chapter —</div>
       <h1 class="chapter-title" id="chapter-title">Loading…</h1>
@@ -240,7 +248,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span>
-        <span data-site-name>TARHUALA</span> · Dark Fiction
+        <span data-site-name>TARHUALA</span> · System Fiction & Dark Fantasy
       </div>
 
       <div class="footer-links">
@@ -261,6 +269,7 @@
     <svg><use href="#ic-arrow-up"></use></svg>
   </button>
 
-  <script src="/js/app.js?v=20260420"></script>
+  <script src="/js/banner-wiring.js?v=20260426"></script>
+  <script src="/js/app.js?v=20260426"></script>
 </body>
 </html>

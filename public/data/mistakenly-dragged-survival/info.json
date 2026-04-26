@@ -1,19 +1,41 @@
 {
   "id": "mistakenly-dragged-survival",
   "title": "Mistakenly Dragged Survival",
-  "genre": "Fiction",
-  "tags": [],
+  "genre": "Unlimited Flow / Horror / Survival",
+  "tags": [
+    "Unlimited Flow",
+    "Horror",
+    "Survival",
+    "Psychological",
+    "Mature"
+  ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "",
-  "theme": "ember",
+  "description": "【System Error: Player \"Jiang Wenxu\" assigned to incorrect entry position.】\n\nBecause someone had borrowed his umbrella and left their name tag behind, Jiang Wenxu got pulled into the Nightmare Game in someone else's slot and dropped directly into an S-Rank instance.\n\n【Survival Probability: NULL.】\n\nHe cleared it on the first try.\n\nThe spectator feed went silent for half a second, then exploded.\n\n\"A newbie cleared S-Rank? Is he a retired god?\"\n\n\"His heart rate didn't even flicker. He's a monster.\"\n\nJiang Wenxu had followed what the situation indicated as correct action and moved through it without hesitation. By the time the system registered the outcome, the instance was already over.\n\n【Instance Clear. Performance: ANOMALOUS.】\n\n[Note: Slot 7 has no documented survivors. Jiang Wenxu did not receive this memo.]",
+  "theme": "indigo",
   "images": {
-    "cover": ""
+    "cover": "/images/covers/mistakenly-dragged-survival.svg"
   },
   "chapters": [
     {
       "number": 1,
       "title": "Wrong Umbrella"
+    },
+    {
+      "number": 2,
+      "title": "Into The Corridor"
+    },
+    {
+      "number": 3,
+      "title": "Collection Station"
+    },
+    {
+      "number": 4,
+      "title": "The West End"
+    },
+    {
+      "number": 5,
+      "title": "The Light Rule"
     }
   ],
   "platforms": []

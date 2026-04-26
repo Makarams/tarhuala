@@ -91,12 +91,44 @@ const CHAPTERS_DATA = {
     {
       "number": 1,
       "title": "New Life"
+    },
+    {
+      "number": 2,
+      "title": "Magic Temple"
+    },
+    {
+      "number": 3,
+      "title": "Family Dinner"
+    },
+    {
+      "number": 4,
+      "title": "Future Plan"
+    },
+    {
+      "number": 5,
+      "title": "Morning After"
     }
   ],
   "mistakenly-dragged-survival": [
     {
       "number": 1,
       "title": "Wrong Umbrella"
+    },
+    {
+      "number": 2,
+      "title": "Into The Corridor"
+    },
+    {
+      "number": 3,
+      "title": "Collection Station"
+    },
+    {
+      "number": 4,
+      "title": "The West End"
+    },
+    {
+      "number": 5,
+      "title": "The Light Rule"
     }
   ],
   "monarch-of-depravity": [

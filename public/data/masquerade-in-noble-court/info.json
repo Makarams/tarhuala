@@ -1,19 +1,41 @@
 {
   "id": "masquerade-in-noble-court",
   "title": "Masquerade in Noble Court",
-  "genre": "Fiction",
-  "tags": [],
+  "genre": "Transmigration / Political / Strategy",
+  "tags": [
+    "Transmigration",
+    "Court Intrigue",
+    "Political",
+    "Slow Burn",
+    "Mature"
+  ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "",
-  "theme": "ember",
+  "description": "\"I know this story,\" I told the ceiling. \"Mostly.\"\n\nI woke up as Elena, a count's daughter the novel had already decided to discard. No magic, no position worth remembering, and five months before the family title expired and the story stopped needing her entirely.\n\nThe survival plan was simple: ignore the Crown Prince, ignore the heroine, don't die.\n\nSo I went to the imperial temple for a mana retest. It should have been a formality.\n\n【Water Affinity Confirmed.】\n\nThe priest stopped mid-sentence.\n\nI looked at the crystal again. It still said the same thing.\n\nThis wasn't in the book.\n\n\"Well. That's inconvenient.\"\n\n[Note: The heroine has not yet noticed Elena. Elena would like to keep it that way.]",
+  "theme": "ivory",
   "images": {
-    "cover": ""
+    "cover": "/images/covers/masquerade-in-noble-court.svg"
   },
   "chapters": [
     {
       "number": 1,
       "title": "New Life"
+    },
+    {
+      "number": 2,
+      "title": "Magic Temple"
+    },
+    {
+      "number": 3,
+      "title": "Family Dinner"
+    },
+    {
+      "number": 4,
+      "title": "Future Plan"
+    },
+    {
+      "number": 5,
+      "title": "Morning After"
     }
   ],
   "platforms": []
