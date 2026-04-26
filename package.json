@@ -1,10 +1,10 @@
 {
   "name": "tarhuala-website",
   "version": "1.0.0",
-  "description": "Tarhuala — Dark Fantasy Novel Website",
+  "description": "Tarhuala \u2014 Dark Fantasy Novel Website",
   "scripts": {
     "build": "node build.js",
-    "start": "node build.js && node server.js",
+    "start": "node server.js",
     "dev": "node build.js && node server.js",
     "vercel-build": "node build.js"
   },

@@ -1,5 +1,9 @@
 {
+  "version": 2,
+  "buildCommand": "node build.js",
   "outputDirectory": "public",
+  "installCommand": "npm install",
+  "framework": null,
   "headers": [
     {
       "source": "/css/(.*)",
@@ -14,5 +18,8 @@
         { "key": "Content-Type", "value": "image/svg+xml" }
       ]
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
