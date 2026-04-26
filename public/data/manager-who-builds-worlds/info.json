@@ -42,5 +42,9 @@
       "title": "Standard Tier"
     }
   ],
-  "platforms": []
+  "platforms": [],
+  "_buildSource": "novels",
+  "_sourceChapters": [
+    1
+  ]
 }

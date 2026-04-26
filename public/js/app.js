@@ -527,58 +527,13 @@
   }
 
   /* ------------------------------------------------------------------
-     VISIT & READ COUNTERS  (localStorage — per-browser, privacy-safe)
+     PER-USER TRACKING — intentionally not used.
+     The analytics page reads /data/stats.json (site-level content stats only).
+     These no-ops exist so legacy call sites don't break.
      ------------------------------------------------------------------ */
-  var STATS_KEY = 'tarhuala-stats';
-
-  function getStats(){
-    try {
-      return JSON.parse(localStorage.getItem(STATS_KEY) || '{}');
-    } catch(e){ return {}; }
-  }
-  function saveStats(s){
-    try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch(e){}
-  }
-  function recordVisit(){
-    var s = getStats();
-    s.visits = (s.visits || 0) + 1;
-    s.lastVisit = Date.now();
-    // Daily visit history for sparkline
-    var today = new Date().toISOString().slice(0,10);
-    if (!s.visitHistory) s.visitHistory = [];
-    var last = s.visitHistory[s.visitHistory.length - 1];
-    if (last && last.date === today){
-      last.count = (last.count||0) + 1;
-    } else {
-      s.visitHistory.push({ date: today, count: 1 });
-      if (s.visitHistory.length > 90) s.visitHistory = s.visitHistory.slice(-90);
-    }
-    saveStats(s);
-    return s.visits;
-  }
-  function recordChapterRead(novelId, chNum){
-    var s = getStats();
-    if (!s.reads) s.reads = {};
-    var key = novelId + ':' + chNum;
-    // Track count per chapter (not just boolean)
-    s.reads[key] = (s.reads[key] || 0) + 1;
-    s.totalReads = Object.keys(s.reads).length;
-    saveStats(s);
-    return s.totalReads;
-  }
-  function getReadCount(){ return (getStats().totalReads || 0); }
-  function getVisitCount(){ return (getStats().visits || 0); }
-
-  function updateStatDisplays(){
-    var visits = getVisitCount();
-    var reads  = getReadCount();
-    document.querySelectorAll('[data-stat="visits"]').forEach(function(el){
-      el.textContent = visits.toLocaleString();
-    });
-    document.querySelectorAll('[data-stat="reads"]').forEach(function(el){
-      el.textContent = reads.toLocaleString();
-    });
-  }
+  function recordVisit(){}
+  function recordChapterRead(){}
+  function updateStatDisplays(){}
 
   /* ------------------------------------------------------------------
      HOME — novels grid + featured hero

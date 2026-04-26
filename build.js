@@ -6,11 +6,15 @@
  *   1. Reads site.json  -> writes public/data/site.json
  *   2. Reads novels/    -> converts .docx to chapter JSON, writes public/data/<novel>/
  *   3. Rebuilds public/data/novels.json from public/data/<novel>/info.json files
+ *   4. Mirrors source deletions: chapters removed from novels/<Novel>/ are deleted
+ *      from public/data/<id>/, and entire novels removed from novels/ are pruned.
+ *   5. Writes public/data/stats.json with site-wide content insights for the author.
+ *   6. Generates public/sitemap.xml from current novel + chapter data.
  *
  * What this NEVER does:
  *   - Overwrite public/css/style.css
  *   - Overwrite public/js/app.js
- *   - Overwrite any public/*.html file
+ *   - Overwrite any public/*.html file (except meta tags + sitemap.xml)
  *
  * public/ is the designed frontend — it is the source of truth.
  */
@@ -81,6 +85,53 @@ async function docxToHtml(docxPath) {
   }
 }
 
+// Strip HTML tags and collapse whitespace, then count words. Used for stats only.
+function htmlWordCount(html) {
+  if (!html) return 0;
+  const text = String(html)
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z#0-9]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!text) return 0;
+  return text.split(' ').length;
+}
+
+// Remove every chapter-N.json in novelDataDir whose number is NOT in keepSet.
+// Returns the count of removed files.
+function pruneChapterFiles(novelDataDir, keepSet) {
+  if (!fs.existsSync(novelDataDir)) return 0;
+  let removed = 0;
+  for (const fname of fs.readdirSync(novelDataDir)) {
+    const m = fname.match(/^chapter-(\d+)\.json$/);
+    if (!m) continue;
+    const num = parseInt(m[1], 10);
+    if (!keepSet.has(num)) {
+      try {
+        fs.unlinkSync(path.join(novelDataDir, fname));
+        console.log(`    - removed stale ${fname}`);
+        removed++;
+      } catch (e) {
+        console.warn(`    x could not remove ${fname}:`, e.message);
+      }
+    }
+  }
+  return removed;
+}
+
+// Recursively delete a directory. Used when an entire novel is removed from source.
+function rmRf(p) {
+  if (!fs.existsSync(p)) return;
+  for (const entry of fs.readdirSync(p)) {
+    const full = path.join(p, entry);
+    if (fs.statSync(full).isDirectory()) rmRf(full);
+    else fs.unlinkSync(full);
+  }
+  fs.rmdirSync(p);
+}
+
 function buildChapterListFromDisk(novelDataDir) {
   const allFiles = fs.readdirSync(novelDataDir);
 
@@ -122,6 +173,8 @@ function buildChapterListFromDisk(novelDataDir) {
   return chapters.sort((a, b) => a.number - b.number);
 }
 
+// Returns { chapters: [...], sourceNums: Set<number> } when a zip exists.
+// sourceNums is the set of chapter numbers that came from the zip (used to prune deletions).
 async function processNovelZip(novelPath, novelDataDir) {
   const zipPath = path.join(novelPath, 'novel.zip');
   if (!fs.existsSync(zipPath) || !AdmZip) return null;
@@ -143,6 +196,7 @@ async function processNovelZip(novelPath, novelDataDir) {
       if (ch) jsonByNum.set(ch.number, { entry, ch });
     }
   }
+  const sourceNums = new Set([...docxByNum.keys(), ...jsonByNum.keys()]);
 
   // Process docx entries
   for (const { entry, ch } of docxByNum.values()) {
@@ -177,7 +231,7 @@ async function processNovelZip(novelPath, novelDataDir) {
   }
 
   // Build chapter list from ALL chapter-N.json files on disk (not just what was in zip)
-  return buildChapterListFromDisk(novelDataDir);
+  return { chapters: buildChapterListFromDisk(novelDataDir), sourceNums };
 }
 
 // ---------------------------------------------------------------------------
@@ -221,6 +275,14 @@ async function build() {
       if (fs.existsSync(metaFile)) { try { meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8')); } catch(e) {} }
       if (fs.existsSync(infoFile)) { try { meta = Object.assign(meta, JSON.parse(fs.readFileSync(infoFile, 'utf-8'))); } catch(e) {} }
 
+      // Snapshot the previous info.json for this novel before any mutation —
+      // we need _sourceChapters to know what was sourced last build, for accurate deletion detection.
+      let existingPreSync = {};
+      const preSyncInfoPath = path.join(DATA_DIR, novelId, 'info.json');
+      if (fs.existsSync(preSyncInfoPath)) {
+        try { existingPreSync = JSON.parse(fs.readFileSync(preSyncInfoPath, 'utf-8')); } catch(e) {}
+      }
+
       // Cover image
       let coverUrl = resolveExistingCover(novelId);
       if (!coverUrl) {
@@ -245,53 +307,87 @@ async function build() {
       }
 
       // Chapters
-      let chapterList = await processNovelZip(novelPath, novelDataDir);
-      if (!chapterList || chapterList.length === 0) {
-        const sourceFiles = fs.readdirSync(novelPath);
+      // sourceNums tracks which chapter numbers come from this build's source (zip or loose files).
+      // If non-empty, we strict-sync: any chapter-N.json not in this set is removed.
+      let chapterList = null;
+      let sourceNums = new Set();
 
-        // Map chapter number → { docx?, json? } so we can apply "docx wins" rule
-        const byNum = new Map();
-        for (const f of sourceFiles) {
-          if (f.toLowerCase().endsWith('.docx')) {
-            const ch = parseChapterFilename(f);
-            if (!ch) continue;
-            if (!byNum.has(ch.number)) byNum.set(ch.number, {});
-            byNum.get(ch.number).docx = ch;
-          } else if (f.toLowerCase().endsWith('.json') && /^Chapter_\d+_/i.test(f)) {
-            const ch = parseChapterFilename(f.replace(/\.json$/i, '.docx'));
-            if (!ch) continue;
-            if (!byNum.has(ch.number)) byNum.set(ch.number, {});
-            byNum.get(ch.number).json = { ...ch, filename: f };
-          }
-        }
-
-        for (const [, sources] of [...byNum].sort((a, b) => a[0] - b[0])) {
-          const outPath = path.join(novelDataDir, `chapter-${(sources.docx || sources.json).number}.json`);
-
-          if (sources.docx) {
-            // docx wins
-            const html = await docxToHtml(path.join(novelPath, sources.docx.filename));
-            fs.writeFileSync(outPath, JSON.stringify({ number: sources.docx.number, title: sources.docx.title, html }));
-            console.log(`      + docx ch${sources.docx.number}: ${sources.docx.title}`);
-          } else if (sources.json) {
-            // json fallback
-            try {
-              const raw = JSON.parse(fs.readFileSync(path.join(novelPath, sources.json.filename), 'utf-8'));
-              const normalised = {
-                number: sources.json.number,
-                title:  raw.title   || sources.json.title,
-                html:   raw.html    || raw.content || '',
-              };
-              fs.writeFileSync(outPath, JSON.stringify(normalised, null, 2));
-              console.log(`      + json  ch${sources.json.number}: ${sources.json.title}`);
-            } catch (e) { console.warn(`      x json ch${sources.json.number}:`, e.message); }
-          }
-        }
-
-        // Always build from disk so previously-converted chapters aren't lost
-        chapterList = buildChapterListFromDisk(novelDataDir);
+      const zipResult = await processNovelZip(novelPath, novelDataDir);
+      if (zipResult) {
+        chapterList = zipResult.chapters;
+        sourceNums  = zipResult.sourceNums;
       }
-      console.log('    chapters:', chapterList.length);
+
+      // Always also scan loose files so a docx added/edited next to the zip is reflected.
+      const sourceFiles = fs.existsSync(novelPath) ? fs.readdirSync(novelPath) : [];
+
+      const byNum = new Map();
+      for (const f of sourceFiles) {
+        if (f.toLowerCase().endsWith('.docx')) {
+          const ch = parseChapterFilename(f);
+          if (!ch) continue;
+          if (!byNum.has(ch.number)) byNum.set(ch.number, {});
+          byNum.get(ch.number).docx = ch;
+        } else if (f.toLowerCase().endsWith('.json') && /^Chapter_\d+_/i.test(f)) {
+          const ch = parseChapterFilename(f.replace(/\.json$/i, '.docx'));
+          if (!ch) continue;
+          if (!byNum.has(ch.number)) byNum.set(ch.number, {});
+          byNum.get(ch.number).json = { ...ch, filename: f };
+        }
+      }
+
+      for (const [num, sources] of [...byNum].sort((a, b) => a[0] - b[0])) {
+        sourceNums.add(num);
+        const outPath = path.join(novelDataDir, `chapter-${num}.json`);
+
+        if (sources.docx) {
+          // docx wins — always re-process so edits/overwrites are reflected.
+          const html = await docxToHtml(path.join(novelPath, sources.docx.filename));
+          fs.writeFileSync(outPath, JSON.stringify({ number: sources.docx.number, title: sources.docx.title, html }));
+          console.log(`      + docx ch${sources.docx.number}: ${sources.docx.title}`);
+        } else if (sources.json) {
+          // json fallback
+          try {
+            const raw = JSON.parse(fs.readFileSync(path.join(novelPath, sources.json.filename), 'utf-8'));
+            const normalised = {
+              number: sources.json.number,
+              title:  raw.title   || sources.json.title,
+              html:   raw.html    || raw.content || '',
+            };
+            fs.writeFileSync(outPath, JSON.stringify(normalised, null, 2));
+            console.log(`      + json  ch${sources.json.number}: ${sources.json.title}`);
+          } catch (e) { console.warn(`      x json ch${sources.json.number}:`, e.message); }
+        }
+      }
+
+      // Deletion sync: only prune chapter-N.json files whose chapter number
+      // was sourced from this novel's source folder in a previous build but is
+      // no longer present. This preserves chapters that were authored directly
+      // into public/data/<id>/ and never originated from novels/<Name>/.
+      const prevSourceNums = Array.isArray(existingPreSync && existingPreSync._sourceChapters)
+        ? new Set(existingPreSync._sourceChapters)
+        : new Set();
+      const droppedFromSource = [];
+      for (const num of prevSourceNums) {
+        if (!sourceNums.has(num)) droppedFromSource.push(num);
+      }
+      if (droppedFromSource.length) {
+        for (const num of droppedFromSource) {
+          const f = path.join(novelDataDir, `chapter-${num}.json`);
+          if (fs.existsSync(f)) {
+            try {
+              fs.unlinkSync(f);
+              console.log(`    - removed chapter-${num}.json (source deleted)`);
+            } catch (e) {
+              console.warn(`    x could not remove chapter-${num}.json:`, e.message);
+            }
+          }
+        }
+      }
+
+      chapterList = buildChapterListFromDisk(novelDataDir);
+      const syncTag = sourceNums.size > 0 ? `(source: ${sourceNums.size}, total on disk: ${chapterList.length})` : '(no source, preserved)';
+      console.log('    chapters:', chapterList.length, syncTag);
 
       // Merge: public/data/<id>/info.json editorial fields win over novels/meta
       // This means edits made via the previous sessions are preserved.
@@ -313,6 +409,12 @@ async function build() {
         images:      { cover: coverUrl || (existing.images && existing.images.cover) || '' },
         chapters:    chapterList,
         platforms:   existing.platforms   || meta.platforms   || [],
+        // Tracks that this novel has a source folder in novels/. If the folder is later
+        // removed, the next build prunes the corresponding public/data/<id>/.
+        _buildSource: 'novels',
+        // Chapter numbers that came from this build's source files. Used next build
+        // to detect *intentional* deletions (number was sourced before but no longer is).
+        _sourceChapters: [...sourceNums].sort((a, b) => a - b),
       };
       fs.writeFileSync(existingInfoPath, JSON.stringify(info, null, 2));
 
@@ -324,7 +426,10 @@ async function build() {
       });
     }
 
-    // Also pick up any novels that live only in public/data/ (no source folder in novels/)
+    // Whole-novel deletion: if a public/data/<id>/ was previously built from a
+    // novels/<Name> source folder (info.json has _buildSource: "novels") but that
+    // source folder no longer exists, prune the entire data dir.
+    // Otherwise (truly data-only novels), pick them up as before.
     const processedIds = new Set(novels.map(n => n.id));
     const dataDirs = fs.readdirSync(DATA_DIR)
       .filter(f => {
@@ -334,18 +439,26 @@ async function build() {
     for (const dirName of dataDirs) {
       const infoPath = path.join(DATA_DIR, dirName, 'info.json');
       if (!fs.existsSync(infoPath)) continue;
-      try {
-        // Migrate any Chapter_N_Title.json files to chapter-N.json before reading
-        buildChapterListFromDisk(path.join(DATA_DIR, dirName));
-        const info = JSON.parse(fs.readFileSync(infoPath, 'utf-8'));
-        novels.push({
-          id: info.id, title: info.title, genre: info.genre,
-          tags: info.tags, status: info.status, rating: info.rating,
-          description: info.description, theme: info.theme,
-          chapterCount: (info.chapters || []).length, images: info.images,
-        });
-        console.log('\n  Novel (data-only):', info.title);
-      } catch(e) { console.warn('  x could not read info.json for', dirName); }
+      let info;
+      try { info = JSON.parse(fs.readFileSync(infoPath, 'utf-8')); }
+      catch(e) { console.warn('  x could not read info.json for', dirName); continue; }
+
+      if (info && info._buildSource === 'novels') {
+        // Source folder is gone — prune the whole novel from public/data/.
+        rmRf(path.join(DATA_DIR, dirName));
+        console.log('\n  - removed novel (source deleted):', info.title || dirName);
+        continue;
+      }
+
+      // True data-only novel: keep it.
+      buildChapterListFromDisk(path.join(DATA_DIR, dirName));
+      novels.push({
+        id: info.id, title: info.title, genre: info.genre,
+        tags: info.tags, status: info.status, rating: info.rating,
+        description: info.description, theme: info.theme,
+        chapterCount: (info.chapters || []).length, images: info.images,
+      });
+      console.log('\n  Novel (data-only):', info.title);
     }
 
   } else {
@@ -558,9 +671,220 @@ async function build() {
       src = patchMetaTag(src, 'twitter:title',      pageTitle);
     }
 
+    // JSON-LD — replace the first <script type="application/ld+json">…</script> block
+    // (without an id, so dynamic ones from app.js are untouched) with a richer block.
+    const jsonldForPage = (function() {
+      if (!siteUrl) return null;
+      const personLD = {
+        '@type': 'Person',
+        name: authorName,
+        url: siteUrl,
+      };
+      if (fname === 'index.html') {
+        return {
+          '@context': 'https://schema.org',
+          '@graph': [
+            { '@type': 'WebSite', name: authorName, url: siteUrl + '/',
+              description: seoBlock.description,
+              author: personLD,
+              potentialAction: { '@type': 'SearchAction', target: siteUrl + '/novels.html' } },
+            { ...personLD, '@context': undefined,
+              jobTitle: 'Author',
+              description: site.bio || seoBlock.description },
+          ],
+        };
+      }
+      if (fname === 'novels.html') {
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: `All Novels — ${authorName}`,
+          url: siteUrl + '/novels.html',
+          description: pageDescriptions['novels.html'],
+          author: personLD,
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: novels.length,
+            itemListElement: novels.map((n, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              item: {
+                '@type': 'Book',
+                name: n.title,
+                url: `${siteUrl}/novel.html?id=${n.id}`,
+                author: personLD,
+                genre: n.genre,
+                bookFormat: 'EBook',
+                inLanguage: 'en',
+                image: (n.images && n.images.cover) ? siteUrl + n.images.cover : undefined,
+                numberOfPages: n.chapterCount,
+              },
+            })),
+          },
+        };
+      }
+      if (fname === 'about.html') {
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'ProfilePage',
+          mainEntity: {
+            ...personLD,
+            description: site.bio || seoBlock.description,
+            knowsAbout: novelGenres,
+          },
+        };
+      }
+      return null;
+    })();
+
+    if (jsonldForPage) {
+      const ldStr = JSON.stringify(jsonldForPage, (k, v) => v === undefined ? undefined : v);
+      // Replace the first ld+json block that has no id attribute (page-static block).
+      // Don't disturb id="jsonld-data" blocks (those belong to app.js dynamic injection).
+      src = src.replace(
+        /<script\s+type="application\/ld\+json"\s*>[\s\S]*?<\/script>/i,
+        `<script type="application/ld+json">${ldStr}</script>`
+      );
+    }
+
     fs.writeFileSync(fpath, src);
   }
   console.log('  ok html meta tags patched (' + htmlFiles.length + ' files)');
+
+  // 3f. Generate sitemap.xml from current data — every novel + every chapter URL.
+  //     Auto-keeps in sync with deletions and additions.
+  if (siteUrl) {
+    const today = new Date().toISOString().slice(0, 10);
+    const urls = [];
+    function pushUrl(loc, changefreq, priority, lastmod) {
+      urls.push({ loc, changefreq, priority, lastmod: lastmod || today });
+    }
+    pushUrl(siteUrl + '/',              'daily',   '1.0');
+    pushUrl(siteUrl + '/novels.html',   'daily',   '0.95');
+    pushUrl(siteUrl + '/about.html',    'monthly', '0.7');
+
+    for (const novel of novels) {
+      pushUrl(`${siteUrl}/novel.html?id=${novel.id}`, 'weekly', '0.9');
+      pushUrl(`${siteUrl}/chapters.html?id=${novel.id}`, 'weekly', '0.8');
+
+      const novelDataDir = path.join(DATA_DIR, novel.id);
+      if (!fs.existsSync(novelDataDir)) continue;
+      const chFiles = fs.readdirSync(novelDataDir)
+        .filter(f => /^chapter-\d+\.json$/.test(f))
+        .sort((a, b) => parseInt(a.match(/(\d+)/)[1], 10) - parseInt(b.match(/(\d+)/)[1], 10));
+      for (const fname of chFiles) {
+        const num = parseInt(fname.match(/(\d+)/)[1], 10);
+        const stat = fs.statSync(path.join(novelDataDir, fname));
+        const lastmod = stat.mtime.toISOString().slice(0, 10);
+        pushUrl(`${siteUrl}/chapter.html?id=${novel.id}&ch=${num}`, 'weekly', '0.7', lastmod);
+      }
+    }
+
+    const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const sitemapXml =
+      '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+      urls.map(u =>
+        `  <url><loc>${xmlEsc(u.loc)}</loc><lastmod>${u.lastmod}</lastmod>` +
+        `<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`
+      ).join('\n') +
+      '\n</urlset>\n';
+    fs.writeFileSync(path.join(PUBLIC, 'sitemap.xml'), sitemapXml);
+    console.log('  ok sitemap.xml (' + urls.length + ' urls)');
+
+    // robots.txt — refresh sitemap URL so it always matches site.url.
+    const robots =
+      'User-agent: *\n' +
+      'Allow: /\n' +
+      'Disallow: /analytics.html\n' +
+      'Disallow: /analytics\n\n' +
+      `Sitemap: ${siteUrl}/sitemap.xml\n`;
+    fs.writeFileSync(path.join(PUBLIC, 'robots.txt'), robots);
+    console.log('  ok robots.txt');
+  } else {
+    console.log('  (skipped sitemap — site.url not set)');
+  }
+
+  // 3g. Site-wide content stats — for the analytics page (author insights).
+  //     Read every chapter once so the analytics page can render statically.
+  const statsNovels = [];
+  let totalWords = 0;
+  let totalChapters = 0;
+
+  for (const novel of novels) {
+    const novelDataDir = path.join(DATA_DIR, novel.id);
+    if (!fs.existsSync(novelDataDir)) continue;
+
+    const chFiles = fs.readdirSync(novelDataDir)
+      .filter(f => /^chapter-\d+\.json$/.test(f))
+      .sort((a, b) => parseInt(a.match(/(\d+)/)[1], 10) - parseInt(b.match(/(\d+)/)[1], 10));
+
+    let novelWords = 0;
+    let lastUpdated = 0;
+    const chapterStats = [];
+
+    for (const fname of chFiles) {
+      const num = parseInt(fname.match(/(\d+)/)[1], 10);
+      const fpath = path.join(novelDataDir, fname);
+      const stat = fs.statSync(fpath);
+      let words = 0, title = `Chapter ${num}`;
+      try {
+        const ch = JSON.parse(fs.readFileSync(fpath, 'utf-8'));
+        words = htmlWordCount(ch.html || ch.content || '');
+        title = ch.title || title;
+      } catch (e) {}
+      novelWords += words;
+      if (stat.mtimeMs > lastUpdated) lastUpdated = stat.mtimeMs;
+      chapterStats.push({ number: num, title, words });
+    }
+
+    totalWords += novelWords;
+    totalChapters += chFiles.length;
+
+    statsNovels.push({
+      id:           novel.id,
+      title:        novel.title,
+      genre:        novel.genre,
+      tags:         novel.tags || [],
+      status:       novel.status,
+      theme:        novel.theme,
+      chapterCount: chFiles.length,
+      words:        novelWords,
+      avgWords:     chFiles.length ? Math.round(novelWords / chFiles.length) : 0,
+      lastUpdated:  lastUpdated ? new Date(lastUpdated).toISOString() : null,
+      chapters:     chapterStats,
+    });
+  }
+
+  // Aggregate genres / tags / statuses
+  const genreCounts = {};
+  const tagCounts = {};
+  const statusCounts = {};
+  for (const n of statsNovels) {
+    (n.genre || '').split('/').map(g => g.trim()).filter(Boolean).forEach(g => {
+      genreCounts[g] = (genreCounts[g] || 0) + 1;
+    });
+    (n.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
+    if (n.status) statusCounts[n.status] = (statusCounts[n.status] || 0) + 1;
+  }
+
+  const stats = {
+    generatedAt:      new Date().toISOString(),
+    totalNovels:      statsNovels.length,
+    totalChapters,
+    totalWords,
+    avgWordsPerChapter: totalChapters ? Math.round(totalWords / totalChapters) : 0,
+    avgChaptersPerNovel: statsNovels.length ? +(totalChapters / statsNovels.length).toFixed(1) : 0,
+    longestChapter:   statsNovels
+      .flatMap(n => n.chapters.map(c => ({ novel: n.title, novelId: n.id, ...c })))
+      .sort((a, b) => b.words - a.words)[0] || null,
+    novels:           statsNovels,
+    genres:           Object.entries(genreCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count),
+    tags:             Object.entries(tagCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count),
+    statuses:         Object.entries(statusCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count),
+  };
+  fs.writeFileSync(path.join(DATA_DIR, 'stats.json'), JSON.stringify(stats, null, 2));
+  console.log('  ok data/stats.json (' + totalChapters + ' chapters, ' + totalWords.toLocaleString() + ' words)');
 
   // 4. Sanity check (warn only — never create missing files)
   const required = [

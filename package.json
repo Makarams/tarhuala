@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node build.js",
     "start": "node build.js && node server.js",
-    "dev": "node build.js && node server.js"
+    "dev": "node build.js && node server.js",
+    "vercel-build": "node build.js"
   },
   "dependencies": {
     "express": "^4.21.0",

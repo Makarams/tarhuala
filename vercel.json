@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node build.js",
   "outputDirectory": "public",
-  "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": null,
   "cleanUrls": true,
@@ -28,33 +28,46 @@
     {
       "source": "/data/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=60" }
+        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
       ]
     },
     {
       "source": "/(.*)\\.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
   ],
   "rewrites": [
-    { "source": "/data/:path*",   "destination": "/data/:path*" },
-    { "source": "/images/:path*", "destination": "/images/:path*" },
-    { "source": "/css/:path*",    "destination": "/css/:path*" },
-    { "source": "/js/:path*",     "destination": "/js/:path*" },
-    { "source": "/novels",        "destination": "/novels.html" },
-    { "source": "/novel",         "destination": "/novel.html" },
-    { "source": "/chapter",       "destination": "/chapter.html" },
-    { "source": "/about",         "destination": "/about.html" },
-    { "source": "/chapters",      "destination": "/chapters.html" },
-    { "source": "/analytics",     "destination": "/analytics.html" },
-    { "source": "/(.*)",          "destination": "/index.html" }
+    { "source": "/novels",    "destination": "/novels.html" },
+    { "source": "/novel",     "destination": "/novel.html" },
+    { "source": "/chapter",   "destination": "/chapter.html" },
+    { "source": "/chapters",  "destination": "/chapters.html" },
+    { "source": "/about",     "destination": "/about.html" },
+    { "source": "/analytics", "destination": "/analytics.html" }
   ]
 }

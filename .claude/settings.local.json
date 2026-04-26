@@ -2,7 +2,25 @@
   "permissions": {
     "allow": [
       "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(node build.js)",
+      "Bash(node -e ' *)",
+      "Bash(PORT=3030 node server.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3030/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3030/analytics.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3030/data/stats.json)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3030/sitemap.xml)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3030/robots.txt)",
+      "Bash(curl -s http://localhost:3030/data/stats.json)",
+      "Bash(curl -s http://localhost:3030/analytics.html)",
+      "Bash(curl -s http://localhost:3030/sitemap.xml)",
+      "Bash(curl -s http://localhost:3030/index.html)",
+      "Bash(curl -s http://localhost:3030/about.html)",
+      "Bash(curl -s \"http://localhost:3030/novel.html?id=mutation-of-the-apocalypse\")",
+      "Bash(curl -s \"http://localhost:3030/chapter.html?id=mutation-of-the-apocalypse&ch=1\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl *)",
+      "Bash(PORT=3041 node server.js)",
+      "Bash(taskkill //F //IM node.exe)"
     ]
   }
 }

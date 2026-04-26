@@ -38,5 +38,12 @@
       "title": "Morning After"
     }
   ],
-  "platforms": []
+  "platforms": [],
+  "_buildSource": "novels",
+  "_sourceChapters": [
+    1,
+    2,
+    3,
+    4
+  ]
 }

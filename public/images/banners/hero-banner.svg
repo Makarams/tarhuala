@@ -1,212 +1,337 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="1600" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" width="1280" height="220">
+<!--
+  TARHUALA — hero banner. Six novel themes blended along the horizon.
+  Left → Right palette transition tracks the order on novels.html:
+    cyan  (Manager Who Builds Worlds)        — system constellation
+    jade  (Marked by False Gods)             — tutorial sigil
+    ivory (Masquerade in Noble Court)        — feathered mask silhouette
+    indigo(Mistakenly Dragged Survival)      — fractured nightmare gate
+    gold  (Monarch of Depravity)             — altar / candle pair
+    ember (Mutation of the Apocalypse)       — fractured sun
+-->
 <defs>
-  <filter id="grain">
-    <feTurbulence type="fractalNoise" baseFrequency="0.62 0.68" numOctaves="4" seed="17"/>
-    <feColorMatrix values="0 0 0 0 0.04  0 0 0 0 0.01  0 0 0 0 0.01  0 0 0 0.45 0"/>
+  <filter id="h-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.62 0.68" numOctaves="4" seed="13"/>
+    <feColorMatrix values="0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0 0.02  0 0 0 0.42 0"/>
     <feComposite in2="SourceGraphic" operator="in"/>
   </filter>
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur stdDeviation="12" result="b"/>
+  <filter id="h-glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="softglow" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="32" result="b"/>
+  <filter id="h-softglow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="22" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <radialGradient id="bg" cx="50%" cy="28%" r="80%">
-    <stop offset="0%" stop-color="#1e0804"/>
-    <stop offset="40%" stop-color="#0e0403"/>
-    <stop offset="100%" stop-color="#040101"/>
-  </radialGradient>
-  <radialGradient id="emberGlow" cx="50%" cy="22%" r="60%">
-    <stop offset="0%" stop-color="#c83010" stop-opacity="0.55"/>
-    <stop offset="40%" stop-color="#8a1808" stop-opacity="0.22"/>
-    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="jadeGlow" cx="22%" cy="50%" r="35%">
-    <stop offset="0%" stop-color="#1a7040" stop-opacity="0.35"/>
-    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="goldGlow" cx="78%" cy="50%" r="35%">
-    <stop offset="0%" stop-color="#c89820" stop-opacity="0.32"/>
-    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-  </radialGradient>
-  <linearGradient id="groundFade" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#000" stop-opacity="0"/>
-    <stop offset="100%" stop-color="#000" stop-opacity="1"/>
+
+  <!-- Deep night base -->
+  <linearGradient id="h-bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#080606"/>
+    <stop offset="50%" stop-color="#0c0907"/>
+    <stop offset="100%" stop-color="#040302"/>
   </linearGradient>
-  <radialGradient id="vig" cx="50%" cy="50%" r="80%">
-    <stop offset="50%" stop-color="#000" stop-opacity="0"/>
-    <stop offset="100%" stop-color="#000" stop-opacity="0.88"/>
+
+  <!-- Six soft glows, one per novel theme — spaced across the width.
+       Each glow is muted so the composition reads as one continuous horizon. -->
+  <radialGradient id="h-glow-cyan"   cx="10%" cy="60%" r="22%">
+    <stop offset="0%" stop-color="#2cd4e0" stop-opacity="0.36"/>
+    <stop offset="60%" stop-color="#0a3a40" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
   </radialGradient>
+  <radialGradient id="h-glow-jade"   cx="27%" cy="55%" r="18%">
+    <stop offset="0%" stop-color="#4aac6a" stop-opacity="0.34"/>
+    <stop offset="60%" stop-color="#102818" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="h-glow-ivory"  cx="44%" cy="50%" r="20%">
+    <stop offset="0%" stop-color="#e8dcb4" stop-opacity="0.30"/>
+    <stop offset="60%" stop-color="#3a3018" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="h-glow-indigo" cx="60%" cy="55%" r="20%">
+    <stop offset="0%" stop-color="#7a8ce0" stop-opacity="0.30"/>
+    <stop offset="60%" stop-color="#181c40" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="h-glow-gold"   cx="76%" cy="55%" r="20%">
+    <stop offset="0%" stop-color="#d4a83c" stop-opacity="0.34"/>
+    <stop offset="60%" stop-color="#3a2a08" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="h-glow-ember"  cx="92%" cy="60%" r="22%">
+    <stop offset="0%" stop-color="#d83a3a" stop-opacity="0.40"/>
+    <stop offset="60%" stop-color="#3a0a0a" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+
+  <!-- Horizon band — subtle warm/cool blend across the floor line -->
+  <linearGradient id="h-horizon" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#2cd4e0" stop-opacity="0.22"/>
+    <stop offset="20%"  stop-color="#4aac6a" stop-opacity="0.20"/>
+    <stop offset="40%"  stop-color="#e8dcb4" stop-opacity="0.18"/>
+    <stop offset="60%"  stop-color="#7a8ce0" stop-opacity="0.18"/>
+    <stop offset="80%"  stop-color="#d4a83c" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#d83a3a" stop-opacity="0.26"/>
+  </linearGradient>
+
+  <!-- Edge fades -->
+  <linearGradient id="h-fade-l" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"  stop-color="#040302" stop-opacity="1"/>
+    <stop offset="10%" stop-color="#040302" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="h-fade-r" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="90%"  stop-color="#040302" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#040302" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="h-fade-top" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#040302" stop-opacity="0.85"/>
+    <stop offset="14%" stop-color="#040302" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="h-fade-bot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="70%"  stop-color="#040302" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#040302" stop-opacity="1"/>
+  </linearGradient>
+
+  <clipPath id="h-clip"><rect width="1280" height="220"/></clipPath>
 </defs>
 
-<!-- background -->
-<rect width="1600" height="600" fill="url(#bg)"/>
+<g clip-path="url(#h-clip)">
+<!-- BASE -->
+<rect width="1280" height="220" fill="url(#h-bg)"/>
 
-<!-- atmosphere glows -->
-<ellipse cx="800" cy="140" rx="900" ry="320" fill="url(#emberGlow)"/>
-<ellipse cx="352" cy="300" rx="480" ry="280" fill="url(#jadeGlow)"/>
-<ellipse cx="1248" cy="300" rx="480" ry="280" fill="url(#goldGlow)"/>
+<!-- Six anchor glows distributed across the width -->
+<rect width="1280" height="220" fill="url(#h-glow-cyan)"/>
+<rect width="1280" height="220" fill="url(#h-glow-jade)"/>
+<rect width="1280" height="220" fill="url(#h-glow-ivory)"/>
+<rect width="1280" height="220" fill="url(#h-glow-indigo)"/>
+<rect width="1280" height="220" fill="url(#h-glow-gold)"/>
+<rect width="1280" height="220" fill="url(#h-glow-ember)"/>
 
-<!-- horizon glow band -->
-<rect x="0" y="330" width="1600" height="10" fill="#c83010" opacity="0.12"/>
-<rect x="0" y="338" width="1600" height="5"  fill="#ff6030" opacity="0.07"/>
+<!-- Horizon band — colored ground line -->
+<rect x="0" y="148" width="1280" height="3" fill="url(#h-horizon)" opacity="0.55"/>
+<rect x="0" y="151" width="1280" height="14" fill="url(#h-horizon)" opacity="0.18"/>
 
-<!-- ── CENTER: FRACTURED APOCALYPSE SUN ── -->
-<g transform="translate(800 160)" filter="url(#softglow)">
-  <circle r="200" fill="none" stroke="#c83010" stroke-width="1.5" opacity="0.07"/>
-  <circle r="170" fill="none" stroke="#c83010" stroke-width="2" opacity="0.12"/>
-  <circle r="138" fill="none" stroke="#e05030" stroke-width="1.5" opacity="0.18"/>
-  <circle r="105" fill="none" stroke="#ff6030" stroke-width="1" opacity="0.25"/>
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 1 — Manager Who Builds Worlds (cyan)
+     Constellation: a small orb on a tilted axis with sparse star ties.
+     Center: x=128, y=110
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(128 110)" filter="url(#h-glow)">
+  <!-- orbit ring -->
+  <ellipse rx="44" ry="14" fill="none" stroke="#2cd4e0" stroke-width="0.8" opacity="0.42" transform="rotate(-12)"/>
+  <ellipse rx="32" ry="10" fill="none" stroke="#6be4ec" stroke-width="0.5" opacity="0.32" transform="rotate(-12)"/>
+  <!-- core orb -->
+  <circle r="14" fill="#0a2a30"/>
+  <circle r="14" fill="none" stroke="#2cd4e0" stroke-width="1.2" opacity="0.85"/>
+  <circle r="9"  fill="#2cd4e0" opacity="0.32"/>
+  <circle r="3.6" fill="#6be4ec" opacity="0.92"/>
+  <circle r="1.4" fill="#ffffff" opacity="0.95"/>
+  <!-- constellation points along orbit -->
+  <g fill="#6be4ec" opacity="0.9">
+    <circle cx="-44" cy="9"  r="1.6"/>
+    <circle cx="-22" cy="-9" r="1.2"/>
+    <circle cx="20"  cy="-12" r="1.4"/>
+    <circle cx="42"  cy="6"  r="1.6"/>
+  </g>
+  <g stroke="#2cd4e0" stroke-width="0.4" opacity="0.42" fill="none">
+    <line x1="-44" y1="9" x2="-22" y2="-9"/>
+    <line x1="-22" y1="-9" x2="20" y2="-12"/>
+    <line x1="20" y1="-12" x2="42" y2="6"/>
+  </g>
 </g>
-<g transform="translate(800 160)" filter="url(#glow)">
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 2 — Marked by False Gods (jade)
+     Tutorial sigil: bracketed glyph + ring with corner ticks.
+     Center: x=336, y=108
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(336 108)" filter="url(#h-glow)">
+  <!-- outer hex ring -->
+  <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13"
+    fill="none" stroke="#4aac6a" stroke-width="1.2" opacity="0.74"/>
+  <polygon points="0,-20 17,-10 17,10 0,20 -17,10 -17,-10"
+    fill="none" stroke="#7fd49b" stroke-width="0.5" opacity="0.55"/>
+  <!-- inner glyph — bracketed system mark -->
+  <g stroke="#7fd49b" stroke-width="1.0" fill="none" opacity="0.85">
+    <path d="M -10 -8 L -14 -8 L -14 8 L -10 8"/>
+    <path d="M  10 -8 L  14 -8 L  14 8 L  10 8"/>
+  </g>
+  <line x1="-7" y1="0" x2="7" y2="0" stroke="#4aac6a" stroke-width="1.2" opacity="0.8"/>
+  <circle r="2.4" fill="#7fd49b" opacity="0.95"/>
+  <!-- corner ticks -->
+  <g stroke="#4aac6a" stroke-width="0.7" opacity="0.6" fill="none">
+    <path d="M -34 -22 L -28 -22 L -28 -16"/>
+    <path d="M  34 -22 L  28 -22 L  28 -16"/>
+    <path d="M -34  22 L -28  22 L -28  16"/>
+    <path d="M  34  22 L  28  22 L  28  16"/>
+  </g>
+</g>
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 3 — Masquerade in Noble Court (ivory)
+     Symmetric mask silhouette with feather plumes, no eyes.
+     Center: x=560, y=108
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(560 108)" filter="url(#h-glow)">
+  <!-- temple plumes — soft fans flanking the mask -->
+  <g stroke="#e8dcb4" stroke-width="0.55" fill="none" opacity="0.55" stroke-linecap="round">
+    <path d="M -28 -10 Q -34 -28 -30 -42"/>
+    <path d="M -20 -12 Q -22 -30 -16 -42"/>
+    <path d="M  28 -10 Q  34 -28  30 -42"/>
+    <path d="M  20 -12 Q  22 -30  16 -42"/>
+  </g>
+  <g fill="#e8dcb4" opacity="0.30">
+    <path d="M -32 -8 Q -36 -28 -28 -36 Q -23 -22 -27 -10 Z"/>
+    <path d="M  32 -8 Q  36 -28  28 -36 Q  23 -22  27 -10 Z"/>
+  </g>
+  <!-- mask body — winged silhouette -->
+  <path d="M -34 -2 Q -32 -14 -16 -14 Q -8 -14 -4 -8 Q 0 -2 4 -8 Q 8 -14 16 -14 Q 32 -14 34 -2 Q 32 14 16 18 Q 8 18 4 12 Q 0 14 -4 12 Q -8 18 -16 18 Q -32 14 -34 -2 Z"
+    fill="#e8dcb4" opacity="0.46"/>
+  <path d="M -34 -2 Q -32 -14 -16 -14 Q -8 -14 -4 -8 Q 0 -2 4 -8 Q 8 -14 16 -14 Q 32 -14 34 -2 Q 32 14 16 18 Q 8 18 4 12 Q 0 14 -4 12 Q -8 18 -16 18 Q -32 14 -34 -2 Z"
+    fill="none" stroke="#f0e2bc" stroke-width="0.7" opacity="0.92"/>
+  <!-- closed eye apertures, decorative voids only -->
+  <ellipse cx="-16" cy="2" rx="6" ry="2.4" fill="#0a0604"/>
+  <ellipse cx=" 16" cy="2" rx="6" ry="2.4" fill="#0a0604"/>
+  <ellipse cx="-16" cy="2" rx="6" ry="2.4" fill="none" stroke="#f0e2bc" stroke-width="0.4" opacity="0.7"/>
+  <ellipse cx=" 16" cy="2" rx="6" ry="2.4" fill="none" stroke="#f0e2bc" stroke-width="0.4" opacity="0.7"/>
+  <!-- centre jewel -->
+  <circle cx="0" cy="-10" r="1.2" fill="#f5e6b4"/>
+  <circle cx="0" cy="-10" r="0.5" fill="#ffffff" opacity="0.95"/>
+</g>
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 4 — Mistakenly Dragged Survival (indigo)
+     Fractured gate — square portal with split crack and floating shards.
+     Center: x=752, y=108
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(752 108)" filter="url(#h-glow)">
+  <!-- portal frame -->
+  <rect x="-26" y="-30" width="52" height="60" fill="#0c1024"/>
+  <rect x="-26" y="-30" width="52" height="60" fill="none" stroke="#7a8ce0" stroke-width="1.2" opacity="0.85"/>
+  <rect x="-22" y="-26" width="44" height="52" fill="none" stroke="#a5b3f0" stroke-width="0.5" opacity="0.55"/>
+  <!-- void within -->
+  <rect x="-18" y="-22" width="36" height="44" fill="#050818"/>
+  <!-- jagged crack -->
+  <path d="M -3 -22 L 4 -8 L -4 4 L 6 22"
+    stroke="#a5b3f0" stroke-width="1.0" fill="none" opacity="0.85"/>
+  <path d="M -3 -22 L 4 -8 L -4 4 L 6 22"
+    stroke="#7a8ce0" stroke-width="2.4" fill="none" opacity="0.30"/>
+  <!-- floating shards -->
+  <g fill="#a5b3f0" opacity="0.78">
+    <polygon points="-30,-10 -34,-6 -28,-2"/>
+    <polygon points=" 30,  4  34,  8  28, 12"/>
+    <polygon points=" 30,-18  35,-14  31,-10"/>
+  </g>
+  <!-- corner glyph dots -->
+  <g fill="#7a8ce0" opacity="0.85">
+    <circle cx="-26" cy="-30" r="1.4"/>
+    <circle cx=" 26" cy="-30" r="1.4"/>
+    <circle cx="-26" cy=" 30" r="1.4"/>
+    <circle cx=" 26" cy=" 30" r="1.4"/>
+  </g>
+</g>
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 5 — Monarch of Depravity (gold)
+     Altar with paired candles — circle sigil and twin flames.
+     Center: x=944, y=110
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(944 110)" filter="url(#h-glow)">
+  <!-- altar plinth -->
+  <rect x="-32" y="14" width="64" height="14" fill="#1e1608" opacity="0.95"/>
+  <rect x="-36" y="12" width="72" height="4"  fill="#2a1c0a" opacity="0.85"/>
+  <rect x="-26" y="6" width="52" height="10" fill="#221808" opacity="0.85"/>
+  <!-- altar sigil -->
+  <circle r="11" cy="-2" fill="none" stroke="#d4a83c" stroke-width="0.9" opacity="0.85"/>
+  <circle r="6" cy="-2"  fill="none" stroke="#f0c560" stroke-width="0.5" opacity="0.6"/>
+  <circle r="2.4" cy="-2" fill="#d4a83c" opacity="0.95"/>
+  <!-- candle pair -->
+  <g>
+    <line x1="-20" y1="6"   x2="-20" y2="-12" stroke="#3a2c10" stroke-width="2.5"/>
+    <line x1=" 20" y1="6"   x2=" 20" y2="-12" stroke="#3a2c10" stroke-width="2.5"/>
+  </g>
+  <g filter="url(#h-softglow)" opacity="0.85">
+    <ellipse cx="-20" cy="-16" rx="2.2" ry="4" fill="#f0c560"/>
+    <ellipse cx=" 20" cy="-16" rx="2.2" ry="4" fill="#f0c560"/>
+    <ellipse cx="-20" cy="-18" rx="0.9" ry="2" fill="#fff5c0"/>
+    <ellipse cx=" 20" cy="-18" rx="0.9" ry="2" fill="#fff5c0"/>
+  </g>
+  <!-- baroque side scrolls -->
+  <g fill="none" stroke="#d4a83c" stroke-width="0.6" opacity="0.55">
+    <path d="M -36 -2 Q -42 -10 -36 -18 Q -30 -22 -26 -16"/>
+    <path d="M  36 -2 Q  42 -10  36 -18 Q  30 -22  26 -16"/>
+  </g>
+</g>
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     SYMBOL 6 — Mutation of the Apocalypse (ember)
+     Fractured sun with cracks radiating outward.
+     Center: x=1152, y=108
+     ───────────────────────────────────────────────────────────────────── -->
+<g transform="translate(1152 108)" filter="url(#h-softglow)">
+  <circle r="36" fill="none" stroke="#d83a3a" stroke-width="0.8" opacity="0.18"/>
+  <circle r="28" fill="none" stroke="#d83a3a" stroke-width="0.6" opacity="0.30"/>
+</g>
+<g transform="translate(1152 108)" filter="url(#h-glow)">
   <!-- sun disc -->
-  <circle r="82">
-    <radialGradient id="sc" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#fffbe8"/>
-      <stop offset="14%" stop-color="#ffb050"/>
-      <stop offset="42%" stop-color="#e84030"/>
-      <stop offset="78%" stop-color="#7a1808"/>
-      <stop offset="100%" stop-color="#3a0a04" stop-opacity="0"/>
-    </radialGradient>
-  </circle>
-  <circle r="82" fill="url(#sc)"/>
-  <!-- rays -->
-  <g fill="#ff9040" opacity="0.62">
-    <path d="M 0,-130 L 5,-92 L 0,-80 L -5,-92 Z"/>
-    <path d="M 0,130  L 5,92  L 0,80  L -5,92  Z"/>
-    <path d="M -130,0 L -92,5 L -80,0 L -92,-5 Z"/>
-    <path d="M 130,0  L 92,5  L 80,0  L 92,-5  Z"/>
-    <g transform="rotate(45)">
-      <path d="M 0,-118 L 4,-86 L 0,-76 L -4,-86 Z" opacity="0.72"/>
-      <path d="M 0,118  L 4,86  L 0,76  L -4,86  Z" opacity="0.72"/>
-      <path d="M -118,0 L -86,4 L -76,0 L -86,-4 Z" opacity="0.72"/>
-      <path d="M 118,0  L 86,4  L 76,0  L 86,-4  Z" opacity="0.72"/>
+  <circle r="22" fill="#1a0606"/>
+  <circle r="22" fill="none" stroke="#d83a3a" stroke-width="1.4" opacity="0.92"/>
+  <circle r="14" fill="#d83a3a" opacity="0.55"/>
+  <circle r="7"  fill="#f06464"/>
+  <circle r="2.4" fill="#fff0d0" opacity="0.95"/>
+  <!-- spike rays -->
+  <g fill="#f06464" opacity="0.7">
+    <polygon points="0,-36 2,-24 0,-22 -2,-24"/>
+    <polygon points="0, 36 2, 24 0, 22 -2, 24"/>
+    <polygon points="-36,0 -24,2 -22,0 -24,-2"/>
+    <polygon points=" 36,0  24,2  22,0  24,-2"/>
+    <g transform="rotate(45)" opacity="0.78">
+      <polygon points="0,-30 2,-20 0,-18 -2,-20"/>
+      <polygon points="0, 30 2, 20 0, 18 -2, 20"/>
+      <polygon points="-30,0 -20,2 -18,0 -20,-2"/>
+      <polygon points=" 30,0  20,2  18,0  20,-2"/>
     </g>
   </g>
-  <!-- core -->
-  <circle r="26" fill="#0e0505" stroke="#d94030" stroke-width="2"/>
-  <circle r="16" fill="#e04030" opacity="0.92"/>
-  <circle r="9"  fill="#ffb068"/>
-  <circle r="3.5" fill="#fffbe8"/>
+  <!-- fracture lines through the disc -->
+  <g stroke="#fff0d0" stroke-width="0.6" fill="none" opacity="0.55">
+    <path d="M -16 -8 L -2 -2 L -8 6 L 4 14"/>
+    <path d="M  18 -10 L  6 -4 L 12 4"/>
+  </g>
 </g>
 
-<!-- fracture cracks radiating from sun -->
-<g stroke="#d94830" stroke-width="2" fill="none" opacity="0.44" stroke-linecap="round">
-  <path d="M 440 80  Q 550 140 600 220 Q 650 300 580 380"/>
-  <path d="M 1160 74 Q 1060 144 1010 226 Q 960 308 1034 386"/>
-  <path d="M 280 180 Q 380 210 420 260 Q 456 310 390 380"/>
-  <path d="M 1320 172 Q 1224 208 1186 262 Q 1148 318 1214 386"/>
-  <path d="M 560 40  Q 620 120 608 196"/>
-  <path d="M 1040 36 Q 984 118 998 194"/>
-  <path d="M 700 18  Q 740 96  730 162"/>
-  <path d="M 900 14  Q 864 94  878 160"/>
-</g>
-<g fill="#ff7030" opacity="0.72">
-  <circle cx="600" cy="220" r="3.5"/><circle cx="580" cy="380" r="2.8"/>
-  <circle cx="1010" cy="226" r="3.5"/><circle cx="1034" cy="386" r="2.8"/>
-  <circle cx="420" cy="260" r="2.8"/><circle cx="1186" cy="262" r="2.8"/>
-  <circle cx="608" cy="196" r="2.2"/><circle cx="998" cy="194" r="2.2"/>
-</g>
-
-<!-- ── LEFT PANEL: JADE TENDRILS (Marked by False Gods) ── -->
-<g stroke="#2a8a50" stroke-width="1.8" fill="none" opacity="0.48" stroke-linecap="round">
-  <path d="M 80  420 Q 100 380 120 350 Q 150 310 180 300"/>
-  <path d="M 60  440 Q 90  400 110 370 Q 140 335 168 328"/>
-  <path d="M 140 460 Q 158 420 170 390 Q 190 360 210 352"/>
-  <path d="M 200 440 Q 210 400 220 375 Q 234 348 250 340"/>
-  <path d="M 20  380 Q 60  350 88  330 Q 120 310 152 308"/>
-</g>
-<g fill="#50c490" opacity="0.62">
-  <circle cx="180" cy="300" r="4"/><circle cx="168" cy="328" r="3"/>
-  <circle cx="210" cy="352" r="3.5"/><circle cx="250" cy="340" r="3"/>
-  <circle cx="152" cy="308" r="3"/>
+<!-- ─── DUST MOTES — sparse, theme-tinted ─── -->
+<g opacity="0.7">
+  <circle cx="120" cy="62"  r="0.9" fill="#2cd4e0"/>
+  <circle cx="180" cy="48"  r="0.6" fill="#6be4ec"/>
+  <circle cx="320" cy="58"  r="0.8" fill="#7fd49b"/>
+  <circle cx="380" cy="46"  r="0.6" fill="#4aac6a"/>
+  <circle cx="540" cy="42"  r="0.7" fill="#f5ecd0"/>
+  <circle cx="600" cy="56"  r="0.6" fill="#e8dcb4"/>
+  <circle cx="730" cy="46"  r="0.7" fill="#a5b3f0"/>
+  <circle cx="790" cy="56"  r="0.6" fill="#7a8ce0"/>
+  <circle cx="924" cy="48"  r="0.8" fill="#f0c560"/>
+  <circle cx="982" cy="58"  r="0.6" fill="#d4a83c"/>
+  <circle cx="1130" cy="48" r="0.9" fill="#f06464"/>
+  <circle cx="1190" cy="60" r="0.7" fill="#d83a3a"/>
+  <circle cx="80"   cy="170" r="0.7" fill="#2cd4e0" opacity="0.6"/>
+  <circle cx="1212" cy="172" r="0.7" fill="#d83a3a" opacity="0.6"/>
+  <circle cx="640"  cy="172" r="0.6" fill="#e8dcb4" opacity="0.5"/>
 </g>
 
-<!-- ── RIGHT PANEL: GOLD FILIGREE (Monarch of Depravity) ── -->
-<g fill="none" stroke="#d4a434" stroke-width="1.2" opacity="0.35">
-  <path d="M 1400 240 Q 1380 220 1360 240 Q 1340 260 1320 240 Q 1300 220 1280 240"/>
-  <path d="M 1420 270 Q 1400 250 1380 270 Q 1360 290 1340 270 Q 1320 250 1300 270"/>
-  <path d="M 1440 300 Q 1420 280 1400 300 Q 1380 320 1360 300 Q 1340 280 1320 300"/>
-</g>
-<g fill="#d4a434" opacity="0.42">
-  <circle cx="1340" cy="240" r="2.2"/><circle cx="1360" cy="270" r="2.2"/>
-  <circle cx="1380" cy="300" r="2.2"/><circle cx="1400" cy="240" r="1.6"/>
-  <circle cx="1320" cy="300" r="1.6"/>
+<!-- ─── HORIZON LINE — thin gold rule between the symbols and the floor fade ─── -->
+<line x1="40" y1="166" x2="1240" y2="166" stroke="#3a3018" stroke-width="0.7" opacity="0.45"/>
+<g fill="#c8a848" opacity="0.55">
+  <circle cx="40"   cy="166" r="1.2"/>
+  <circle cx="1240" cy="166" r="1.2"/>
 </g>
 
-<!-- ── RUINS SILHOUETTE (full width) ── -->
-<g fill="#060202">
-  <rect x="0" y="490" width="1600" height="110"/>
-  <!-- main rubble line -->
-  <polygon points="0,490 0,460 16,470 30,448 46,462 64,444 80,458 100,438 120,454 140,436 162,450 184,440 200,456 222,438 244,452 268,436 290,450 318,436 338,452 360,440 384,456 408,438 432,454 456,436 480,450 510,438 536,454 562,440 590,456 618,442 644,456 670,440 698,456 728,440 758,456 790,440 828,456 862,442 896,456 930,442 966,456 1002,440 1040,458 1076,440 1112,456 1148,440 1186,456 1222,440 1260,456 1298,440 1338,456 1378,440 1418,458 1456,442 1494,456 1532,440 1568,456 1600,448 1600,490"/>
-  <!-- left tower ruin -->
-  <polygon points="0,490 0,400 14,390 24,378 34,388 44,372 54,384 68,374 82,490"/>
-  <!-- right tower ruin -->
-  <polygon points="1518,490 1518,406 1530,394 1542,382 1554,394 1566,378 1578,390 1592,400 1600,408 1600,490"/>
-  <!-- mid left ruin block -->
-  <polygon points="340,490 340,462 348,452 356,464 366,448 376,464 388,490"/>
-  <!-- center left ruin -->
-  <polygon points="680,490 680,468 690,456 700,470 710,454 720,468 730,490"/>
-  <!-- center right ruin -->
-  <polygon points="872,490 872,468 882,454 894,468 904,454 916,468 926,490"/>
-  <!-- mid right ruin block -->
-  <polygon points="1218,490 1218,462 1228,452 1238,464 1248,448 1258,464 1268,490"/>
-</g>
-<rect x="0" y="454" width="1600" height="146" fill="url(#groundFade)"/>
+<!-- ─── EDGE FADES ─── -->
+<rect width="1280" height="220" fill="url(#h-fade-l)"/>
+<rect width="1280" height="220" fill="url(#h-fade-r)"/>
+<rect width="1280" height="220" fill="url(#h-fade-top)"/>
+<rect width="1280" height="220" fill="url(#h-fade-bot)"/>
 
-<!-- floating ash particles -->
-<g fill="#ff6030">
-  <circle cx="142" cy="178" r="1.6" opacity="0.58"/>
-  <circle cx="280" cy="148" r="1.2" opacity="0.52"/>
-  <circle cx="428" cy="112" r="1.5" opacity="0.55"/>
-  <circle cx="568" cy="88"  r="1.1" opacity="0.48"/>
-  <circle cx="700" cy="62"  r="1.3" opacity="0.52"/>
-  <circle cx="898" cy="58"  r="1.4" opacity="0.5"/>
-  <circle cx="1040" cy="78" r="1.2" opacity="0.52"/>
-  <circle cx="1172" cy="96" r="1.4" opacity="0.55"/>
-  <circle cx="1320" cy="132" r="1.3" opacity="0.5"/>
-  <circle cx="1464" cy="168" r="1.5" opacity="0.56"/>
-  <circle cx="210" cy="290" r="1.0" opacity="0.4"/>
-  <circle cx="480" cy="310" r="0.9" opacity="0.38"/>
-  <circle cx="1100" cy="298" r="0.9" opacity="0.38"/>
-  <circle cx="1390" cy="286" r="1.0" opacity="0.4"/>
-</g>
-<g fill="#50c490">
-  <circle cx="88"  cy="242" r="1.2" opacity="0.45"/>
-  <circle cx="168" cy="208" r="0.9" opacity="0.4"/>
-  <circle cx="234" cy="272" r="1.1" opacity="0.42"/>
-  <circle cx="322" cy="248" r="0.8" opacity="0.38"/>
-</g>
-<g fill="#d4a434">
-  <circle cx="1278" cy="238" r="1.1" opacity="0.45"/>
-  <circle cx="1360" cy="208" r="0.9" opacity="0.4"/>
-  <circle cx="1438" cy="264" r="1.2" opacity="0.42"/>
-  <circle cx="1524" cy="244" r="0.8" opacity="0.38"/>
-</g>
-
-<!-- vignette + grain -->
-<rect width="1600" height="600" fill="url(#vig)"/>
-<rect width="1600" height="600" filter="url(#grain)" opacity="0.52"/>
-
-<!-- OUTER FRAME -->
-<rect x="0" y="0" width="1600" height="600" fill="none" stroke="#c83010" stroke-width="2" opacity="0.2"/>
-<rect x="6" y="6" width="1588" height="588" fill="none" stroke="#c83010" stroke-width="0.5" opacity="0.12"/>
-
-<!-- TITLE TEXT -->
-<text x="800" y="268" text-anchor="middle"
-  font-family="Georgia,serif" font-size="88" font-weight="700" letter-spacing="12"
-  fill="#f0e0d0" filter="url(#glow)" opacity="0.92">TARHUALA</text>
-<text x="800" y="316" text-anchor="middle"
-  font-family="Georgia,serif" font-size="18" font-weight="400" letter-spacing="10"
-  fill="#d94830" opacity="0.78">DARK FANTASY  &amp;  APOCALYPTIC FICTION</text>
-<!-- small kbach divider under subtitle -->
-<g transform="translate(800 338)" fill="#d94830" opacity="0.6">
-  <path d="M -60,0 Q -30,-8 0,0 Q 30,8 60,0" fill="none" stroke="#d94830" stroke-width="1"/>
-  <circle cx="0" cy="0" r="3.5"/>
-  <circle cx="-56" cy="0" r="1.8"/><circle cx="56" cy="0" r="1.8"/>
-  <line x1="-80" y1="0" x2="-66" y2="0" stroke="#d94830" stroke-width="1"/>
-  <line x1="66"  y1="0" x2="80"  y2="0" stroke="#d94830" stroke-width="1"/>
+<!-- ─── GRAIN ─── -->
+<rect width="1280" height="220" filter="url(#h-grain)" opacity="0.85"/>
 </g>
 </svg>

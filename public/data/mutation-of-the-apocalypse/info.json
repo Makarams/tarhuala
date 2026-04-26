@@ -67,5 +67,9 @@
       "name": "Royal Road",
       "url": "https://www.royalroad.com/fiction/tarhuala-mutation"
     }
+  ],
+  "_buildSource": "novels",
+  "_sourceChapters": [
+    1
   ]
 }

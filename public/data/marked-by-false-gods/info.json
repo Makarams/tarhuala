@@ -74,5 +74,9 @@
       "title": "Voidcore"
     }
   ],
-  "platforms": []
+  "platforms": [],
+  "_buildSource": "novels",
+  "_sourceChapters": [
+    1
+  ]
 }

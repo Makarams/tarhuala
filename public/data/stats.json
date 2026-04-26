@@ -1,0 +1,510 @@
+{
+  "generatedAt": "2026-04-26T18:09:30.814Z",
+  "totalNovels": 6,
+  "totalChapters": 47,
+  "totalWords": 85166,
+  "avgWordsPerChapter": 1812,
+  "avgChaptersPerNovel": 7.8,
+  "longestChapter": {
+    "novel": "Marked by False Gods",
+    "novelId": "marked-by-false-gods",
+    "number": 14,
+    "title": "Voidcore",
+    "words": 2756
+  },
+  "novels": [
+    {
+      "id": "manager-who-builds-worlds",
+      "title": "Manager Who Builds Worlds",
+      "genre": "God-Game / Civilization / System",
+      "tags": [
+        "System",
+        "Civilization",
+        "God-Game",
+        "Slow Burn",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "cyan",
+      "chapterCount": 6,
+      "words": 9268,
+      "avgWords": 1545,
+      "lastUpdated": "2026-04-26T18:09:30.509Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "Ball of Light",
+          "words": 1533
+        },
+        {
+          "number": 2,
+          "title": "First Worlds",
+          "words": 1580
+        },
+        {
+          "number": 3,
+          "title": "All Three",
+          "words": 1594
+        },
+        {
+          "number": 4,
+          "title": "Seedling Rate",
+          "words": 1528
+        },
+        {
+          "number": 5,
+          "title": "Ground Floor",
+          "words": 1522
+        },
+        {
+          "number": 6,
+          "title": "Standard Tier",
+          "words": 1511
+        }
+      ]
+    },
+    {
+      "id": "marked-by-false-gods",
+      "title": "Marked by False Gods",
+      "genre": "Portal Fantasy / Tactical / Political",
+      "tags": [
+        "Portal Fantasy",
+        "Survival",
+        "Psychological",
+        "Political",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "jade",
+      "chapterCount": 14,
+      "words": 26247,
+      "avgWords": 1875,
+      "lastUpdated": "2026-04-26T18:09:30.557Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "Where Am I",
+          "words": 1568
+        },
+        {
+          "number": 2,
+          "title": "First Blood",
+          "words": 1500
+        },
+        {
+          "number": 3,
+          "title": "Checkpoint",
+          "words": 2027
+        },
+        {
+          "number": 4,
+          "title": "Far Bank",
+          "words": 1510
+        },
+        {
+          "number": 5,
+          "title": "The Descent",
+          "words": 1525
+        },
+        {
+          "number": 6,
+          "title": "Eoran",
+          "words": 1816
+        },
+        {
+          "number": 7,
+          "title": "First Night",
+          "words": 1976
+        },
+        {
+          "number": 8,
+          "title": "Assessor",
+          "words": 1934
+        },
+        {
+          "number": 9,
+          "title": "The Message",
+          "words": 1553
+        },
+        {
+          "number": 10,
+          "title": "Ledger House",
+          "words": 1730
+        },
+        {
+          "number": 11,
+          "title": "First Ruin",
+          "words": 1874
+        },
+        {
+          "number": 12,
+          "title": "Veilstone",
+          "words": 2235
+        },
+        {
+          "number": 13,
+          "title": "Sentinel",
+          "words": 2243
+        },
+        {
+          "number": 14,
+          "title": "Voidcore",
+          "words": 2756
+        }
+      ]
+    },
+    {
+      "id": "masquerade-in-noble-court",
+      "title": "Masquerade in Noble Court",
+      "genre": "Transmigration / Political / Strategy",
+      "tags": [
+        "Transmigration",
+        "Court Intrigue",
+        "Political",
+        "Slow Burn",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "ivory",
+      "chapterCount": 5,
+      "words": 8614,
+      "avgWords": 1723,
+      "lastUpdated": "2026-04-26T18:09:30.657Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "New Life",
+          "words": 1533
+        },
+        {
+          "number": 2,
+          "title": "Magic Temple",
+          "words": 1632
+        },
+        {
+          "number": 3,
+          "title": "Family Dinner",
+          "words": 1695
+        },
+        {
+          "number": 4,
+          "title": "Future Plan",
+          "words": 1740
+        },
+        {
+          "number": 5,
+          "title": "Morning After",
+          "words": 2014
+        }
+      ]
+    },
+    {
+      "id": "mistakenly-dragged-survival",
+      "title": "Mistakenly Dragged Survival",
+      "genre": "Unlimited Flow / Horror / Survival",
+      "tags": [
+        "Unlimited Flow",
+        "Horror",
+        "Survival",
+        "Psychological",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "indigo",
+      "chapterCount": 5,
+      "words": 10679,
+      "avgWords": 2136,
+      "lastUpdated": "2026-04-26T14:24:11.075Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "Wrong Umbrella",
+          "words": 1511
+        },
+        {
+          "number": 2,
+          "title": "Into The Corridor",
+          "words": 2155
+        },
+        {
+          "number": 3,
+          "title": "Collection Station",
+          "words": 2308
+        },
+        {
+          "number": 4,
+          "title": "The West End",
+          "words": 2011
+        },
+        {
+          "number": 5,
+          "title": "The Light Rule",
+          "words": 2694
+        }
+      ]
+    },
+    {
+      "id": "monarch-of-depravity",
+      "title": "Monarch of Depravity",
+      "genre": "Transmigration / Cosmic Horror / Supernatural",
+      "tags": [
+        "Transmigration",
+        "Cosmic Horror",
+        "Supernatural",
+        "Psychological",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "gold",
+      "chapterCount": 7,
+      "words": 13016,
+      "avgWords": 1859,
+      "lastUpdated": "2026-04-26T14:24:11.148Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "Glimmering Light",
+          "words": 1520
+        },
+        {
+          "number": 2,
+          "title": "First Steps",
+          "words": 1519
+        },
+        {
+          "number": 3,
+          "title": "Breckvale",
+          "words": 2347
+        },
+        {
+          "number": 4,
+          "title": "The Notebook",
+          "words": 2085
+        },
+        {
+          "number": 5,
+          "title": "Maintenance",
+          "words": 1969
+        },
+        {
+          "number": 6,
+          "title": "Equivalence",
+          "words": 1749
+        },
+        {
+          "number": 7,
+          "title": "The House",
+          "words": 1827
+        }
+      ]
+    },
+    {
+      "id": "mutation-of-the-apocalypse",
+      "title": "Mutation of the Apocalypse",
+      "genre": "Apocalypse / Evolution / Survival",
+      "tags": [
+        "Apocalypse",
+        "Evolution",
+        "Survival",
+        "System",
+        "Mature"
+      ],
+      "status": "Ongoing",
+      "theme": "ember",
+      "chapterCount": 10,
+      "words": 17342,
+      "avgWords": 1734,
+      "lastUpdated": "2026-04-26T18:09:30.707Z",
+      "chapters": [
+        {
+          "number": 1,
+          "title": "New Beginning",
+          "words": 1531
+        },
+        {
+          "number": 2,
+          "title": "Fresh Start",
+          "words": 1627
+        },
+        {
+          "number": 3,
+          "title": "Market Fight",
+          "words": 1653
+        },
+        {
+          "number": 4,
+          "title": "Gathering Supplies",
+          "words": 1625
+        },
+        {
+          "number": 5,
+          "title": "Triumph in Achievement",
+          "words": 2634
+        },
+        {
+          "number": 6,
+          "title": "Class Clue",
+          "words": 1583
+        },
+        {
+          "number": 7,
+          "title": "Other Player",
+          "words": 1551
+        },
+        {
+          "number": 8,
+          "title": "Seeking Clarity",
+          "words": 1591
+        },
+        {
+          "number": 9,
+          "title": "In Pursuit of Insight",
+          "words": 1801
+        },
+        {
+          "number": 10,
+          "title": "Marching Onward",
+          "words": 1746
+        }
+      ]
+    }
+  ],
+  "genres": [
+    {
+      "name": "Political",
+      "count": 2
+    },
+    {
+      "name": "Transmigration",
+      "count": 2
+    },
+    {
+      "name": "Survival",
+      "count": 2
+    },
+    {
+      "name": "God-Game",
+      "count": 1
+    },
+    {
+      "name": "Civilization",
+      "count": 1
+    },
+    {
+      "name": "System",
+      "count": 1
+    },
+    {
+      "name": "Portal Fantasy",
+      "count": 1
+    },
+    {
+      "name": "Tactical",
+      "count": 1
+    },
+    {
+      "name": "Strategy",
+      "count": 1
+    },
+    {
+      "name": "Unlimited Flow",
+      "count": 1
+    },
+    {
+      "name": "Horror",
+      "count": 1
+    },
+    {
+      "name": "Cosmic Horror",
+      "count": 1
+    },
+    {
+      "name": "Supernatural",
+      "count": 1
+    },
+    {
+      "name": "Apocalypse",
+      "count": 1
+    },
+    {
+      "name": "Evolution",
+      "count": 1
+    }
+  ],
+  "tags": [
+    {
+      "name": "Mature",
+      "count": 6
+    },
+    {
+      "name": "Survival",
+      "count": 3
+    },
+    {
+      "name": "Psychological",
+      "count": 3
+    },
+    {
+      "name": "System",
+      "count": 2
+    },
+    {
+      "name": "Slow Burn",
+      "count": 2
+    },
+    {
+      "name": "Political",
+      "count": 2
+    },
+    {
+      "name": "Transmigration",
+      "count": 2
+    },
+    {
+      "name": "Civilization",
+      "count": 1
+    },
+    {
+      "name": "God-Game",
+      "count": 1
+    },
+    {
+      "name": "Portal Fantasy",
+      "count": 1
+    },
+    {
+      "name": "Court Intrigue",
+      "count": 1
+    },
+    {
+      "name": "Unlimited Flow",
+      "count": 1
+    },
+    {
+      "name": "Horror",
+      "count": 1
+    },
+    {
+      "name": "Cosmic Horror",
+      "count": 1
+    },
+    {
+      "name": "Supernatural",
+      "count": 1
+    },
+    {
+      "name": "Apocalypse",
+      "count": 1
+    },
+    {
+      "name": "Evolution",
+      "count": 1
+    }
+  ],
+  "statuses": [
+    {
+      "name": "Ongoing",
+      "count": 6
+    }
+  ]
+}

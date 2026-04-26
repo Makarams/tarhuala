@@ -38,5 +38,7 @@
       "title": "The Light Rule"
     }
   ],
-  "platforms": []
+  "platforms": [],
+  "_buildSource": "novels",
+  "_sourceChapters": []
 }
