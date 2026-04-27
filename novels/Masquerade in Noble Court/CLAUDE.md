@@ -3,22 +3,23 @@
 ## Synopsis
 First-person narrative | Transmigration · Strategy · Political
 
-"I know this story," she told the unfamiliar ceiling. "Mostly."
+"I know this story," I told the ceiling. "Mostly."
 
-Elena's Survival Checklist:
-- Ignore the Crown Prince.
-- Ignore the Heroine.
-- Don't die when the family title expires in 5 months.
+I woke up as Elena, a count's daughter the novel had already decided to discard. No magic, no position worth remembering, and five months before the family title expired and the story stopped needing her entirely.
 
-Elena woke up as a Count's daughter destined for ruin. She had no magic, no importance, and no indoor plumbing. To survive, she ignored the romance and re-tested her mana at the imperial temple.
+The survival plan was simple: ignore the Crown Prince, ignore the heroine, don't die.
+
+So I went to the imperial temple for a mana retest. It should have been a formality.
 
 【Water Affinity Confirmed.】
 
-The temple fell silent. The priest was offended and her parents were in shock, but Elena remained composed. Between suffocating corsets and the lack of modern convenience, she was too irritated to have a breakdown.
+The priest stopped mid-sentence.
 
-"The script says I'm forgettable," she said. "I've decided to ignore the script."
+I looked at the crystal again. It still said the same thing.
 
-[Note: The heroine has not yet noticed Elena. Elena would like to keep it that way.]
+This wasn't in the book.
+
+"Well. That's inconvenient."
 
 ---
 

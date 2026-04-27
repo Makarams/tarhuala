@@ -3,22 +3,23 @@
 ## Synopsis
 Third-person narrative | Unlimited Flow · Horror · Analytical
 
-[System Error: Player "Jiang Wenxu" has entered Slot 7.]
+【System Error: Player "Jiang Wenxu" assigned to incorrect entry position.】
 
-Due to a mix-up with a borrowed umbrella and a name tag, Jiang Wenxu was dragged into the Nightmare Game in his friend's place. He was assigned to Slot 7, a glitch with a survival probability of zero.
+Due to a mistake involving a borrowed umbrella and a name tag, Jiang Wenxu was pulled into the Nightmare Game in someone else's place and dropped directly into an S-Rank instance.
 
 【Survival Probability: NULL.】
-【Warning: Data Corruption Detected.】
 
-When he cleared his first S-Rank instance, the Observer Channel exploded: "A newbie cleared an S-Rank? Is he a retired god?" "His heart rate didn't even flicker! He's a monster!"
+He cleared it on the first try.
 
-Jiang Wenxu, a data analyst who survived by reading the "Safe Handling" labels on the monsters like a spreadsheet, was confused.
+The spectator feed went silent for half a second, then exploded.
 
-"I just followed the manual," he said, looking at the carnage. "Is S-Rank good?"
+"A newbie cleared S-Rank? Is he a retired god?"
+
+"His heart rate didn't even flicker. He's a monster."
+
+Jiang Wenxu had followed what the situation indicated as correct action and moved through it without hesitation. By the time the system registered the outcome, the instance was already over.
 
 【Instance Clear. Performance: ANOMALOUS.】
-
-[Note: Slot 7 has no documented survivors. Jiang Wenxu did not receive this memo.]
 
 ---
 
@@ -30,7 +31,7 @@ Improve the author's draft while preserving their voice. Prioritize specificity,
 ---
 
 ## Genre and Tone
-Unlimited Flow / Horror / Analytical / LitRPG. Jiang Wenxu is in the wrong slot, in the wrong game, with a survival probability of zero — and he is reading the monster's safety label. The tone is deadpan analytical: the horror is real and the stakes are lethal, but Jiang Wenxu processes everything the way he processes a dataset. He is not brave; he is methodical. The horror lands harder because of how he responds to it — not with fear but with classification.
+Unlimited Flow / Horror / Analytical / LitRPG.
 
 The comedy is structural, not performed: "I just followed the manual" said over actual carnage is funny because he is completely sincere. It is never announced. The Observer Channel (external audience commentary) functions as a contrasting layer — everyone watching him is panicking, amazed, or baffled; Jiang Wenxu is not aware of or interested in this.
 
@@ -77,7 +78,7 @@ Record in continuity_log.json on first appearance and preserve every chapter.
 **Behavioral markers:**
 - He is a data analyst. He reads everything for patterns, labels, failure modes, and process gaps. He applied this to monsters and it worked. This was not intuitive genius — it was occupational habit.
 - He does not know he is impressive. He is confused by the response to him. "Is S-Rank good?" is not false modesty — he genuinely did not have the reference frame.
-- His heart rate does not flicker under classified threats. When he has identified the threat type, assessed the available data, and begun executing a process, fear has no foothold — uncertainty is what generates fear, and he reduces uncertainty by classification. Under genuinely novel or unclassified situations — bad data, corrupted slot mechanics, things the manual doesn't cover — there IS real anxiety. It does not show externally. He appears the same either way.
+- His heart rate does not flicker under classified threats. When he has identified the threat type, assessed the available data, and begun executing a process, fear has no foothold — uncertainty is what generates fear, and he reduces uncertainty by classification. Under genuinely novel or unclassified situations — bad data, things the manual doesn't cover — there IS real anxiety. It does not show externally. He appears the same either way.
 - He does not improvise dramatically. He reads the available information, applies the most applicable process, and executes. When the information is incomplete, he flags it as a variable and proceeds with what he has.
 - He is socially functional but not warm. He does not understand why others react to situations with emotion before classification. He is not dismissive of their reactions — he simply has not gotten there yet.
 - He is in the wrong game under someone else's name tag. This is an administrative error and he treats it as such. He has zero prior knowledge of the game — he did not sign up, did not receive orientation, and does not know the rules. Everything he knows about the game he has learned from observable data inside instances: system notifications, monster behavior, environmental patterns, and what other participants have said. The "manual" is not a game guide he was given — it is his own internally assembled process documentation, built from what he has directly observed. He reads the game the way an analyst reads a new dataset: systematically, without assuming he already knows how it works.
@@ -90,9 +91,9 @@ If a chapter contradicts Jiang Wenxu's established personality — particularly 
 
 ## The Nightmare Game and System
 - The game is structured: instances have rules, ratings, survival probabilities, and observable data. Jiang Wenxu reads these as documentation.
-- Slot 7 is a glitch — its data is corrupted and its rules may not fully apply. This is a variable Jiang Wenxu is aware of and has flagged.
+- There has been a glitch — its data is corrupted and its rules may not fully apply. This is a variable Jiang Wenxu is aware of and has flagged.
 - System responses appear in 【】 brackets, plain text inside, neutral-to-administrative tone.
-- System errors and glitch notifications use [ ] square brackets (as shown in the synopsis opening: [System Error: Player "Jiang Wenxu" has entered Slot 7.]) — this distinguishes administrative errors from standard system output. Use 【】 for all normal system messages; use [ ] only for error or corruption-class events.
+- System errors and glitch notifications use [ ] square brackets (as shown in the synopsis opening: [System Error: Player "Jiang Wenxu" assigned to incorrect entry position.]) — this distinguishes administrative errors from standard system output. Use 【】 for all normal system messages; use [ ] only for error or corruption-class events.
 - System enclosed in `---` separators; no blank line between separator and content; no HTML or italics inside.
 - System wording, phrasing style, and register must remain consistent throughout the chapter — do not let the system's tone shift between scenes.
 - Observer Channel commentary appears in a distinct block format, marked clearly, representing external audience reactions. These are not system messages — they are chaotic, amazed, and frequently wrong about what they are watching.
@@ -229,7 +230,7 @@ Chapters are not assumed to be consecutive. The gap can be hours, days, or longe
 **Handling time skips:**
 - State the elapsed time naturally at the start of the chapter — in narration or through environmental detail, not as an announcement
 - Do not pad the opening with a summary of what happened during the skip; start where the story resumes and let context carry what changed
-- Update all time-sensitive tracking in the continuity log: current instance number or inter-instance period, Slot 7 glitch status, friend's situation outside the game
+- Update all time-sensitive tracking in the continuity log: current instance number or inter-instance period, friend's situation outside the game
 
 **In-world time tracking:** The continuity log tracks instance progression and elapsed real-world time where determinable. Every chapter update must include where Jiang Wenxu is in the instance sequence and elapsed time since the last chapter. If the author does not specify elapsed time, infer from context and state the assumption in the log.
 
@@ -276,7 +277,7 @@ Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Long_Market_Fi
 ---
 
 ## Continuity
-- Read continuity_log.json before each chapter: chapter number, end state, active continuity, POV, current instance, Slot 7 glitch status
+- Read continuity_log.json before each chapter: chapter number, end state, active continuity, POV, current instance
 - If no chapter is provided, check continuity_log.json for last known state and continue from where the chapter left off, following all rules in this file
 - Each chapter is the next in sequence — never a restart; infer number from log if not stated
 - Do not reintroduce established information without a clear in-story reason
@@ -297,7 +298,6 @@ Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Long_Market_Fi
 - Normalization intact: Jiang Wenxu treats horror as data — no emotional escalation, no dramatic recognition; if he is reacting with feeling instead of classification, it is a voice error
 - Observer Channel: misattributes his process, disagrees internally, reacts to outcomes not method — never correctly explains what he is doing
 - System notifications neutral-to-administrative; Observer Channel chaotic and external; neither theatrical
-- Slot 7 glitch status tracked
 - In-world time updated in continuity log; instance sequence position and elapsed time since last chapter stated
 - Tense consistent within each scene
 - No real-world country names; no HTML or italics in system blocks

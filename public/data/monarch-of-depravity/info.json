@@ -11,7 +11,7 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "Log Entry 01: \"What a shitty transmigration.\"\n\nI woke up in a body the original owner had already vacated, in a room arranged for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body follows.\n\nI don't know why I'm here or why I was dropped into a situation built around rules I was never given. What I do know is that the system governing all of this is consistent enough to be dangerous and incomplete enough to be intentional.\n\nThe ritual needs a life before sunrise. The body I'm in technically qualifies if I don't find something else first.\n\n\"I have no words,\" I said. \"I'm screwed.\"\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently. Both cannot be right.]",
+  "description": "Log Entry 01: \"What a shitty transmigration.\"\n\nI woke up in a body the original owner had already vacated, in a room arranged for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body follows.\n\nI don't know why I'm here or why I was dropped into a situation built around rules I was never given. What I do know is that the system governing all of this is consistent enough to be dangerous and incomplete enough to be intentional.\n\nThe ritual needs a life before sunrise. The body I'm in technically qualifies if I don't find something else first.\n\n\"I have no words,\" I said. \"I'm screwed.\"\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently.]",
   "theme": "gold",
   "images": {
     "cover": "/images/covers/monarch-of-depravity.svg"
@@ -19,31 +19,7 @@
   "chapters": [
     {
       "number": 1,
-      "title": "Glimmering Light"
-    },
-    {
-      "number": 2,
-      "title": "First Steps"
-    },
-    {
-      "number": 3,
-      "title": "Breckvale"
-    },
-    {
-      "number": 4,
-      "title": "The Notebook"
-    },
-    {
-      "number": 5,
-      "title": "Maintenance"
-    },
-    {
-      "number": 6,
-      "title": "Equivalence"
-    },
-    {
-      "number": 7,
-      "title": "The House"
+      "title": "Where Am I"
     }
   ],
   "platforms": [
@@ -57,5 +33,7 @@
     }
   ],
   "_buildSource": "novels",
-  "_sourceChapters": []
+  "_sourceChapters": [
+    1
+  ]
 }

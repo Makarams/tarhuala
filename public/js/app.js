@@ -1135,9 +1135,9 @@
     /* Monarch of Depravity — twelve patron divinities */
     gold:   { primary:'Patron',   kill:'Patron',   levelup:'Patron',
               reward:'Offering',  broadcast:'Decree',    error:'Patron' },
-    /* Mistakenly Dragged Survival — nightmare game observers + corrupted slot */
+    /* Mistakenly Dragged Survival — nightmare game observers + incorrect entry position.
     indigo: { primary:'Game',     kill:'Game',     levelup:'Game',
-              reward:'Game',      broadcast:'Observer',  error:'Slot-7' },
+              reward:'Game',      broadcast:'Observer',  error:'Entry' },
     /* Masquerade in Noble Court — the original-life knowledge that hers isn't */
     ivory:  { primary:'Memory',   kill:'Memory',   levelup:'Memory',
               reward:'Memory',    broadcast:'Whisper',   error:'Memory' },

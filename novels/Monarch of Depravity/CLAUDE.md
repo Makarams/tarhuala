@@ -5,19 +5,13 @@ Third-person narrative | Transmigration · Cosmic Horror · Supernatural
 
 Log Entry 01: "What a shitty transmigration."
 
-Alden woke up in a 14-year-old body smelling of old candles. On the dresser sat a death-ritual for the "Shadow Man." It required a sacrifice before dawn, or Alden would die in his sleep.
+I woke up in a body the original owner had already vacated, in a room arranged for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body follows.
 
-Alden looked at the knife, applied a cold cost-benefit analysis, and caught a mouse to satisfy the deity's debt.
+I don't know why I'm here or why I was dropped into a situation built around rules I was never given. What I do know is that the system governing all of this is consistent enough to be dangerous and incomplete enough to be intentional.
 
-【Affiliation: Unaffiliated.】
+The ritual needs a life before sunrise. The body I'm in technically qualifies if I don't find something else first.
 
-While a deity waits for a ritual that never finished, Alden is busy debugging the mechanics of a 12-deity pathway system. He has no interest in cults; he is focused on the 6 km walk to the nearest town with no money.
-
-The Shadow Man is waiting. The world is watching. Alden is just categorizing the supernatural as a solvable problem.
-
-"The ritual?" Alden muttered. "I have to find a meal first."
-
-[Note: The Shadow Man has filed no formal complaints. This is widely considered unprecedented.]
+"I have no words," I said. "I'm screwed."
 
 ---
 

@@ -3,17 +3,19 @@
 ## Synopsis
 First-person narrative | Portal Fantasy · Tactical · Political
 
-Rule #1: Panic never helped anyone stay alive.
+Rule #1: panic is a waste of oxygen.
 
-Eric was mid-shift at a restaurant when the walls disappeared. One moment, he was watching customer drama; the next, he was in a sealed room with 100 strangers and a depleting oxygen supply. While others screamed, Eric stayed quiet. Noise is a waste of breath.
+I was mid-shift at the restaurant, customers arguing over nothing, when the world around us just disappeared and got replaced by something else entirely. Some people screamed. I stayed quiet.
 
 【Greetings, Human! Welcome to the Tutorial!】
 
-The world became a staged game of death. With a professional smile and a piece of candy for Soo-Yun — a 16-year-old stranger who addresses him as uncle out of cultural habit — Eric waited for the walls to drop. He isn't the strongest, but he is the only one who sees the leverage in every room. In a world watched by false gods, Eric only needs to keep his eyes open.
+The world had turned into a staged game with rules, timers, and something watching from the other side. I'm not the strongest person here, but I don't need to be. I just need to see what others miss. Every situation has pressure points. Every person has something to lose.
+
+Whatever is running this calls itself a god. I don't believe that for a second. Gods don't need games.
 
 "Life is an adventure, I guess."
 
-[Note: Eric has not clarified what kind of adventure. Everyone around him suspects the bad kind.]
+For now I just need to stay alive long enough to understand the rules. After that, I'll start playing properly.
 
 ---
 

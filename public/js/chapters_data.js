@@ -7,200 +7,36 @@ const CHAPTERS_DATA = {
     {
       "number": 1,
       "title": "Ball of Light"
-    },
-    {
-      "number": 2,
-      "title": "First Worlds"
-    },
-    {
-      "number": 3,
-      "title": "All Three"
-    },
-    {
-      "number": 4,
-      "title": "Seedling Rate"
-    },
-    {
-      "number": 5,
-      "title": "Ground Floor"
-    },
-    {
-      "number": 6,
-      "title": "Standard Tier"
     }
   ],
   "marked-by-false-gods": [
     {
       "number": 1,
-      "title": "Where Am I"
-    },
-    {
-      "number": 2,
-      "title": "First Blood"
-    },
-    {
-      "number": 3,
-      "title": "Checkpoint"
-    },
-    {
-      "number": 4,
-      "title": "Far Bank"
-    },
-    {
-      "number": 5,
-      "title": "Chapter 5"
-    },
-    {
-      "number": 6,
-      "title": "Eoran"
-    },
-    {
-      "number": 7,
-      "title": "First Night"
-    },
-    {
-      "number": 8,
-      "title": "Assessor"
-    },
-    {
-      "number": 9,
-      "title": "The Message"
-    },
-    {
-      "number": 10,
-      "title": "Ledger House"
-    },
-    {
-      "number": 11,
-      "title": "First Ruin"
-    },
-    {
-      "number": 12,
-      "title": "Veilstone"
-    },
-    {
-      "number": 13,
-      "title": "Sentinel"
-    },
-    {
-      "number": 14,
-      "title": "Voidcore"
+      "title": "Glimmering Light"
     }
   ],
   "masquerade-in-noble-court": [
     {
       "number": 1,
       "title": "New Life"
-    },
-    {
-      "number": 2,
-      "title": "Magic Temple"
-    },
-    {
-      "number": 3,
-      "title": "Family Dinner"
-    },
-    {
-      "number": 4,
-      "title": "Future Plan"
-    },
-    {
-      "number": 5,
-      "title": "Morning After"
     }
   ],
   "mistakenly-dragged-survival": [
     {
       "number": 1,
       "title": "Wrong Umbrella"
-    },
-    {
-      "number": 2,
-      "title": "Into The Corridor"
-    },
-    {
-      "number": 3,
-      "title": "Collection Station"
-    },
-    {
-      "number": 4,
-      "title": "The West End"
-    },
-    {
-      "number": 5,
-      "title": "The Light Rule"
     }
   ],
   "monarch-of-depravity": [
     {
       "number": 1,
-      "title": "Glimmering Light"
-    },
-    {
-      "number": 2,
-      "title": "First Steps"
-    },
-    {
-      "number": 3,
-      "title": "Breckvale"
-    },
-    {
-      "number": 4,
-      "title": "The Notebook"
-    },
-    {
-      "number": 5,
-      "title": "Maintenance"
-    },
-    {
-      "number": 6,
-      "title": "Equivalence"
-    },
-    {
-      "number": 7,
-      "title": "The House"
+      "title": "Where Am I"
     }
   ],
   "mutation-of-the-apocalypse": [
     {
       "number": 1,
       "title": "New Beginning"
-    },
-    {
-      "number": 2,
-      "title": "Fresh Start"
-    },
-    {
-      "number": 3,
-      "title": "Market Fight"
-    },
-    {
-      "number": 4,
-      "title": "Gathering Supplies"
-    },
-    {
-      "number": 5,
-      "title": "Triumph in Achievement"
-    },
-    {
-      "number": 6,
-      "title": "Class Clue"
-    },
-    {
-      "number": 7,
-      "title": "Other Player"
-    },
-    {
-      "number": 8,
-      "title": "Seeking Clarity"
-    },
-    {
-      "number": 9,
-      "title": "In Pursuit of Insight"
-    },
-    {
-      "number": 10,
-      "title": "Marching Onward"
     }
   ]
 };

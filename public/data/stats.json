@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-27T01:25:49.437Z",
+  "generatedAt": "2026-04-27T02:56:24.007Z",
   "totalNovels": 6,
-  "totalChapters": 47,
-  "totalWords": 83641,
-  "avgWordsPerChapter": 1780,
-  "avgChaptersPerNovel": 7.8,
+  "totalChapters": 6,
+  "totalWords": 6519,
+  "avgWordsPerChapter": 1087,
+  "avgChaptersPerNovel": 1,
   "longestChapter": {
-    "novel": "Marked by False Gods",
-    "novelId": "marked-by-false-gods",
-    "number": 14,
-    "title": "Voidcore",
-    "words": 2756
+    "novel": "Monarch of Depravity",
+    "novelId": "monarch-of-depravity",
+    "number": 1,
+    "title": "Where Am I",
+    "words": 1568
   },
   "novels": [
     {
@@ -26,40 +26,15 @@
       ],
       "status": "Ongoing",
       "theme": "cyan",
-      "chapterCount": 6,
-      "words": 9268,
-      "avgWords": 1545,
-      "lastUpdated": "2026-04-27T01:25:49.167Z",
+      "chapterCount": 1,
+      "words": 376,
+      "avgWords": 376,
+      "lastUpdated": "2026-04-27T02:56:23.792Z",
       "chapters": [
         {
           "number": 1,
           "title": "Ball of Light",
-          "words": 1533
-        },
-        {
-          "number": 2,
-          "title": "First Worlds",
-          "words": 1580
-        },
-        {
-          "number": 3,
-          "title": "All Three",
-          "words": 1594
-        },
-        {
-          "number": 4,
-          "title": "Seedling Rate",
-          "words": 1528
-        },
-        {
-          "number": 5,
-          "title": "Ground Floor",
-          "words": 1522
-        },
-        {
-          "number": 6,
-          "title": "Standard Tier",
-          "words": 1511
+          "words": 376
         }
       ]
     },
@@ -76,80 +51,15 @@
       ],
       "status": "Ongoing",
       "theme": "jade",
-      "chapterCount": 14,
-      "words": 24722,
-      "avgWords": 1766,
-      "lastUpdated": "2026-04-27T01:25:49.209Z",
+      "chapterCount": 1,
+      "words": 1242,
+      "avgWords": 1242,
+      "lastUpdated": "2026-04-27T02:56:23.807Z",
       "chapters": [
         {
           "number": 1,
-          "title": "Where Am I",
-          "words": 1568
-        },
-        {
-          "number": 2,
-          "title": "First Blood",
-          "words": 1500
-        },
-        {
-          "number": 3,
-          "title": "Checkpoint",
-          "words": 2027
-        },
-        {
-          "number": 4,
-          "title": "Far Bank",
-          "words": 1510
-        },
-        {
-          "number": 5,
-          "title": "Chapter 5",
-          "words": 0
-        },
-        {
-          "number": 6,
-          "title": "Eoran",
-          "words": 1816
-        },
-        {
-          "number": 7,
-          "title": "First Night",
-          "words": 1976
-        },
-        {
-          "number": 8,
-          "title": "Assessor",
-          "words": 1934
-        },
-        {
-          "number": 9,
-          "title": "The Message",
-          "words": 1553
-        },
-        {
-          "number": 10,
-          "title": "Ledger House",
-          "words": 1730
-        },
-        {
-          "number": 11,
-          "title": "First Ruin",
-          "words": 1874
-        },
-        {
-          "number": 12,
-          "title": "Veilstone",
-          "words": 2235
-        },
-        {
-          "number": 13,
-          "title": "Sentinel",
-          "words": 2243
-        },
-        {
-          "number": 14,
-          "title": "Voidcore",
-          "words": 2756
+          "title": "Glimmering Light",
+          "words": 1242
         }
       ]
     },
@@ -166,35 +76,15 @@
       ],
       "status": "Ongoing",
       "theme": "ivory",
-      "chapterCount": 5,
-      "words": 8614,
-      "avgWords": 1723,
-      "lastUpdated": "2026-04-27T01:25:49.298Z",
+      "chapterCount": 1,
+      "words": 1533,
+      "avgWords": 1533,
+      "lastUpdated": "2026-04-27T02:56:23.829Z",
       "chapters": [
         {
           "number": 1,
           "title": "New Life",
           "words": 1533
-        },
-        {
-          "number": 2,
-          "title": "Magic Temple",
-          "words": 1632
-        },
-        {
-          "number": 3,
-          "title": "Family Dinner",
-          "words": 1695
-        },
-        {
-          "number": 4,
-          "title": "Future Plan",
-          "words": 1740
-        },
-        {
-          "number": 5,
-          "title": "Morning After",
-          "words": 2014
         }
       ]
     },
@@ -211,35 +101,15 @@
       ],
       "status": "Ongoing",
       "theme": "indigo",
-      "chapterCount": 5,
-      "words": 10679,
-      "avgWords": 2136,
-      "lastUpdated": "2026-04-26T14:24:11.075Z",
+      "chapterCount": 1,
+      "words": 269,
+      "avgWords": 269,
+      "lastUpdated": "2026-04-27T02:56:23.857Z",
       "chapters": [
         {
           "number": 1,
           "title": "Wrong Umbrella",
-          "words": 1511
-        },
-        {
-          "number": 2,
-          "title": "Into The Corridor",
-          "words": 2155
-        },
-        {
-          "number": 3,
-          "title": "Collection Station",
-          "words": 2308
-        },
-        {
-          "number": 4,
-          "title": "The West End",
-          "words": 2011
-        },
-        {
-          "number": 5,
-          "title": "The Light Rule",
-          "words": 2694
+          "words": 269
         }
       ]
     },
@@ -256,45 +126,15 @@
       ],
       "status": "Ongoing",
       "theme": "gold",
-      "chapterCount": 7,
-      "words": 13016,
-      "avgWords": 1859,
-      "lastUpdated": "2026-04-26T14:24:11.148Z",
+      "chapterCount": 1,
+      "words": 1568,
+      "avgWords": 1568,
+      "lastUpdated": "2026-04-27T02:56:23.892Z",
       "chapters": [
         {
           "number": 1,
-          "title": "Glimmering Light",
-          "words": 1520
-        },
-        {
-          "number": 2,
-          "title": "First Steps",
-          "words": 1519
-        },
-        {
-          "number": 3,
-          "title": "Breckvale",
-          "words": 2347
-        },
-        {
-          "number": 4,
-          "title": "The Notebook",
-          "words": 2085
-        },
-        {
-          "number": 5,
-          "title": "Maintenance",
-          "words": 1969
-        },
-        {
-          "number": 6,
-          "title": "Equivalence",
-          "words": 1749
-        },
-        {
-          "number": 7,
-          "title": "The House",
-          "words": 1827
+          "title": "Where Am I",
+          "words": 1568
         }
       ]
     },
@@ -311,60 +151,15 @@
       ],
       "status": "Ongoing",
       "theme": "ember",
-      "chapterCount": 10,
-      "words": 17342,
-      "avgWords": 1734,
-      "lastUpdated": "2026-04-27T01:25:49.327Z",
+      "chapterCount": 1,
+      "words": 1531,
+      "avgWords": 1531,
+      "lastUpdated": "2026-04-27T02:56:23.919Z",
       "chapters": [
         {
           "number": 1,
           "title": "New Beginning",
           "words": 1531
-        },
-        {
-          "number": 2,
-          "title": "Fresh Start",
-          "words": 1627
-        },
-        {
-          "number": 3,
-          "title": "Market Fight",
-          "words": 1653
-        },
-        {
-          "number": 4,
-          "title": "Gathering Supplies",
-          "words": 1625
-        },
-        {
-          "number": 5,
-          "title": "Triumph in Achievement",
-          "words": 2634
-        },
-        {
-          "number": 6,
-          "title": "Class Clue",
-          "words": 1583
-        },
-        {
-          "number": 7,
-          "title": "Other Player",
-          "words": 1551
-        },
-        {
-          "number": 8,
-          "title": "Seeking Clarity",
-          "words": 1591
-        },
-        {
-          "number": 9,
-          "title": "In Pursuit of Insight",
-          "words": 1801
-        },
-        {
-          "number": 10,
-          "title": "Marching Onward",
-          "words": 1746
         }
       ]
     }

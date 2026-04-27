@@ -3,17 +3,25 @@
 ## Synopsis
 First-person narrative | God-Game · Civilization · Strategy
 
-"Selected by whom?" Edward Lee asked.
+I got fired for sleeping at work. Fair.
 
-He had just lost his job for sleeping at his desk. By nightfall, he was worrying about rent when a sphere of light drifted through his window and designated him a Constellation Manager. When he asked for answers, the system's response was cold:
+What wasn't fair was the glowing orb waiting outside when I got home.
 
-【Permission too low for the question to be answered.】
+【You have been selected as a Constellation Manager.】
 
-Instead of answers, he was shown a dead planet of cracked earth and a shop menu for everything from grass seeds to rain clouds. The System expects a savior, but Edward is still thinking about the rent due in 14 days.
+"Selected by who?"
 
-"This world does not matter," he said. "Rent does."
+【Permission level insufficient.】
 
-[Note: The system wished him a pleasant day. Edward found this unhelpful.]
+Instead of answers, I got a dead planet and a system shop selling everything from grass seeds to rain clouds. Apparently I'm supposed to rebuild a civilization from scratch.
+
+The system calls it a sacred responsibility.
+
+Yeah. Sure.
+
+I call it unpaid labor.
+
+Rent is due in fourteen days, so if this world can't make me money, I'm not interested. But if it can, I'll build it, automate it, and exploit every last soul in it.
 
 ---
 

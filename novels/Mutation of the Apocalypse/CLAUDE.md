@@ -3,24 +3,14 @@
 ## Synopsis
 Third-person narrative | Apocalypse · Evolution · Survival
 
-Year 0, Day 1: "Auditory hallucination," he decided.
-
-On his sixteenth birthday, a mechanical voice announced the end of the world. Lucas, a laborer since age ten, simply blew out his candle and went to bed. He thought he was finally breaking from exhaustion.
-
+Year 0, Day 1: "Auditory hallucination," Lucas decided, and blew out his birthday candle.
 【INITIATING EARTH MUTATION PROGRAM: PHASE 1】
 
-By morning, the nightmare was real. While others froze, Lucas moved. Six years of survival had taught him how to fight for bread. By the afternoon, a notification appeared:
+By morning, the world had changed and his neighbor was trying to break into his home and kill him.
 
-【Achievement Clear: Kill One Level 2 and Nine Level 1 Zombies】
-【Reward: Inventory Pouch [Epic], Basic Dagger [Common]】
+Lucas didn't panic. He had worked since childhood and panic never changed outcomes. He dealt with the neighbor, and by afternoon he had killed enough to trigger a reward notification. He collected the items, noted them, and kept moving. There were still places to reach and supplies didn't wait.
 
-Lucas gripped the dagger with shaking hands. He wasn't trying to be a legend; he was just reaching the next house for supplies.
-
-"I don't know what an 'Epic' is," he muttered. "Can I use this to carry food?"
-
-"I've been surviving since I was ten. This is just another day of work."
-
-[Note: First novel. The author welcomes feedback and cannot promise he won't cry. Chapters daily.]
+"So it started," he muttered. "Fine."
 
 ---
 
