@@ -1129,7 +1129,7 @@
     /* Mutation of the Apocalypse — global mutation broadcast vs personal stats */
     ember:  { primary:'Mutation', kill:'Mutation', levelup:'Mutation',
               reward:'Mutation', broadcast:'Broadcast', error:'Anomaly' },
-    /* Marked by False Gods — false gods speak through the system */
+    /* Marked by False Gods — gods speak through the system */
     jade:   { primary:'Voice',    kill:'Voice',    levelup:'Voice',
               reward:'Voice',     broadcast:'Decree',    error:'Voice' },
     /* Monarch of Depravity — twelve patron divinities */

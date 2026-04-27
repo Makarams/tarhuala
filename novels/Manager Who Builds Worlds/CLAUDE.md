@@ -33,7 +33,9 @@ Improve the author's draft while preserving their voice. Prioritize specificity,
 ---
 
 ## Genre and Tone
-God-Game / Civilization / Strategy / LitRPG. Edward did not ask for divinity; he asked about rent. The central comedic tension is that cosmic responsibility and personal financial anxiety coexist at full volume — neither cancels the other. The god-game mechanics (shop menus, seeds, rain clouds, planetary stats) are presented as a new job Edward did not apply for. The System is bureaucratic and indifferent. Edward is also bureaucratic and indifferent. This is the joke, and it is always running.
+God-Game / Civilization / Strategy / LitRPG.
+
+Edward isn’t a scientist or a biologist, he’s just a regular corporate employee. He wouldn’t use technical terminology or interpret things from a scientific perspective. Keep his viewpoint grounded and non-technical; this is a god-tier fantasy setting, not a scientific one.
 
 Political and ideological content stays in the background. The story is driven by Edward managing a dead planet while managing his own life — small decisions, practical logic, dry reactions.
 
@@ -59,7 +61,6 @@ Record in continuity_log.json on first appearance and preserve every chapter.
 - He does not express awe. He expresses mild inconvenience or tentative curiosity, quickly redirected to practical concerns.
 - Dry humor — delivered deadpan, not set up as a joke. "This world does not matter. Rent does."
 - He asks practical questions when everyone else would ask philosophical ones.
-- He does not panic. He calculates. He may be wrong, but he is always doing math of some kind.
 - He is not self-pitying. Being fired, broke, and handed divine responsibility in the same day is simply what happened.
 
 Do not let Edward become reflective, eloquent, or emotionally open. Do not let awe into his voice even when something is genuinely extraordinary.
@@ -101,46 +102,52 @@ Use numerals for measurements, ages, stats, distances, quantities, percentages, 
 
 ## Banned Patterns
 
+These are default prohibitions for prose control. Apply unless breaking them creates a clear, intentional improvement.
+
 **LLM and literary drift**
-- Literary or elevated prose; abstract-heavy narration
-- Explanatory narrator intrusion — let actions speak
-- Overly analytical narration breaking down Edward's reasoning step by step
+- Literary or elevated prose; abstract-heavy or generic narration
+- Explanatory narrator intrusion — let actions and observations speak; remove reasoning chains
+- Overly analytical narration; paragraph-length reaction beats; step-by-step breakdowns
+- Atmosphere that does not deliver specific, concrete information
 - Explicit emotion labeling; clichés; overuse of similes or metaphors
 
 **Lists and structure**
-- Triadic lists (A, B, C); two-item parallel lists; and…and three-item chains
-- Negative inventory lists: convey absence through what is present and wrong
+- Triadic lists (A, B, C); two-item parallel lists stacked by comma; and…and three-item chains
+- Negative inventory lists (Example: "no voices, no engines, not even a dog") — convey absence through what is present and wrong
 - Comma-heavy sentences: more than two commas in a single clause
+- In-character enumeration only when explicitly presented as such
 
 **Contrast and negation**
 - "Not X, but Y" / "Not A, not B, it's C" — state the thing directly
-- "Not because X, but because Y" — state the actual reason without the discarded alternative
+- "Not because X, but because Y" — state the reason without presenting the discarded alternative
 
 **Repetition**
-- Restating established details; trailing echo sentences; static environmental repetition
-- Repetitive mirroring: same idea in parallel sentence structure
+- Restating established details; trailing echo sentences (Example: "Better than expected. Much better.")
+- Repetitive mirroring: same idea restated with parallel sentence structure
+- Static environmental repetition
 
 **Sentence-level language restrictions**
-- Multiple negatives in one sentence: rewrite to state what is true rather than accumulating what is false. "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost."
-- Stacked "not" constructions: one negation per sentence is the limit. A second negation in the same sentence means the sentence needs a rewrite.
-- "Not just" as a qualifier: cut it and state the thing directly.
-- "No X, no Y, no Z" list structures: forbidden. State the reality plainly instead.
-- More than one use of "no" or "not" in a single sentence: rewrite the sentence.
-- Em dashes anywhere in prose: forbidden. Rewrite using a period, comma, or new sentence.
+- Multiple negatives in one sentence: rewrite to state what is true (Example: "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost.")
+- Stacked "not" constructions: one negation per sentence; a second requires rewrite
+- "Not just" as a qualifier: cut it and state directly
+- "No X, no Y, no Z" structures: forbidden; state the reality plainly
+- More than one use of "no" or "not" in a sentence: rewrite
+- Em dashes anywhere in prose: forbidden; use a period, comma, or new sentence
 
 **Rhythm and structure**
 - Em dashes or double dashes anywhere in prose
+- Colons in prose narration — fold into the sentence or use a period; allowed in system/LitRPG blocks or when read/spoken in text
 - Staccato fragmentation: three or more consecutive short sentences for false punch
-- Atmospheric fragment sentences standing alone for mood — attach to what produces or perceives them
+- Atmospheric fragments standing alone — attach to a perceiver or source
 - Isolated one-liner paragraphs unless they carry a scene shift, revelation, or decision
-- Stacked negative space: multiple consecutive one- or two-sentence paragraphs
+- Stacked negative space: consecutive one- or two-sentence paragraphs
 
 **Action and pacing**
-- Compressed action chains — write with texture or cut to result
-- Withheld subject reveal: reaction before cause, across two sentences, for manufactured tension
-- "Then" / "And then" as escalation markers
-- Adjectival appends for drama
-- Retrospective pivot: "He'd felt that way, once. Not anymore."
+- Compressed action chains (Example: "He rolled, grabbed the spear, came up swinging") — add texture or cut to result
+- Withheld subject reveal: reaction before cause across sentences for manufactured tension
+- "Then" / "And then" as escalation markers — fold into the sentence
+- Adjectival appends for drama (Example: "Green blood spread through the water, bright and strange") — cut or make load-bearing
+- Retrospective pivot (Example: "He'd cried about that, once. Not anymore.")
 - Biographical shorthand intro
 
 ---

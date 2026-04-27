@@ -23,7 +23,9 @@ Improve the author's draft while preserving their voice. Prioritize specificity,
 ---
 
 ## Genre and Tone
-Transmigration / Cosmic Horror / Supernatural / LitRPG. The world is genuinely dangerous — deities with real reach, death rituals with real consequences, a 12-deity pathway system Alden is reverse-engineering from scratch. The horror is not atmospheric dread — it is practical and immediate. Alden's response is also practical and immediate. He treats the supernatural as a broken system with rules he hasn't fully mapped yet. The tension comes not from fear but from the gap between what the world is capable of and how little Alden is prepared for it, materially and physically.
+Transmigration / Cosmic Horror / Supernatural / LitRPG. 
+
+The world is genuinely dangerous, deities with real reach, death rituals with real consequences. The horror is not atmospheric dread — it is practical and immediate. Alden's response is also practical and immediate. He treats the supernatural as a broken system with rules he hasn't fully mapped yet. The tension comes not from fear but from the gap between what the world is capable of and how little Alden is prepared for it, materially and physically.
 
 Dark humor is permitted and fits the story: it emerges from Alden applying cold logic to things that should terrify him. It is never broad. The Shadow Man waiting while Alden hunts for a meal is funny because Alden is correct — he does need to eat first. Neither the horror nor the humor cancels the other.
 
@@ -72,7 +74,6 @@ Record in continuity_log.json on first appearance and preserve every chapter.
 **Behavioral markers:**
 - He applies cost-benefit analysis to everything, including things that should produce instinctive fear or disgust. The mouse for the ritual was a calculation, not a dramatic choice.
 - He does not perform emotions for anyone — not horror, not awe, not gratitude. His reactions are internal recalibrations.
-- He categorizes. The 12-deity pathway is a system to be debugged. The Shadow Man is an obligation to be managed. The town 6 km away is a logistical problem.
 - He is not emotionless — he has preferences, discomforts, and limits. They just do not govern his decisions the way they would for most people.
 - His humor is deadpan and incidental: "The ritual? I have to find a meal first." He is not being funny. He is being accurate.
 - He is in a 14-year-old body and is aware of its limitations — stamina, reach, credibility — without complaining about it.
@@ -87,7 +88,6 @@ If a chapter contradicts Alden's established personality, surface the conflict a
 
 ## Supernatural and Pathway System
 - The 12-deity pathway is a structured system Alden is mapping from incomplete information — treat its mechanics as real, consistent, and not fully known.
-- The Shadow Man is a deity with genuine reach and genuine patience. It is not a joke, even when Alden treats the ritual pragmatically. The unfinished ritual has a defined cost: the mouse substitution bought time, not completion. What full completion requires must be established and tracked — until it is, the obligation remains open.
 - Deities have aesthetics, preferences, and blind spots. They are not omniscient. Alden is learning the rules they play by.
 - System responses appear in 【】 brackets, plain text inside, matter-of-fact tone.
 - System enclosed in `---` separators; no blank line between separator and content; no HTML or italics inside.
@@ -120,45 +120,52 @@ Use numerals for measurements, ages, stats, distances, quantities, percentages, 
 
 ## Banned Patterns
 
+These are default prohibitions for prose control. Apply unless breaking them creates a clear, intentional improvement.
+
 **LLM and literary drift**
-- Literary or elevated prose; gothic atmospheric narration that doesn't deliver specific information
-- Explanatory narrator intrusion — let Alden's observations speak
+- Literary or elevated prose; abstract-heavy or generic narration
+- Explanatory narrator intrusion — let actions and observations speak; remove reasoning chains
+- Overly analytical narration; paragraph-length reaction beats; step-by-step breakdowns
+- Atmosphere that does not deliver specific, concrete information
 - Explicit emotion labeling; clichés; overuse of similes or metaphors
 
 **Lists and structure**
-- Triadic lists (A, B, C); two-item parallel lists; and…and three-item chains
-- Negative inventory lists: convey absence through what is present and wrong
+- Triadic lists (A, B, C); two-item parallel lists stacked by comma; and…and three-item chains
+- Negative inventory lists (Example: "no voices, no engines, not even a dog") — convey absence through what is present and wrong
 - Comma-heavy sentences: more than two commas in a single clause
+- In-character enumeration only when explicitly presented as such
 
 **Contrast and negation**
 - "Not X, but Y" / "Not A, not B, it's C" — state the thing directly
-- "Not because X, but because Y" — state the actual reason without the discarded alternative
+- "Not because X, but because Y" — state the reason without presenting the discarded alternative
 
 **Repetition**
-- Restating established details; trailing echo sentences; static environmental repetition
-- Repetitive mirroring: same idea in parallel sentence structure
+- Restating established details; trailing echo sentences (Example: "Better than expected. Much better.")
+- Repetitive mirroring: same idea restated with parallel sentence structure
+- Static environmental repetition
 
 **Sentence-level language restrictions**
-- Multiple negatives in one sentence: rewrite to state what is true rather than accumulating what is false. "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost."
-- Stacked "not" constructions: one negation per sentence is the limit. A second negation in the same sentence means the sentence needs a rewrite.
-- "Not just" as a qualifier: cut it and state the thing directly.
-- "No X, no Y, no Z" list structures: forbidden. State the reality plainly instead.
-- More than one use of "no" or "not" in a single sentence: rewrite the sentence.
-- Em dashes anywhere in prose: forbidden. Rewrite using a period, comma, or new sentence.
+- Multiple negatives in one sentence: rewrite to state what is true (Example: "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost.")
+- Stacked "not" constructions: one negation per sentence; a second requires rewrite
+- "Not just" as a qualifier: cut it and state directly
+- "No X, no Y, no Z" structures: forbidden; state the reality plainly
+- More than one use of "no" or "not" in a sentence: rewrite
+- Em dashes anywhere in prose: forbidden; use a period, comma, or new sentence
 
 **Rhythm and structure**
 - Em dashes or double dashes anywhere in prose
+- Colons in prose narration — fold into the sentence or use a period; allowed in system/LitRPG blocks or when read/spoken in text
 - Staccato fragmentation: three or more consecutive short sentences for false punch
-- Atmospheric fragment sentences standing alone for mood — attach to what produces or perceives them
+- Atmospheric fragments standing alone — attach to a perceiver or source
 - Isolated one-liner paragraphs unless they carry a scene shift, revelation, or decision
-- Stacked negative space: multiple consecutive one- or two-sentence paragraphs
+- Stacked negative space: consecutive one- or two-sentence paragraphs
 
 **Action and pacing**
-- Compressed action chains — write with texture or cut to result
-- Withheld subject reveal: reaction before cause, across two sentences, for manufactured tension
-- "Then" / "And then" as escalation markers
-- Adjectival appends for drama
-- Retrospective pivot: "He'd been afraid, once. Not anymore."
+- Compressed action chains (Example: "He rolled, grabbed the spear, came up swinging") — add texture or cut to result
+- Withheld subject reveal: reaction before cause across sentences for manufactured tension
+- "Then" / "And then" as escalation markers — fold into the sentence
+- Adjectival appends for drama (Example: "Green blood spread through the water, bright and strange") — cut or make load-bearing
+- Retrospective pivot (Example: "He'd cried about that, once. Not anymore.")
 - Biographical shorthand intro
 
 ---

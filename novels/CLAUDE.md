@@ -93,48 +93,53 @@ Characters can come from anywhere. Even within the same culture, people vary wid
 
 ## Banned Patterns
 
+These are default prohibitions for prose control. Apply unless breaking them creates a clear, intentional improvement.
+
 **LLM and literary drift**
-- Literary or elevated prose; generic or abstract-heavy narration
-- Explanatory narrator intrusion — let actions speak; remove the reasoning chain
-- Overly analytical narration; paragraph-length reaction beats
+- Literary or elevated prose; abstract-heavy or generic narration
+- Explanatory narrator intrusion — let actions and observations speak; remove reasoning chains
+- Overly analytical narration; paragraph-length reaction beats; step-by-step breakdowns
+- Atmosphere that does not deliver specific, concrete information
 - Explicit emotion labeling; clichés; overuse of similes or metaphors
 
 **Lists and structure**
 - Triadic lists (A, B, C); two-item parallel lists stacked by comma; and…and three-item chains
-- Negative inventory lists: "no voices, no engines, not even a dog" — convey absence through what is present and wrong
+- Negative inventory lists (Example: "no voices, no engines, not even a dog") — convey absence through what is present and wrong
 - Comma-heavy sentences: more than two commas in a single clause
+- In-character enumeration only when explicitly presented as such
 
 **Contrast and negation**
 - "Not X, but Y" / "Not A, not B, it's C" — state the thing directly
-- "Not because X, but because Y" — state the actual reason without the discarded alternative
+- "Not because X, but because Y" — state the reason without presenting the discarded alternative
 
 **Repetition**
-- Restating details already established; trailing echo sentences ("Better than expected. Much better.")
+- Restating established details; trailing echo sentences (Example: "Better than expected. Much better.")
 - Repetitive mirroring: same idea restated with parallel sentence structure
-- Static environmental repetition: returning to a setting detail to confirm it hasn't changed
-
+- Static environmental repetition
 
 **Sentence-level language restrictions**
-- Multiple negatives in one sentence: rewrite to state what is true instead of accumulating what is not. "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost."
-- Stacked "not" constructions: one negation per sentence is the limit; a second negation means the sentence needs rewriting
-- "Not just" as a qualifier: cut it and state the thing directly
-- "No X, no Y, no Z" list structures: forbidden; state the reality instead
-- More than one use of "no" or "not" in a single sentence: rewrite the sentence
+- Multiple negatives in one sentence: rewrite to state what is true (Example: "He had no food, no shelter, and no idea" becomes "He was hungry, exposed, and lost.")
+- Stacked "not" constructions: one negation per sentence; a second requires rewrite
+- "Not just" as a qualifier: cut it and state directly
+- "No X, no Y, no Z" structures: forbidden; state the reality plainly
+- More than one use of "no" or "not" in a sentence: rewrite
+- Em dashes anywhere in prose: forbidden; use a period, comma, or new sentence
+
 **Rhythm and structure**
-- Em dashes or double dashes anywhere in prose; use commas or new sentences instead
-- Colons in prose narration — fold the information into the sentence or use a period; colons are permitted inside system/LitRPG blocks and inside dialogue only when a character is reading or speaking text that naturally contains them
+- Em dashes or double dashes anywhere in prose
+- Colons in prose narration — fold into the sentence or use a period; allowed in system/LitRPG blocks or when read/spoken in text
 - Staccato fragmentation: three or more consecutive short sentences for false punch
-- Atmospheric fragment sentences standing alone for mood — attach to what produces or perceives them
-- Isolated one-liner paragraphs unless they carry a scene shift, revelation, or decision that earns the space
-- Stacked negative space: multiple consecutive one- or two-sentence paragraphs
+- Atmospheric fragments standing alone — attach to a perceiver or source
+- Isolated one-liner paragraphs unless they carry a scene shift, revelation, or decision
+- Stacked negative space: consecutive one- or two-sentence paragraphs
 
 **Action and pacing**
-- Compressed action chains: "He rolled, grabbed the spear, came up swinging" — write with texture or cut to result
-- Withheld subject reveal: reaction before cause, across two sentences, for manufactured tension
-- "Then" / "And then" as escalation markers — fold the turn into the sentence
-- Adjectival appends for drama: "Green blood spread through the water, bright and strange" — cut or make it load-bearing
-- Retrospective pivot: "He'd cried about that, once. Not anymore."
-- Biographical shorthand intro: rapid-fire factual fragments used to introduce a character
+- Compressed action chains (Example: "He rolled, grabbed the spear, came up swinging") — add texture or cut to result
+- Withheld subject reveal: reaction before cause across sentences for manufactured tension
+- "Then" / "And then" as escalation markers — fold into the sentence
+- Adjectival appends for drama (Example: "Green blood spread through the water, bright and strange") — cut or make load-bearing
+- Retrospective pivot (Example: "He'd cried about that, once. Not anymore.")
+- Biographical shorthand intro
 
 ---
 
