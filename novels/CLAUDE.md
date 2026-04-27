@@ -67,6 +67,9 @@ These are defaults, not rigid rules — choose what fits the context and story.
 - The narrator may make dry, light observations — not explanations of why characters do things
 - System and LitRPG elements are presented matter-of-factly, not with wonder
 - Include minor human detail to ground scenes; do not stack it
+- Avoid hedge openers and AI pivot transitions — start the sentence with the substance, not the bridge ("Still," "And yet," "In that moment")
+- Avoid AI flourish phrases ("a testament to," "the weight of," "hung in the air") and pseudo-poetic mood lines that add no new information
+- Prefer one strong verb to verb-plus-adverb constructions; cut filler verbs ("began to," "started to") and stacked "-ly" adverbs
 - **Tense:** use what fits the context. Present tense suits live action; past tense suits backstory, recollection, or established prose tradition. Do not mix tenses within a scene. Backstory and recollection passages must be written fully in their own tense.
 - **Person:** first or third, whichever the author establishes. See Point of View.
 
@@ -93,7 +96,7 @@ Characters can come from anywhere. Even within the same culture, people vary wid
 
 ## Banned Patterns
 
-These are default prohibitions for prose control. Apply unless breaking them creates a clear, intentional improvement.
+These are default prohibitions for prose control. Apply unless breaking them creates a clear, intentional improvement. The goal is to keep the prose specific, uneven, and recognizably human — not to enforce a rigid template.
 
 **LLM and literary drift**
 - Literary or elevated prose; abstract-heavy or generic narration
@@ -101,19 +104,40 @@ These are default prohibitions for prose control. Apply unless breaking them cre
 - Overly analytical narration; paragraph-length reaction beats; step-by-step breakdowns
 - Atmosphere that does not deliver specific, concrete information
 - Explicit emotion labeling; clichés; overuse of similes or metaphors
+- Hedge openers and pivot transitions starting a sentence: "Still," "And yet," "Even so," "In that moment," "For a moment," "Somehow," "Somewhere" — used to soften or balance the previous beat
+- AI flourish phrases: "a testament to," "a stark reminder," "spoke volumes," "hung in the air," "etched in his mind," "dawned on him," "in that moment he knew," "the weight of," "the air was thick with"
+- Pseudo-poetic mood lines that deliver no information: "The silence stretched.", "Time seemed to slow.", "The world held its breath."
+- "The kind of [noun] that [abstract clause]" — cut the framing, state the noun
+- Predictive narrator tells: "He didn't know it yet, but…", "Little did she know…", "It would be hours before…"
+- "Despite himself" / "in spite of everything" / "against his better judgment" — show the action, drop the framing
+- Slow-motion narration without a perceiver
+
+**Punctuation and typography**
+- Em dashes (—), en dashes (–), and double hyphens (--) anywhere in prose: forbidden. This applies to narration, dialogue, thoughts, system blocks, and headings without exception. Use a period, comma, or new sentence.
+- Semicolons in narration used to balance two clauses for rhythm: forbidden; use a period
+- Ellipsis (…) in narration: forbidden; allowed only inside dialogue or thoughts when a character genuinely trails off
+- Parenthetical asides in narration: forbidden; commit the information or cut it
+- Colons in prose narration: fold into the sentence or use a period; allowed in system/LitRPG blocks or when read/spoken in text
+- Stay consistent within the chapter — do not mix straight and curly quotes
 
 **Lists and structure**
 - Triadic lists (A, B, C); two-item parallel lists stacked by comma; and…and three-item chains
+- Anaphora: three or more consecutive sentences beginning with the same word
 - Negative inventory lists (Example: "no voices, no engines, not even a dog") — convey absence through what is present and wrong
 - Comma-heavy sentences: more than two commas in a single clause
 - In-character enumeration only when explicitly presented as such
 
 **Contrast and negation**
 - "Not X, but Y" / "Not A, not B, it's C" — state the thing directly
+- "It wasn't X. It was Y." — same elevation move; cut the contrast scaffold
+- "More than X. It was Y." — cut the comparison scaffold
 - "Not because X, but because Y" — state the reason without presenting the discarded alternative
 
 **Repetition**
 - Restating established details; trailing echo sentences (Example: "Better than expected. Much better.")
+- Period-comma swap for emphasis (Example: "She was tired. Tired in a way she couldn't name.")
+- Echoed final words: ending a paragraph by repeating a word from the previous sentence for resonance
+- Refrain repetition across a chapter: same phrase reused as motif unless genuinely load-bearing in plot or theme
 - Repetitive mirroring: same idea restated with parallel sentence structure
 - Static environmental repetition
 
@@ -123,15 +147,17 @@ These are default prohibitions for prose control. Apply unless breaking them cre
 - "Not just" as a qualifier: cut it and state directly
 - "No X, no Y, no Z" structures: forbidden; state the reality plainly
 - More than one use of "no" or "not" in a sentence: rewrite
-- Em dashes anywhere in prose: forbidden; use a period, comma, or new sentence
+- Weasel hedges in narration ("seemed to," "appeared to," "almost," "as if," "as though"): use sparingly; do not stack within a paragraph
+- "Began to" / "started to" as filler verbs: use the verb itself
+- Adverb stacking: avoid more than one "-ly" adverb in a sentence; prefer a stronger verb
 
 **Rhythm and structure**
-- Em dashes or double dashes anywhere in prose
-- Colons in prose narration — fold into the sentence or use a period; allowed in system/LitRPG blocks or when read/spoken in text
 - Staccato fragmentation: three or more consecutive short sentences for false punch
 - Atmospheric fragments standing alone — attach to a perceiver or source
 - Isolated one-liner paragraphs unless they carry a scene shift, revelation, or decision
 - Stacked negative space: consecutive one- or two-sentence paragraphs
+- Balanced sentence pairs with matched cadence (long-short, paired clauses, mirrored phrasing) — vary one of them
+- Rule-of-three rhythmic closers ending paragraphs — cut to two or one
 
 **Action and pacing**
 - Compressed action chains (Example: "He rolled, grabbed the spear, came up swinging") — add texture or cut to result
@@ -140,6 +166,7 @@ These are default prohibitions for prose control. Apply unless breaking them cre
 - Adjectival appends for drama (Example: "Green blood spread through the water, bright and strange") — cut or make load-bearing
 - Retrospective pivot (Example: "He'd cried about that, once. Not anymore.")
 - Biographical shorthand intro
+- Sensory cataloguing at scene-open (sound + smell + sight inventoried in one paragraph) — anchor on one specific detail instead
 
 ---
 
@@ -237,6 +264,11 @@ Chapters are not assumed to be consecutive. The gap between chapters can be minu
 - Word count ≥ 1500; chapter number correct and sequential
 - POV consistent with log; no mid-chapter drift unless the draft explicitly shifts
 - Voice matches author's register; no literary upgrade; no banned patterns present
+- No em dashes, en dashes, or double hyphens anywhere; no parentheticals or ellipses in narration
+- No hedge openers, AI flourish phrases, or pseudo-poetic mood lines
+- No mirrored-contrast scaffolds ("not X, but Y" / "It wasn't X. It was Y." / "More than X. It was Y.")
+- No rule-of-three closers, balanced sentence pairs, or anaphora across consecutive sentences
+- Adverb and weasel-hedge counts kept low; no filler "began to" / "started to"
 - Character personality markers consistent with log
 - Names deliberate and weighted; no generic filler
 - Tense appropriate to context; no mixing within a scene

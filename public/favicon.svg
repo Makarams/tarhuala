@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" width="64" height="64">
+  <!-- TARHUALA — kbach rose mark, single colour so it adapts to light/dark UA bars -->
+  <rect x="-50" y="-50" width="100" height="100" fill="#0a0a0a"/>
+  <g fill="none" stroke="#d83a3a" stroke-width="1.6">
+    <circle r="44"/>
+    <circle r="40" stroke-width=".6"/>
+  </g>
+  <g fill="#d83a3a" stroke="#d83a3a" stroke-width=".8">
+    <path d="M 0,-36 C -12,-27 -12,-10 0,-4 C 12,-10 12,-27 0,-36 Z"/>
+    <path d="M 36,0 C 27,-12 10,-12 4,0 C 10,12 27,12 36,0 Z"/>
+    <path d="M 0,36 C 12,27 12,10 0,4 C -12,10 -12,27 0,36 Z"/>
+    <path d="M -36,0 C -27,12 -10,12 -4,0 C -10,-12 -27,-12 -36,0 Z"/>
+  </g>
+  <circle r="6" fill="#d83a3a"/>
+  <circle r="2.5" fill="#0a0a0a"/>
+</svg>

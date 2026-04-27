@@ -394,6 +394,21 @@
   function getParam(k){
     return new URLSearchParams(location.search).get(k) || '';
   }
+  /* Cache-bust data URLs with the current build version. We pick up the
+     ?v=YYYYMMDD that build.js already stamps onto /js/app.js so every fetch
+     to /data/* gets a fresh URL after each deploy. Falls back to Date.now()
+     if the script tag has no version (e.g. local file open). */
+  var _cbToken = (function(){
+    try {
+      var s = document.currentScript && document.currentScript.src;
+      var m = s && s.match(/[?&]v=([^&]+)/);
+      if (m) return m[1];
+    } catch(e) {}
+    return String(Date.now());
+  })();
+  function cb(url){
+    return url + (url.indexOf('?') === -1 ? '?v=' : '&v=') + _cbToken;
+  }
     /* Returns varied kbach ornament - picks from pool based on a seed */
   var KBACH_POOL = ['#kb-rose','#kb-rose-6','#kb-rose-double','#kb-medallion','#kb-eye','#kb-cross'];
   var _roseIdx = 0;
@@ -486,7 +501,7 @@
   }
 
   function wireSiteInfo(){
-    fetch('/data/site.json')
+    fetch(cb('/data/site.json'))
       .then(function(r){ return r.json(); })
       .then(function(d){
         if (d) {
@@ -547,7 +562,7 @@
     recordVisit();
     updateStatDisplays();
 
-    fetch('/data/novels.json')
+    fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
         if (statsNovels) statsNovels.textContent = novels.length;
@@ -567,7 +582,7 @@
           return;
         }
         novels.forEach(function(n){
-          fetch('/data/' + n.id + '/info.json')
+          fetch(cb('/data/' + n.id + '/info.json'))
             .then(function(r){ return r.json(); })
             .then(function(info){
               var chapters = info.chapters || [];
@@ -602,7 +617,7 @@
   }
 
   function fetchChapterSnippet(novelId, chNum, targetElId){
-    fetch('/data/' + novelId + '/chapter-' + chNum + '.json')
+    fetch(cb('/data/' + novelId + '/chapter-' + chNum + '.json'))
       .then(function(r){ return r.json(); })
       .then(function(ch){
         var el = qs(targetElId);
@@ -659,7 +674,7 @@
     hero.removeAttribute('hidden');
 
     // Load info for latest chapter number + snippet
-    fetch('/data/' + novel.id + '/info.json')
+    fetch(cb('/data/' + novel.id + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
         var chapters = info.chapters || [];
@@ -723,7 +738,7 @@
     var subLabel = qs('novels-list-sub');
     var metaEl  = qs('novels-simple-meta');
     var emptyEl = qs('novels-list-empty');
-    fetch('/data/novels.json')
+    fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
         novels = Array.isArray(novels) ? novels : [];
@@ -783,7 +798,7 @@
       if (titleEl) titleEl.textContent = 'Novel not found';
       return;
     }
-    fetch('/data/' + novelId + '/info.json')
+    fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
         html.setAttribute('data-novel-theme', info.theme || 'ember');
@@ -940,7 +955,7 @@
       if (titleEl) titleEl.textContent = 'Novel not found';
       return;
     }
-    fetch('/data/' + novelId + '/info.json')
+    fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
         html.setAttribute('data-novel-theme', info.theme || 'ember');
@@ -1014,7 +1029,7 @@
       return;
     }
     var _novelInfo = null;
-    fetch('/data/' + novelId + '/info.json')
+    fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
         _novelInfo = info;
@@ -1032,7 +1047,7 @@
           if (idx > -1 && idx < chapters.length - 1) nextBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[idx+1].number;
           else nextBtn.classList.add('disabled');
         }
-        return fetch('/data/' + novelId + '/chapter-' + chNum + '.json');
+        return fetch(cb('/data/' + novelId + '/chapter-' + chNum + '.json'));
       })
       .then(function(r){ return r.json(); })
       .then(function(ch){
@@ -1672,7 +1687,7 @@
   function loadAboutNovels(){
     var wrap = qs('about-novels');
     if (!wrap) return;
-    fetch('/data/novels.json')
+    fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
         if (!Array.isArray(novels) || !novels.length){ wrap.innerHTML = ''; return; }
