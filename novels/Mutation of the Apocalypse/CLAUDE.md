@@ -22,13 +22,13 @@ Improve the author's draft while preserving their voice. Prioritize specificity,
 ---
 
 ## Genre and Tone
-Apocalypse / Evolution / Survival / LitRPG. The world ended on Lucas's sixteenth birthday and he went to bed. This is the tone: the apocalypse is real, brutal, and constant — and Lucas moves through it the way he has moved through poverty since he was ten, with the same economy of effort and the same refusal to stop. He is not a hero in the making. He is a laborer who is very good at staying alive. The emotional register is low, controlled, and specific — Lucas does not dwell, he moves.
+Apocalypse / Evolution / Survival / LitRPG. The world ended on Lucas's sixteenth birthday and he went to bed. This is the tone: the apocalypse is real, brutal, and constant. Lucas is scared the way a person is scared when something is genuinely trying to kill them. He complains, he talks to himself, his hands shake. He also keeps going, because he has been keeping going since he was ten and there is no other option he knows. Fear is present and real in this story. It does not stop him but it costs him something every time.
 
-Dark humor is allowed when it fits: Lucas noticing something absurd in the middle of survival is in character. It is never announced. It surfaces in what he notices and how he reacts.
+Dark humor surfaces naturally: Lucas noticing something absurd mid-survival is in character. He is not joking when he says something funny. He is just observing. The humor is in the gap between what he says and how bad the situation actually is.
 
-No heavy political focus. Factions and organized groups exist in the post-apocalyptic landscape — they are hazards, resources, or background unless they are directly in conflict with Lucas or his survival. Priority is Lucas moving through the world, fighting, finding supplies, and surviving. Fight scenes and forward momentum are the engine of this story.
+No heavy political focus. Factions and organized groups exist in the post-apocalyptic landscape. They are hazards, resources, or background unless they are directly in conflict with Lucas or his survival. Priority is Lucas moving through the world, fighting, finding supplies, and surviving. Fight scenes and forward momentum are the engine of this story.
 
-Lucas does not view the apocalypse as something extraordinary. To him it is a continuation of the harsh life he already knows — the conditions changed, the basic logic did not. His mindset is practical and labor-oriented; he treats the system and its rewards as tools rather than miracles. Progression should emphasize adaptation, efficiency, and endurance rather than dramatic or exaggerated power escalation. His growth comes from consistency and accumulated experience, not sudden transformation. If he becomes more capable chapter by chapter, it should feel earned through what he has done, not delivered by the story as a reward.
+Lucas does not view the apocalypse as something extraordinary. To him it is a continuation of the harsh life he already knows — the conditions changed, the basic logic did not. His mindset is practical and labor-oriented. He treats the system and its rewards as tools rather than miracles. Progression emphasizes adaptation, efficiency, and endurance rather than dramatic power escalation. His growth comes from consistency and accumulated experience, not sudden transformation. If he becomes more capable chapter by chapter, it should feel earned through what he has done, not delivered by the story as a reward.
 
 ---
 
@@ -43,16 +43,16 @@ POV shifts to other characters are permitted when they serve the scene — mark 
 Record in continuity_log.json on first appearance and preserve every chapter.
 
 **Behavioral markers:**
-- He has been working since he was ten. His survival instincts are physical and practical — he does not analyze situations academically, he moves through them.
-- He does not freeze. Others freeze; Lucas has already started doing the next thing.
-- He is not confident in the dramatic sense. He is habituated — this is just another day of work, scaled up.
+- He has been working since he was ten. His survival instincts are physical and practical. He does not analyze situations academically; he moves through them, even when moving means forcing himself.
+- He feels fear. He trembles, he hesitates, he talks to himself through it. The fear is real and specific to the situation. What makes him different is that he acts anyway, and the gap between the fear and the action closes a little faster each time.
+- He is not confident in the dramatic sense. He is habituated to hardship, not hardship like this. Each new threat costs him something before he gets past it.
+- He talks to himself constantly. Out loud, under his breath, while working. This is how he processes. It is not performed; it is just how he is.
+- He finds unexpected things funny in a flat way. The humor is in his observations, not in him trying to be funny.
 - He underestimates his own capabilities because he does not think in terms of being exceptional. He thinks in terms of what needs doing.
-- His humor is incidental: "I don't know what an 'Epic' is. Can I use this to carry food?" — he is not joking. He is asking.
 - He does not mourn loudly or linger. Loss registers and he keeps moving. The cost shows in small physical things: a pause, a grip held longer than necessary.
-- He is 16. He is physically capable but not superhuman. The body's limits are real in this story.
+- He is 16. He is physically capable from years of labor but he is not superhuman. Fatigue, injury, and fear are real limits in this story.
 
-Do not let Lucas become strategically reflective or emotionally articulate. Do not let the apocalypse give him a hero's confidence he has not earned through the story.
-If a chapter contradicts Lucas's established personality, surface the conflict and resolve toward the established version unless the story provides an explicit reason for the shift.
+Do not flatten Lucas into a cool, unaffected survivor. He is a scared kid who has practice not stopping. Do not let the apocalypse give him a hero's confidence he has not earned through the story. If a chapter removes his fear entirely, surface the conflict and resolve toward the established version unless the story provides an explicit reason for the shift.
 
 ---
 
@@ -80,6 +80,9 @@ These are defaults — choose what fits the context.
 - Include minor human detail to ground scenes; do not stack it
 - Tense: use what fits the context; do not mix within a scene
 - Sound effects inline, capitalized, with `!`: part of the sentence, never standalone; do not over-use — reserve for impacts, sudden noises, fast action; multiple simultaneous sounds stay in sequence within the same sentence ("Crack! Snap!"); never follow a sound effect with a sentence explaining it
+- Avoid hedge openers and AI pivot transitions — start the sentence with the substance, not the bridge ("Still," "And yet," "In that moment")
+- Avoid AI flourish phrases ("a testament to," "the weight of," "hung in the air") and pseudo-poetic mood lines that add no new information
+- Prefer one strong verb to verb-plus-adverb constructions; cut filler verbs ("began to," "started to") and stacked "-ly" adverbs
 
 ---
 
@@ -284,6 +287,11 @@ Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Long_Market_Fi
 - POV consistent with log; shifts marked and returned from promptly
 - Voice matches Lucas's register: physical, habituated, low-affect, practically focused — no hero's confidence, no literary upgrade
 - Banned patterns absent
+- No em dashes, en dashes, or double hyphens anywhere; no parentheticals or ellipses in narration
+- No hedge openers, AI flourish phrases, or pseudo-poetic mood lines
+- No mirrored-contrast scaffolds ("not X, but Y" / "It wasn't X. It was Y." / "More than X. It was Y.")
+- No rule-of-three closers, balanced sentence pairs, or anaphora across consecutive sentences
+- Adverb and weasel-hedge counts kept low; no filler "began to" / "started to"
 - Character markers consistent with log
 - System notifications matter-of-fact, non-theatrical; Lucas's reaction practical
 - Physical state tracked from previous chapter

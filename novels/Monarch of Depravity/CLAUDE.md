@@ -110,6 +110,9 @@ These are defaults — choose what fits the context.
 - Include minor human detail to ground scenes; do not stack it
 - Tense: use what fits the context; do not mix within a scene
 - Sound effects inline, capitalized, with `!`: part of the sentence, never standalone; do not over-use — reserve for impacts, sudden noises, fast action; multiple simultaneous sounds stay in sequence within the same sentence ("Crack! Snap!"); never follow a sound effect with a sentence explaining it
+- Avoid hedge openers and AI pivot transitions — start the sentence with the substance, not the bridge ("Still," "And yet," "In that moment")
+- Avoid AI flourish phrases ("a testament to," "the weight of," "hung in the air") and pseudo-poetic mood lines that add no new information
+- Prefer one strong verb to verb-plus-adverb constructions; cut filler verbs ("began to," "started to") and stacked "-ly" adverbs
 
 ---
 
@@ -313,6 +316,11 @@ Wrong examples: `Chapter_1_New_Life_Revised.docx`, `Chapter_3_The_Long_Market_Fi
 - POV consistent with log; shifts marked and returned from promptly
 - Voice matches Alden's register: precise, analytical, no awe, no horror — deadpan where it earns it
 - Banned patterns absent
+- No em dashes, en dashes, or double hyphens anywhere; no parentheticals or ellipses in narration
+- No hedge openers, AI flourish phrases, or pseudo-poetic mood lines
+- No mirrored-contrast scaffolds ("not X, but Y" / "It wasn't X. It was Y." / "More than X. It was Y.")
+- No rule-of-three closers, balanced sentence pairs, or anaphora across consecutive sentences
+- Adverb and weasel-hedge counts kept low; no filler "began to" / "started to"
 - Character markers consistent with log
 - Supernatural elements presented as systems with rules, not gothic atmosphere
 - Unreliable narrator arc: check corruption stage in log; crack density and behavioral drift must match the logged stage — do not seed cracks ahead of the stage, do not suppress them after a trigger has advanced it
