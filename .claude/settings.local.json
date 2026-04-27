@@ -20,7 +20,16 @@
       "Bash(curl -s \"http://localhost:3030/chapter.html?id=mutation-of-the-apocalypse&ch=1\" -o /dev/null -w \"%{http_code}\")",
       "Bash(curl *)",
       "Bash(PORT=3041 node server.js)",
-      "Bash(taskkill //F //IM node.exe)"
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(cat .gitignore)",
+      "Bash(cat .gitattributes)",
+      "Bash(cat .vercelignore)",
+      "Bash(file public/images/covers/*.svg public/images/banners/*.svg)",
+      "Bash(xmllint --noout public/images/covers/manager-who-builds-worlds.svg public/images/covers/masquerade-in-noble-court.svg public/images/covers/mistakenly-dragged-survival.svg public/images/covers/marked-by-false-gods.svg public/images/covers/monarch-of-depravity.svg public/images/covers/mutation-of-the-apocalypse.svg)",
+      "WebFetch(domain:tarhuala.com)",
+      "WebFetch(domain:tarhuala.vercel.app)",
+      "Read(//tmp/**)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('chapters:', len\\(d.get\\('chapters',[]\\)\\), 'cover:', d.get\\('images',{}\\).get\\('cover'\\)\\)\")"
     ]
   }
 }

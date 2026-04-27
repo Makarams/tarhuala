@@ -678,16 +678,8 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
 .novel-list-desc{
   font-family:var(--f-body);font-size:16px;line-height:1.7;
   color:var(--text-2);
-  max-height:8em;overflow:hidden;
-  position:relative;
   min-width:0;word-break:break-word;
 }
-.novel-list-desc::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;
-  height:2.4em;
-  background:linear-gradient(to bottom,transparent,var(--bg));
-}
-.novel-list-item:hover .novel-list-desc::after{background:linear-gradient(to bottom,transparent,var(--bg-2))}
 .novel-list-desc-p{margin:0 0 .65em}
 .novel-list-desc-p:last-child{margin-bottom:0}
 .novel-list-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px}
@@ -1727,19 +1719,33 @@ a.footer-analytics-link:hover{color:inherit}
   .novel-list-link::before{font-size:30px;padding-top:0}
   .novel-list-cover-wrap{grid-column:1/-1;max-width:200px;order:-1}
   .novel-list-cta{grid-column:1/-1;padding-top:0}
-  /* Mobile novel hero — color band wraps title only, content flows below in normal bg */
-  .novel-hero::before{height:240px}
-  .novel-hero-bg{height:240px}
+  /* Mobile novel hero — cover on top, then title/meta/synopsis below */
+  .novel-hero::before{height:280px}
+  .novel-hero-bg{height:280px}
   .novel-hero-rose{height:240px;width:240px;right:-12%}
-  .novel-hero-inner{grid-template-columns:1fr;gap:20px}
+  .novel-hero-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:calc(var(--nav-h) + 28px) var(--gutter) 48px;
+  }
   .novel-cover-wrap{
-    order:2;
-    margin:-90px auto 0; /* peek up into band */
+    order:1;
+    margin:0 auto;
     justify-self:center;
   }
-  .novel-cover-frame{width:160px}
-  .novel-hero-text{order:1;padding-top:0}
-  .novel-hero-meta{padding-bottom:18px}
+  .novel-cover-frame{width:180px}
+  .novel-hero-text{
+    order:2;
+    padding-top:4px;
+    text-align:center;
+  }
+  .novel-hero-text .eyebrow{justify-content:center}
+  .novel-title{margin:0 auto 16px;max-width:22ch}
+  .novel-hero-meta{justify-content:center;padding-bottom:18px}
+  .novel-hero-desc{text-align:left}
+  .novel-hero-tags,
+  .novel-hero-cta,
+  .novel-platforms{justify-content:center}
   .novel-hero-body{
     order:3;
     grid-template-columns:1fr;gap:0;

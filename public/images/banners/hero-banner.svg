@@ -194,6 +194,37 @@
   <ellipse cx=" 16" cy="2" rx="6" ry="2.4" fill="#0a0604"/>
   <ellipse cx="-16" cy="2" rx="6" ry="2.4" fill="none" stroke="#f0e2bc" stroke-width="0.4" opacity="0.7"/>
   <ellipse cx=" 16" cy="2" rx="6" ry="2.4" fill="none" stroke="#f0e2bc" stroke-width="0.4" opacity="0.7"/>
+  <!-- mask surface flair — beaded brow band, cheek scrolls, cracquelure -->
+  <g stroke="#f0e2bc" stroke-width="0.2" fill="none" opacity="0.5">
+    <line x1="-26" y1="-6" x2="-10" y2="-6"/>
+    <line x1=" 10" y1="-6" x2=" 26" y2="-6"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.85">
+    <circle cx="-24" cy="-6" r="0.4"/>
+    <circle cx="-19" cy="-6" r="0.4"/>
+    <circle cx="-14" cy="-6" r="0.4"/>
+    <circle cx=" 14" cy="-6" r="0.4"/>
+    <circle cx=" 19" cy="-6" r="0.4"/>
+    <circle cx=" 24" cy="-6" r="0.4"/>
+  </g>
+  <g fill="none" stroke="#f0e2bc" stroke-width="0.28" opacity="0.62">
+    <path d="M -26 8 Q -20 13 -12 12 Q -8 11 -6 8"/>
+    <path d="M  26 8 Q  20 13  12 12 Q  8 11   6 8"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.55">
+    <path d="M -16 10 Q -13 12 -10 11 Q -13 9 -16 10 Z"/>
+    <path d="M  16 10 Q  13 12  10 11 Q  13 9  16 10 Z"/>
+  </g>
+  <g stroke="#c4a870" stroke-width="0.18" fill="none" opacity="0.55">
+    <path d="M -8 -2 L -4 6"/>
+    <path d="M  8 -2 L  4 6"/>
+    <path d="M -26 -1 L -22 6"/>
+    <path d="M  26 -1 L  22 6"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.7">
+    <circle cx="-2" cy="11" r="0.3"/>
+    <circle cx=" 2" cy="11" r="0.3"/>
+  </g>
   <!-- centre jewel -->
   <circle cx="0" cy="-10" r="1.2" fill="#f5e6b4"/>
   <circle cx="0" cy="-10" r="0.5" fill="#ffffff" opacity="0.95"/>

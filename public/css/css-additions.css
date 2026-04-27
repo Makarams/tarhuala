@@ -78,3 +78,66 @@
   .novel-banner-label{display:none}
   .chapter-banner-novel-label{display:none}
 }
+
+/* ── About → six-novel showcase (foreground frontispiece) ─────────────
+   Sits between the author block and the works list on about.html.
+   The hero banner is rendered as a foreground figure — never as a
+   background or overlay of any surrounding element. */
+.about-six-banner{
+  max-width:var(--shell);
+  margin:0 auto;
+  padding:64px var(--gutter) 0;
+}
+.about-six-banner-frame{
+  border:1px solid var(--line);
+  background:var(--bg);
+  padding:clamp(14px,1.6vw,22px);
+}
+.about-six-banner-figure{
+  margin:0;
+  display:block;
+  line-height:0;
+}
+.about-six-banner-img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1280 / 220;
+}
+.about-six-banner-legend{
+  list-style:none;
+  margin:18px 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px 16px;
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--text-3);
+}
+.about-six-banner-legend li{
+  display:flex;align-items:center;gap:8px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.about-six-banner-legend .dot{
+  flex-shrink:0;
+  width:8px;height:8px;
+  border-radius:50%;
+  box-shadow:0 0 6px currentColor;
+}
+.about-six-banner-legend .dot-cyan{background:#2cd4e0;color:#2cd4e0}
+.about-six-banner-legend .dot-jade{background:#4aac6a;color:#4aac6a}
+.about-six-banner-legend .dot-ivory{background:#e8dcb4;color:#e8dcb4}
+.about-six-banner-legend .dot-indigo{background:#7a8ce0;color:#7a8ce0}
+.about-six-banner-legend .dot-gold{background:#d4a83c;color:#d4a83c}
+.about-six-banner-legend .dot-ember{background:#d83a3a;color:#d83a3a}
+
+@media (max-width:900px){
+  .about-six-banner-legend{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .about-six-banner{padding-top:40px}
+  .about-six-banner-legend{grid-template-columns:1fr;font-size:10px}
+}

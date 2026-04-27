@@ -161,6 +161,38 @@
   <line x1="0" y1="-10" x2="0" y2="-2" stroke="#f0e2bc" stroke-width="0.3" opacity="0.6"/>
   <circle cx="0" cy="0" r="1" fill="#f0e2bc" opacity="0.85"/>
 
+  <!-- mask surface flair — beaded forehead band, cheek filigree, cracquelure -->
+  <g stroke="#f0e2bc" stroke-width="0.25" fill="none" opacity="0.5">
+    <line x1="-34" y1="-7" x2="-12" y2="-7"/>
+    <line x1=" 12" y1="-7" x2=" 34" y2="-7"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.82">
+    <circle cx="-32" cy="-7" r="0.5"/><circle cx="-26" cy="-7" r="0.5"/>
+    <circle cx="-20" cy="-7" r="0.5"/><circle cx="-14" cy="-7" r="0.5"/>
+    <circle cx=" 14" cy="-7" r="0.5"/><circle cx=" 20" cy="-7" r="0.5"/>
+    <circle cx=" 26" cy="-7" r="0.5"/><circle cx=" 32" cy="-7" r="0.5"/>
+  </g>
+  <g fill="none" stroke="#f0e2bc" stroke-width="0.32" opacity="0.62">
+    <path d="M -36 8 Q -28 14 -18 14 Q -10 14 -8 10"/>
+    <path d="M -28 16 Q -22 19 -14 18"/>
+    <path d="M  36 8 Q  28 14  18 14 Q  10 14   8 10"/>
+    <path d="M  28 16 Q  22 19  14 18"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.5">
+    <path d="M -22 12 Q -19 15 -16 13 Q -19 11 -22 12 Z"/>
+    <path d="M  22 12 Q  19 15  16 13 Q  19 11  22 12 Z"/>
+  </g>
+  <g stroke="#c4a870" stroke-width="0.18" fill="none" opacity="0.55">
+    <path d="M -10 -4 L -6 6"/>
+    <path d="M  10 -4 L  6 6"/>
+    <path d="M -34 -2 L -30 6"/>
+    <path d="M  34 -2 L  30 6"/>
+  </g>
+  <g fill="#f0e2bc" opacity="0.7">
+    <circle cx="-3" cy="14" r="0.35"/>
+    <circle cx=" 3" cy="14" r="0.35"/>
+  </g>
+
   <!-- temple pearl rosettes -->
   <circle cx="-32" cy="-2" r="1.4" fill="#f5e6b4" stroke="#c8a848" stroke-width="0.3" opacity="0.85"/>
   <circle cx=" 32" cy="-2" r="1.4" fill="#f5e6b4" stroke="#c8a848" stroke-width="0.3" opacity="0.85"/>
@@ -183,6 +215,20 @@
   <ellipse cx="-22" cy="2" rx="8" ry="3.6" fill="none" stroke="#c4a870" stroke-width="0.45" opacity="0.6"/>
   <ellipse cx=" 22" cy="2" rx="8" ry="3.6" fill="none" stroke="#c4a870" stroke-width="0.45" opacity="0.6"/>
   <circle cx="0" cy="-12" r="1.2" fill="#c4a870" opacity="0.85"/>
+  <!-- companion mask flair — lighter beadwork + cheek scroll -->
+  <g fill="#c4a870" opacity="0.7">
+    <circle cx="-28" cy="-7" r="0.45"/><circle cx="-20" cy="-7" r="0.45"/>
+    <circle cx="-12" cy="-7" r="0.45"/><circle cx=" 12" cy="-7" r="0.45"/>
+    <circle cx=" 20" cy="-7" r="0.45"/><circle cx=" 28" cy="-7" r="0.45"/>
+  </g>
+  <g fill="none" stroke="#c4a870" stroke-width="0.3" opacity="0.6">
+    <path d="M -32 10 Q -22 16 -12 14"/>
+    <path d="M  32 10 Q  22 16  12 14"/>
+  </g>
+  <g stroke="#8a6c2c" stroke-width="0.2" fill="none" opacity="0.45">
+    <path d="M -10 -2 L -6 6"/>
+    <path d="M  10 -2 L  6 6"/>
+  </g>
 </g>
 
 <!-- Right companion mask -->
@@ -196,6 +242,20 @@
   <ellipse cx="-22" cy="2" rx="8" ry="3.6" fill="none" stroke="#c4a870" stroke-width="0.45" opacity="0.6"/>
   <ellipse cx=" 22" cy="2" rx="8" ry="3.6" fill="none" stroke="#c4a870" stroke-width="0.45" opacity="0.6"/>
   <circle cx="0" cy="-12" r="1.2" fill="#c4a870" opacity="0.85"/>
+  <!-- companion mask flair — lighter beadwork + cheek scroll -->
+  <g fill="#c4a870" opacity="0.7">
+    <circle cx="-28" cy="-7" r="0.45"/><circle cx="-20" cy="-7" r="0.45"/>
+    <circle cx="-12" cy="-7" r="0.45"/><circle cx=" 12" cy="-7" r="0.45"/>
+    <circle cx=" 20" cy="-7" r="0.45"/><circle cx=" 28" cy="-7" r="0.45"/>
+  </g>
+  <g fill="none" stroke="#c4a870" stroke-width="0.3" opacity="0.6">
+    <path d="M -32 10 Q -22 16 -12 14"/>
+    <path d="M  32 10 Q  22 16  12 14"/>
+  </g>
+  <g stroke="#8a6c2c" stroke-width="0.2" fill="none" opacity="0.45">
+    <path d="M -10 -2 L -6 6"/>
+    <path d="M  10 -2 L  6 6"/>
+  </g>
 </g>
 
 <!-- Candle flame motes -->
