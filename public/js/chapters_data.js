@@ -7,36 +7,524 @@ const CHAPTERS_DATA = {
     {
       "number": 1,
       "title": "Ball of Light"
+    },
+    {
+      "number": 2,
+      "title": "First Interview"
+    },
+    {
+      "number": 3,
+      "title": "Friday"
+    },
+    {
+      "number": 4,
+      "title": "Monday"
+    },
+    {
+      "number": 5,
+      "title": "Rotifers"
     }
   ],
   "marked-by-false-gods": [
     {
       "number": 1,
-      "title": "Glimmering Light"
+      "title": "Where Am I"
+    },
+    {
+      "number": 2,
+      "title": "First Contact"
+    },
+    {
+      "number": 3,
+      "title": "Into the Forest"
+    },
+    {
+      "number": 4,
+      "title": "First Night"
+    },
+    {
+      "number": 5,
+      "title": "Daybreak"
+    },
+    {
+      "number": 6,
+      "title": "Weight the Odds"
     }
   ],
   "masquerade-in-noble-court": [
     {
       "number": 1,
       "title": "New Life"
+    },
+    {
+      "number": 2,
+      "title": "Magic Temple"
+    },
+    {
+      "number": 3,
+      "title": "Family Dinner"
+    },
+    {
+      "number": 4,
+      "title": "Future Plan"
+    },
+    {
+      "number": 5,
+      "title": "Imperial Letter"
     }
   ],
   "mistakenly-dragged-survival": [
     {
       "number": 1,
       "title": "Wrong Umbrella"
+    },
+    {
+      "number": 2,
+      "title": "The Bellhaven"
+    },
+    {
+      "number": 3,
+      "title": "Bellhaven Clear"
+    },
+    {
+      "number": 4,
+      "title": "Orientation"
+    },
+    {
+      "number": 5,
+      "title": "Vaultline"
     }
   ],
   "monarch-of-depravity": [
     {
       "number": 1,
-      "title": "Where Am I"
+      "title": "Glimmering Light"
+    },
+    {
+      "number": 2,
+      "title": "Aldenvale"
     }
   ],
   "mutation-of-the-apocalypse": [
     {
       "number": 1,
       "title": "New Beginning"
+    },
+    {
+      "number": 2,
+      "title": "A Fresh Start"
+    },
+    {
+      "number": 3,
+      "title": "Clash at the Market"
+    },
+    {
+      "number": 4,
+      "title": "Gathering Supplies"
+    },
+    {
+      "number": 5,
+      "title": "Triumph in Achievement"
+    },
+    {
+      "number": 6,
+      "title": "Unexpected Encounter"
+    },
+    {
+      "number": 7,
+      "title": "Lost in Confusion"
+    },
+    {
+      "number": 8,
+      "title": "Seeking Clarity"
+    },
+    {
+      "number": 9,
+      "title": "In Pursuit of Insight"
+    },
+    {
+      "number": 10,
+      "title": "Marching Onward"
+    },
+    {
+      "number": 11,
+      "title": "Divided Battle"
+    },
+    {
+      "number": 12,
+      "title": "The Appraisal Magnifier"
+    },
+    {
+      "number": 13,
+      "title": "Teenage Bravery"
+    },
+    {
+      "number": 14,
+      "title": "Shadows of Bloodshed"
+    },
+    {
+      "number": 15,
+      "title": "Frigid Flames"
+    },
+    {
+      "number": 16,
+      "title": "Volatile Frost"
+    },
+    {
+      "number": 17,
+      "title": "Chilled Inferno"
+    },
+    {
+      "number": 18,
+      "title": "The Small Inn"
+    },
+    {
+      "number": 19,
+      "title": "Cannibalistic Desperation"
+    },
+    {
+      "number": 20,
+      "title": "Shifting Classes"
+    },
+    {
+      "number": 21,
+      "title": "Enigmatic Emblem"
+    },
+    {
+      "number": 22,
+      "title": "The Tiny Mart"
+    },
+    {
+      "number": 23,
+      "title": "Echoing Footsteps"
+    },
+    {
+      "number": 24,
+      "title": "Blood's Trail"
+    },
+    {
+      "number": 25,
+      "title": "Emerald Sphere"
+    },
+    {
+      "number": 26,
+      "title": "Passing Week"
+    },
+    {
+      "number": 27,
+      "title": "Gunfire Echo"
+    },
+    {
+      "number": 28,
+      "title": "Fourfold Struggle"
+    },
+    {
+      "number": 29,
+      "title": "The Enigmatic Girl"
+    },
+    {
+      "number": 30,
+      "title": "Her Child"
+    },
+    {
+      "number": 31,
+      "title": "Crimson Sphere"
+    },
+    {
+      "number": 32,
+      "title": "Silent Firearm"
+    },
+    {
+      "number": 33,
+      "title": "Her Choice"
+    },
+    {
+      "number": 34,
+      "title": "Alley of Corpses"
+    },
+    {
+      "number": 35,
+      "title": "Regular Respite"
+    },
+    {
+      "number": 36,
+      "title": "Midnight Radiance"
+    },
+    {
+      "number": 37,
+      "title": "Consuming Flames"
+    },
+    {
+      "number": 38,
+      "title": "Sibling's Sorrow"
+    },
+    {
+      "number": 39,
+      "title": "Novice Slayer"
+    },
+    {
+      "number": 40,
+      "title": "Faculty Quarters"
+    },
+    {
+      "number": 41,
+      "title": "The Dark Structure"
+    },
+    {
+      "number": 42,
+      "title": "Homeward Bound"
+    },
+    {
+      "number": 43,
+      "title": "Her Perspective"
+    },
+    {
+      "number": 44,
+      "title": "Her Conflict"
+    },
+    {
+      "number": 45,
+      "title": "Her Blaze Ignites"
+    },
+    {
+      "number": 46,
+      "title": "Evening Meal"
+    },
+    {
+      "number": 47,
+      "title": "Tracing the Flame"
+    },
+    {
+      "number": 48,
+      "title": "Bitter Irony"
+    },
+    {
+      "number": 49,
+      "title": "Erupting Disorder"
+    },
+    {
+      "number": 50,
+      "title": "Our Own"
+    },
+    {
+      "number": 51,
+      "title": "Dawn's Arrival"
+    },
+    {
+      "number": 52,
+      "title": "Sunset Reverie"
+    },
+    {
+      "number": 53,
+      "title": "Tranquil Slumber"
+    },
+    {
+      "number": 54,
+      "title": "Gifted Abilities"
+    },
+    {
+      "number": 55,
+      "title": "That Monstrous Entity"
+    },
+    {
+      "number": 56,
+      "title": "Regal Ascension"
+    },
+    {
+      "number": 57,
+      "title": "Nocturnal Abyss"
+    },
+    {
+      "number": 58,
+      "title": "Passing Month"
+    },
+    {
+      "number": 59,
+      "title": "Kingly Prowess"
+    },
+    {
+      "number": 60,
+      "title": "Startling Ambush"
+    },
+    {
+      "number": 61,
+      "title": "Thoroughfare Crossing"
+    },
+    {
+      "number": 62,
+      "title": "Coinage Expedition"
+    },
+    {
+      "number": 63,
+      "title": "Protective Shield"
+    },
+    {
+      "number": 64,
+      "title": "Weary Thoughts"
+    },
+    {
+      "number": 65,
+      "title": "The Dawn's Dominion"
+    },
+    {
+      "number": 66,
+      "title": "Our Sanctuary"
+    },
+    {
+      "number": 67,
+      "title": "The Tearful Cherry"
+    },
+    {
+      "number": 68,
+      "title": "Avian Onslaught"
+    },
+    {
+      "number": 69,
+      "title": "Annoying Neighbor"
+    },
+    {
+      "number": 70,
+      "title": "Absence of Respect"
+    },
+    {
+      "number": 71,
+      "title": "Initial Allegiance"
+    },
+    {
+      "number": 72,
+      "title": "Their Stance"
+    },
+    {
+      "number": 73,
+      "title": "Unvarnished Reality"
+    },
+    {
+      "number": 74,
+      "title": "Innocence Amidst Chaos"
+    },
+    {
+      "number": 75,
+      "title": "My Responsibility"
+    },
+    {
+      "number": 76,
+      "title": "Unveiling Shadows"
+    },
+    {
+      "number": 77,
+      "title": "A Desperate Gamble"
+    },
+    {
+      "number": 78,
+      "title": "Echoes of Tragedy"
+    },
+    {
+      "number": 79,
+      "title": "Hope Amidst Despair"
+    },
+    {
+      "number": 80,
+      "title": "Beneath the Surface"
+    },
+    {
+      "number": 81,
+      "title": "Shattered Illusions"
+    },
+    {
+      "number": 82,
+      "title": "Veil of Deception"
+    },
+    {
+      "number": 83,
+      "title": "Boundaries of Trust"
+    },
+    {
+      "number": 84,
+      "title": "Fading Light"
+    },
+    {
+      "number": 85,
+      "title": "Terror After Dark"
+    },
+    {
+      "number": 86,
+      "title": "Survival Instincts"
+    },
+    {
+      "number": 87,
+      "title": "Broken Promises"
+    },
+    {
+      "number": 88,
+      "title": "Doubtful Arrival"
+    },
+    {
+      "number": 89,
+      "title": "Auction Decisions"
+    },
+    {
+      "number": 90,
+      "title": "A Ray of Hope"
+    },
+    {
+      "number": 91,
+      "title": "Locked in Suspense"
+    },
+    {
+      "number": 92,
+      "title": "Solace Found"
+    },
+    {
+      "number": 93,
+      "title": "Winds of Change"
+    },
+    {
+      "number": 94,
+      "title": "Heroic Destiny"
+    },
+    {
+      "number": 95,
+      "title": "A Taste of Luxury"
+    },
+    {
+      "number": 96,
+      "title": "The Dreamer"
+    },
+    {
+      "number": 97,
+      "title": "False Allegations"
+    },
+    {
+      "number": 98,
+      "title": "Into the Woods"
+    },
+    {
+      "number": 99,
+      "title": "Stolen Dignity"
+    },
+    {
+      "number": 100,
+      "title": "Dark Horizons"
+    },
+    {
+      "number": 101,
+      "title": "Astonishing Discovery"
+    },
+    {
+      "number": 102,
+      "title": "Road to Redemption"
+    },
+    {
+      "number": 103,
+      "title": "Four-Day Grind"
+    },
+    {
+      "number": 104,
+      "title": "Dual Strikes"
+    },
+    {
+      "number": 105,
+      "title": "Silent Farewell"
     }
   ]
 };
@@ -46,4 +534,4 @@ const TOTAL_CHAPTER_COUNT = Object.values(CHAPTERS_DATA)
   .reduce(function(sum, chs){ return sum + chs.length; }, 0);
 
 // Build version — app.js appends this to /data/*.json fetches as ?v=...
-const BUILD_VERSION = "20260427061900";
+const BUILD_VERSION = "20260428171638";

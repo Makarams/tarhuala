@@ -19,7 +19,11 @@
   "chapters": [
     {
       "number": 1,
-      "title": "Where Am I"
+      "title": "Glimmering Light"
+    },
+    {
+      "number": 2,
+      "title": "Aldenvale"
     }
   ],
   "platforms": [
@@ -34,6 +38,7 @@
   ],
   "_buildSource": "novels",
   "_sourceChapters": [
-    1
+    1,
+    2
   ]
 }

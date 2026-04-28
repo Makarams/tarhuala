@@ -20,11 +20,31 @@
     {
       "number": 1,
       "title": "New Life"
+    },
+    {
+      "number": 2,
+      "title": "Magic Temple"
+    },
+    {
+      "number": 3,
+      "title": "Family Dinner"
+    },
+    {
+      "number": 4,
+      "title": "Future Plan"
+    },
+    {
+      "number": 5,
+      "title": "Imperial Letter"
     }
   ],
   "platforms": [],
   "_buildSource": "novels",
   "_sourceChapters": [
-    1
+    1,
+    2,
+    3,
+    4,
+    5
   ]
 }

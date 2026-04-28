@@ -20,11 +20,31 @@
     {
       "number": 1,
       "title": "Wrong Umbrella"
+    },
+    {
+      "number": 2,
+      "title": "The Bellhaven"
+    },
+    {
+      "number": 3,
+      "title": "Bellhaven Clear"
+    },
+    {
+      "number": 4,
+      "title": "Orientation"
+    },
+    {
+      "number": 5,
+      "title": "Vaultline"
     }
   ],
   "platforms": [],
   "_buildSource": "novels",
   "_sourceChapters": [
-    1
+    1,
+    2,
+    3,
+    4,
+    5
   ]
 }

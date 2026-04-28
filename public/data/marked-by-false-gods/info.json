@@ -19,12 +19,37 @@
   "chapters": [
     {
       "number": 1,
-      "title": "Glimmering Light"
+      "title": "Where Am I"
+    },
+    {
+      "number": 2,
+      "title": "First Contact"
+    },
+    {
+      "number": 3,
+      "title": "Into the Forest"
+    },
+    {
+      "number": 4,
+      "title": "First Night"
+    },
+    {
+      "number": 5,
+      "title": "Daybreak"
+    },
+    {
+      "number": 6,
+      "title": "Weight the Odds"
     }
   ],
   "platforms": [],
   "_buildSource": "novels",
   "_sourceChapters": [
-    1
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
   ]
 }

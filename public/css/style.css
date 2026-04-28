@@ -118,7 +118,7 @@
    2. RESET
    ───────────────────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 16px)}
 body{
   font-family:var(--f-body);
   font-size:var(--t-body);
@@ -127,6 +127,7 @@ body{
   line-height:1.6;
   font-feature-settings:'kern' 1,'liga' 1;
   text-rendering:optimizeLegibility;
+  text-wrap:pretty;
   -webkit-font-smoothing:antialiased;
   transition:background var(--t-med),color var(--t-med);
   overflow-x:clip;
@@ -137,6 +138,15 @@ a{color:inherit;text-decoration:none;transition:color var(--t-fast)}
 button{cursor:pointer;font-family:inherit;border:0;background:none;color:inherit}
 hr{border:0;border-top:1px solid var(--line)}
 ::selection{background:var(--acc);color:var(--acc-on)}
+
+/* Visible keyboard focus ring — accessibility requirement */
+:focus-visible{
+  outline:2px solid var(--acc);
+  outline-offset:3px;
+}
+a:focus-visible{outline-offset:2px}
+.btn:focus-visible,.sort-btn:focus-visible,.rsp-btn:focus-visible{outline-offset:4px}
+.ch-link:focus-visible{outline-offset:-2px;color:var(--text)}
 
 /* Grain — subtle, dark mode only */
 .grain-overlay{
@@ -155,7 +165,7 @@ hr{border:0;border-top:1px solid var(--line)}
 /* ─────────────────────────────────────────────────────────────────────
    3. TYPOGRAPHY
    ───────────────────────────────────────────────────────────────────── */
-h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;letter-spacing:-.01em}
+h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
 .t-display{font-family:var(--f-display)}
 .t-body{font-family:var(--f-body)}
 .t-mono{font-family:var(--f-mono);letter-spacing:.02em}
@@ -255,6 +265,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   transition:color var(--t-fast),border-color var(--t-fast);
 }
 .icon-btn:hover{color:var(--acc);border-color:var(--line)}
+.icon-btn:active{transform:scale(.94);transition-duration:60ms}
 .icon-btn svg{width:16px;height:16px}
 
 .nav-toggle{
@@ -294,6 +305,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
 .btn-outline{color:var(--text-2);border-color:var(--line-2)}
 .btn-outline:hover{color:var(--acc);border-color:var(--acc)}
 .btn[disabled],.btn.disabled{opacity:.35;pointer-events:none}
+.btn:active:not([disabled]):not(.disabled){transform:scale(.98);transition-duration:60ms}
 
 .pill{
   font-family:var(--f-mono);font-size:9.5px;font-weight:500;
@@ -910,6 +922,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   border-radius:0;
 }
 .sort-btn:hover{color:var(--text);border-color:var(--text-2)}
+.sort-btn:active{transform:scale(.97);transition-duration:60ms}
 .sort-btn.active{color:var(--acc-on);background:var(--acc);border-color:var(--acc)}
 
 .chapters-full-list{list-style:none}
@@ -919,10 +932,11 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   gap:24px;align-items:center;
   padding:18px 6px;
   color:var(--text-2);
-  transition:color var(--t-fast),padding-left var(--t-fast);
+  transition:color var(--t-fast);
   border-radius:0;
 }
-.ch-link:hover{color:var(--text);padding-left:14px;background:transparent}
+.ch-link:hover{color:var(--text);background:transparent}
+.ch-link:active{color:var(--acc)}
 .ch-num{
   font-family:var(--f-mono);font-weight:500;
   font-size:13px;letter-spacing:.04em;
@@ -1337,6 +1351,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   border-radius:0;
 }
 .rsp-btn:hover{color:var(--acc);border-color:var(--acc)}
+.rsp-btn:active{transform:scale(.95);transition-duration:60ms}
 .rsp-size-val{
   font-family:var(--f-mono);font-size:11px;
   color:var(--text);min-width:42px;text-align:center;
@@ -1694,6 +1709,7 @@ a.footer-analytics-link:hover{color:inherit}
 }
 .back-to-top.is-visible{opacity:1;transform:none;pointer-events:auto}
 .back-to-top:hover{color:var(--acc);border-color:var(--acc)}
+.back-to-top:active{transform:scale(.92);transition-duration:60ms}
 .back-to-top svg{width:16px;height:16px}
 
 /* ─────────────────────────────────────────────────────────────────────

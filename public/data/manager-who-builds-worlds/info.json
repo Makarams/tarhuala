@@ -20,11 +20,31 @@
     {
       "number": 1,
       "title": "Ball of Light"
+    },
+    {
+      "number": 2,
+      "title": "First Interview"
+    },
+    {
+      "number": 3,
+      "title": "Friday"
+    },
+    {
+      "number": 4,
+      "title": "Monday"
+    },
+    {
+      "number": 5,
+      "title": "Rotifers"
     }
   ],
   "platforms": [],
   "_buildSource": "novels",
   "_sourceChapters": [
-    1
+    1,
+    2,
+    3,
+    4,
+    5
   ]
 }
