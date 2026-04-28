@@ -29,7 +29,11 @@
       "WebFetch(domain:tarhuala.com)",
       "WebFetch(domain:tarhuala.vercel.app)",
       "Read(//tmp/**)",
-      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('chapters:', len\\(d.get\\('chapters',[]\\)\\), 'cover:', d.get\\('images',{}\\).get\\('cover'\\)\\)\")"
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('chapters:', len\\(d.get\\('chapters',[]\\)\\), 'cover:', d.get\\('images',{}\\).get\\('cover'\\)\\)\")",
+      "Bash(python *)",
+      "Bash(Time seemed *)",
+      "Bash(The world held its 'breath, '\\\\''pseudo-poetic'\\\\''\\), *)",
+      "Bash(del \"D:\\\\Github\\\\tarhuala-website\\\\generate_chapters.py\")"
     ]
   }
 }

@@ -1,0 +1,115 @@
+They reached the city limit on the fourth day.
+
+The highway overpass was the boundary — north of it was the outer road and the sparse buildings of the town's edge, where they'd been working for three days. South of it was the city proper, a grid of concrete buildings starting fifteen stories tall at the edge and going higher from there. He'd grown up here, or close enough. He'd worked construction on those buildings. He knew the street layout in the first dozen blocks well enough to navigate by memory.
+
+The view from the overpass was not good.
+
+Cars on the main boulevard, most of them stopped at odd angles or pushed to the sides. A few still had doors open. Buildings with broken windows, ground floors dark. And zombies — more than he'd seen in three days combined, moving through the streets below in clusters that ranged from two or three to groups of fifteen or twenty.
+
+"That's a lot," Lucy said beside him.
+
+"Yes."
+
+"How many do you think are in the city?"
+
+He'd thought about this. The city had about four hundred thousand people in it. If the mutation rate was consistent with what he'd seen in the village — most people turning, a small fraction staying as players — then the city would have somewhere between three hundred and three hundred fifty thousand zombies in it. Spread across a city grid. Concentrated in some areas, thin in others.
+
+He said a lower number. "A lot."
+
+She looked at the street below. "Some people must have survived."
+
+"Probably." He pointed south. "Taller buildings are easier to defend. Lock down the stairwells, set up on the upper floors. Anyone who figured that out in the first few days might still be alive."
+
+"Is that where we should go?"
+
+"No." He looked at the clusters below. The biggest one — twenty-odd zombies near a collapsed bus stop — had a different quality to the rest. The movement was less scattered. The group held loose formation when they moved, the outer ones changing direction to match the inner ones. "Not yet."
+
+The group of twenty was near a collapsed bus stop two hundred meters below. From up here on the overpass he could see the whole layout: the ones at the outer edge checking directions at random, the inner ones moving more purposefully. In the center was a figure that moved differently from all the others. Same shuffle, but the head turned at specific moments — when a sound came from the overpass, when a bird moved overhead. Tracking. Level 2 zombies tracked. Level 1s just followed proximity and noise.
+
+She followed his sight line. "What are you looking at?"
+
+"The big group. Watch how they move."
+
+She watched for about thirty seconds. "They're not all moving the same direction at random," she said slowly. "The ones on the outside are — matching the ones in the middle."
+
+"There's one in the middle that's Level 2." He could see it now — slightly different movement quality, the head angling to track them on the overpass while the others still moved by proximity and noise. "Level 2 zombies can direct Level 1s. I've seen it twice before, on the road south. If the Level 2 is still there when they turn toward us, the whole group moves together."
+
+She absorbed that. "If we kill the Level 2 first, the whole group loses direction?"
+
+"They don't lose it instantly. But they lose the coordination." He'd tested this on the road two days ago — taken the Level 2 out of a group of eight and watched the seven Level 1s stop their loose formation and start moving individually again. Easier targets. "Yes."
+
+"So we can't just fight them in open groups?"
+
+"We can. But we need to take out the Level 2 first." He thought about it. "The Level 2s are stealthy too. They don't always move the way the others move. Sometimes they just stand still and watch."
+
+She was quiet for a moment. "How are you so calm about this?"
+
+He looked at the city below them. The streets, the stopped cars, the twenty zombies moving in loose formation past a row of shuttered shops.
+
+"I'm not calm," he said. "I'm just thinking."
+
+She glanced at him.
+
+"There's a difference," he said.
+
+She made a small sound, not quite agreement. She was at Level 7 now and he was at Level 9 — they'd worked through the outer road for three days at a pace that had leveled him twice and her four times. Her agility was 13 now, her strength up to 19. Her technique with the katana was still rough but she had the instinct for distance that made technique matter less. She'd stopped hesitating, which was the main thing. She'd handled a group of five yesterday, in a narrow shop entrance, and done it mostly clean.
+
+He pressed his free hand flat against the staircase wall as he descended. His fingers were slightly cold from something that wasn't the temperature.
+
+'Keep moving,' he thought.
+
+He stepped onto the city street and kept moving.
+
+"What's the plan for today?" she asked.
+
+"Edge of the city. First four or five blocks. Avoid the large groups, take the small ones. Get a sense of how the density changes and what's on the ground floors of the commercial buildings." He paused. "And I need to hit Level 10 today. I want that class change."
+
+"You're at Level 9?"
+
+"1,800 out of 2,500."
+
+She checked her own screen. "I'm at 700 out of 2,000." She looked at the city below. "So I need to kill twenty more Level 1 zombies just to reach Level 8."
+
+"Or hit a Level 2. Those give 100."
+
+"Where do you find Level 2s?"
+
+"They find you," he said, and moved toward the stairs at the end of the overpass.
+
+She followed. He could hear her breathing behind him — controlled, a little fast. He was breathing fast too, if he was honest about it. The city below wasn't the road outside the village. The distances were shorter, the sightlines worse, and the zombie density was enough that a bad choice would become a bad situation before he had time to recover.
+
+He pressed his free hand flat against the staircase wall for a moment as he descended, and his fingers were slightly cold from something that wasn't the temperature.
+
+'Keep moving,' he thought. 'That's all.'
+
+He stepped onto the city street and kept moving.
+
+***
+
+The first four blocks went better than he'd expected.
+
+The commercial buildings had been mostly cleared on the ground floor — whether by zombies moving through or by survivors, he couldn't tell. He and Lucy moved street by street, clearing groups of two and three, using the building corners for cover. He took the Level 2 out of the group of twenty within the first hour — Hurricane Leap from the ring he'd picked up two days ago off a dead zombie. He'd been holding the item unappraised for two days and discovered it when he'd finally checked. One use of Hurricane Leap to get above the group, come down on the Level 2's head with the dagger. Clean.
+
+The rest of the group scattered when the Level 2 died. Without direction they went back to individual movement and he and Lucy cut through them in pairs.
+
+He found a Hurricane Ring on the second block. It was around the finger of a dead zombie — not a system zombie, not Level 0, a human who had died from something before they turned. The ring was Heroic grade when he appraised it with the magnifier he'd been carrying since the class change building. Two abilities: Hurricane Leap, which the system described as a wind-assisted jump with roughly three times normal height, and Hurricane Spiral, a violent horizontal wind burst effective within five meters. Three uses per day for the leap, one for the spiral.
+
+He'd been thinking about how to deal with the large groups without taking damage. This was part of that answer.
+
+By late morning he had enough EXP for one more kill to hit Level 10.
+
+He killed a Level 1 on the corner of a side street, a single clean spear thrust, and watched the Level 10 notification appear.
+
+He stood there for a moment in the middle of the empty side street. Somewhere up the road Lucy was finishing off the last of the scattered group. The city smelled like heat and wet concrete and something underneath both of those that he'd been trying not to identify.
+
+Level 10. He needed to get back to the white building.
+
+"Lucy," he called.
+
+She appeared from around the corner thirty seconds later, out of breath, with green blood on the sleeve of her jacket. "What? Are you okay?"
+
+"Level 10," he said.
+
+She looked at him. Then her face did something complicated that he didn't fully track, because he was already pulling his system up to check the full read.
+
+"Come on," he said. "We need to go back."
