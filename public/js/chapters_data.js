@@ -562,4 +562,4 @@ const TOTAL_CHAPTER_COUNT = Object.values(CHAPTERS_DATA)
   .reduce(function(sum, chs){ return sum + chs.length; }, 0);
 
 // Build version — app.js appends this to /data/*.json fetches as ?v=...
-const BUILD_VERSION = "20260429151040";
+const BUILD_VERSION = "20260429151646";
