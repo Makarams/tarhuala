@@ -23,6 +23,10 @@ const CHAPTERS_DATA = {
     {
       "number": 5,
       "title": "Rotifers"
+    },
+    {
+      "number": 6,
+      "title": "Daphnia"
     }
   ],
   "marked-by-false-gods": [
@@ -71,6 +75,10 @@ const CHAPTERS_DATA = {
     {
       "number": 5,
       "title": "Imperial Letter"
+    },
+    {
+      "number": 6,
+      "title": "Three Months"
     }
   ],
   "mistakenly-dragged-survival": [
@@ -93,6 +101,10 @@ const CHAPTERS_DATA = {
     {
       "number": 5,
       "title": "Vaultline"
+    },
+    {
+      "number": 6,
+      "title": "Vaultline Clear"
     }
   ],
   "monarch-of-depravity": [
@@ -103,6 +115,22 @@ const CHAPTERS_DATA = {
     {
       "number": 2,
       "title": "Aldenvale"
+    },
+    {
+      "number": 3,
+      "title": "Resonance Depth"
+    },
+    {
+      "number": 4,
+      "title": "First Days"
+    },
+    {
+      "number": 5,
+      "title": "The Body"
+    },
+    {
+      "number": 6,
+      "title": "First Tier"
     }
   ],
   "mutation-of-the-apocalypse": [
@@ -534,4 +562,4 @@ const TOTAL_CHAPTER_COUNT = Object.values(CHAPTERS_DATA)
   .reduce(function(sum, chs){ return sum + chs.length; }, 0);
 
 // Build version — app.js appends this to /data/*.json fetches as ?v=...
-const BUILD_VERSION = "20260428171638";
+const BUILD_VERSION = "20260429063325";

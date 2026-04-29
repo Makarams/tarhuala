@@ -533,6 +533,7 @@
      PAGE ROUTING
      ------------------------------------------------------------------ */
   function routeByPage(){
+    recordVisit();
     if (qs('novels-grid'))       loadNovelsGrid();
     if (qs('novels-list'))       loadNovelsList();
     if (qs('novel-hero'))        loadNovelDetail();
@@ -542,12 +543,36 @@
   }
 
   /* ------------------------------------------------------------------
-     PER-USER TRACKING — intentionally not used.
-     The analytics page reads /data/stats.json (site-level content stats only).
-     These no-ops exist so legacy call sites don't break.
+     PER-USER TRACKING — localStorage-based visitor analytics
+     Key: 'tarhuala-analytics'
      ------------------------------------------------------------------ */
-  function recordVisit(){}
-  function recordChapterRead(){}
+  var ANALYTICS_KEY = 'tarhuala-analytics';
+
+  function getAnalytics(){
+    try{ return JSON.parse(localStorage.getItem(ANALYTICS_KEY) || '{}'); }catch(e){ return {}; }
+  }
+  function saveAnalytics(a){
+    try{ localStorage.setItem(ANALYTICS_KEY, JSON.stringify(a)); }catch(e){}
+  }
+  function recordVisit(){
+    var a = getAnalytics();
+    a.totalVisits = (a.totalVisits || 0) + 1;
+    var now = new Date().toISOString();
+    a.lastVisit = now;
+    if (!a.firstVisit) a.firstVisit = now;
+    var page = (window.location.pathname.replace(/.*\//, '') || 'index.html') + (window.location.search || '');
+    a.pages = a.pages || {};
+    a.pages[page] = (a.pages[page] || 0) + 1;
+    saveAnalytics(a);
+  }
+  function recordChapterRead(novelId, chNum){
+    if (!novelId) return;
+    var a = getAnalytics();
+    a.chapters = a.chapters || {};
+    var key = novelId + ':' + chNum;
+    a.chapters[key] = (a.chapters[key] || 0) + 1;
+    saveAnalytics(a);
+  }
   function updateStatDisplays(){}
 
   /* ------------------------------------------------------------------
@@ -557,10 +582,6 @@
     var grid = qs('novels-grid');
     var statsNovels   = qs('stat-novels');
     var statsChapters = qs('stat-chapters');
-
-    // Record visit and update stat displays
-    recordVisit();
-    updateStatDisplays();
 
     fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
@@ -1143,20 +1164,20 @@
   var ENTITY = {
     /* Mutation of the Apocalypse — global mutation broadcast vs personal stats */
     ember:  { primary:'Mutation', kill:'Mutation', levelup:'Mutation',
-              reward:'Mutation', broadcast:'Broadcast', error:'Anomaly' },
-    /* Marked by False Gods — gods speak through the system */
+              reward:'Mutation',  broadcast:'Broadcast', error:'Anomaly' },
+    /* Marked by False Gods — tutorial voice / eldritch chorus */
     jade:   { primary:'Voice',    kill:'Voice',    levelup:'Voice',
-              reward:'Voice',     broadcast:'Decree',    error:'Voice' },
-    /* Monarch of Depravity — twelve patron divinities */
-    gold:   { primary:'Patron',   kill:'Patron',   levelup:'Patron',
-              reward:'Offering',  broadcast:'Decree',    error:'Patron' },
-    /* Mistakenly Dragged Survival — nightmare game observers + incorrect entry position.
-    indigo: { primary:'Game',     kill:'Game',     levelup:'Game',
-              reward:'Game',      broadcast:'Observer',  error:'Entry' },
-    /* Masquerade in Noble Court — the original-life knowledge that hers isn't */
+              reward:'Voice',     broadcast:'Chorus',    error:'Voice' },
+    /* Monarch of Depravity — death deity compact */
+    gold:   { primary:'Compact',  kill:'Compact',  levelup:'Compact',
+              reward:'Offering',  broadcast:'Omen',      error:'Compact' },
+    /* Mistakenly Dragged Survival — nightmare game instance log */
+    indigo: { primary:'Instance', kill:'Instance', levelup:'Instance',
+              reward:'Instance',  broadcast:'Observer',  error:'Error' },
+    /* Masquerade in Noble Court — original-life knowledge */
     ivory:  { primary:'Memory',   kill:'Memory',   levelup:'Memory',
               reward:'Memory',    broadcast:'Whisper',   error:'Memory' },
-    /* Manager Who Builds Worlds — the constellation manager authority */
+    /* Manager Who Builds Worlds — constellation manager authority */
     cyan:   { primary:'Authority',kill:'Authority',levelup:'Authority',
               reward:'Authority', broadcast:'Authority', error:'Authority' }
   };
@@ -1202,7 +1223,7 @@
       v = 'meta';
     } else if (/Dungeon.*Cleared|Dungeon.*Closed|Dungeon:.*Open/i.test(inner)) {
       v = 'meta';
-    } else if (/Detected|Opening System|Updating System|System Profile|System Items|Detecting |Initiating|Confirming/i.test(inner)) {
+    } else if (/Detected|Detecting |Initiating|Confirming|Profile/i.test(inner)) {
       v = 'meta';
     } else if (/Requirement|Unlock|Quest|Mission|Title/i.test(inner)) {
       v = 'meta';
@@ -1215,11 +1236,7 @@
        levelup/reward) is conveyed by color. */
     var tag = entityLabel(v, inner);
 
-    var decorated = escHtml(body)
-      .replace(/(\b\d[\d,]*(?:\/\d[\d,]*)?\b)/g, '<em>$1</em>')
-      .replace(/\b(Exp|Level|Stat Points?|Skill Points?|Coins?)\b/gi, '<em>$1</em>')
-      // Merge adjacent <em> tags separated by a single space → keeps "60 Exp" on one line
-      .replace(/<\/em> <em>/g, ' ');
+    var decorated = escHtml(body);
 
     return '<div class="sys-toast v-' + v + '">' +
              '<span class="sys-toast-tag">' + tag + '</span>' +
@@ -1248,7 +1265,7 @@
     }
 
     // Determine type from content
-    var title = 'System';
+    var title = (ENTITY[activeTheme()] || ENTITY.jade).primary;
     var type  = 'generic';
     var itemName = '';
     for (var i = 0; i < lines.length; i++) {
@@ -1271,7 +1288,7 @@
         title = 'Auction House'; type = 'auction'; break;
       }
       if (/^HUMANS OF EARTH/i.test(ln)) {
-        title = 'System Broadcast'; type = 'broadcast'; break;
+        type = 'broadcast'; break;
       }
     }
 
@@ -1327,7 +1344,7 @@
           itemHtml += '<div class="item-ability-row">' +
             '<span class="item-ability-label">[' + escHtml(skillName) + ']</span>' +
             '<span class="item-ability-val">' + escHtml(descPart) +
-              (usesMatch ? ' <em class="item-uses">' + escHtml(usesMatch[1]) + '</em>' : '') +
+              (usesMatch ? ' ' + escHtml(usesMatch[1]) : '') +
             '</span>' +
           '</div>';
           return;
@@ -1391,7 +1408,7 @@
         rowsHtml += '<div class="status-screen-row ss-row-full ss-ability-row">' +
           '<span class="status-screen-label">[' + escHtml(sName) + ']</span>' +
           '<span class="status-screen-value">' + escHtml(descPart) +
-            (usesMatch ? ' <em>' + escHtml(usesMatch[1]) + '</em>' : '') +
+            (usesMatch ? ' ' + escHtml(usesMatch[1]) : '') +
           '</span>' +
         '</div>';
         return;
@@ -1407,8 +1424,6 @@
           valHtml = escHtml(val);
         } else {
           valHtml = rarityChipify(escHtml(val));
-          // highlight numbers and stat comparisons, but not ᐃ/ᐁ symbols
-          valHtml = valHtml.replace(/(\d[\d,]*(?:\/\d[\d,]*)?)/g, '<em>$1</em>');
         }
         // Special styling: Coins and achievement/item counts with ᐃ
         if (/^Coins?$/i.test(lbl)) {
@@ -1640,7 +1655,7 @@
       if (RARITY_WORDS.indexOf(lower) !== -1) {
         return '<span class="rarity-chip r-' + lower + '">' + word + '</span>';
       }
-      return '<em>[' + word + ']</em>';
+      return '[' + word + ']';
     });
     return t;
   }

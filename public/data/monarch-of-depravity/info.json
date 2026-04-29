@@ -24,6 +24,22 @@
     {
       "number": 2,
       "title": "Aldenvale"
+    },
+    {
+      "number": 3,
+      "title": "Resonance Depth"
+    },
+    {
+      "number": 4,
+      "title": "First Days"
+    },
+    {
+      "number": 5,
+      "title": "The Body"
+    },
+    {
+      "number": 6,
+      "title": "First Tier"
     }
   ],
   "platforms": [
@@ -39,6 +55,10 @@
   "_buildSource": "novels",
   "_sourceChapters": [
     1,
-    2
+    2,
+    3,
+    4,
+    5,
+    6
   ]
 }

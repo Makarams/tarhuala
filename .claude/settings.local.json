@@ -34,7 +34,16 @@
       "Bash(Time seemed *)",
       "Bash(The world held its 'breath, '\\\\''pseudo-poetic'\\\\''\\), *)",
       "Bash(del \"D:\\\\Github\\\\tarhuala-website\\\\generate_chapters.py\")",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(grep -o '.\\\\{0,80\\\\}System.\\\\{0,80\\\\}' D:/Github/tarhuala-website/public/data/mutation-of-the-apocalypse/chapter-20.json)",
+      "Bash(grep -o '.\\\\{0,80\\\\}System.\\\\{0,80\\\\}' D:/Github/tarhuala-website/public/data/mutation-of-the-apocalypse/chapter-62.json)",
+      "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/mistakenly-dragged-survival/chapter-6.json\")",
+      "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-3.json\")",
+      "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-4.json\")",
+      "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-5.json\")",
+      "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-6.json\")",
+      "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/mistakenly-dragged-survival/chapter-1.json\")",
+      "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-1.json\")"
     ]
   }
 }

@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css?v=20260428" />
-  <link rel="stylesheet" href="/css/css-additions.css?v=20260428"/>
+  <link rel="stylesheet" href="/css/style.css?v=20260429" />
+  <link rel="stylesheet" href="/css/css-additions.css?v=20260429"/>
 
   <script>
     (function(){
@@ -170,6 +170,33 @@
       font-style:italic;text-align:center;padding:24px 0
     }
 
+    /* Section dividers */
+    .section-rule{
+      font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--text-3);
+      padding-bottom:10px;margin-bottom:0;border-bottom:1px solid var(--line);
+      margin-top:36px;
+    }
+
+    /* Visitor KPI strip */
+    .visitor-kpi-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:1px;margin-bottom:24px;background:var(--line);border:1px solid var(--line)
+    }
+    .visitor-kpi-card{background:var(--bg-2,var(--bg));padding:18px 16px;position:relative;overflow:hidden}
+    .visitor-kpi-card::before{
+      content:'';position:absolute;left:0;right:0;top:0;height:3px;
+      background:var(--acc);opacity:.4
+    }
+
+    /* Reset button */
+    .analytics-reset-btn{
+      font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--text-3);background:none;border:1px solid var(--line);
+      padding:5px 10px;cursor:pointer;
+    }
+    .analytics-reset-btn:hover{border-color:var(--acc);color:var(--acc)}
+
     @media(max-width:920px){
       .panel-grid{grid-template-columns:1fr}
     }
@@ -177,7 +204,7 @@
       .analytics-wrap{padding:calc(var(--nav-h) + 36px) var(--gutter) 50px}
       .kpi-value{font-size:24px}
       .bar-row{grid-template-columns:minmax(0,1fr) minmax(60px,1.2fr) 56px;gap:8px}
-      .panel,.kpi-card,.highlight-card{padding:12px}
+      .panel,.kpi-card,.highlight-card,.visitor-kpi-card{padding:12px}
       .novels-table{display:none}
       .novels-mobile{display:flex}
     }
@@ -211,7 +238,62 @@
       <div class="analytics-stamp" id="generated-stamp">—</div>
     </header>
 
-    <section class="kpi-grid" aria-label="Library totals">
+    <!-- Visitor analytics -->
+    <div class="section-rule">Visitor Tracking</div>
+
+    <section class="visitor-kpi-grid" aria-label="Visitor totals" style="margin-top:1px">
+      <div class="visitor-kpi-card">
+        <div class="kpi-label">Total Visits</div>
+        <div class="kpi-value" id="v-total">—</div>
+        <div class="kpi-sub">this browser</div>
+      </div>
+      <div class="visitor-kpi-card">
+        <div class="kpi-label">First Visit</div>
+        <div class="kpi-value" id="v-first" style="font-size:16px;padding-top:6px">—</div>
+        <div class="kpi-sub" id="v-first-rel"></div>
+      </div>
+      <div class="visitor-kpi-card">
+        <div class="kpi-label">Last Visit</div>
+        <div class="kpi-value" id="v-last" style="font-size:16px;padding-top:6px">—</div>
+        <div class="kpi-sub" id="v-last-rel"></div>
+      </div>
+      <div class="visitor-kpi-card">
+        <div class="kpi-label">Pages Tracked</div>
+        <div class="kpi-value" id="v-pages">—</div>
+        <div class="kpi-sub">unique pages visited</div>
+      </div>
+      <div class="visitor-kpi-card">
+        <div class="kpi-label">Chapters Read</div>
+        <div class="kpi-value" id="v-chapters-read">—</div>
+        <div class="kpi-sub">unique chapter reads</div>
+      </div>
+    </section>
+
+    <section class="panel-grid" style="margin-bottom:24px">
+      <article class="panel">
+        <div class="panel-head">
+          <div class="panel-title">Most Visited Pages</div>
+          <div class="panel-meta" id="v-pages-meta"></div>
+        </div>
+        <div class="bar-chart" id="v-pages-chart"><div class="empty-state">No visit data yet.</div></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div class="panel-title">Most-Read Chapters</div>
+          <div class="panel-meta" id="v-chapters-meta"></div>
+        </div>
+        <div class="bar-chart" id="v-chapters-chart"><div class="empty-state">No chapter read data yet.</div></div>
+      </article>
+    </section>
+
+    <div style="display:flex;justify-content:flex-end;margin-bottom:28px">
+      <button class="analytics-reset-btn" id="reset-visitor-btn">Reset visitor data</button>
+    </div>
+
+    <div class="section-rule">Content Stats</div>
+
+    <section class="kpi-grid" aria-label="Library totals" style="margin-top:1px">
       <div class="kpi-card">
         <div class="kpi-label">Novels</div>
         <div class="kpi-value" id="kpi-novels">—</div>
@@ -331,7 +413,7 @@
 
   <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg><use href="#ic-arrow-up"></use></svg></button>
 
-  <script src="/js/app.js?v=20260428"></script>
+  <script src="/js/app.js?v=20260429"></script>
   <script>
     (function(){
       function $(id){ return document.getElementById(id); }
@@ -363,6 +445,75 @@
           + '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>'
           + '<div class="bar-count">' + display + '</div>'
           + '</div>';
+      }
+
+      /* ---- Visitor analytics ---- */
+      var ANALYTICS_KEY = 'tarhuala-analytics';
+      function getAnalytics(){
+        try{ return JSON.parse(localStorage.getItem(ANALYTICS_KEY)||'{}'); }catch(e){ return {}; }
+      }
+      function fmtDate(iso){
+        if (!iso) return '—';
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return '—';
+        return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      }
+
+      function renderVisitor(){
+        var a = getAnalytics();
+
+        $('v-total').textContent = fmt(a.totalVisits || 0);
+
+        if (a.firstVisit) {
+          $('v-first').textContent = fmtDate(a.firstVisit);
+          $('v-first-rel').textContent = relTime(a.firstVisit);
+        }
+        if (a.lastVisit) {
+          $('v-last').textContent = fmtDate(a.lastVisit);
+          $('v-last-rel').textContent = relTime(a.lastVisit);
+        }
+
+        var pages = a.pages || {};
+        var pageEntries = Object.keys(pages).map(function(k){ return {key:k, count:pages[k]}; })
+          .sort(function(a,b){ return b.count - a.count; });
+        $('v-pages').textContent = fmt(pageEntries.length);
+        $('v-pages-meta').textContent = fmt(pageEntries.length) + ' unique';
+
+        var topPages = pageEntries.slice(0, 10);
+        var pMax = topPages.length ? topPages[0].count : 1;
+        $('v-pages-chart').innerHTML = topPages.length
+          ? topPages.map(function(p){ return renderBar(p.key || 'index.html', p.count, pMax); }).join('')
+          : '<div class="empty-state">No visit data yet.</div>';
+
+        var chapters = a.chapters || {};
+        var chapEntries = Object.keys(chapters).map(function(k){
+          var parts = k.split(':');
+          var novel = parts[0] || '';
+          var num = parts[1] || '';
+          var label = novel.replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) + ' Ch.' + num;
+          return {key:k, label:label, count:chapters[k]};
+        }).sort(function(a,b){ return b.count - a.count; });
+
+        $('v-chapters-read').textContent = fmt(chapEntries.length);
+        $('v-chapters-meta').textContent = fmt(chapEntries.length) + ' unique';
+
+        var topChapters = chapEntries.slice(0, 10);
+        var cMax = topChapters.length ? topChapters[0].count : 1;
+        $('v-chapters-chart').innerHTML = topChapters.length
+          ? topChapters.map(function(c){ return renderBar(c.label, c.count, cMax); }).join('')
+          : '<div class="empty-state">No chapter read data yet.</div>';
+      }
+
+      renderVisitor();
+
+      var resetBtn = $('reset-visitor-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function(){
+          if (confirm('Reset all visitor tracking data?')) {
+            localStorage.removeItem(ANALYTICS_KEY);
+            renderVisitor();
+          }
+        });
       }
 
       fetch('/data/stats.json', { cache: 'no-cache' })

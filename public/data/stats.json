@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T17:16:38.355Z",
+  "generatedAt": "2026-04-29T06:33:26.365Z",
   "totalNovels": 6,
-  "totalChapters": 128,
-  "totalWords": 212670,
-  "avgWordsPerChapter": 1661,
-  "avgChaptersPerNovel": 21.3,
+  "totalChapters": 135,
+  "totalWords": 223935,
+  "avgWordsPerChapter": 1659,
+  "avgChaptersPerNovel": 22.5,
   "longestChapter": {
     "novel": "Mistakenly Dragged Survival",
     "novelId": "mistakenly-dragged-survival",
     "number": 3,
     "title": "Bellhaven Clear",
-    "words": 4223
+    "words": 4168
   },
   "novels": [
     {
@@ -26,10 +26,10 @@
       ],
       "status": "Ongoing",
       "theme": "cyan",
-      "chapterCount": 5,
-      "words": 9618,
-      "avgWords": 1924,
-      "lastUpdated": "2026-04-28T17:16:34.462Z",
+      "chapterCount": 6,
+      "words": 11839,
+      "avgWords": 1973,
+      "lastUpdated": "2026-04-29T06:33:18.761Z",
       "chapters": [
         {
           "number": 1,
@@ -55,6 +55,11 @@
           "number": 5,
           "title": "Rotifers",
           "words": 2075
+        },
+        {
+          "number": 6,
+          "title": "Daphnia",
+          "words": 2221
         }
       ]
     },
@@ -74,7 +79,7 @@
       "chapterCount": 6,
       "words": 11664,
       "avgWords": 1944,
-      "lastUpdated": "2026-04-28T17:16:34.540Z",
+      "lastUpdated": "2026-04-29T06:33:18.965Z",
       "chapters": [
         {
           "number": 1,
@@ -121,10 +126,10 @@
       ],
       "status": "Ongoing",
       "theme": "ivory",
-      "chapterCount": 5,
-      "words": 8131,
-      "avgWords": 1626,
-      "lastUpdated": "2026-04-28T17:16:34.584Z",
+      "chapterCount": 6,
+      "words": 10059,
+      "avgWords": 1677,
+      "lastUpdated": "2026-04-29T06:33:19.144Z",
       "chapters": [
         {
           "number": 1,
@@ -150,6 +155,11 @@
           "number": 5,
           "title": "Imperial Letter",
           "words": 1669
+        },
+        {
+          "number": 6,
+          "title": "Three Months",
+          "words": 1928
         }
       ]
     },
@@ -166,35 +176,40 @@
       ],
       "status": "Ongoing",
       "theme": "indigo",
-      "chapterCount": 5,
-      "words": 14190,
-      "avgWords": 2838,
-      "lastUpdated": "2026-04-28T17:16:34.661Z",
+      "chapterCount": 6,
+      "words": 15747,
+      "avgWords": 2625,
+      "lastUpdated": "2026-04-29T06:33:19.359Z",
       "chapters": [
         {
           "number": 1,
           "title": "Wrong Umbrella",
-          "words": 1953
+          "words": 1941
         },
         {
           "number": 2,
           "title": "The Bellhaven",
-          "words": 2204
+          "words": 2188
         },
         {
           "number": 3,
           "title": "Bellhaven Clear",
-          "words": 4223
+          "words": 4168
         },
         {
           "number": 4,
           "title": "Orientation",
-          "words": 2815
+          "words": 2785
         },
         {
           "number": 5,
           "title": "Vaultline",
-          "words": 2995
+          "words": 2953
+        },
+        {
+          "number": 6,
+          "title": "Vaultline Clear",
+          "words": 1712
         }
       ]
     },
@@ -211,10 +226,10 @@
       ],
       "status": "Ongoing",
       "theme": "gold",
-      "chapterCount": 2,
-      "words": 4153,
-      "avgWords": 2077,
-      "lastUpdated": "2026-04-28T17:16:34.691Z",
+      "chapterCount": 6,
+      "words": 10071,
+      "avgWords": 1679,
+      "lastUpdated": "2026-04-29T06:33:19.630Z",
       "chapters": [
         {
           "number": 1,
@@ -225,6 +240,26 @@
           "number": 2,
           "title": "Aldenvale",
           "words": 2435
+        },
+        {
+          "number": 3,
+          "title": "Resonance Depth",
+          "words": 1602
+        },
+        {
+          "number": 4,
+          "title": "First Days",
+          "words": 1391
+        },
+        {
+          "number": 5,
+          "title": "The Body",
+          "words": 1526
+        },
+        {
+          "number": 6,
+          "title": "First Tier",
+          "words": 1399
         }
       ]
     },
@@ -242,59 +277,59 @@
       "status": "Ongoing",
       "theme": "ember",
       "chapterCount": 105,
-      "words": 164914,
-      "avgWords": 1571,
-      "lastUpdated": "2026-04-28T17:16:38.234Z",
+      "words": 164555,
+      "avgWords": 1567,
+      "lastUpdated": "2026-04-29T06:33:25.892Z",
       "chapters": [
         {
           "number": 1,
           "title": "New Beginning",
-          "words": 1706
+          "words": 1804
         },
         {
           "number": 2,
           "title": "A Fresh Start",
-          "words": 1755
+          "words": 2062
         },
         {
           "number": 3,
           "title": "Clash at the Market",
-          "words": 1651
+          "words": 1569
         },
         {
           "number": 4,
           "title": "Gathering Supplies",
-          "words": 1555
+          "words": 1571
         },
         {
           "number": 5,
           "title": "Triumph in Achievement",
-          "words": 1583
+          "words": 1564
         },
         {
           "number": 6,
           "title": "Unexpected Encounter",
-          "words": 1509
+          "words": 1295
         },
         {
           "number": 7,
           "title": "Lost in Confusion",
-          "words": 1646
+          "words": 1615
         },
         {
           "number": 8,
           "title": "Seeking Clarity",
-          "words": 1682
+          "words": 1517
         },
         {
           "number": 9,
           "title": "In Pursuit of Insight",
-          "words": 1522
+          "words": 1539
         },
         {
           "number": 10,
           "title": "Marching Onward",
-          "words": 1506
+          "words": 1220
         },
         {
           "number": 11,
