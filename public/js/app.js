@@ -1232,15 +1232,9 @@
       v = 'meta';
     }
 
-    /* Per-novel entity that "speaks" the notification — drawn from each novel's
-       narrative voice rather than a generic "System". The visual variant (kill/
-       levelup/reward) is conveyed by color. */
-    var tag = entityLabel(v, inner);
-
     var decorated = escHtml(body);
 
     return '<div class="sys-toast v-' + v + '">' +
-             '<span class="sys-toast-tag">' + tag + '</span>' +
              '<span class="sys-toast-text">[' + decorated + ']</span>' +
            '</div>';
   }
@@ -1385,11 +1379,7 @@
       var bHtml = lines.map(function(ln){
         return '<div class="broadcast-line">' + escHtml(ln) + '</div>';
       }).join('');
-      var broadcastLabel = entityLabel('meta', 'HUMANS OF EARTH').toUpperCase();
       return '<div class="status-screen ss-broadcast">' +
-               '<div class="status-screen-header">' +
-                 '<span>' + escHtml(broadcastLabel) + '</span>' +
-               '</div>' +
                '<div class="broadcast-body">' + bHtml + '</div>' +
              '</div>';
     }
@@ -1452,7 +1442,6 @@
     return '<div class="status-screen' + (type === 'charsheet' ? ' ss-charsheet' : '') + '">' +
              '<div class="status-screen-header">' +
                '<span class="kb-rose"><svg><use href="#kb-rose"/></svg></span>' +
-               '<span>' + title + '</span>' +
              '</div>' +
              '<div class="status-screen-grid">' + rowsHtml + '</div>' +
            '</div>';
