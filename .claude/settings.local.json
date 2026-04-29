@@ -43,7 +43,9 @@
       "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-5.json\")",
       "Bash(grep -o '.\\\\{0,40\\\\}[—–]\\\\{1\\\\}.\\\\{0,40\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-6.json\")",
       "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/mistakenly-dragged-survival/chapter-1.json\")",
-      "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-1.json\")"
+      "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-1.json\")",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\span\\\\|\\\\\\\\\\\\\\\\p>\\\\|<\\\\/span\\\\|</p\\\\|</li\" D:/Github/tarhuala-website/public/js/app.js)",
+      "Bash(python3 *)"
     ]
   }
 }

@@ -400,6 +400,7 @@
      if the script tag has no version (e.g. local file open). */
   var _cbToken = (function(){
     try {
+      if (typeof BUILD_VERSION === 'string') return BUILD_VERSION;
       var s = document.currentScript && document.currentScript.src;
       var m = s && s.match(/[?&]v=([^&]+)/);
       if (m) return m[1];
