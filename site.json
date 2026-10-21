@@ -1,11 +1,11 @@
 {
   "author": "Tarhuala",
-  "tagline": "Dark Fantasy & Apocalyptic Fiction",
-  "bio": "Welcome to Tarhuala — some people get fired, some get transported, some survive worlds they never agreed to, while I still go to a 9-to-5. Pick a novel. Start reading.",
+  "tagline": "Web novels about hostile systems and the people stuck inside them",
+  "bio": "I write web novels about ordinary people dropped into systems that were not built for them. They get fired, or transported somewhere worse, then spend the rest of the story learning the rules before the rules finish them. I still work a nine to five, so updates come when they come.",
   "url": "https://tarhuala.com",
   "seo": {
-    "title": "",
-    "descriptionOverride": "",
-    "ogImage": "/images/og-cover.jpg"
+    "title": "Tarhuala · Horror & System Fiction Web Novels",
+    "descriptionOverride": "Tarhuala writes horror and system-fiction web novels. Six ongoing series, free to read online.",
+    "ogImage": "/images/og-cover.png"
   }
 }

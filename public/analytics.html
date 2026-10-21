@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Analytics — Tarhuala</title>
+  <title>Analytics · Tarhuala</title>
   <meta name="robots" content="noindex, nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css?v=20260429" />
-  <link rel="stylesheet" href="/css/css-additions.css?v=20260429"/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=20261021" />
+  <link rel="stylesheet" href="/css/css-additions.css?v=20261021"/>
 
   <script>
     (function(){
@@ -42,15 +42,13 @@
       color:var(--text-3);text-align:right
     }
 
-    /* KPI grid — primary numbers */
+    /* KPI grid · primary numbers */
     .kpi-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
       gap:1px;margin-bottom:24px;background:var(--line);border:1px solid var(--line)
     }
     .kpi-card{background:var(--bg);padding:18px 16px;position:relative;overflow:hidden}
-    .kpi-card::before{
-      content:'';position:absolute;left:0;right:0;top:0;height:3px;background:var(--acc);opacity:.85
-    }
+    .kpi-card::before{content:none}
     .kpi-label{
       font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.2em;
       text-transform:uppercase;color:var(--text-3);margin-bottom:10px
@@ -184,10 +182,7 @@
       gap:1px;margin-bottom:24px;background:var(--line);border:1px solid var(--line)
     }
     .visitor-kpi-card{background:var(--bg-2,var(--bg));padding:18px 16px;position:relative;overflow:hidden}
-    .visitor-kpi-card::before{
-      content:'';position:absolute;left:0;right:0;top:0;height:3px;
-      background:var(--acc);opacity:.4
-    }
+    .visitor-kpi-card::before{content:none}
 
     /* Reset button */
     .analytics-reset-btn{
@@ -208,9 +203,59 @@
       .novels-table{display:none}
       .novels-mobile{display:flex}
     }
+
+    /* cosmic / rose redesign: soft rounded cards over the token palette.
+       Colours already track the new AA-checked variables; this converts the
+       old 1px-gap block grids into gapped, outlined, rounded cards. ───────── */
+    .kpi-grid,.panel-grid,.highlight,.visitor-kpi-grid,.novels-mobile{
+      background:transparent;border:0;gap:clamp(12px,1.6vw,18px)
+    }
+    .kpi-card,.panel,.highlight-card,.visitor-kpi-card,.novels-mobile-item{
+      background:var(--bg-2);border:1px solid var(--line);
+      border-radius:var(--r-lg);overflow:hidden
+    }
+    .bar-track,.bar-fill{border-radius:var(--r-pill)}
+    .chip,.status-pill,.nv-status,.analytics-reset-btn{border-radius:var(--r-pill)}
+
+    /* Novel code legend */
+    .code-legend{
+      display:flex;flex-wrap:wrap;gap:7px 16px;align-items:baseline;
+      margin:0 0 24px;font-family:var(--f-mono);font-size:10.5px;
+      letter-spacing:.04em;color:var(--text-3);line-height:1.5;
+    }
+    .code-legend-label{text-transform:uppercase;letter-spacing:.2em;font-weight:500;margin-right:2px}
+    .code-legend-item b{color:var(--acc);font-weight:700;margin-right:6px;letter-spacing:.08em}
+
+    /* Admin visibility panel */
+    .vis-note{font-family:var(--f-body);font-size:13.5px;color:var(--text-2);line-height:1.6;margin:0 0 10px}
+    .vis-note code{font-family:var(--f-system);font-size:11px;background:var(--bg-3);color:var(--text);padding:1px 6px;border-radius:5px}
+    .vis-list{list-style:none;display:flex;flex-direction:column;margin:0;padding:0}
+    .vis-row{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line)}
+    .vis-row:last-child{border-bottom:0}
+    .vis-row-main{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+    .vis-row-title{font-family:var(--f-body);font-size:15px;color:var(--text);line-height:1.2}
+    .vis-row-id{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--text-3);text-transform:uppercase}
+    .vis-row-state{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
+    .vis-row.is-overridden .vis-row-state{color:var(--acc)}
+    .vis-switch{position:relative;flex:0 0 auto;width:46px;height:26px}
+    .vis-switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:2}
+    .vis-track{position:absolute;inset:0;border-radius:var(--r-pill);background:var(--bg-3);border:1px solid var(--line-2);transition:background var(--t-fast),border-color var(--t-fast)}
+    .vis-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--text-2);transition:transform var(--t-fast),background var(--t-fast)}
+    .vis-switch input:checked ~ .vis-track{background:var(--acc);border-color:var(--acc)}
+    .vis-switch input:checked ~ .vis-knob{transform:translateX(20px);background:var(--acc-on)}
+    .vis-switch input:focus-visible ~ .vis-track{outline:2px solid var(--acc);outline-offset:3px}
+    .vis-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .vis-btn-primary{color:var(--acc);border-color:var(--acc)}
+    .vis-status{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--acc)}
   </style>
+  <link rel="alternate" type="application/rss+xml" title="Tarhuala" href="/feed.xml"/>
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <meta name="theme-color" content="#0b0c10" media="(prefers-color-scheme: dark)"/>
+  <meta name="theme-color" content="#f3f3f3" media="(prefers-color-scheme: light)"/>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <div class="grain-overlay" aria-hidden="true"></div>
 
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
@@ -229,14 +274,30 @@
     </div>
   </nav>
 
-  <main class="analytics-wrap">
+  <main id="main" tabindex="-1" class="analytics-wrap">
     <header class="analytics-header">
       <div>
         <h1 class="analytics-title">Library Analytics</h1>
         <div class="analytics-subtitle">Content insights for the author</div>
       </div>
-      <div class="analytics-stamp" id="generated-stamp">—</div>
+      <div class="analytics-stamp" id="generated-stamp">·</div>
     </header>
+
+    <!-- Admin · site visibility control -->
+    <div class="section-rule">Site Visibility · Admin</div>
+    <section class="panel full vis-panel" aria-label="Novel visibility control" style="margin-bottom:24px">
+      <div class="panel-head">
+        <div class="panel-title">Which novels appear on the public site</div>
+        <div class="panel-meta"><span id="vis-count">·</span></div>
+      </div>
+      <p class="vis-note">Toggles preview instantly on <strong>this device</strong>. To publish for everyone: press <em>Copy publish config</em>, paste it into <code>public/data/visibility.json</code>, then redeploy.</p>
+      <ul class="vis-list" id="vis-list"><li class="empty-state">Loading novels…</li></ul>
+      <div class="vis-actions">
+        <button class="analytics-reset-btn vis-btn-primary" id="vis-copy" type="button">Copy publish config</button>
+        <button class="analytics-reset-btn" id="vis-reset" type="button">Reset preview</button>
+        <span class="vis-status" id="vis-status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
 
     <!-- Visitor analytics -->
     <div class="section-rule">Visitor Tracking</div>
@@ -244,27 +305,27 @@
     <section class="visitor-kpi-grid" aria-label="Visitor totals" style="margin-top:1px">
       <div class="visitor-kpi-card">
         <div class="kpi-label">Total Visits</div>
-        <div class="kpi-value" id="v-total">—</div>
+        <div class="kpi-value" id="v-total">·</div>
         <div class="kpi-sub">this browser</div>
       </div>
       <div class="visitor-kpi-card">
         <div class="kpi-label">First Visit</div>
-        <div class="kpi-value" id="v-first" style="font-size:16px;padding-top:6px">—</div>
+        <div class="kpi-value" id="v-first" style="font-size:16px;padding-top:6px">·</div>
         <div class="kpi-sub" id="v-first-rel"></div>
       </div>
       <div class="visitor-kpi-card">
         <div class="kpi-label">Last Visit</div>
-        <div class="kpi-value" id="v-last" style="font-size:16px;padding-top:6px">—</div>
+        <div class="kpi-value" id="v-last" style="font-size:16px;padding-top:6px">·</div>
         <div class="kpi-sub" id="v-last-rel"></div>
       </div>
       <div class="visitor-kpi-card">
         <div class="kpi-label">Pages Tracked</div>
-        <div class="kpi-value" id="v-pages">—</div>
+        <div class="kpi-value" id="v-pages">·</div>
         <div class="kpi-sub">unique pages visited</div>
       </div>
       <div class="visitor-kpi-card">
         <div class="kpi-label">Chapters Read</div>
-        <div class="kpi-value" id="v-chapters-read">—</div>
+        <div class="kpi-value" id="v-chapters-read">·</div>
         <div class="kpi-sub">unique chapter reads</div>
       </div>
     </section>
@@ -287,6 +348,8 @@
       </article>
     </section>
 
+    <div class="code-legend" id="code-legend"></div>
+
     <div style="display:flex;justify-content:flex-end;margin-bottom:28px">
       <button class="analytics-reset-btn" id="reset-visitor-btn">Reset visitor data</button>
     </div>
@@ -296,27 +359,27 @@
     <section class="kpi-grid" aria-label="Library totals" style="margin-top:1px">
       <div class="kpi-card">
         <div class="kpi-label">Novels</div>
-        <div class="kpi-value" id="kpi-novels">—</div>
+        <div class="kpi-value" id="kpi-novels">·</div>
         <div class="kpi-sub">published works</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Chapters</div>
-        <div class="kpi-value" id="kpi-chapters">—</div>
+        <div class="kpi-value" id="kpi-chapters">·</div>
         <div class="kpi-sub">across the library</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Words Written</div>
-        <div class="kpi-value" id="kpi-words">—</div>
+        <div class="kpi-value" id="kpi-words">·</div>
         <div class="kpi-sub">all chapters combined</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Avg / Chapter</div>
-        <div class="kpi-value" id="kpi-avg-words">—</div>
+        <div class="kpi-value" id="kpi-avg-words">·</div>
         <div class="kpi-sub">words per chapter</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Avg / Novel</div>
-        <div class="kpi-value" id="kpi-avg-ch">—</div>
+        <div class="kpi-value" id="kpi-avg-ch">·</div>
         <div class="kpi-sub">chapters per novel</div>
       </div>
     </section>
@@ -324,17 +387,17 @@
     <section class="highlight" aria-label="Highlights">
       <article class="highlight-card">
         <div class="panel-title">Longest Chapter</div>
-        <div class="highlight-headline" id="hl-longest">—</div>
+        <div class="highlight-headline" id="hl-longest">·</div>
         <div class="highlight-sub" id="hl-longest-sub"></div>
       </article>
       <article class="highlight-card">
         <div class="panel-title">Most Developed</div>
-        <div class="highlight-headline" id="hl-most">—</div>
+        <div class="highlight-headline" id="hl-most">·</div>
         <div class="highlight-sub" id="hl-most-sub"></div>
       </article>
       <article class="highlight-card">
         <div class="panel-title">Newest Update</div>
-        <div class="highlight-headline" id="hl-newest">—</div>
+        <div class="highlight-headline" id="hl-newest">·</div>
         <div class="highlight-sub" id="hl-newest-sub"></div>
       </article>
       <article class="highlight-card">
@@ -405,7 +468,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand"><span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span><span data-site-name>TARHUALA</span> · System Fiction & Dark Fantasy</div>
+      <div class="footer-brand"><span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span><span data-site-name>TARHUALA</span> · Horror & System Fiction</div>
       <div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="novels.html" class="footer-link">Novels</a><a href="about.html" class="footer-link">About</a></div>
       <div class="footer-meta"><span class="footer-cw">18+ Mature Content</span><br>&copy; <span id="copy-year"></span> <a href="/analytics.html" id="footer-copy" class="footer-analytics-link" tabindex="-1" aria-hidden="true">Tarhuala</a></div>
     </div>
@@ -413,8 +476,8 @@
 
   <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg><use href="#ic-arrow-up"></use></svg></button>
 
-  <script src="/js/chapters_data.js?v=20260429"></script>
-  <script src="/js/app.js?v=20260429"></script>
+  <script src="/js/chapters_data.js?v=20261021"></script>
+  <script src="/js/app.js?v=20261021"></script>
   <script>
     (function(){
       function $(id){ return document.getElementById(id); }
@@ -454,10 +517,56 @@
         try{ return JSON.parse(localStorage.getItem(ANALYTICS_KEY)||'{}'); }catch(e){ return {}; }
       }
       function fmtDate(iso){
-        if (!iso) return '—';
+        if (!iso) return '·';
         var d = new Date(iso);
-        if (isNaN(d.getTime())) return '—';
+        if (isNaN(d.getTime())) return '·';
         return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      }
+
+      /* Friendly labels. Novels use a short unique code (e.g. MWBW, MOTA);
+         chapters are "<CODE> Ch. N". General pages keep readable names. */
+      var NOVEL_TITLES = {};
+      var NOVEL_CODES = {};
+      function titleFor(id){
+        if (!id) return 'Novel';
+        return NOVEL_TITLES[id] || id.replace(/-/g, ' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); });
+      }
+      function initials(t){
+        return String(t || '').split(/\s+/).filter(Boolean)
+          .map(function(w){ return w.charAt(0); }).join('').toUpperCase().slice(0, 6);
+      }
+      function buildCodes(){
+        var used = {};
+        Object.keys(NOVEL_TITLES).sort().forEach(function(id){
+          var base = initials(NOVEL_TITLES[id]) || id.slice(0, 4).toUpperCase();
+          var code = base, i = 2;
+          while (used[code]) { code = base + i; i++; }  // guarantee uniqueness
+          used[code] = 1; NOVEL_CODES[id] = code;
+        });
+      }
+      function codeFor(id){ return NOVEL_CODES[id] || initials(titleFor(id)) || String(id || '').slice(0, 4).toUpperCase(); }
+      function prettyPage(key){
+        key = key || 'index.html';
+        var qi = key.indexOf('?');
+        var path = (qi >= 0 ? key.slice(0, qi) : key);
+        var params = {};
+        (qi >= 0 ? key.slice(qi + 1) : '').split('&').forEach(function(p){
+          var kv = p.split('='); if (kv[0]) params[kv[0]] = decodeURIComponent((kv[1] || '').replace(/\+/g, ' '));
+        });
+        var base = path.replace(/\.html$/i, '').toLowerCase();
+        if (base === '' || base === 'index') return 'Home';
+        if (base === 'about')     return 'About';
+        if (base === 'novels')    return 'All Novels';
+        if (base === 'analytics') return 'Analytics';
+        if (base === '404')       return 'Not Found';
+        if (base === 'novel')     return codeFor(params.id);
+        if (base === 'chapters')  return codeFor(params.id) + ' · Chapters';
+        if (base === 'chapter')   return codeFor(params.id) + (params.ch ? ' Ch. ' + params.ch : '');
+        return path || 'Home';
+      }
+      function prettyChapter(key){
+        var parts = String(key).split(':');
+        return codeFor(parts[0]) + ' Ch. ' + (parts[1] || '?');
       }
 
       function renderVisitor(){
@@ -483,16 +592,12 @@
         var topPages = pageEntries.slice(0, 10);
         var pMax = topPages.length ? topPages[0].count : 1;
         $('v-pages-chart').innerHTML = topPages.length
-          ? topPages.map(function(p){ return renderBar(p.key || 'index.html', p.count, pMax); }).join('')
+          ? topPages.map(function(p){ return renderBar(prettyPage(p.key), p.count, pMax); }).join('')
           : '<div class="empty-state">No visit data yet.</div>';
 
         var chapters = a.chapters || {};
         var chapEntries = Object.keys(chapters).map(function(k){
-          var parts = k.split(':');
-          var novel = parts[0] || '';
-          var num = parts[1] || '';
-          var label = novel.replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) + ' Ch.' + num;
-          return {key:k, label:label, count:chapters[k]};
+          return {key:k, label:prettyChapter(k), count:chapters[k]};
         }).sort(function(a,b){ return b.count - a.count; });
 
         $('v-chapters-read').textContent = fmt(chapEntries.length);
@@ -505,7 +610,21 @@
           : '<div class="empty-state">No chapter read data yet.</div>';
       }
 
-      renderVisitor();
+      // Load novel titles first so page/chapter labels read as titles, then render.
+      fetch('/data/novels.json', { cache: 'no-cache' })
+        .then(function(r){ return r.json(); })
+        .then(function(ns){ (ns || []).forEach(function(n){ NOVEL_TITLES[n.id] = n.title || n.id; }); })
+        .catch(function(){})
+        .then(function(){ buildCodes(); renderVisitor(); renderCodeLegend(); });
+
+      function renderCodeLegend(){
+        var el = document.getElementById('code-legend'); if (!el) return;
+        var ids = Object.keys(NOVEL_CODES);
+        if (!ids.length) { el.innerHTML = ''; return; }
+        el.innerHTML = '<span class="code-legend-label">Codes</span>' + ids.map(function(id){
+          return '<span class="code-legend-item"><b>' + esc(NOVEL_CODES[id]) + '</b>' + esc(NOVEL_TITLES[id] || id) + '</span>';
+        }).join('');
+      }
 
       var resetBtn = $('reset-visitor-btn');
       if (resetBtn) {
@@ -522,7 +641,7 @@
         .then(function(s){ render(s); })
         .catch(function(){
           ['kpi-novels','kpi-chapters','kpi-words','kpi-avg-words','kpi-avg-ch'].forEach(function(id){
-            var el = $(id); if (el) el.textContent = '—';
+            var el = $(id); if (el) el.textContent = '·';
           });
           $('words-chart').innerHTML = '<div class="empty-state">No stats available. Run npm run build.</div>';
           $('ch-chart').innerHTML    = '<div class="empty-state">No stats available.</div>';
@@ -550,27 +669,27 @@
 
         // Highlights
         if (s.longestChapter) {
-          $('hl-longest').textContent = 'Ch.' + s.longestChapter.number + ' — ' + (s.longestChapter.title || '');
+          $('hl-longest').textContent = 'Ch.' + s.longestChapter.number + ' · ' + (s.longestChapter.title || '');
           $('hl-longest-sub').textContent = (s.longestChapter.novel || '') + ' · ' + fmt(s.longestChapter.words) + ' words';
         } else {
-          $('hl-longest').textContent = '—';
+          $('hl-longest').textContent = '·';
         }
 
         var novels = s.novels || [];
 
         var mostCh = novels.slice().sort(function(a,b){ return (b.chapterCount||0)-(a.chapterCount||0); })[0];
         if (mostCh) {
-          $('hl-most').textContent = mostCh.title || '—';
+          $('hl-most').textContent = mostCh.title || '·';
           $('hl-most-sub').textContent = fmt(mostCh.chapterCount) + ' chapters · ' + fmt(mostCh.words) + ' words';
         }
 
         var newest = novels.filter(function(n){ return n.lastUpdated; })
           .sort(function(a,b){ return new Date(b.lastUpdated) - new Date(a.lastUpdated); })[0];
         if (newest) {
-          $('hl-newest').textContent = newest.title || '—';
+          $('hl-newest').textContent = newest.title || '·';
           $('hl-newest-sub').textContent = relTime(newest.lastUpdated);
         } else {
-          $('hl-newest').textContent = '—';
+          $('hl-newest').textContent = '·';
         }
 
         // Status mix
@@ -629,11 +748,11 @@
                 + '<div class="nv-title">' + esc(n.title || n.id) + '</div>'
                 + '<div class="nv-genre">' + esc(n.genre || '') + '</div>'
               + '</td>'
-              + '<td><span class="nv-status">' + esc(n.status || '—') + '</span></td>'
+              + '<td><span class="nv-status">' + esc(n.status || '·') + '</span></td>'
               + '<td class="nv-num">' + fmt(n.chapterCount || 0) + '</td>'
               + '<td class="nv-num">' + fmt(n.words || 0) + '</td>'
               + '<td class="nv-num">' + fmt(n.avgWords || 0) + '</td>'
-              + '<td class="nv-num" style="color:var(--text-3);font-size:11px">' + esc(relTime(n.lastUpdated) || '—') + '</td>'
+              + '<td class="nv-num" style="color:var(--text-3);font-size:11px">' + esc(relTime(n.lastUpdated) || '·') + '</td>'
             + '</tr>';
           }).join('');
 
@@ -644,12 +763,12 @@
                   + '<div class="nv-title">' + esc(n.title || n.id) + '</div>'
                   + '<div class="nv-genre">' + esc(n.genre || '') + '</div>'
                 + '</div>'
-                + '<span class="nv-status">' + esc(n.status || '—') + '</span>'
+                + '<span class="nv-status">' + esc(n.status || '·') + '</span>'
               + '</div>'
               + '<div class="nv-mob-meta">'
                 + '<span>' + fmt(n.chapterCount || 0) + ' ch</span>'
                 + '<span>' + fmt(n.words || 0) + ' w</span>'
-                + '<span>' + esc(relTime(n.lastUpdated) || '—') + '</span>'
+                + '<span>' + esc(relTime(n.lastUpdated) || '·') + '</span>'
               + '</div>'
             + '</div>';
           }).join('');
@@ -657,5 +776,91 @@
       }
     })();
   </script>
+  <script>
+    /* Admin visibility panel: live preview via localStorage, export to publish. */
+    (function(){
+      var VIS = window.TARHUALA_VIS;
+      var listEl = document.getElementById('vis-list');
+      var countEl = document.getElementById('vis-count');
+      var statusEl = document.getElementById('vis-status');
+      if (!listEl || !VIS) return;
+
+      var committed = {};   // id -> committed visible (from novels.json)
+      var titles = {};
+
+      function override(){ return VIS.override(); }
+      function eff(id){ return VIS.eff(id, committed[id]); }
+      function isOverridden(id){
+        var o = override();
+        return Object.prototype.hasOwnProperty.call(o, id) &&
+               (o[id] !== false) !== (committed[id] !== false);
+      }
+      function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+      function render(){
+        var ids = Object.keys(committed);
+        var shown = ids.filter(eff).length;
+        countEl.textContent = shown + ' of ' + ids.length + ' shown';
+        listEl.innerHTML = ids.map(function(id){
+          var on = eff(id), ov = isOverridden(id);
+          return '<li class="vis-row' + (ov ? ' is-overridden' : '') + '">' +
+            '<span class="vis-row-main">' +
+              '<span class="vis-row-title">' + esc(titles[id] || id) + '</span>' +
+              '<span class="vis-row-id">' + esc(id) + '</span>' +
+            '</span>' +
+            '<span class="vis-row-state">' + (on ? 'shown' : 'hidden') + (ov ? ' • preview' : '') + '</span>' +
+            '<label class="vis-switch"><input type="checkbox" data-id="' + esc(id) + '"' + (on ? ' checked' : '') +
+              ' aria-label="Show ' + esc(titles[id] || id) + ' on the public site"/>' +
+              '<span class="vis-track"></span><span class="vis-knob"></span></label>' +
+          '</li>';
+        }).join('');
+        Array.prototype.forEach.call(listEl.querySelectorAll('input[data-id]'), function(inp){
+          inp.addEventListener('change', function(){
+            var o = override();
+            o[this.getAttribute('data-id')] = this.checked;
+            try { localStorage.setItem(VIS.key, JSON.stringify(o)); } catch(e){}
+            statusEl.textContent = 'Previewing on this device';
+            render();
+          });
+        });
+      }
+
+      fetch('/data/novels.json', { cache: 'no-cache' })
+        .then(function(r){ return r.json(); })
+        .then(function(novels){
+          (novels || []).forEach(function(n){
+            committed[n.id] = n.visible !== false;
+            titles[n.id] = n.title || n.id;
+          });
+          render();
+        })
+        .catch(function(){ listEl.innerHTML = '<li class="empty-state">Could not load novels.</li>'; });
+
+      var copyBtn = document.getElementById('vis-copy');
+      if (copyBtn) copyBtn.addEventListener('click', function(){
+        var cfg = {};
+        Object.keys(committed).forEach(function(id){ cfg[id] = eff(id); });
+        var json = JSON.stringify(cfg, null, 2);
+        function done(ok){
+          statusEl.textContent = ok
+            ? 'Copied. Paste into public/data/visibility.json, then redeploy.'
+            : 'Copy failed. Config logged to console.';
+          if (!ok) console.log(json);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(json).then(function(){ done(true); }, function(){ done(false); });
+        } else { done(false); }
+      });
+
+      var resetBtn = document.getElementById('vis-reset');
+      if (resetBtn) resetBtn.addEventListener('click', function(){
+        try { localStorage.removeItem(VIS.key); } catch(e){}
+        statusEl.textContent = 'Preview reset to the published state';
+        render();
+      });
+    })();
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

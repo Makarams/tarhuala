@@ -30,6 +30,20 @@ try { mammoth = require('mammoth'); } catch(e) { mammoth = null; }
 let AdmZip;
 try { AdmZip = require('adm-zip'); } catch(e) { AdmZip = null; }
 
+let Resvg;
+try { Resvg = require('@resvg/resvg-js').Resvg; } catch(e) { Resvg = null; }
+
+// Rasterize an SVG to PNG at a target width. Graceful: if the rasterizer
+// isn't installed, skip (keeps any committed PNG) so the build never breaks.
+function rasterize(svgPath, pngPath, width) {
+  if (!Resvg) return false;
+  try {
+    const r = new Resvg(fs.readFileSync(svgPath), { fitTo: { mode: 'width', value: width } });
+    fs.writeFileSync(pngPath, r.render().asPng());
+    return true;
+  } catch (e) { console.warn('    x rasterize', path.basename(pngPath), e.message); return false; }
+}
+
 const ROOT       = __dirname;
 const NOVELS_DIR = path.join(ROOT, 'novels');
 const PUBLIC     = path.join(ROOT, 'public');
@@ -75,10 +89,26 @@ function resolveExistingCover(novelId) {
   return null;
 }
 
+// Conservative, persistent prose cleanup applied to every converted chapter.
+// Only the high-confidence punctuation tells from CLAUDE.md: em dashes and
+// spaced double hyphens become commas. En dashes are LEFT ALONE (number
+// ranges), and "---" scene-break markers are untouched. Deeper sentence-level
+// AI-tell rewriting is intentionally NOT automated — it needs editorial judg-
+// ment and would risk mangling the author's voice.
+function cleanProse(html) {
+  if (!html) return html;
+  return String(html)
+    .replace(/\s*—\s*/g, ', ')  // em dash -> comma
+    .replace(/ +–+ +/g, ', ')      // spaced en dash (prose aside) -> comma; leaves 3-5 ranges alone
+    .replace(/ -- /g, ', ')          // spaced double hyphen -> comma ("---" scene breaks untouched)
+    .replace(/,\s*,/g, ', ')         // tidy any doubled commas
+    .replace(/ +,/g, ',');           // tidy space-before-comma
+}
+
 async function docxToHtml(docxPath) {
   if (!mammoth) return '';
   try {
-    return (await mammoth.convertToHtml({ path: docxPath })).value || '';
+    return cleanProse((await mammoth.convertToHtml({ path: docxPath })).value || '');
   } catch (e) {
     console.warn('    x mammoth failed:', path.basename(docxPath), e.message);
     return '';
@@ -165,7 +195,7 @@ function buildChapterListFromDisk(novelDataDir) {
     const num = parseInt(fname.match(/chapter-(\d+)\.json/)[1], 10);
     try {
       const ch = JSON.parse(fs.readFileSync(path.join(novelDataDir, fname), 'utf-8'));
-      chapters.push({ number: num, title: ch.title || `Chapter ${num}` });
+      chapters.push({ number: num, title: ch.title || `Chapter ${num}`, words: htmlWordCount(ch.html || ch.content || '') });
     } catch(e) {
       chapters.push({ number: num, title: `Chapter ${num}` });
     }
@@ -244,6 +274,22 @@ async function build() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.mkdirSync(IMG_DIR,  { recursive: true });
 
+  // 0. Rasterize the app-icon PNGs from icon.svg (pure shapes -> deterministic
+  //    on any build machine). og-cover.png is NOT regenerated here: it contains
+  //    text whose rendering depends on installed fonts, so it ships as a
+  //    committed asset. Regenerate it with: node tools/rasterize-og.js
+  if (Resvg) {
+    const icon = path.join(IMG_DIR, 'icon.svg');
+    if (fs.existsSync(icon)) {
+      rasterize(icon, path.join(IMG_DIR, 'icon-512.png'), 512);
+      rasterize(icon, path.join(IMG_DIR, 'icon-192.png'), 192);
+      rasterize(icon, path.join(IMG_DIR, 'apple-touch-icon.png'), 180);
+    }
+    console.log('  ok rasterized app icons');
+  } else {
+    console.log('  (skipped icon rasterize, @resvg/resvg-js not installed)');
+  }
+
   // 1. site.json
   const sitePath = path.join(ROOT, 'site.json');
   let site = { author: '', tagline: '', bio: '', url: '', seo: {} };
@@ -255,6 +301,16 @@ async function build() {
   // We write it again at the end once we know all novel titles.
 
   const novels = [];
+
+  // Admin-controlled publish state. public/data/visibility.json is the committed
+  // source of truth: { "<novel-id>": true|false }. Edited via the analytics page's
+  // "copy publish config" export. Missing/unknown ids default to visible.
+  const VIS_PATH = path.join(DATA_DIR, 'visibility.json');
+  let visibility = {};
+  if (fs.existsSync(VIS_PATH)) {
+    try { visibility = JSON.parse(fs.readFileSync(VIS_PATH, 'utf-8')) || {}; } catch (e) { visibility = {}; }
+  }
+  const isVisible = id => visibility[id] !== false; // default true
 
   // 2. Process novels/ if present
   if (fs.existsSync(NOVELS_DIR)) {
@@ -342,6 +398,18 @@ async function build() {
         sourceNums.add(num);
         const outPath = path.join(novelDataDir, `chapter-${num}.json`);
 
+        // Edited override wins over the .docx/.json source. A hand-rewritten
+        // chapter (novels/<Novel>/edited/chapter-N.html) persists across builds,
+        // and future docx edits never silently clobber it.
+        const editedPath = path.join(novelPath, 'edited', `chapter-${num}.html`);
+        if (fs.existsSync(editedPath)) {
+          const title = (sources.docx && sources.docx.title) || (sources.json && sources.json.title) || `Chapter ${num}`;
+          const html = cleanProse(fs.readFileSync(editedPath, 'utf-8'));
+          fs.writeFileSync(outPath, JSON.stringify({ number: num, title, html }));
+          console.log(`      * edited ch${num}: ${title}`);
+          continue;
+        }
+
         if (sources.docx) {
           // docx wins — always re-process so edits/overwrites are reflected.
           const html = await docxToHtml(path.join(novelPath, sources.docx.filename));
@@ -420,6 +488,7 @@ async function build() {
         rating:      existing.rating      || meta.rating      || 'Mature',
         description: existing.description || meta.description || '',
         theme:       existing.theme       || meta.theme       || 'ember',
+        visible:     isVisible(novelId),
         images:      { cover: coverUrl || (existing.images && existing.images.cover) || '' },
         chapters:    chapterList,
         platforms:   existing.platforms   || meta.platforms   || [],
@@ -436,6 +505,7 @@ async function build() {
         id: info.id, title: info.title, genre: info.genre,
         tags: info.tags, status: info.status, rating: info.rating,
         description: info.description, theme: info.theme,
+        visible: info.visible,
         chapterCount: chapterList.length, images: info.images,
       });
     }
@@ -470,6 +540,7 @@ async function build() {
         id: info.id, title: info.title, genre: info.genre,
         tags: info.tags, status: info.status, rating: info.rating,
         description: info.description, theme: info.theme,
+        visible: isVisible(info.id),
         chapterCount: (info.chapters || []).length, images: info.images,
       });
       console.log('\n  Novel (data-only):', info.title);
@@ -493,6 +564,7 @@ async function build() {
                 id: info.id, title: info.title, genre: info.genre,
                 tags: info.tags, status: info.status, rating: info.rating,
                 description: info.description, theme: info.theme,
+                visible: isVisible(info.id),
                 chapterCount: (info.chapters || []).length, images: info.images,
               });
             } catch(e) { novels.push(n); }
@@ -508,6 +580,14 @@ async function build() {
   // 3. Write public/data/novels.json
   fs.writeFileSync(path.join(DATA_DIR, 'novels.json'), JSON.stringify(novels, null, 2));
   console.log('\n  ok novels.json ->', novels.length, 'novel(s)');
+
+  // 3a. Reconcile + write visibility.json. Keep committed false flags, ensure
+  //     every current novel has an entry (default true), drop stale ids.
+  const reconciledVis = {};
+  for (const n of novels) reconciledVis[n.id] = visibility[n.id] !== false;
+  fs.writeFileSync(VIS_PATH, JSON.stringify(reconciledVis, null, 2));
+  const hiddenCount = novels.filter(n => n.visible === false).length;
+  console.log('  ok visibility.json (' + (novels.length - hiddenCount) + ' shown, ' + hiddenCount + ' hidden)');
 
   // 3b. Sync public/js/novels.json (preserves banner images from the existing file)
   const jsNovelsPath = path.join(PUBLIC, 'js', 'novels.json');
@@ -531,6 +611,7 @@ async function build() {
       rating:       n.rating,
       description:  n.description,
       theme:        n.theme,
+      visible:      n.visible,
       chapterCount: n.chapterCount,
       images: {
         cover:  n.images.cover  || prevImages.cover  || '',
@@ -601,7 +682,7 @@ async function build() {
     ...novelTitles,
     ...novelGenres,
     ...novelTags,
-    'web novel', 'read online free', 'free chapters', 'online reading',
+    'web novels', 'read free online',
   ].filter(Boolean);
   const uniqueKeywords = [...new Set(autoKeywords.map(k => k.toLowerCase()))].join(', ');
 
@@ -610,16 +691,16 @@ async function build() {
     ? novelTitles.join(', ')
     : 'ongoing series';
   const autoDesc = authorName
-    ? `Read ${novelGenres.slice(0,3).join(', ')} web novels by ${authorName}. ${novelList} — free online fiction, updated regularly.`
-    : `${novelList} — free online fiction, updated regularly.`;
+    ? `${authorName} writes ${novelGenres.slice(0,3).join(', ')} web novels. ${novelList}. Free to read online.`
+    : `${novelList}. Free to read online.`;
 
   const seoBlock = Object.assign({}, site.seo || {}, {
     keywords:    uniqueKeywords,
     description: (site.seo && site.seo.descriptionOverride) || autoDesc,
     // title and ogImage kept from site.json if set, auto-generated otherwise
     title: (site.seo && site.seo.title) ||
-           (authorName ? `${authorName} \u2014 ${novelGenres.slice(0,2).join(' & ')} Web Novels | Read Free Online` : 'Web Novels | Read Free Online'),
-    ogImage: (site.seo && site.seo.ogImage) || '/images/og-cover.jpg',
+           (authorName ? `${authorName} \u00b7 ${novelGenres.slice(0,2).join(' & ')} Web Novels` : 'Web Novels'),
+    ogImage: (site.seo && site.seo.ogImage) || '/images/og-cover.png',
   });
 
   const publicSiteJson = {
@@ -641,11 +722,11 @@ async function build() {
   const pageDescriptions = {
     'index.html':    seoBlock.description,
     'novels.html':   authorName
-      ? `Browse all web novels by ${authorName}. ${novelGenres.slice(0,3).join(', ')} fiction — read free online.`
-      : 'Browse all web novels. Read free online.',
+      ? `Every web novel by ${authorName}. ${novelGenres.slice(0,3).join(', ')} fiction, free to read online.`
+      : 'Every web novel, free to read online.',
     'about.html':    authorName
-      ? `About ${authorName} — web fiction author. ${novelGenres.slice(0,2).join(' & ')} novels, updated regularly.`
-      : 'About the author. Web fiction, updated regularly.',
+      ? `About ${authorName}, author of ${novelGenres.slice(0,2).join(' & ')} web novels.`
+      : 'About the author.',
     'novel.html':    seoBlock.description,   // gets replaced dynamically by app.js per novel
     'chapter.html':  seoBlock.description,   // gets replaced dynamically by app.js per chapter
     'chapters.html': seoBlock.description,   // gets replaced dynamically by app.js per novel
@@ -719,7 +800,7 @@ async function build() {
         return {
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: `All Novels — ${authorName}`,
+          name: `All Novels · ${authorName}`,
           url: siteUrl + '/novels.html',
           description: pageDescriptions['novels.html'],
           author: personLD,
@@ -809,6 +890,7 @@ async function build() {
     pushUrl(siteUrl + '/about.html',    'monthly', '0.7');
 
     for (const novel of novels) {
+      if (novel.visible === false) continue; // hidden novels stay out of the sitemap
       pushUrl(`${siteUrl}/novel.html?id=${novel.id}`, 'weekly', '0.9');
       pushUrl(`${siteUrl}/chapters.html?id=${novel.id}`, 'weekly', '0.8');
 
@@ -846,8 +928,53 @@ async function build() {
       `Sitemap: ${siteUrl}/sitemap.xml\n`;
     fs.writeFileSync(path.join(PUBLIC, 'robots.txt'), robots);
     console.log('  ok robots.txt');
+
+    // 3f-2. RSS feed — newest chapters across visible novels, for readers who
+    //       follow updates in a feed reader. Sorted by chapter file mtime.
+    const feedItems = [];
+    for (const novel of novels) {
+      if (novel.visible === false) continue;
+      const novelDataDir = path.join(DATA_DIR, novel.id);
+      if (!fs.existsSync(novelDataDir)) continue;
+      for (const fname of fs.readdirSync(novelDataDir)) {
+        const m = fname.match(/^chapter-(\d+)\.json$/);
+        if (!m) continue;
+        const num = parseInt(m[1], 10);
+        const fpath = path.join(novelDataDir, fname);
+        let chTitle = `Chapter ${num}`;
+        try { const ch = JSON.parse(fs.readFileSync(fpath, 'utf-8')); if (ch.title) chTitle = ch.title; } catch (e) {}
+        feedItems.push({
+          title: `${novel.title} · Chapter ${num}: ${chTitle}`,
+          url: `${siteUrl}/chapter.html?id=${novel.id}&ch=${num}`,
+          date: fs.statSync(fpath).mtime,
+        });
+      }
+    }
+    feedItems.sort((a, b) => b.date - a.date);
+    const recent = feedItems.slice(0, 40);
+    const rss =
+      '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n' +
+      '<channel>\n' +
+      `  <title>${xmlEsc(authorName || 'Tarhuala')}</title>\n` +
+      `  <link>${siteUrl}/</link>\n` +
+      `  <description>${xmlEsc(seoBlock.description || '')}</description>\n` +
+      '  <language>en</language>\n' +
+      `  <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>\n` +
+      (recent[0] ? `  <lastBuildDate>${recent[0].date.toUTCString()}</lastBuildDate>\n` : '') +
+      recent.map(it =>
+        '  <item>\n' +
+        `    <title>${xmlEsc(it.title)}</title>\n` +
+        `    <link>${xmlEsc(it.url)}</link>\n` +
+        `    <guid isPermaLink="true">${xmlEsc(it.url)}</guid>\n` +
+        `    <pubDate>${it.date.toUTCString()}</pubDate>\n` +
+        '  </item>'
+      ).join('\n') +
+      '\n</channel>\n</rss>\n';
+    fs.writeFileSync(path.join(PUBLIC, 'feed.xml'), rss);
+    console.log('  ok feed.xml (' + recent.length + ' items)');
   } else {
-    console.log('  (skipped sitemap — site.url not set)');
+    console.log('  (skipped sitemap + feed — site.url not set)');
   }
 
   // 3g. Site-wide content stats — for the analytics page (author insights).

@@ -11,431 +11,537 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "Year 0, Day 1: \"Auditory hallucination,\" Lucas decided, and blew out his birthday candle.\n\n【INITIATING EARTH MUTATION PROGRAM: PHASE 1】\n\nBy morning, the world had changed and his neighbor was trying to break into his home and kill him.\n\nLucas didn't panic. He had worked since childhood and panic never changed outcomes. He dealt with the neighbor, and by afternoon he had killed enough to trigger a reward notification. He collected the items, noted them, and kept moving. There were still places to reach and supplies didn't wait.\n\n\"So it started,\" he muttered. \"Fine.",
+  "description": "Year 0, Day 1: \"Auditory hallucination,\" Lucas decided, and blew out his birthday candle.\n\n【INITIATING EARTH MUTATION PROGRAM: PHASE 1】\n\nBy morning the world had changed, and his neighbor was trying to break down his door to kill him.\n\nLucas didn't panic. He had worked since he was a kid, and panic never changed an outcome yet. He handled the neighbor. By afternoon he had killed enough to trigger a reward notification, so he collected the drops, logged them, and kept moving. There were places to reach and supplies didn't wait.\n\n\"So it starts,\" he muttered. \"Fine.\"",
   "theme": "ember",
+  "visible": true,
   "images": {
     "cover": "/images/covers/mutation-of-the-apocalypse.svg"
   },
   "chapters": [
     {
       "number": 1,
-      "title": "New Beginning"
+      "title": "New Beginning",
+      "words": 1805
     },
     {
       "number": 2,
-      "title": "A Fresh Start"
+      "title": "A Fresh Start",
+      "words": 2062
     },
     {
       "number": 3,
-      "title": "Clash at the Market"
+      "title": "Clash at the Market",
+      "words": 1566
     },
     {
       "number": 4,
-      "title": "Gathering Supplies"
+      "title": "Gathering Supplies",
+      "words": 1573
     },
     {
       "number": 5,
-      "title": "Triumph in Achievement"
+      "title": "Triumph in Achievement",
+      "words": 1566
     },
     {
       "number": 6,
-      "title": "Unexpected Encounter"
+      "title": "Unexpected Encounter",
+      "words": 1298
     },
     {
       "number": 7,
-      "title": "Lost in Confusion"
+      "title": "Lost in Confusion",
+      "words": 1616
     },
     {
       "number": 8,
-      "title": "Seeking Clarity"
+      "title": "Seeking Clarity",
+      "words": 1518
     },
     {
       "number": 9,
-      "title": "In Pursuit of Insight"
+      "title": "In Pursuit of Insight",
+      "words": 1543
     },
     {
       "number": 10,
-      "title": "Marching Onward"
+      "title": "Marching Onward",
+      "words": 1220
     },
     {
       "number": 11,
-      "title": "Divided Battle"
+      "title": "Divided Battle",
+      "words": 938
     },
     {
       "number": 12,
-      "title": "The Appraisal Magnifier"
+      "title": "The Appraisal Magnifier",
+      "words": 1286
     },
     {
       "number": 13,
-      "title": "Teenage Bravery"
+      "title": "Teenage Bravery",
+      "words": 1492
     },
     {
       "number": 14,
-      "title": "Shadows of Bloodshed"
+      "title": "Shadows of Bloodshed",
+      "words": 1725
     },
     {
       "number": 15,
-      "title": "Frigid Flames"
+      "title": "Frigid Flames",
+      "words": 1433
     },
     {
       "number": 16,
-      "title": "Volatile Frost"
+      "title": "Volatile Frost",
+      "words": 1263
     },
     {
       "number": 17,
-      "title": "Chilled Inferno"
+      "title": "Chilled Inferno",
+      "words": 1551
     },
     {
       "number": 18,
-      "title": "The Small Inn"
+      "title": "The Small Inn",
+      "words": 1546
     },
     {
       "number": 19,
-      "title": "Cannibalistic Desperation"
+      "title": "Cannibalistic Desperation",
+      "words": 1557
     },
     {
       "number": 20,
-      "title": "Shifting Classes"
+      "title": "Shifting Classes",
+      "words": 1479
     },
     {
       "number": 21,
-      "title": "Enigmatic Emblem"
+      "title": "Enigmatic Emblem",
+      "words": 1785
     },
     {
       "number": 22,
-      "title": "The Tiny Mart"
+      "title": "The Tiny Mart",
+      "words": 1455
     },
     {
       "number": 23,
-      "title": "Echoing Footsteps"
+      "title": "Echoing Footsteps",
+      "words": 1654
     },
     {
       "number": 24,
-      "title": "Blood's Trail"
+      "title": "Blood's Trail",
+      "words": 1472
     },
     {
       "number": 25,
-      "title": "Emerald Sphere"
+      "title": "Emerald Sphere",
+      "words": 1616
     },
     {
       "number": 26,
-      "title": "Passing Week"
+      "title": "Passing Week",
+      "words": 1473
     },
     {
       "number": 27,
-      "title": "Gunfire Echo"
+      "title": "Gunfire Echo",
+      "words": 1638
     },
     {
       "number": 28,
-      "title": "Fourfold Struggle"
+      "title": "Fourfold Struggle",
+      "words": 1681
     },
     {
       "number": 29,
-      "title": "The Enigmatic Girl"
+      "title": "The Enigmatic Girl",
+      "words": 1307
     },
     {
       "number": 30,
-      "title": "Her Child"
+      "title": "Her Child",
+      "words": 1676
     },
     {
       "number": 31,
-      "title": "Crimson Sphere"
+      "title": "Crimson Sphere",
+      "words": 1416
     },
     {
       "number": 32,
-      "title": "Silent Firearm"
+      "title": "Silent Firearm",
+      "words": 1496
     },
     {
       "number": 33,
-      "title": "Her Choice"
+      "title": "Her Choice",
+      "words": 1385
     },
     {
       "number": 34,
-      "title": "Alley of Corpses"
+      "title": "Alley of Corpses",
+      "words": 1444
     },
     {
       "number": 35,
-      "title": "Regular Respite"
+      "title": "Regular Respite",
+      "words": 1408
     },
     {
       "number": 36,
-      "title": "Midnight Radiance"
+      "title": "Midnight Radiance",
+      "words": 1550
     },
     {
       "number": 37,
-      "title": "Consuming Flames"
+      "title": "Consuming Flames",
+      "words": 1533
     },
     {
       "number": 38,
-      "title": "Sibling's Sorrow"
+      "title": "Sibling's Sorrow",
+      "words": 1502
     },
     {
       "number": 39,
-      "title": "Novice Slayer"
+      "title": "Novice Slayer",
+      "words": 1462
     },
     {
       "number": 40,
-      "title": "Faculty Quarters"
+      "title": "Faculty Quarters",
+      "words": 1615
     },
     {
       "number": 41,
-      "title": "The Dark Structure"
+      "title": "The Dark Structure",
+      "words": 1753
     },
     {
       "number": 42,
-      "title": "Homeward Bound"
+      "title": "Homeward Bound",
+      "words": 1332
     },
     {
       "number": 43,
-      "title": "Her Perspective"
+      "title": "Her Perspective",
+      "words": 1573
     },
     {
       "number": 44,
-      "title": "Her Conflict"
+      "title": "Her Conflict",
+      "words": 1292
     },
     {
       "number": 45,
-      "title": "Her Blaze Ignites"
+      "title": "Her Blaze Ignites",
+      "words": 1786
     },
     {
       "number": 46,
-      "title": "Evening Meal"
+      "title": "Evening Meal",
+      "words": 1598
     },
     {
       "number": 47,
-      "title": "Tracing the Flame"
+      "title": "Tracing the Flame",
+      "words": 1455
     },
     {
       "number": 48,
-      "title": "Bitter Irony"
+      "title": "Bitter Irony",
+      "words": 1423
     },
     {
       "number": 49,
-      "title": "Erupting Disorder"
+      "title": "Erupting Disorder",
+      "words": 1456
     },
     {
       "number": 50,
-      "title": "Our Own"
+      "title": "Our Own",
+      "words": 1524
     },
     {
       "number": 51,
-      "title": "Dawn's Arrival"
+      "title": "Dawn's Arrival",
+      "words": 1435
     },
     {
       "number": 52,
-      "title": "Sunset Reverie"
+      "title": "Sunset Reverie",
+      "words": 1537
     },
     {
       "number": 53,
-      "title": "Tranquil Slumber"
+      "title": "Tranquil Slumber",
+      "words": 1627
     },
     {
       "number": 54,
-      "title": "Gifted Abilities"
+      "title": "Gifted Abilities",
+      "words": 1593
     },
     {
       "number": 55,
-      "title": "That Monstrous Entity"
+      "title": "That Monstrous Entity",
+      "words": 1539
     },
     {
       "number": 56,
-      "title": "Regal Ascension"
+      "title": "Regal Ascension",
+      "words": 1527
     },
     {
       "number": 57,
-      "title": "Nocturnal Abyss"
+      "title": "Nocturnal Abyss",
+      "words": 1583
     },
     {
       "number": 58,
-      "title": "Passing Month"
+      "title": "Passing Month",
+      "words": 1611
     },
     {
       "number": 59,
-      "title": "Kingly Prowess"
+      "title": "Kingly Prowess",
+      "words": 1511
     },
     {
       "number": 60,
-      "title": "Startling Ambush"
+      "title": "Startling Ambush",
+      "words": 1443
     },
     {
       "number": 61,
-      "title": "Thoroughfare Crossing"
+      "title": "Thoroughfare Crossing",
+      "words": 1759
     },
     {
       "number": 62,
-      "title": "Coinage Expedition"
+      "title": "Coinage Expedition",
+      "words": 1442
     },
     {
       "number": 63,
-      "title": "Protective Shield"
+      "title": "Protective Shield",
+      "words": 1398
     },
     {
       "number": 64,
-      "title": "Weary Thoughts"
+      "title": "Weary Thoughts",
+      "words": 1552
     },
     {
       "number": 65,
-      "title": "The Dawn's Dominion"
+      "title": "The Dawn's Dominion",
+      "words": 1584
     },
     {
       "number": 66,
-      "title": "Our Sanctuary"
+      "title": "Our Sanctuary",
+      "words": 1507
     },
     {
       "number": 67,
-      "title": "The Tearful Cherry"
+      "title": "The Tearful Cherry",
+      "words": 1523
     },
     {
       "number": 68,
-      "title": "Avian Onslaught"
+      "title": "Avian Onslaught",
+      "words": 1662
     },
     {
       "number": 69,
-      "title": "Annoying Neighbor"
+      "title": "Annoying Neighbor",
+      "words": 1550
     },
     {
       "number": 70,
-      "title": "Absence of Respect"
+      "title": "Absence of Respect",
+      "words": 1667
     },
     {
       "number": 71,
-      "title": "Initial Allegiance"
+      "title": "Initial Allegiance",
+      "words": 1676
     },
     {
       "number": 72,
-      "title": "Their Stance"
+      "title": "Their Stance",
+      "words": 1894
     },
     {
       "number": 73,
-      "title": "Unvarnished Reality"
+      "title": "Unvarnished Reality",
+      "words": 1660
     },
     {
       "number": 74,
-      "title": "Innocence Amidst Chaos"
+      "title": "Innocence Amidst Chaos",
+      "words": 1687
     },
     {
       "number": 75,
-      "title": "My Responsibility"
+      "title": "My Responsibility",
+      "words": 1524
     },
     {
       "number": 76,
-      "title": "Unveiling Shadows"
+      "title": "Unveiling Shadows",
+      "words": 1724
     },
     {
       "number": 77,
-      "title": "A Desperate Gamble"
+      "title": "A Desperate Gamble",
+      "words": 1711
     },
     {
       "number": 78,
-      "title": "Echoes of Tragedy"
+      "title": "Echoes of Tragedy",
+      "words": 1537
     },
     {
       "number": 79,
-      "title": "Hope Amidst Despair"
+      "title": "Hope Amidst Despair",
+      "words": 1571
     },
     {
       "number": 80,
-      "title": "Beneath the Surface"
+      "title": "Beneath the Surface",
+      "words": 1752
     },
     {
       "number": 81,
-      "title": "Shattered Illusions"
+      "title": "Shattered Illusions",
+      "words": 1712
     },
     {
       "number": 82,
-      "title": "Veil of Deception"
+      "title": "Veil of Deception",
+      "words": 1625
     },
     {
       "number": 83,
-      "title": "Boundaries of Trust"
+      "title": "Boundaries of Trust",
+      "words": 1547
     },
     {
       "number": 84,
-      "title": "Fading Light"
+      "title": "Fading Light",
+      "words": 1581
     },
     {
       "number": 85,
-      "title": "Terror After Dark"
+      "title": "Terror After Dark",
+      "words": 1699
     },
     {
       "number": 86,
-      "title": "Survival Instincts"
+      "title": "Survival Instincts",
+      "words": 1689
     },
     {
       "number": 87,
-      "title": "Broken Promises"
+      "title": "Broken Promises",
+      "words": 1528
     },
     {
       "number": 88,
-      "title": "Doubtful Arrival"
+      "title": "Doubtful Arrival",
+      "words": 1596
     },
     {
       "number": 89,
-      "title": "Auction Decisions"
+      "title": "Auction Decisions",
+      "words": 1564
     },
     {
       "number": 90,
-      "title": "A Ray of Hope"
+      "title": "A Ray of Hope",
+      "words": 1695
     },
     {
       "number": 91,
-      "title": "Locked in Suspense"
+      "title": "Locked in Suspense",
+      "words": 1581
     },
     {
       "number": 92,
-      "title": "Solace Found"
+      "title": "Solace Found",
+      "words": 2071
     },
     {
       "number": 93,
-      "title": "Winds of Change"
+      "title": "Winds of Change",
+      "words": 1697
     },
     {
       "number": 94,
-      "title": "Heroic Destiny"
+      "title": "Heroic Destiny",
+      "words": 1772
     },
     {
       "number": 95,
-      "title": "A Taste of Luxury"
+      "title": "A Taste of Luxury",
+      "words": 1824
     },
     {
       "number": 96,
-      "title": "The Dreamer"
+      "title": "The Dreamer",
+      "words": 1772
     },
     {
       "number": 97,
-      "title": "False Allegations"
+      "title": "False Allegations",
+      "words": 1605
     },
     {
       "number": 98,
-      "title": "Into the Woods"
+      "title": "Into the Woods",
+      "words": 1640
     },
     {
       "number": 99,
-      "title": "Stolen Dignity"
+      "title": "Stolen Dignity",
+      "words": 1537
     },
     {
       "number": 100,
-      "title": "Dark Horizons"
+      "title": "Dark Horizons",
+      "words": 1512
     },
     {
       "number": 101,
-      "title": "Astonishing Discovery"
+      "title": "Astonishing Discovery",
+      "words": 1645
     },
     {
       "number": 102,
-      "title": "Road to Redemption"
+      "title": "Road to Redemption",
+      "words": 1528
     },
     {
       "number": 103,
-      "title": "Four-Day Grind"
+      "title": "Four-Day Grind",
+      "words": 1573
     },
     {
       "number": 104,
-      "title": "Dual Strikes"
+      "title": "Dual Strikes",
+      "words": 1543
     },
     {
       "number": 105,
-      "title": "Silent Farewell"
+      "title": "Silent Farewell",
+      "words": 1579
     }
   ],
   "platforms": [

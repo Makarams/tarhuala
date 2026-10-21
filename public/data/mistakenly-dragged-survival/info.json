@@ -11,35 +11,42 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "[System Error: Player \"Jiang Wenxu\" assigned to incorrect entry position.]\nDue to a mistake involving a borrowed umbrella and a name tag, Jiang Wenxu was pulled into the Nightmare Game in someone else's place and dropped directly into an S-Rank instance.\n[Survival Probability: NULL.]\nHe cleared it on the first try.\nThe spectator feed went silent for half a second, then exploded.\n\"A newbie cleared S-Rank? Is he a retired god?\"\n\"His heart rate didn't even flicker. He's a monster.\"\nJiang Wenxu had followed what the situation indicated as correct action and moved through it without hesitation. By the time the system registered the outcome, the instance was already over.\n[Instance Clear. Performance: ANOMALOUS.]",
+  "description": "[System Error: Player \"Jiang Wenxu\" assigned to incorrect entry position.]\n\nA borrowed umbrella and a swapped name tag, and Jiang Wenxu got pulled into the Nightmare Game in a stranger's place. The system dropped him straight into an S-Rank instance.\n\n[Survival Probability: NULL.]\n\nHe cleared it on the first try.\n\nThe spectator feed went quiet for half a second, then detonated.\n\n\"A newbie cleared S-Rank? Is he a retired god?\"\n\n\"His heart rate didn't even flicker. He's a monster.\"\n\nJiang Wenxu had just done the correct thing at each step, without hesitating. By the time the system logged the result, the instance was already over.\n\n[Instance Clear. Performance: ANOMALOUS.]",
   "theme": "indigo",
+  "visible": true,
   "images": {
     "cover": "/images/covers/mistakenly-dragged-survival.svg"
   },
   "chapters": [
     {
       "number": 1,
-      "title": "Wrong Umbrella"
+      "title": "Wrong Umbrella",
+      "words": 1915
     },
     {
       "number": 2,
-      "title": "The Bellhaven"
+      "title": "The Bellhaven",
+      "words": 2122
     },
     {
       "number": 3,
-      "title": "Bellhaven Clear"
+      "title": "Bellhaven Clear",
+      "words": 4050
     },
     {
       "number": 4,
-      "title": "Orientation"
+      "title": "Orientation",
+      "words": 2722
     },
     {
       "number": 5,
-      "title": "Vaultline"
+      "title": "Vaultline",
+      "words": 2864
     },
     {
       "number": 6,
-      "title": "Vaultline Clear"
+      "title": "Vaultline Clear",
+      "words": 1719
     }
   ],
   "platforms": [],

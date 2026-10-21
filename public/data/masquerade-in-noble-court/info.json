@@ -11,35 +11,42 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "\"I know this story,\" I told the ceiling. \"Mostly.\"\n\nI woke up as Elena, a count's daughter the novel had already decided to discard. No magic, no position worth remembering, and five months before the family title expired and the story stopped needing her entirely.\n\nThe survival plan was simple: ignore the Crown Prince, ignore the heroine, don't die.\n\nSo I went to the imperial temple for a mana retest. It should have been a formality.\n\n【Water Affinity Confirmed.】\n\nThe priest stopped mid-sentence.\n\nI looked at the crystal again. It still said the same thing.\n\nThis wasn't in the book.\n\n\"Well. That's inconvenient.\"",
+  "description": "\"I know this story,\" I told the ceiling. \"Mostly.\"\n\nI woke up as Elena, a count's daughter the novel had already decided to throw away. No magic, no position worth remembering, five months before the family title lapsed and the story stopped needing her at all.\n\nThe survival plan was simple. Ignore the Crown Prince, ignore the heroine, don't die.\n\nSo I went to the imperial temple for a mana retest. It should have been a formality.\n\n【Water Affinity Confirmed.】\n\nThe priest stopped mid-sentence.\n\nI looked at the crystal again. It still said the same thing.\n\nThis wasn't in the book.\n\n\"Well. That's inconvenient.\"",
   "theme": "ivory",
+  "visible": true,
   "images": {
     "cover": "/images/covers/masquerade-in-noble-court.svg"
   },
   "chapters": [
     {
       "number": 1,
-      "title": "New Life"
+      "title": "New Life",
+      "words": 1567
     },
     {
       "number": 2,
-      "title": "Magic Temple"
+      "title": "Magic Temple",
+      "words": 1562
     },
     {
       "number": 3,
-      "title": "Family Dinner"
+      "title": "Family Dinner",
+      "words": 1522
     },
     {
       "number": 4,
-      "title": "Future Plan"
+      "title": "Future Plan",
+      "words": 1551
     },
     {
       "number": 5,
-      "title": "Imperial Letter"
+      "title": "Imperial Letter",
+      "words": 1525
     },
     {
       "number": 6,
-      "title": "Three Months"
+      "title": "Three Months",
+      "words": 1811
     }
   ],
   "platforms": [],

@@ -8,46 +8,58 @@
    1. TOKENS
    ───────────────────────────────────────────────────────────────────── */
 :root{
-  /* Surfaces — dark default */
-  --ink:        #0a0a0a;
-  --ink-2:      #111111;
-  --ink-3:      #181818;
-  --paper:      #f7f5ef;
+  /* Surfaces — cosmic near-black with a cold cast (dark default) */
+  --ink:        #0b0c10;
+  --ink-2:      #121419;
+  --ink-3:      #1b1e25;
+  --paper:      #f3f3f3;
   --bg:         var(--ink);
   --bg-2:       var(--ink-2);
   --bg-3:       var(--ink-3);
-  --line:       #2a2a2a;
-  --line-2:     #3a3a3a;
-  --rule:       #4a4a4a;
-  --text:       #ececec;
-  --text-2:     #a8a8a8;
-  --text-3:     #6e6e6e;
+  --line:       #2a2e38;
+  --line-2:     #3b404d;
+  --rule:       #5d6578;
+  --text:       #edeef2;
+  --text-2:     #b7bcc8;
+  --text-3:     #8b92a3;
   --on-color:   #ffffff;
-  --overlay:    10,10,10;
+  --overlay:    11,12,16;
 
-  /* Six theme colors — base palette */
-  --jade:    #4aac6a;
-  --jade-2:  #7fd49b;
-  --ember:   #d83a3a;
-  --ember-2: #f06464;
-  --gold:    #d4a83c;
-  --gold-2:  #f0c560;
-  --indigo:  #7a8ce0;
-  --indigo-2:#a5b3f0;
-  --ivory:   #e8dcb4;
-  --ivory-2: #f5ecd0;
-  --cyan:    #2cd4e0;
-  --cyan-2:  #6be4ec;
+  /* Six accents — tuned so each reads as small-label text on the dark base (AA).
+     Verified by tools/contrast-audit.js. */
+  --jade:    #46d07f;
+  --jade-2:  #79e3a4;
+  --ember:   #f0585b;
+  --ember-2: #ff8183;
+  --gold:    #e0b341;
+  --gold-2:  #f2cf6b;
+  --indigo:  #8ea2ff;
+  --indigo-2:#b4c0ff;
+  --ivory:   #d6d6ca;
+  --ivory-2: #eaeae0;
+  --cyan:    #35d6e3;
+  --cyan-2:  #76e6ef;
 
-  /* Active accent (defaults to jade — site signature) */
-  --acc:    var(--jade);
-  --acc-2:  var(--jade-2);
-  --acc-on: #051a0d;
+  /* Active accent (default = ember/crimson — the brand pages; novel pages
+     override via data-novel-theme). acc-on is theme-aware (see below). */
+  --acc:    var(--ember);
+  --acc-2:  var(--ember-2);
+  --acc-on: #0b0c10;   /* dark ink reads on every luminous dark-theme accent */
 
-  /* Type */
-  --f-display:'Cinzel','Trajan Pro',Georgia,serif;
-  --f-body:   'EB Garamond','Crimson Text',Georgia,'Times New Roman',serif;
-  --f-mono:   'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace;
+  /* Shape — soft containers over a hairline-brutalist skeleton */
+  --r-sm:   6px;
+  --r:      12px;
+  --r-lg:   20px;
+  --r-xl:   30px;
+  --r-pill: 999px;
+
+  /* Type — pulp genre press: slammed-ink condensed display, condensed-sans
+     labels, workhorse serif for reading. Monospace survives only inside the
+     LitRPG system panels (--f-system). */
+  --f-display:'Anton','Haettenschweiler','Arial Narrow',Impact,sans-serif;
+  --f-body:   'Lora','Georgia','Times New Roman',serif;
+  --f-mono:   'Barlow Condensed','Oswald','Arial Narrow',sans-serif;
+  --f-system: 'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace;
 
   /* Type scale — editorial, large */
   --t-d1: clamp(64px,12vw,180px);
@@ -74,45 +86,49 @@
   --reader-font-size: 20px;
 }
 
-/* Light — pure white architecture */
+/* Light — hue-neutral paper gray (no blue, no beige); lets the per-novel
+   accents, especially the ember "Latest Release", read cleanly. */
 [data-theme="light"]{
-  --bg:         #ffffff;
-  --bg-2:       #f7f7f7;
-  --bg-3:       #ededed;
-  --line:       #e2e2e2;
-  --line-2:     #c8c8c8;
-  --rule:       #6a6a6a;
-  --text:       #0a0a0a;
-  --text-2:     #404040;
-  --text-3:     #7a7a7a;
-  --overlay:    255,255,255;
+  --bg:         #f3f3f3;
+  --bg-2:       #e9e9e9;
+  --bg-3:       #dddddd;
+  --line:       #d7d7d7;
+  --line-2:     #c3c3c3;
+  --rule:       #808080;
+  --text:       #171719;
+  --text-2:     #454548;
+  --text-3:     #5d5d61;
+  --overlay:    243,243,243;
 
-  /* Theme colors — slightly tuned for white */
+  /* Accents darkened so each reads as small-label text on the ash base (AA).
+     The -2 variants stay dark enough to carry light text on hover fills. */
   --jade:    #0e6b32;
-  --jade-2:  #16864a;
-  --ember:   #b41818;
-  --ember-2: #d62828;
+  --jade-2:  #0c592a;
+  --ember:   #b11a1f;
+  --ember-2: #8f1317;
   --gold:    #8a5e0c;
-  --gold-2:  #b07e10;
-  --indigo:  #2f3da8;
-  --indigo-2:#4a5cc8;
-  --ivory:   #6b5320;
-  --ivory-2: #8a6c2c;
-  --cyan:    #007088;
-  --cyan-2:  #008ca0;
+  --gold-2:  #6f4b09;
+  --indigo:  #3a3fb0;
+  --indigo-2:#2d3290;
+  --ivory:   #585750;
+  --ivory-2: #434239;
+  --cyan:    #046277;
+  --cyan-2:  #034d5e;
 
-  --acc:    var(--jade);
-  --acc-2:  var(--jade-2);
-  --acc-on: #ffffff;
+  --acc:    var(--ember);
+  --acc-2:  var(--ember-2);
+  --acc-on: #f3f3f9;   /* cool-light ink reads on every dark light-theme accent */
 }
 
-/* Per-novel theme switchers — sets active accent for cascade */
-[data-accent="ember"],[data-novel-theme="ember"],[data-novel-theme="red"]{--acc:var(--ember);--acc-2:var(--ember-2);--acc-on:#fff}
-[data-accent="jade"],[data-novel-theme="jade"],[data-novel-theme="green"]{--acc:var(--jade);--acc-2:var(--jade-2);--acc-on:#fff}
-[data-accent="gold"],[data-novel-theme="gold"]{--acc:var(--gold);--acc-2:var(--gold-2);--acc-on:#1a1100}
-[data-accent="indigo"],[data-novel-theme="indigo"],[data-novel-theme="blue"]{--acc:var(--indigo);--acc-2:var(--indigo-2);--acc-on:#fff}
-[data-accent="ivory"],[data-novel-theme="ivory"]{--acc:var(--ivory);--acc-2:var(--ivory-2);--acc-on:#1a1500}
-[data-accent="cyan"],[data-novel-theme="cyan"]{--acc:var(--cyan);--acc-2:var(--cyan-2);--acc-on:#021a1d}
+/* Per-novel theme switchers — set the active accent only; acc-on stays
+   theme-aware (dark ink in dark mode, bone ink in light mode) so filled
+   controls keep AA contrast when the theme flips. */
+[data-accent="ember"],[data-novel-theme="ember"],[data-novel-theme="red"]{--acc:var(--ember);--acc-2:var(--ember-2)}
+[data-accent="jade"],[data-novel-theme="jade"],[data-novel-theme="green"]{--acc:var(--jade);--acc-2:var(--jade-2)}
+[data-accent="gold"],[data-novel-theme="gold"]{--acc:var(--gold);--acc-2:var(--gold-2)}
+[data-accent="indigo"],[data-novel-theme="indigo"],[data-novel-theme="blue"]{--acc:var(--indigo);--acc-2:var(--indigo-2)}
+[data-accent="ivory"],[data-novel-theme="ivory"]{--acc:var(--ivory);--acc-2:var(--ivory-2)}
+[data-accent="cyan"],[data-novel-theme="cyan"]{--acc:var(--cyan);--acc-2:var(--cyan-2)}
 
 /* ─────────────────────────────────────────────────────────────────────
    2. RESET
@@ -373,8 +389,8 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
 }
 .home-hero-title::after{
   content:'';display:block;
-  width:120px;height:8px;background:var(--acc);
-  margin-top:36px;
+  width:132px;height:4px;margin-top:34px;
+  background:linear-gradient(90deg,var(--acc),transparent);
 }
 .home-hero-tagline{
   font-family:var(--f-body);
@@ -412,7 +428,8 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
    ───────────────────────────────────────────────────────────────────── */
 .featured-hero{
   position:relative;overflow:hidden;
-  background:var(--bg);
+  background:var(--bg-2);
+  border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
   isolation:isolate;
 }
@@ -480,9 +497,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   letter-spacing:.22em;text-transform:uppercase;
   color:var(--acc);opacity:.92;
 }
-.featured-hero-badge::before{
-  content:'';width:24px;height:1.5px;background:var(--acc);flex-shrink:0;
-}
+.featured-hero-badge::before{content:none}  /* redundant: the badge already carries a rose emblem */
 .featured-hero-emblem{
   display:inline-flex;width:14px;height:14px;color:var(--acc);
   align-items:center;justify-content:center;
@@ -585,15 +600,12 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   background:var(--bg);
   position:relative;
 }
-.novel-card-body::before{
-  content:'';position:absolute;left:22px;top:0;
-  width:48px;height:3px;background:var(--acc);
-}
+.novel-card-body::before{content:none}  /* card accent bar removed; hierarchy via border + genre colour */
 .novel-card-genre{
   font-family:var(--f-mono);font-size:10px;
   text-transform:uppercase;letter-spacing:.18em;
   color:var(--acc);font-weight:500;
-  margin-top:14px;
+  margin-top:0;
 }
 .novel-card-title{
   font-family:var(--f-display);font-weight:700;
@@ -989,7 +1001,7 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   margin-bottom:18px;
   display:inline-flex;align-items:center;gap:14px;
 }
-.chapter-num-label::before{content:'';width:36px;height:1.5px;background:var(--acc)}
+.chapter-num-label::before{content:none}  /* clean accent label, no leading rule */
 .chapter-title{
   font-family:var(--f-display);font-weight:900;
   font-size:clamp(32px,4.6vw,52px);line-height:1.02;letter-spacing:-.02em;
@@ -1432,7 +1444,11 @@ h1,h2,h3,h4,h5{font-family:var(--f-display);font-weight:700;line-height:1.02;let
   color:var(--acc);margin-bottom:18px;
   display:inline-flex;align-items:center;gap:10px;
 }
-.about-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--acc)}
+.about-eyebrow::before{
+  content:'';width:13px;height:13px;background:var(--acc);
+  -webkit-mask:var(--rose-mask) center/contain no-repeat;
+          mask:var(--rose-mask) center/contain no-repeat;
+}
 .about-eyebrow.no-mark::before{display:none}
 .about-heading{
   font-family:var(--f-display);font-weight:900;
@@ -1858,10 +1874,10 @@ a.footer-analytics-link:hover{color:inherit}
 /* Light mode: banners are dark SVGs that vanish against white. Invert their
    luminance and bump opacity so the artwork stays visible against a light page
    without overpowering foreground text. */
-[data-theme="light"] .featured-hero-bg{opacity:.55;filter:invert(1) hue-rotate(180deg) saturate(.85)}
-[data-theme="light"] .novel-hero-bg{opacity:.55;filter:invert(1) hue-rotate(180deg) saturate(.85)}
+[data-theme="light"] .featured-hero-bg{opacity:.4;filter:invert(1) grayscale(1)}
+[data-theme="light"] .novel-hero-bg{opacity:.42;filter:invert(1) grayscale(1)}
 [data-theme="light"] .home-hero-bg img,
-[data-theme="light"] .novels-hero-bg img{filter:invert(1) hue-rotate(180deg) saturate(.85)}
+[data-theme="light"] .novels-hero-bg img{filter:invert(1) grayscale(1)}
 [data-theme="light"] .back-to-top{box-shadow:0 1px 4px rgba(0,0,0,.06)}
 [data-theme="light"] .sys-toast{background:#fafafa}
 [data-theme="light"] .status-screen{background:#fafafa}
@@ -1882,3 +1898,251 @@ a.footer-analytics-link:hover{color:inherit}
   }
   .reveal{opacity:1 !important;transform:none !important}
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   23. COSMIC + ROSE MOTIF  —  occult botanical dossier
+   Soft containers over a hairline-brutalist skeleton; the rose returns as
+   the recurring brand seal; eldritch line-art fills the quiet margins.
+   Everything decorative is aria-hidden, pointer-events:none, accent-tinted,
+   and killed under prefers-reduced-motion by section 22.
+   ───────────────────────────────────────────────────────────────────── */
+
+:root{
+  /* One rose glyph, reused as a mask for ticks + spinners (recolours with accent) */
+  --rose-mask:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cg%20fill='black'%3E%3Cpath%20d='M12%202c2.6%201%202.6%205%200%207-2.6-2-2.6-6%200-7z'/%3E%3Cpath%20d='M22%2012c-1%202.6-5%202.6-7%200%202-2.6%206-2.6%207%200z'/%3E%3Cpath%20d='M12%2022c-2.6-1-2.6-5%200-7%202.6%202%202.6%206%200%207z'/%3E%3Cpath%20d='M2%2012c1-2.6%205-2.6%207%200-2%202.6-6%202.6-7%200z'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='2.3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* No film grain — atmosphere comes from intentional line-art, not noise. */
+.grain-overlay{display:none}
+
+/* Skip-to-content link — visible only on keyboard focus */
+.skip-link{
+  position:fixed;top:-64px;left:12px;z-index:400;
+  background:var(--acc);color:var(--acc-on);
+  padding:10px 16px;border-radius:var(--r);
+  font-family:var(--f-mono);font-size:12px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  transition:top var(--t-fast);
+}
+.skip-link:focus{top:12px}
+
+/* ---- shape: soft containers, hairline structure --------------------- */
+.btn,.sort-btn,.rsp-btn,.rsp-toggle,.platform-link,.pill,.tag,
+.rarity,.rarity-chip{border-radius:var(--r-pill)}
+.icon-btn,.nav-toggle{border-radius:var(--r)}
+.back-to-top{border-radius:var(--r-pill)}
+.novel-card,.voice-card,.cw-box,.status-screen,.sys-toast,
+.reader-settings-panel,.about-six-banner-frame,.novel-cover-frame,
+.novel-detail-cover,.novel-list-cover-wrap,.featured-hero-cover,
+.featured-hero-cover img,.novel-card-cover img,.chapter-banner-wrap,
+.novel-banner-section{border-radius:var(--r-lg)}
+/* turn the 1px-gap block grids into gapped, rounded, outlined cards */
+.novels-grid,.voices-grid{background:transparent;border:0;gap:clamp(14px,2vw,22px)}
+.novel-card{border:1px solid var(--line);overflow:hidden}
+.voice-card{border:1px solid var(--line);overflow:hidden}
+.novel-card:hover,.voice-card:hover{border-color:var(--acc)}
+
+/* status / rating pills sit OVER the cover art, so they can't use the theme
+   text colour (dark-on-dark cover in light mode = invisible). Give them a
+   self-contained dark scrim + fixed light ink that reads over any cover in
+   both themes. */
+.novel-card-badges{gap:7px}
+.novel-card-badges .pill{
+  background:rgba(8,9,12,.82);
+  color:#f4f1e9;
+  border-color:rgba(244,241,233,.28);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+}
+.novel-card-badges .pill-rating{color:#ff8a8c;border-color:rgba(255,138,140,.5)}
+
+/* About page — round the big portrait + covers, add a quiet rose-vine flourish */
+.author-frame.large,.about-novel-cover,.aah-portrait{border-radius:var(--r-lg);overflow:hidden}
+.about-author-text{position:relative}
+.about-vine{
+  position:absolute;top:calc(var(--nav-h) + 24px);right:clamp(10px,2.5vw,28px);
+  width:clamp(38px,6vw,66px);aspect-ratio:48/96;
+  color:var(--acc);opacity:.17;pointer-events:none;z-index:0;
+}
+.about-vine svg{width:100%;height:100%;display:block}
+@media(max-width:900px){.about-vine{display:none}}
+
+/* ---- the rose, restored and promoted to brand seal ------------------ */
+.kb-rose{display:inline-flex}
+.nav-emblem{display:flex;color:var(--acc)}
+.nav-brand{gap:12px}
+.footer-brand{gap:10px}
+.footer-brand .kb-rose{color:var(--acc)}
+.kb-corner{display:none}            /* hard brackets fight the rounded shapes */
+.featured-hero-ornament,
+.novels-hero-rose,.novel-hero-rose{display:none}  /* old spinning medallions stay retired */
+
+/* every section kicker carries a tiny accent rose instead of a plain dash */
+.eyebrow::before{
+  content:'';width:13px;height:13px;background:var(--acc);
+  -webkit-mask:var(--rose-mask) center/contain no-repeat;
+          mask:var(--rose-mask) center/contain no-repeat;
+}
+
+/* scene break = rose-and-thorn mark in the accent, not a typographic rule */
+.chapter-ornament{display:flex}
+.chapter-end-footer{display:flex}
+.scene-break{display:flex;opacity:1;color:var(--acc)}
+.scene-break svg{display:inline-block;width:22px;height:22px}
+
+/* loading states bloom a slowly-turning rose */
+.chapter-loading::before,.novel-card-latest.is-loading::before{
+  content:'';display:inline-block;width:1em;height:1em;
+  margin-right:.5em;vertical-align:-.14em;background:currentColor;
+  -webkit-mask:var(--rose-mask) center/contain no-repeat;
+          mask:var(--rose-mask) center/contain no-repeat;
+  animation:rose-spin 2.6s linear infinite;
+}
+
+/* ---- playful interactions ------------------------------------------- */
+.btn .kb-rose,.featured-hero-cta .kb-rose{transition:transform var(--t-med)}
+.btn:hover .kb-rose,.featured-hero-cta:hover .kb-rose{transform:rotate(90deg) scale(1.16)}
+.footer-link{position:relative;padding-bottom:3px}
+.footer-link::after{
+  content:'';position:absolute;left:0;bottom:-1px;width:100%;height:1.5px;
+  background:var(--acc);transform:scaleX(0);transform-origin:left;
+  transition:transform var(--t-fast);
+}
+.footer-link:hover::after{transform:scaleX(1)}
+
+/* ---- cosmic decorative layer -------------------------------------------
+   Line-art marks in the margins + a mascot footer flourish. Dark mode gets
+   EQUAL-OR-HIGHER opacity than light (accents read dimmer on near-black), so
+   nothing disappears on dark. All marks aria-hidden + pointer-events:none. */
+.deco{position:absolute;pointer-events:none;color:var(--acc);z-index:0;line-height:0}
+.deco svg{width:100%;height:100%;display:block}
+
+/* hero backdrop: a big drifting sigil + a tentacle curling up from a corner */
+.hero-sigil{
+  position:absolute;top:-6%;right:-7%;
+  width:min(52vw,540px);aspect-ratio:1;
+  color:var(--acc);opacity:.13;z-index:0;
+  animation:drift 32s ease-in-out infinite;
+}
+.hero-tentacle{
+  position:absolute;left:-3%;bottom:-8%;
+  width:min(28vw,260px);aspect-ratio:1;
+  color:var(--acc);opacity:.16;z-index:0;
+  transform:rotate(-10deg);
+  animation:float-slow 13s ease-in-out infinite;
+}
+[data-theme="light"] .hero-sigil{opacity:.1}
+[data-theme="light"] .hero-tentacle{opacity:.14}
+.home-hero,.novels-hero{position:relative;overflow:hidden}
+.home-hero-content,.novels-hero-content{position:relative;z-index:2}
+
+/* tentacle easing out of the home works-section corner */
+.novels-section{position:relative;overflow:hidden}
+.novels-section-inner{position:relative;z-index:1}
+.section-tentacle{
+  position:absolute;right:-18px;top:-30px;
+  width:clamp(64px,10vw,130px);aspect-ratio:1;
+  color:var(--acc);opacity:.17;z-index:0;
+  transform:scaleX(-1) rotate(10deg);
+  animation:float-slow 15s ease-in-out infinite;
+}
+[data-theme="light"] .section-tentacle{opacity:.15}
+
+/* footer flourish: vine · familiar · vine, centered in its own row */
+.site-footer{position:relative}
+.footer-inner{position:relative;z-index:1}
+.footer-flourish{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(12px,3vw,26px);
+  max-width:var(--shell);margin:0 auto;
+  padding:0 var(--gutter) 30px;color:var(--acc);
+}
+.ff-vine{flex:1 1 0;max-width:220px;height:16px;opacity:.5}
+.ff-vine svg{width:100%;height:100%;display:block}
+.ff-vine-r svg{transform:scaleX(-1)}
+.ff-creature{
+  flex:0 0 auto;width:clamp(44px,7vw,60px);aspect-ratio:1;opacity:.82;
+  animation:float-slow 7s ease-in-out infinite;
+}
+.ff-creature svg{width:100%;height:100%;display:block}
+[data-theme="light"] .ff-vine{opacity:.6}
+[data-theme="light"] .ff-creature{opacity:.9}
+
+/* little eye peeking from a novel card corner (over the cover art, so it uses
+   fixed light ink + a dark halo to stay crisp over any cover in both themes) */
+.card-mark{
+  position:absolute;top:12px;right:12px;z-index:3;
+  width:clamp(20px,4.5vw,26px);aspect-ratio:1;
+  color:#f4f1e9;pointer-events:none;
+  filter:drop-shadow(0 0 1px rgba(0,0,0,.85)) drop-shadow(0 1px 2px rgba(0,0,0,.5));
+}
+.card-mark svg{width:100%;height:100%;display:block;transform-origin:center;animation:blink 7s ease-in-out infinite}
+.novel-card:hover .card-mark{color:var(--acc-2)}
+
+/* catalog rows (novels page) get their rose back, sitting behind the content */
+.novel-list-rose{
+  display:block;position:absolute;top:50%;right:clamp(0px,2vw,18px);
+  transform:translateY(-50%);
+  width:clamp(30px,5vw,56px);aspect-ratio:1;
+  color:var(--acc);opacity:.26;z-index:0;pointer-events:none;
+  transition:opacity var(--t-med),transform var(--t-med);
+}
+.novel-list-rose svg{width:100%;height:100%;display:block}
+.novel-list-item:hover .novel-list-rose{opacity:.5;transform:translateY(-50%) rotate(45deg)}
+
+/* empty-state + 404 creatures (full-strength features, not whispers) */
+.state-creature{
+  display:block;
+  width:clamp(84px,16vw,150px);aspect-ratio:1;
+  color:var(--acc);opacity:.85;margin:0 auto 20px;
+  animation:float-slow 6s ease-in-out infinite;
+}
+.state-creature svg{width:100%;height:100%;display:block}
+
+/* responsive: shed the heavy background marks on small screens */
+@media(max-width:760px){
+  .hero-tentacle,.section-tentacle,.novel-list-rose{display:none}
+  .ff-vine{max-width:72px}
+  .card-mark{top:10px;right:10px}
+}
+@media(max-width:460px){ .ff-vine{display:none} }
+
+/* ---- reader upgrades: reading time + scroll progress ---------------- */
+.ch-link{grid-template-columns:64px 1fr auto auto}
+.ch-mins{
+  font-family:var(--f-mono);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);
+  white-space:nowrap;
+}
+.read-progress{
+  position:fixed;top:var(--nav-h);left:0;right:0;height:3px;
+  z-index:190;pointer-events:none;background:transparent;
+}
+.read-progress-fill{
+  display:block;height:100%;width:100%;
+  transform:scaleX(0);transform-origin:left;
+  background:var(--acc);transition:transform .08s linear;
+}
+@media(max-width:760px){
+  .ch-link{grid-template-columns:46px 1fr auto}
+  .ch-mins{display:none}
+}
+
+/* ---- keyframes (disabled under prefers-reduced-motion, section 22) --- */
+@keyframes rose-spin{to{transform:rotate(360deg)}}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(8deg)}}
+@keyframes float-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.12)}}
+
+/* LitRPG / System panels stay monospace — the one place a terminal face
+   earns its keep. Scoped and forced so inner declarations can't leak the
+   condensed-sans chrome font into a status readout. */
+.sys-toast, .sys-toast *,
+.sys-group, .sys-group *,
+.status-screen, .status-screen *,
+.sys-box,
+.broadcast-line,
+.rarity, .rarity-chip,
+.chapter-loading{font-family:var(--f-system) !important}
+
+/* status panels round off too, but keep their colored top-edge */
+.status-screen,.sys-toast{border-radius:var(--r)}

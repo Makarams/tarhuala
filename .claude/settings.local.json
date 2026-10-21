@@ -45,7 +45,11 @@
       "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/mistakenly-dragged-survival/chapter-1.json\")",
       "Bash(grep -o '.\\\\{0,50\\\\}[—–]\\\\{1\\\\}.\\\\{0,50\\\\}' \"D:/Github/tarhuala-website/public/data/monarch-of-depravity/chapter-1.json\")",
       "Bash(grep -n \"\\\\\\\\\\\\\\\\span\\\\|\\\\\\\\\\\\\\\\p>\\\\|<\\\\/span\\\\|</p\\\\|</li\" D:/Github/tarhuala-website/public/js/app.js)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(awk '{print $2}')",
+      "Bash(grep *)",
+      "Bash(echo \"restored, exit $?\")",
+      "Bash(timeout 120 npm install --no-audit --no-fund @resvg/resvg-js)"
     ]
   }
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="ember">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Lost · Tarhuala</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=20261021" />
+  <link rel="stylesheet" href="/css/css-additions.css?v=20261021" />
+  <script>
+    (function(){
+      try{
+        var s=localStorage.getItem('tarhuala-theme');
+        var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+        document.documentElement.setAttribute('data-theme',s||(pd?'dark':'light'));
+      }catch(e){}
+    })();
+  </script>
+  <style>
+    .nf-main{
+      min-height:calc(100vh - var(--nav-h));
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:calc(var(--nav-h) + 48px) var(--gutter) 80px;
+      max-width:var(--read);margin:0 auto;
+    }
+    .nf-code{
+      font-family:var(--f-display);font-size:clamp(88px,22vw,200px);
+      line-height:.9;letter-spacing:-.03em;color:var(--text);text-transform:uppercase;
+    }
+    .nf-eyebrow{color:var(--acc);margin-bottom:28px}
+    .nf-msg{
+      font-family:var(--f-body);font-size:clamp(17px,2.2vw,20px);
+      color:var(--text-2);line-height:1.7;margin:18px 0 36px;max-width:46ch;
+    }
+    .nf-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  </style>
+  <link rel="alternate" type="application/rss+xml" title="Tarhuala" href="/feed.xml"/>
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <meta name="theme-color" content="#0b0c10" media="(prefers-color-scheme: dark)"/>
+  <meta name="theme-color" content="#f3f3f3" media="(prefers-color-scheme: light)"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <a href="/index.html" class="nav-brand">
+      <span class="nav-emblem" aria-hidden="true"><svg><use href="#kb-rose"></use></svg></span>
+      <span data-site-name>TARHUALA</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/novels.html" class="nav-link">Novels</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><span data-theme-icon></span></button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1" class="nf-main">
+    <div class="state-creature" aria-hidden="true"><svg><use href="#kb-familiar"></use></svg></div>
+    <div class="nf-eyebrow eyebrow">Off the edge of the map</div>
+    <h1 class="nf-code">404</h1>
+    <p class="nf-msg">Whatever lived at this address has moved on, or was never meant to be found. The page is gone. Something is probably watching you read this.</p>
+    <div class="nf-cta">
+      <a href="/novels.html" class="btn btn-primary">Browse Novels <span class="kb-rose"><svg><use href="#kb-rose"></use></svg></span></a>
+      <a href="/index.html" class="btn btn-ghost">Back to safety</a>
+    </div>
+  </main>
+
+  <script src="/js/chapters_data.js?v=20261021"></script>
+  <script src="/js/app.js?v=20261021"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

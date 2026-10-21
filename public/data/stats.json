@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-29T15:16:46.223Z",
+  "generatedAt": "2026-10-21T09:09:18.862Z",
   "totalNovels": 6,
   "totalChapters": 135,
-  "totalWords": 223935,
-  "avgWordsPerChapter": 1659,
+  "totalWords": 221450,
+  "avgWordsPerChapter": 1640,
   "avgChaptersPerNovel": 22.5,
   "longestChapter": {
     "novel": "Mistakenly Dragged Survival",
     "novelId": "mistakenly-dragged-survival",
     "number": 3,
     "title": "Bellhaven Clear",
-    "words": 4168
+    "words": 4050
   },
   "novels": [
     {
@@ -27,39 +27,39 @@
       "status": "Ongoing",
       "theme": "cyan",
       "chapterCount": 6,
-      "words": 11839,
-      "avgWords": 1973,
-      "lastUpdated": "2026-04-29T15:16:41.709Z",
+      "words": 11944,
+      "avgWords": 1991,
+      "lastUpdated": "2026-10-21T09:09:12.658Z",
       "chapters": [
         {
           "number": 1,
           "title": "Ball of Light",
-          "words": 2126
+          "words": 2236
         },
         {
           "number": 2,
           "title": "First Interview",
-          "words": 1363
+          "words": 1690
         },
         {
           "number": 3,
           "title": "Friday",
-          "words": 1830
+          "words": 1807
         },
         {
           "number": 4,
           "title": "Monday",
-          "words": 2224
+          "words": 2099
         },
         {
           "number": 5,
           "title": "Rotifers",
-          "words": 2075
+          "words": 1982
         },
         {
           "number": 6,
           "title": "Daphnia",
-          "words": 2221
+          "words": 2130
         }
       ]
     },
@@ -77,39 +77,39 @@
       "status": "Ongoing",
       "theme": "jade",
       "chapterCount": 6,
-      "words": 11664,
-      "avgWords": 1944,
-      "lastUpdated": "2026-04-29T15:16:41.786Z",
+      "words": 9548,
+      "avgWords": 1591,
+      "lastUpdated": "2026-10-21T09:09:12.718Z",
       "chapters": [
         {
           "number": 1,
           "title": "Where Am I",
-          "words": 2026
+          "words": 1510
         },
         {
           "number": 2,
           "title": "First Contact",
-          "words": 1557
+          "words": 1529
         },
         {
           "number": 3,
           "title": "Into the Forest",
-          "words": 2049
+          "words": 1525
         },
         {
           "number": 4,
           "title": "First Night",
-          "words": 2194
+          "words": 1646
         },
         {
           "number": 5,
           "title": "Daybreak",
-          "words": 2094
+          "words": 1782
         },
         {
           "number": 6,
           "title": "Weight the Odds",
-          "words": 1744
+          "words": 1556
         }
       ]
     },
@@ -127,39 +127,39 @@
       "status": "Ongoing",
       "theme": "ivory",
       "chapterCount": 6,
-      "words": 10059,
-      "avgWords": 1677,
-      "lastUpdated": "2026-04-29T15:16:41.847Z",
+      "words": 9538,
+      "avgWords": 1590,
+      "lastUpdated": "2026-10-21T09:09:12.756Z",
       "chapters": [
         {
           "number": 1,
           "title": "New Life",
-          "words": 1531
+          "words": 1567
         },
         {
           "number": 2,
           "title": "Magic Temple",
-          "words": 1674
+          "words": 1562
         },
         {
           "number": 3,
           "title": "Family Dinner",
-          "words": 1613
+          "words": 1522
         },
         {
           "number": 4,
           "title": "Future Plan",
-          "words": 1644
+          "words": 1551
         },
         {
           "number": 5,
           "title": "Imperial Letter",
-          "words": 1669
+          "words": 1525
         },
         {
           "number": 6,
           "title": "Three Months",
-          "words": 1928
+          "words": 1811
         }
       ]
     },
@@ -177,39 +177,39 @@
       "status": "Ongoing",
       "theme": "indigo",
       "chapterCount": 6,
-      "words": 15747,
-      "avgWords": 2625,
-      "lastUpdated": "2026-04-29T15:16:41.965Z",
+      "words": 15392,
+      "avgWords": 2565,
+      "lastUpdated": "2026-10-21T09:09:12.816Z",
       "chapters": [
         {
           "number": 1,
           "title": "Wrong Umbrella",
-          "words": 1941
+          "words": 1915
         },
         {
           "number": 2,
           "title": "The Bellhaven",
-          "words": 2188
+          "words": 2122
         },
         {
           "number": 3,
           "title": "Bellhaven Clear",
-          "words": 4168
+          "words": 4050
         },
         {
           "number": 4,
           "title": "Orientation",
-          "words": 2785
+          "words": 2722
         },
         {
           "number": 5,
           "title": "Vaultline",
-          "words": 2953
+          "words": 2864
         },
         {
           "number": 6,
           "title": "Vaultline Clear",
-          "words": 1712
+          "words": 1719
         }
       ]
     },
@@ -227,39 +227,39 @@
       "status": "Ongoing",
       "theme": "gold",
       "chapterCount": 6,
-      "words": 10071,
-      "avgWords": 1679,
-      "lastUpdated": "2026-04-29T15:16:42.158Z",
+      "words": 10330,
+      "avgWords": 1722,
+      "lastUpdated": "2026-10-21T09:09:12.856Z",
       "chapters": [
         {
           "number": 1,
           "title": "Glimmering Light",
-          "words": 1718
+          "words": 1669
         },
         {
           "number": 2,
           "title": "Aldenvale",
-          "words": 2435
+          "words": 2386
         },
         {
           "number": 3,
           "title": "Resonance Depth",
-          "words": 1602
+          "words": 1628
         },
         {
           "number": 4,
           "title": "First Days",
-          "words": 1391
+          "words": 1515
         },
         {
           "number": 5,
           "title": "The Body",
-          "words": 1526
+          "words": 1574
         },
         {
           "number": 6,
           "title": "First Tier",
-          "words": 1399
+          "words": 1558
         }
       ]
     },
@@ -277,14 +277,14 @@
       "status": "Ongoing",
       "theme": "ember",
       "chapterCount": 105,
-      "words": 164555,
-      "avgWords": 1567,
-      "lastUpdated": "2026-04-29T15:16:46.078Z",
+      "words": 164698,
+      "avgWords": 1569,
+      "lastUpdated": "2026-10-21T09:09:18.557Z",
       "chapters": [
         {
           "number": 1,
           "title": "New Beginning",
-          "words": 1804
+          "words": 1805
         },
         {
           "number": 2,
@@ -294,37 +294,37 @@
         {
           "number": 3,
           "title": "Clash at the Market",
-          "words": 1569
+          "words": 1566
         },
         {
           "number": 4,
           "title": "Gathering Supplies",
-          "words": 1571
+          "words": 1573
         },
         {
           "number": 5,
           "title": "Triumph in Achievement",
-          "words": 1564
+          "words": 1566
         },
         {
           "number": 6,
           "title": "Unexpected Encounter",
-          "words": 1295
+          "words": 1298
         },
         {
           "number": 7,
           "title": "Lost in Confusion",
-          "words": 1615
+          "words": 1616
         },
         {
           "number": 8,
           "title": "Seeking Clarity",
-          "words": 1517
+          "words": 1518
         },
         {
           "number": 9,
           "title": "In Pursuit of Insight",
-          "words": 1539
+          "words": 1543
         },
         {
           "number": 10,
@@ -344,47 +344,47 @@
         {
           "number": 13,
           "title": "Teenage Bravery",
-          "words": 1490
+          "words": 1492
         },
         {
           "number": 14,
           "title": "Shadows of Bloodshed",
-          "words": 1726
+          "words": 1725
         },
         {
           "number": 15,
           "title": "Frigid Flames",
-          "words": 1435
+          "words": 1433
         },
         {
           "number": 16,
           "title": "Volatile Frost",
-          "words": 1262
+          "words": 1263
         },
         {
           "number": 17,
           "title": "Chilled Inferno",
-          "words": 1546
+          "words": 1551
         },
         {
           "number": 18,
           "title": "The Small Inn",
-          "words": 1544
+          "words": 1546
         },
         {
           "number": 19,
           "title": "Cannibalistic Desperation",
-          "words": 1555
+          "words": 1557
         },
         {
           "number": 20,
           "title": "Shifting Classes",
-          "words": 1480
+          "words": 1479
         },
         {
           "number": 21,
           "title": "Enigmatic Emblem",
-          "words": 1784
+          "words": 1785
         },
         {
           "number": 22,
@@ -394,7 +394,7 @@
         {
           "number": 23,
           "title": "Echoing Footsteps",
-          "words": 1647
+          "words": 1654
         },
         {
           "number": 24,
@@ -404,27 +404,27 @@
         {
           "number": 25,
           "title": "Emerald Sphere",
-          "words": 1615
+          "words": 1616
         },
         {
           "number": 26,
           "title": "Passing Week",
-          "words": 1472
+          "words": 1473
         },
         {
           "number": 27,
           "title": "Gunfire Echo",
-          "words": 1641
+          "words": 1638
         },
         {
           "number": 28,
           "title": "Fourfold Struggle",
-          "words": 1677
+          "words": 1681
         },
         {
           "number": 29,
           "title": "The Enigmatic Girl",
-          "words": 1302
+          "words": 1307
         },
         {
           "number": 30,
@@ -434,7 +434,7 @@
         {
           "number": 31,
           "title": "Crimson Sphere",
-          "words": 1415
+          "words": 1416
         },
         {
           "number": 32,
@@ -444,7 +444,7 @@
         {
           "number": 33,
           "title": "Her Choice",
-          "words": 1387
+          "words": 1385
         },
         {
           "number": 34,
@@ -454,47 +454,47 @@
         {
           "number": 35,
           "title": "Regular Respite",
-          "words": 1400
+          "words": 1408
         },
         {
           "number": 36,
           "title": "Midnight Radiance",
-          "words": 1549
+          "words": 1550
         },
         {
           "number": 37,
           "title": "Consuming Flames",
-          "words": 1530
+          "words": 1533
         },
         {
           "number": 38,
           "title": "Sibling's Sorrow",
-          "words": 1491
+          "words": 1502
         },
         {
           "number": 39,
           "title": "Novice Slayer",
-          "words": 1466
+          "words": 1462
         },
         {
           "number": 40,
           "title": "Faculty Quarters",
-          "words": 1608
+          "words": 1615
         },
         {
           "number": 41,
           "title": "The Dark Structure",
-          "words": 1750
+          "words": 1753
         },
         {
           "number": 42,
           "title": "Homeward Bound",
-          "words": 1329
+          "words": 1332
         },
         {
           "number": 43,
           "title": "Her Perspective",
-          "words": 1565
+          "words": 1573
         },
         {
           "number": 44,
@@ -504,17 +504,17 @@
         {
           "number": 45,
           "title": "Her Blaze Ignites",
-          "words": 1777
+          "words": 1786
         },
         {
           "number": 46,
           "title": "Evening Meal",
-          "words": 1597
+          "words": 1598
         },
         {
           "number": 47,
           "title": "Tracing the Flame",
-          "words": 1459
+          "words": 1455
         },
         {
           "number": 48,
@@ -524,17 +524,17 @@
         {
           "number": 49,
           "title": "Erupting Disorder",
-          "words": 1454
+          "words": 1456
         },
         {
           "number": 50,
           "title": "Our Own",
-          "words": 1529
+          "words": 1524
         },
         {
           "number": 51,
           "title": "Dawn's Arrival",
-          "words": 1436
+          "words": 1435
         },
         {
           "number": 52,
@@ -544,32 +544,32 @@
         {
           "number": 53,
           "title": "Tranquil Slumber",
-          "words": 1632
+          "words": 1627
         },
         {
           "number": 54,
           "title": "Gifted Abilities",
-          "words": 1591
+          "words": 1593
         },
         {
           "number": 55,
           "title": "That Monstrous Entity",
-          "words": 1537
+          "words": 1539
         },
         {
           "number": 56,
           "title": "Regal Ascension",
-          "words": 1525
+          "words": 1527
         },
         {
           "number": 57,
           "title": "Nocturnal Abyss",
-          "words": 1578
+          "words": 1583
         },
         {
           "number": 58,
           "title": "Passing Month",
-          "words": 1606
+          "words": 1611
         },
         {
           "number": 59,
@@ -579,17 +579,17 @@
         {
           "number": 60,
           "title": "Startling Ambush",
-          "words": 1438
+          "words": 1443
         },
         {
           "number": 61,
           "title": "Thoroughfare Crossing",
-          "words": 1750
+          "words": 1759
         },
         {
           "number": 62,
           "title": "Coinage Expedition",
-          "words": 1444
+          "words": 1442
         },
         {
           "number": 63,
@@ -599,47 +599,47 @@
         {
           "number": 64,
           "title": "Weary Thoughts",
-          "words": 1551
+          "words": 1552
         },
         {
           "number": 65,
           "title": "The Dawn's Dominion",
-          "words": 1581
+          "words": 1584
         },
         {
           "number": 66,
           "title": "Our Sanctuary",
-          "words": 1511
+          "words": 1507
         },
         {
           "number": 67,
           "title": "The Tearful Cherry",
-          "words": 1524
+          "words": 1523
         },
         {
           "number": 68,
           "title": "Avian Onslaught",
-          "words": 1656
+          "words": 1662
         },
         {
           "number": 69,
           "title": "Annoying Neighbor",
-          "words": 1557
+          "words": 1550
         },
         {
           "number": 70,
           "title": "Absence of Respect",
-          "words": 1661
+          "words": 1667
         },
         {
           "number": 71,
           "title": "Initial Allegiance",
-          "words": 1679
+          "words": 1676
         },
         {
           "number": 72,
           "title": "Their Stance",
-          "words": 1899
+          "words": 1894
         },
         {
           "number": 73,
@@ -654,12 +654,12 @@
         {
           "number": 75,
           "title": "My Responsibility",
-          "words": 1522
+          "words": 1524
         },
         {
           "number": 76,
           "title": "Unveiling Shadows",
-          "words": 1722
+          "words": 1724
         },
         {
           "number": 77,
@@ -669,7 +669,7 @@
         {
           "number": 78,
           "title": "Echoes of Tragedy",
-          "words": 1533
+          "words": 1537
         },
         {
           "number": 79,
@@ -694,12 +694,12 @@
         {
           "number": 83,
           "title": "Boundaries of Trust",
-          "words": 1545
+          "words": 1547
         },
         {
           "number": 84,
           "title": "Fading Light",
-          "words": 1580
+          "words": 1581
         },
         {
           "number": 85,
@@ -714,12 +714,12 @@
         {
           "number": 87,
           "title": "Broken Promises",
-          "words": 1527
+          "words": 1528
         },
         {
           "number": 88,
           "title": "Doubtful Arrival",
-          "words": 1593
+          "words": 1596
         },
         {
           "number": 89,
@@ -734,7 +734,7 @@
         {
           "number": 91,
           "title": "Locked in Suspense",
-          "words": 1578
+          "words": 1581
         },
         {
           "number": 92,
@@ -744,12 +744,12 @@
         {
           "number": 93,
           "title": "Winds of Change",
-          "words": 1694
+          "words": 1697
         },
         {
           "number": 94,
           "title": "Heroic Destiny",
-          "words": 1770
+          "words": 1772
         },
         {
           "number": 95,
@@ -759,52 +759,52 @@
         {
           "number": 96,
           "title": "The Dreamer",
-          "words": 1769
+          "words": 1772
         },
         {
           "number": 97,
           "title": "False Allegations",
-          "words": 1603
+          "words": 1605
         },
         {
           "number": 98,
           "title": "Into the Woods",
-          "words": 1641
+          "words": 1640
         },
         {
           "number": 99,
           "title": "Stolen Dignity",
-          "words": 1535
+          "words": 1537
         },
         {
           "number": 100,
           "title": "Dark Horizons",
-          "words": 1511
+          "words": 1512
         },
         {
           "number": 101,
           "title": "Astonishing Discovery",
-          "words": 1642
+          "words": 1645
         },
         {
           "number": 102,
           "title": "Road to Redemption",
-          "words": 1525
+          "words": 1528
         },
         {
           "number": 103,
           "title": "Four-Day Grind",
-          "words": 1571
+          "words": 1573
         },
         {
           "number": 104,
           "title": "Dual Strikes",
-          "words": 1538
+          "words": 1543
         },
         {
           "number": 105,
           "title": "Silent Farewell",
-          "words": 1574
+          "words": 1579
         }
       ]
     }

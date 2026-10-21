@@ -7,6 +7,26 @@
   var html = document.documentElement;
   var THEME_KEY = 'tarhuala-theme';
   var FONT_KEY  = 'tarhuala-font-size';
+  var VIS_KEY   = 'tarhuala-visibility';
+
+  /* ------------------------------------------------------------------
+     NOVEL VISIBILITY
+     Committed source of truth = each novel's `visible` flag (from
+     public/data/visibility.json, baked into novels.json + info.json by
+     build.js). A localStorage override lets the admin preview show/hide
+     live on their own device before committing via the analytics page.
+     ------------------------------------------------------------------ */
+  function visOverride(){
+    try { return JSON.parse(localStorage.getItem(VIS_KEY) || '{}') || {}; }
+    catch(e){ return {}; }
+  }
+  function effVisible(id, committed){
+    var o = visOverride();
+    if (Object.prototype.hasOwnProperty.call(o, id)) return o[id] !== false;
+    return committed !== false; // default: visible
+  }
+  // Shared with inline page scripts (novels.html) and the analytics admin panel.
+  window.TARHUALA_VIS = { key: VIS_KEY, override: visOverride, eff: effVisible };
 
   /* ------------------------------------------------------------------
      KBACH SVG SYMBOL LIBRARY
@@ -351,6 +371,22 @@
             '<line x1="8" y1="16" x2="14" y2="16"/>',
           '</g>',
         '</symbol>',
+
+        /* ── COSMIC + ROSE MOTIF — line-art marks, currentColor, accent-tinted ── */
+        /* Thorny vine — section dividers + link underlines */
+        '<symbol id="kb-vine" viewBox="0 0 160 20"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2 10 C 24 2 40 18 62 10 S 100 2 118 10 S 150 16 158 10"/><path d="M34 7 L 30 2"/><path d="M90 13 L 95 18"/><path d="M62 10 q 7 -6 13 -2 q -6 5 -13 2"/><path d="M118 10 q -7 6 -13 2 q 6 -5 13 -2"/></g></symbol>',
+        /* Curling tentacle with suckers — corners + dividers */
+        '<symbol id="kb-tentacle" viewBox="0 0 80 80"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 74 C 10 50 2 36 20 26 C 36 17 34 40 48 34 C 60 29 54 14 68 14 C 76 14 78 20 74 26"/><circle cx="18" cy="52" r="2"/><circle cx="26" cy="40" r="1.8"/><circle cx="40" cy="36" r="1.6"/><circle cx="54" cy="24" r="1.4"/></g></symbol>',
+        /* Compact eldritch eye — eyebrow ticks + small accents */
+        '<symbol id="kb-eye-sm" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 24 C 14 10 34 10 44 24 C 34 38 14 38 4 24 Z"/><circle cx="24" cy="24" r="7"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/><path d="M24 10 L 24 5 M9 15 L 6 11 M39 15 L 42 11"/></g></symbol>',
+        /* Strange deep-sea fish — empty states + margins */
+        '<symbol id="kb-fish" viewBox="0 0 120 72"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40 C 30 22 74 22 88 36 L 104 24 L 100 40 L 108 54 L 90 46 C 74 60 30 58 20 42 Z"/><circle cx="40" cy="36" r="4"/><circle cx="40" cy="36" r="1.5" fill="currentColor"/><path d="M28 24 C 24 10 34 6 40 12"/><circle cx="41" cy="12" r="2.5" fill="currentColor" fill-opacity=".4"/><path d="M58 52 l2 4 l2 -4 l2 4 l2 -4"/><path d="M52 26 l6 -8 M62 26 l6 -6"/></g></symbol>',
+        /* Ritual sigil — faint background mark */
+        '<symbol id="kb-sigil" viewBox="0 0 80 80"><g fill="none" stroke="currentColor"><circle cx="40" cy="40" r="36" stroke-width="1.6"/><circle cx="40" cy="40" r="28" stroke-width="1"/><path d="M40 14 L 63 54 L 17 54 Z" stroke-width="1.6"/><path d="M40 60 L 20 26 L 60 26 Z" stroke-width="1.2" opacity=".65"/><circle cx="40" cy="40" r="6" stroke-width="1.4"/><circle cx="40" cy="40" r="1.6" fill="currentColor"/><path d="M40 4 L40 10 M76 40 L70 40 M40 76 L40 70 M4 40 L10 40" stroke-width="1.4" stroke-linecap="round"/></g></symbol>',
+        /* Little familiar — expressive creature for footer / empty / 404 */
+        '<symbol id="kb-familiar" viewBox="0 0 72 72"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 36 C 14 18 58 18 58 36 C 58 45 50 50 48 57 L 44 50 L 40 58 L 36 50 L 32 58 L 28 50 L 24 57 C 22 50 14 45 14 36 Z"/><circle cx="28" cy="35" r="4"/><circle cx="28" cy="35" r="1.5" fill="currentColor"/><circle cx="44" cy="35" r="4"/><circle cx="44" cy="35" r="1.5" fill="currentColor"/><circle cx="36" cy="27" r="2.5"/><circle cx="36" cy="27" r="1" fill="currentColor"/><path d="M21 28 q6 -4 11 0 M40 28 q6 -4 11 0" opacity=".55"/></g></symbol>',
+        /* Signature fusion — rose whose thorny stem becomes a tentacle */
+        '<symbol id="kb-rose-vine" viewBox="0 0 48 96"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="12" r="10"/><path d="M24 3 C 31 6 31 15 24 19 C 17 15 17 6 24 3"/><path d="M33 12 C 30 19 18 19 15 12 C 18 5 30 5 33 12"/><circle cx="24" cy="12" r="3.4"/><path d="M24 22 C 24 35 35 40 29 52 C 23 64 35 72 27 84 C 23 90 18 90 16 85"/><path d="M27 31 l6 -3 M28 45 l6 3 M26 60 l-6 -3 M28 74 l6 3"/><path d="M24 40 q 11 -4 15 4 q -11 2 -15 -4"/><circle cx="31" cy="57" r="1.4"/><circle cx="28" cy="70" r="1.4"/></g></symbol>',
       '</defs>',
     '</svg>'
   ].join('');
@@ -362,6 +398,44 @@
     wrap.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
     wrap.innerHTML = KBACH_SVG;
     document.body.insertBefore(wrap, document.body.firstChild);
+  }
+
+  /* Restrained cosmic-horror decoration, injected once so it lives in one
+     place rather than in every page template. All marks are aria-hidden,
+     pointer-events:none, accent-tinted, and sit behind content. */
+  function deco(symbol, cls){
+    var d = document.createElement('div');
+    d.className = cls;
+    d.setAttribute('aria-hidden', 'true');
+    d.innerHTML = '<svg><use href="#' + symbol + '"/></svg>';
+    return d;
+  }
+  function injectDecor(){
+    // Deliberate footer flourish — vine · familiar · vine — a clear, centered
+    // mascot divider in its own row (never floating behind the footer text).
+    var footer = document.querySelector('.site-footer');
+    if (footer && !footer.querySelector('.footer-flourish')) {
+      var f = document.createElement('div');
+      f.className = 'footer-flourish';
+      f.setAttribute('aria-hidden', 'true');
+      f.innerHTML =
+        '<span class="ff-vine ff-vine-l"><svg preserveAspectRatio="none"><use href="#kb-vine"/></svg></span>' +
+        '<span class="ff-creature"><svg><use href="#kb-familiar"/></svg></span>' +
+        '<span class="ff-vine ff-vine-r"><svg preserveAspectRatio="none"><use href="#kb-vine"/></svg></span>';
+      footer.insertBefore(f, footer.firstChild);
+    }
+    // Drifting sigil + a curling tentacle behind the home / novels heroes
+    var hero = document.querySelector('.home-hero, .novels-hero');
+    if (hero && !hero.querySelector('.hero-sigil')) {
+      hero.insertBefore(deco('kb-tentacle', 'deco hero-tentacle'), hero.firstChild);
+      hero.insertBefore(deco('kb-sigil', 'deco hero-sigil'), hero.firstChild);
+    }
+    // A tentacle easing out of the home "works" section corner (home only —
+    // the analytics page also has a .novels-section we must not decorate)
+    var works = document.querySelector('.home-hero') ? document.querySelector('.novels-section') : null;
+    if (works && !works.querySelector('.section-tentacle')) {
+      works.appendChild(deco('kb-tentacle', 'deco section-tentacle'));
+    }
   }
 
   /* ------------------------------------------------------------------
@@ -432,13 +506,14 @@
 
   function onSiteReady(fn){ _siteReady ? fn(_site) : _siteCallbacks.push(fn); }
 
-  function siteAuthor(){ return _site.author || document.title.split('—').pop().trim() || ''; }
+  function siteAuthor(){ return _site.author || document.title.split(/\s[·|—]\s/).pop().trim() || ''; }
 
   /* ------------------------------------------------------------------
      BOOTSTRAP on DOMContentLoaded
      ------------------------------------------------------------------ */
   function boot(){
     injectKbach();
+    injectDecor();
     wireTheme();
     wireNav();
     wireBackToTop();
@@ -573,8 +648,27 @@
     var key = novelId + ':' + chNum;
     a.chapters[key] = (a.chapters[key] || 0) + 1;
     saveAnalytics(a);
+    saveProgress(novelId, chNum);
   }
   function updateStatDisplays(){}
+
+  /* Reading progress: remember the last chapter opened per novel (for the
+     "Continue reading" button) and a word-count -> minutes estimate. */
+  var PROGRESS_KEY = 'tarhuala-progress';
+  function getProgress(){
+    try { return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}') || {}; }
+    catch(e){ return {}; }
+  }
+  function saveProgress(id, ch){
+    if (!id) return;
+    var p = getProgress(); p[id] = { ch: ch, at: new Date().toISOString() };
+    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch(e){}
+  }
+  function wordCount(htmlStr){
+    var t = String(htmlStr || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g, ' ').trim();
+    return t ? t.split(' ').length : 0;
+  }
+  function readingMins(words){ var m = Math.round((words || 0) / 230); return m < 1 ? 1 : m; }
 
   /* ------------------------------------------------------------------
      HOME — novels grid + featured hero
@@ -587,6 +681,8 @@
     fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
+        novels = (Array.isArray(novels) ? novels : [])
+          .filter(function(n){ return effVisible(n.id, n.visible); });
         if (statsNovels) statsNovels.textContent = novels.length;
 
         // Featured hero: use newest novel (last declared), fetch its latest chapter snippet
@@ -617,7 +713,7 @@
               if (chapters.length > 0){
                 var latest = chapters[chapters.length - 1];
                 var latestEl = qs('latest-ch-' + n.id);
-                if (latestEl) latestEl.textContent = 'Ch. ' + latest.number + ' — ' + (latest.title || '');
+                if (latestEl) latestEl.textContent = 'Ch. ' + latest.number + ' · ' + (latest.title || '');
                 fetchChapterSnippet(n.id, latest.number, 'snippet-' + n.id);
               }
             })
@@ -727,6 +823,7 @@
         '<a href="novel.html?id=' + escHtml(n.id) + '" class="novel-card-link">' +
           '<div class="novel-card-cover">' +
             '<img src="' + escHtml(cover) + '" alt="' + escHtml(n.title) + '" class="novel-cover-img" loading="lazy" onerror="this.style.opacity=0.2"/>' +
+            '<span class="card-mark" aria-hidden="true"><svg><use href="#kb-eye-sm"/></svg></span>' +
             '<div class="novel-card-badges">' +
               (n.status ? '<span class="pill pill-status">' + escHtml(n.status) + '</span>' : '') +
               (n.rating ? '<span class="pill pill-rating">' + escHtml(n.rating) + '</span>' : '') +
@@ -763,7 +860,8 @@
     fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
-        novels = Array.isArray(novels) ? novels : [];
+        novels = (Array.isArray(novels) ? novels : [])
+          .filter(function(n){ return effVisible(n.id, n.visible); });
         if (subLabel) subLabel.textContent = novels.length + ' Novel' + (novels.length !== 1 ? 's' : '') + ' · Tarhuala';
         if (metaEl)   metaEl.textContent   = novels.length + ' published work' + (novels.length !== 1 ? 's' : '');
         if (!novels.length){
@@ -823,6 +921,7 @@
     fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
+        if (!window.TARHUALA_VIS.eff(novelId, info.visible)) { location.replace('/404.html'); return; }
         html.setAttribute('data-novel-theme', info.theme || 'ember');
         var set = function(id, v){ var e = qs(id); if (e) e.textContent = v || ''; };
         set('novel-title', info.title);
@@ -873,14 +972,22 @@
         }
         var readBtn = qs('novel-read-btn');
         if (readBtn && chapters.length > 0){
-          readBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[0].number;
+          var prog = getProgress()[novelId];
+          var resumeCh = prog && prog.ch && chapters.some(function(c){ return c.number === prog.ch; }) ? prog.ch : null;
+          if (resumeCh){
+            readBtn.href = 'chapter.html?id=' + novelId + '&ch=' + resumeCh;
+            readBtn.innerHTML = 'Continue · Chapter ' + resumeCh +
+              ' <span class="kb-rose"><svg><use href="#kb-rose"/></svg></span>';
+          } else {
+            readBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[0].number;
+          }
         }
         var _author = siteAuthor();
         var _siteUrl = _site.url || window.location.origin;
-        document.title = (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : '');
+        document.title = (info.title || 'Novel') + (_author ? ' \u00b7 ' + _author : '');
         updatePageSEO({
-          title: (info.title || 'Novel') + (_author ? ' \u2014 ' + _author : ''),
-          description: info.description || ('Read ' + (info.title||'') + (_author ? ' by ' + _author : '') + ' — System Fiction & Dark Fantasy online.'),
+          title: (info.title || 'Novel') + (_author ? ' \u00b7 ' + _author : ''),
+          description: info.description || ('Read ' + (info.title||'') + (_author ? ' by ' + _author : '') + '. Horror and system fiction, free to read online.'),
           url: _siteUrl + '/novel.html?id=' + novelId,
           image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
@@ -980,6 +1087,7 @@
     fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
+        if (!window.TARHUALA_VIS.eff(novelId, info.visible)) { location.replace('/404.html'); return; }
         html.setAttribute('data-novel-theme', info.theme || 'ember');
         if (titleEl) titleEl.textContent = info.title || titleCase(novelId);
         if (subEl)   subEl.textContent   = (info.chapters ? info.chapters.length : 0) + ' Chapters · ' + (info.genre || '');
@@ -987,10 +1095,10 @@
         var _author = siteAuthor();
         var _siteUrl = _site.url || window.location.origin;
         var _novelTitle = info.title || titleCase(novelId);
-        document.title = _novelTitle + ' \u2014 Chapters' + (_author ? ' \u2014 ' + _author : '');
+        document.title = _novelTitle + ' \u00b7 Chapters' + (_author ? ' \u00b7 ' + _author : '');
         updatePageSEO({
-          title: _novelTitle + ' \u2014 All Chapters' + (_author ? ' \u2014 ' + _author : ''),
-          description: 'Browse all chapters of ' + _novelTitle + (_author ? ' by ' + _author : '') + '. Free System Fiction & Dark Fantasy online.',
+          title: _novelTitle + ' \u00b7 All Chapters' + (_author ? ' \u00b7 ' + _author : ''),
+          description: 'Browse all chapters of ' + _novelTitle + (_author ? ' by ' + _author : '') + '. Horror and system fiction, free to read online.',
           url: _siteUrl + '/chapters.html?id=' + novelId,
           image: (info.images && info.images.cover) ? (_siteUrl + info.images.cover) : null,
           type: 'book',
@@ -1025,6 +1133,7 @@
           '<a href="chapter.html?id=' + escHtml(novelId) + '&ch=' + ch.number + '" class="ch-link">' +
             '<span class="ch-num">Ch. ' + ch.number + '</span>' +
             '<span class="ch-title-text">' + escHtml(ch.title) + '</span>' +
+            (ch.words ? '<span class="ch-mins">' + readingMins(ch.words) + ' min</span>' : '') +
             '<span class="ch-arrow">&rarr;</span>' +
           '</a>' +
         '</li>';
@@ -1054,6 +1163,7 @@
     fetch(cb('/data/' + novelId + '/info.json'))
       .then(function(r){ return r.json(); })
       .then(function(info){
+        if (!window.TARHUALA_VIS.eff(novelId, info.visible)) { location.replace('/404.html'); return; }
         _novelInfo = info;
         html.setAttribute('data-novel-theme', info.theme || 'ember');
         var chapters = info.chapters || [];
@@ -1066,7 +1176,12 @@
           else prevBtn.classList.add('disabled');
         }
         if (nextBtn){
-          if (idx > -1 && idx < chapters.length - 1) nextBtn.href = 'chapter.html?id=' + novelId + '&ch=' + chapters[idx+1].number;
+          if (idx > -1 && idx < chapters.length - 1){
+            var nextNum = chapters[idx+1].number;
+            nextBtn.href = 'chapter.html?id=' + novelId + '&ch=' + nextNum;
+            // warm the next chapter into cache for an instant page turn
+            try { fetch(cb('/data/' + novelId + '/chapter-' + nextNum + '.json')); } catch(e){}
+          }
           else nextBtn.classList.add('disabled');
         }
         return fetch(cb('/data/' + novelId + '/chapter-' + chNum + '.json'));
@@ -1077,8 +1192,8 @@
         var _siteUrl = _site.url || window.location.origin;
         var novelTitle = (_novelInfo && _novelInfo.title) || titleCase(novelId);
         var chTitle = 'Chapter ' + ch.number + (ch.title ? ': ' + ch.title : '');
-        var pageTitle = chTitle + ' \u2014 ' + novelTitle + (_author ? ' \u2014 ' + _author : '');
-        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + (_author ? ' by ' + _author : '') + '. Free System Fiction & Dark Fantasy online.';
+        var pageTitle = chTitle + ' \u00b7 ' + novelTitle + (_author ? ' \u00b7 ' + _author : '');
+        var chDesc = 'Read ' + chTitle + ' of ' + novelTitle + (_author ? ' by ' + _author : '') + '. Horror and system fiction, free to read online.';
         document.title = pageTitle;
         updatePageSEO({
           title: pageTitle,
@@ -1100,7 +1215,8 @@
             'publisher':{'@type':'Organization','name': _author, 'url': _siteUrl}
           })
         });
-        var nl = qs('chapter-num-label'); if (nl) nl.textContent = 'Chapter ' + ch.number;
+        var _mins = readingMins(wordCount(ch.html));
+        var nl = qs('chapter-num-label'); if (nl) nl.textContent = 'Chapter ' + ch.number + ' · ' + _mins + ' min read';
         var tl = qs('chapter-title');     if (tl) tl.textContent = ch.title || '';
         var bc = qs('breadcrumb-chapter'); if (bc) bc.textContent = 'Chapter ' + ch.number;
         recordChapterRead(novelId, chNum); updateStatDisplays();
@@ -1112,6 +1228,38 @@
       .catch(function(){
         chapterBody.innerHTML = '<p>Failed to load chapter.</p>';
       });
+
+    /* Scroll-progress bar across the top of the reader */
+    (function(){
+      if (document.querySelector('.read-progress')) return;
+      var bar = document.createElement('div');
+      bar.className = 'read-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      bar.innerHTML = '<span class="read-progress-fill"></span>';
+      document.body.appendChild(bar);
+      var fill = bar.firstChild;
+      function onProg(){
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        var p = max > 0 ? (window.pageYOffset || h.scrollTop || 0) / max : 0;
+        fill.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+      }
+      window.addEventListener('scroll', onProg, { passive: true });
+      window.addEventListener('resize', onProg);
+      onProg();
+    })();
+
+    /* Arrow keys flip chapters (ignored while typing or with modifiers) */
+    document.addEventListener('keydown', function(e){
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+      var tag = (e.target && e.target.tagName) || '';
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (e.target && e.target.isContentEditable)) return;
+      var btn = e.key === 'ArrowLeft' ? qs('nav-prev')
+              : e.key === 'ArrowRight' ? qs('nav-next') : null;
+      if (!btn || btn.classList.contains('disabled')) return;
+      var href = btn.getAttribute('href');
+      if (href && href !== '#') window.location.href = href;
+    });
 
     /* Reader font-size controls */
     var fontSize = 18;
@@ -1695,7 +1843,9 @@
     fetch(cb('/data/novels.json'))
       .then(function(r){ return r.json(); })
       .then(function(novels){
-        if (!Array.isArray(novels) || !novels.length){ wrap.innerHTML = ''; return; }
+        novels = (Array.isArray(novels) ? novels : [])
+          .filter(function(n){ return effVisible(n.id, n.visible); });
+        if (!novels.length){ wrap.innerHTML = ''; return; }
         wrap.innerHTML = novels.map(function(n){
           var cover = (n.images && n.images.cover) || '/images/covers/' + n.id + '.svg';
           var tags = (n.tags || []).slice(0,3).map(function(t){ return '<span class="tag">' + escHtml(t) + '</span>'; }).join('');

@@ -11,35 +11,42 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "Rule #1: panic is a waste of oxygen..\n\nI was mid-shift at the restaurant, customers arguing over nothing, when the world around us just disappeared and got replaced by something else entirely. Some people screamed. I stayed quiet.\n\n【Greetings, Human! Welcome to the Tutorial!】\n\nThe world had turned into a staged game with rules, timers, and something watching from the other side. I'm not the strongest person here, but I don't need to be. I just need to see what others miss. Every situation has pressure points. Every person has something to lose.\n\nWhatever is running this calls itself a god. I don't believe that for a second. Gods don't need games.\n\n\"Life is an adventure, I guess.\"\n\nFor now I just need to stay alive long enough to understand the rules. After that, I'll start playing properly.\n\n[Note: The entity running the Tutorial has flagged this player as a person of interest. It has not decided if that is a good thing.]",
+  "description": "Rule one: panic is a waste of oxygen.\n\nI was mid-shift at the restaurant, customers arguing over nothing, when the room around us vanished and something else took its place. People screamed. I stayed quiet.\n\n【Greetings, Human! Welcome to the Tutorial!】\n\nThe world had turned into a staged game with rules, timers, and something watching from the other side. I'm not the strongest person here. I don't need to be. I just need to see what everyone else misses, and every situation has a pressure point.\n\nWhatever is running this calls itself a god. I don't buy it. Gods don't need games.\n\n\"Life is an adventure, I guess.\"\n\nStay alive long enough to learn the rules. After that, I start playing for real.",
   "theme": "jade",
+  "visible": true,
   "images": {
     "cover": "/images/covers/marked-by-false-gods.svg"
   },
   "chapters": [
     {
       "number": 1,
-      "title": "Where Am I"
+      "title": "Where Am I",
+      "words": 1510
     },
     {
       "number": 2,
-      "title": "First Contact"
+      "title": "First Contact",
+      "words": 1529
     },
     {
       "number": 3,
-      "title": "Into the Forest"
+      "title": "Into the Forest",
+      "words": 1525
     },
     {
       "number": 4,
-      "title": "First Night"
+      "title": "First Night",
+      "words": 1646
     },
     {
       "number": 5,
-      "title": "Daybreak"
+      "title": "Daybreak",
+      "words": 1782
     },
     {
       "number": 6,
-      "title": "Weight the Odds"
+      "title": "Weight the Odds",
+      "words": 1556
     }
   ],
   "platforms": [],

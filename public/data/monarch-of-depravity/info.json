@@ -11,35 +11,42 @@
   ],
   "status": "Ongoing",
   "rating": "Mature",
-  "description": "Log Entry 01: \"What a shitty transmigration.\"\n\nI woke up in a body the original owner had already vacated, in a room arranged for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body follows.\n\nI don't know why I'm here or why I was dropped into a situation built around rules I was never given. What I do know is that the system governing all of this is consistent enough to be dangerous and incomplete enough to be intentional.\n\nThe ritual needs a life before sunrise. The body I'm in technically qualifies if I don't find something else first.\n\n\"I have no words,\" I said. \"I'm screwed.\"\n\n[Note: The author has tried to present this story as faithfully as possible. Alden himself, when asked, remembers things differently.]",
+  "description": "Log Entry 01: \"What a shitty transmigration.\"\n\nI woke up in a body its last owner had already abandoned, in a room set up for a ritual sacrifice. The original soul is gone. If no offering is made before dawn, the body goes with it.\n\nI don't know why I'm here, or why I landed in a situation built on rules nobody gave me. What I do know is that the system running all of this is weirdly consistent, and the gaps in it feel deliberate.\n\nThe ritual needs a life before sunrise. The body I'm wearing qualifies, unless I find something else first.\n\n\"I have no words,\" I said. \"I'm screwed.\"",
   "theme": "gold",
+  "visible": true,
   "images": {
     "cover": "/images/covers/monarch-of-depravity.svg"
   },
   "chapters": [
     {
       "number": 1,
-      "title": "Glimmering Light"
+      "title": "Glimmering Light",
+      "words": 1669
     },
     {
       "number": 2,
-      "title": "Aldenvale"
+      "title": "Aldenvale",
+      "words": 2386
     },
     {
       "number": 3,
-      "title": "Resonance Depth"
+      "title": "Resonance Depth",
+      "words": 1628
     },
     {
       "number": 4,
-      "title": "First Days"
+      "title": "First Days",
+      "words": 1515
     },
     {
       "number": 5,
-      "title": "The Body"
+      "title": "The Body",
+      "words": 1574
     },
     {
       "number": 6,
-      "title": "First Tier"
+      "title": "First Tier",
+      "words": 1558
     }
   ],
   "platforms": [
